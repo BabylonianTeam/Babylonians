@@ -106,6 +106,10 @@
 		0705D4F81C8CEF270065467D /* Babylonian */ = {
 			isa = PBXGroup;
 			children = (
+				076532491C8CFEA000825177 /* Vendors */,
+				076532471C8CFE7C00825177 /* Controllers */,
+				076532461C8CFE7500825177 /* Views */,
+				076532481C8CFE8300825177 /* Models */,
 				0705D4F91C8CEF270065467D /* AppDelegate.swift */,
 				0705D4FB1C8CEF270065467D /* ViewController.swift */,
 				0705D4FD1C8CEF270065467D /* Main.storyboard */,
@@ -133,6 +137,34 @@
 				0705D51E1C8CEF270065467D /* Info.plist */,
 			);
 			path = BabylonianUITests;
+			sourceTree = "<group>";
+		};
+		076532461C8CFE7500825177 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		076532471C8CFE7C00825177 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		076532481C8CFE8300825177 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		076532491C8CFEA000825177 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Vendors;
 			sourceTree = "<group>";
 		};
 		71101328B8B50BEE98D346B4 /* Pods */ = {
