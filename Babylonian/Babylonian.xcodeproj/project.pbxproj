@@ -16,8 +16,9 @@
 		0705D5121C8CEF270065467D /* BabylonianTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705D5111C8CEF270065467D /* BabylonianTests.swift */; };
 		0705D51D1C8CEF270065467D /* BabylonianUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705D51C1C8CEF270065467D /* BabylonianUITests.swift */; };
 		184F78979A3F5E7914753379 /* Pods_Babylonian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */; };
-		305E47181C8CFF5A004EEACE /* LinkedStoryboardSegue in Resources */ = {isa = PBXBuildFile; fileRef = 305E47171C8CFF5A004EEACE /* LinkedStoryboardSegue */; };
-		305E471A1C8D0D08004EEACE /* Discussion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E47191C8D0D08004EEACE /* Discussion.storyboard */; };
+		305E471D1C8D169F004EEACE /* MyCourses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E471B1C8D169F004EEACE /* MyCourses.storyboard */; };
+		305E47201C8D1817004EEACE /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E471E1C8D1817004EEACE /* More.storyboard */; };
+		305E47231C8D182D004EEACE /* Discussions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E47211C8D182D004EEACE /* Discussions.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +54,9 @@
 		0705D51C1C8CEF270065467D /* BabylonianUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabylonianUITests.swift; sourceTree = "<group>"; };
 		0705D51E1C8CEF270065467D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		115FA039AF3895E52FC1599D /* Pods-Babylonian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.release.xcconfig"; sourceTree = "<group>"; };
-		305E47171C8CFF5A004EEACE /* LinkedStoryboardSegue */ = {isa = PBXFileReference; lastKnownFileType = folder; path = LinkedStoryboardSegue; sourceTree = "<group>"; };
-		305E47191C8D0D08004EEACE /* Discussion.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discussion.storyboard; sourceTree = "<group>"; };
+		305E471C1C8D169F004EEACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MyCourses.storyboard; sourceTree = "<group>"; };
+		305E471F1C8D1817004EEACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/More.storyboard; sourceTree = "<group>"; };
+		305E47221C8D182D004EEACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Discussions.storyboard; sourceTree = "<group>"; };
 		76CDD2D8D01CE5CB4C1FFBBD /* Pods-Babylonian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.debug.xcconfig"; sourceTree = "<group>"; };
 		E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babylonian.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -145,7 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				0705D4FD1C8CEF270065467D /* Main.storyboard */,
-				305E47191C8D0D08004EEACE /* Discussion.storyboard */,
+				305E47211C8D182D004EEACE /* Discussions.storyboard */,
+				305E471E1C8D1817004EEACE /* More.storyboard */,
+				305E471B1C8D169F004EEACE /* MyCourses.storyboard */,
 				0705D5051C8CEF270065467D /* LaunchScreen.storyboard */,
 			);
 			name = Views;
@@ -168,7 +172,6 @@
 		076532491C8CFEA000825177 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-				305E47171C8CFF5A004EEACE /* LinkedStoryboardSegue */,
 			);
 			name = Vendors;
 			sourceTree = "<group>";
@@ -301,9 +304,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0705D5071C8CEF270065467D /* LaunchScreen.storyboard in Resources */,
-				305E471A1C8D0D08004EEACE /* Discussion.storyboard in Resources */,
+				305E47201C8D1817004EEACE /* More.storyboard in Resources */,
+				305E471D1C8D169F004EEACE /* MyCourses.storyboard in Resources */,
 				0705D5041C8CEF270065467D /* Assets.xcassets in Resources */,
-				305E47181C8CFF5A004EEACE /* LinkedStoryboardSegue in Resources */,
+				305E47231C8D182D004EEACE /* Discussions.storyboard in Resources */,
 				0705D4FF1C8CEF270065467D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +433,30 @@
 				0705D5061C8CEF270065467D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		305E471B1C8D169F004EEACE /* MyCourses.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				305E471C1C8D169F004EEACE /* Base */,
+			);
+			name = MyCourses.storyboard;
+			sourceTree = "<group>";
+		};
+		305E471E1C8D1817004EEACE /* More.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				305E471F1C8D1817004EEACE /* Base */,
+			);
+			name = More.storyboard;
+			sourceTree = "<group>";
+		};
+		305E47211C8D182D004EEACE /* Discussions.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				305E47221C8D182D004EEACE /* Base */,
+			);
+			name = Discussions.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
