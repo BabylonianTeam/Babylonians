@@ -7,14 +7,21 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad(
+            
+            createAccount("James", email: "james@wisc.edu", password: "123123")
+        )
         // Do any additional setup after loading the view, typically from a nib.
+        if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && SampleDataGenerator.sampleDataGenerator.CURRENT_USER_REF.authData != nil {
+            self.performSegueWithIdentifier("CurrentlyLoggedIn", sender: nil)
+            
     }
-
+           }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -16,6 +16,7 @@
 		0705D5121C8CEF270065467D /* BabylonianTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705D5111C8CEF270065467D /* BabylonianTests.swift */; };
 		0705D51D1C8CEF270065467D /* BabylonianUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705D51C1C8CEF270065467D /* BabylonianUITests.swift */; };
 		184F78979A3F5E7914753379 /* Pods_Babylonian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */; };
+		90A1D4971C961E870043E874 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A1D4961C961E870043E874 /* Constant.swift */; };
 		B5A8A33E1C8D016C00658BC6 /* SampleDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A8A33D1C8D016C00658BC6 /* SampleDataGenerator.swift */; };
 		B5A8A3401C8D022E00658BC6 /* SampleDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A8A33F1C8D022E00658BC6 /* SampleDataTests.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		0705D51E1C8CEF270065467D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		115FA039AF3895E52FC1599D /* Pods-Babylonian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.release.xcconfig"; sourceTree = "<group>"; };
 		76CDD2D8D01CE5CB4C1FFBBD /* Pods-Babylonian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.debug.xcconfig"; sourceTree = "<group>"; };
+		90A1D4961C961E870043E874 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		B5A8A33D1C8D016C00658BC6 /* SampleDataGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleDataGenerator.swift; sourceTree = "<group>"; };
 		B5A8A33F1C8D022E00658BC6 /* SampleDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleDataTests.swift; sourceTree = "<group>"; };
 		E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babylonian.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +164,7 @@
 		076532481C8CFE8300825177 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				90A1D4961C961E870043E874 /* Constant.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 			files = (
 				0705D4FC1C8CEF270065467D /* ViewController.swift in Sources */,
 				0705D4FA1C8CEF270065467D /* AppDelegate.swift in Sources */,
+				90A1D4971C961E870043E874 /* Constant.swift in Sources */,
 				0705D5021C8CEF270065467D /* Babylonian.xcdatamodeld in Sources */,
 				B5A8A33E1C8D016C00658BC6 /* SampleDataGenerator.swift in Sources */,
 			);
