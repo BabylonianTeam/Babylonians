@@ -9,4 +9,4 @@
 import Foundation
 import Firebase
 
-let FIREBASE_REF = Firebase(url: "https://babylonians.firebaseio.com")
+let FIREBASE_REF = Firebase(url: "https://babylonian.firebaseio.com")
