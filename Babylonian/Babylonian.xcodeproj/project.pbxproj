@@ -19,6 +19,8 @@
 		305E471D1C8D169F004EEACE /* MyCourses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E471B1C8D169F004EEACE /* MyCourses.storyboard */; };
 		305E47201C8D1817004EEACE /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E471E1C8D1817004EEACE /* More.storyboard */; };
 		305E47231C8D182D004EEACE /* Discussions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E47211C8D182D004EEACE /* Discussions.storyboard */; };
+		B593FA9F1C974F4E00A1EAE4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B593FA9E1C974F4E00A1EAE4 /* User.swift */; };
+		B593FAA11C97502000A1EAE4 /* UserModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B593FAA01C97502000A1EAE4 /* UserModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +32,13 @@
 			remoteInfo = Babylonian;
 		};
 		0705D5191C8CEF270065467D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0705D4EE1C8CEF270065467D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0705D4F51C8CEF270065467D;
+			remoteInfo = Babylonian;
+		};
+		B593FAAB1C97556B00A1EAE4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0705D4EE1C8CEF270065467D /* Project object */;
 			proxyType = 1;
@@ -58,6 +67,9 @@
 		305E471F1C8D1817004EEACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/More.storyboard; sourceTree = "<group>"; };
 		305E47221C8D182D004EEACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Discussions.storyboard; sourceTree = "<group>"; };
 		76CDD2D8D01CE5CB4C1FFBBD /* Pods-Babylonian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.debug.xcconfig"; sourceTree = "<group>"; };
+		B593FA9E1C974F4E00A1EAE4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B593FAA01C97502000A1EAE4 /* UserModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModelTests.swift; sourceTree = "<group>"; };
+		B593FAA61C97556B00A1EAE4 /* userTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = userTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babylonian.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -78,6 +90,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0705D5151C8CEF270065467D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B593FAA31C97556B00A1EAE4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -105,6 +124,7 @@
 				0705D4F61C8CEF270065467D /* Babylonian.app */,
 				0705D50D1C8CEF270065467D /* BabylonianTests.xctest */,
 				0705D5181C8CEF270065467D /* BabylonianUITests.xctest */,
+				B593FAA61C97556B00A1EAE4 /* userTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,6 +138,7 @@
 				076532481C8CFE8300825177 /* Models */,
 				0705D4F91C8CEF270065467D /* AppDelegate.swift */,
 				0705D4FB1C8CEF270065467D /* ViewController.swift */,
+				B593FA9E1C974F4E00A1EAE4 /* User.swift */,
 				0705D5031C8CEF270065467D /* Assets.xcassets */,
 				0705D5081C8CEF270065467D /* Info.plist */,
 				0705D5001C8CEF270065467D /* Babylonian.xcdatamodeld */,
@@ -130,6 +151,7 @@
 			children = (
 				0705D5111C8CEF270065467D /* BabylonianTests.swift */,
 				0705D5131C8CEF270065467D /* Info.plist */,
+				B593FAA01C97502000A1EAE4 /* UserModelTests.swift */,
 			);
 			path = BabylonianTests;
 			sourceTree = "<group>";
@@ -252,6 +274,24 @@
 			productReference = 0705D5181C8CEF270065467D /* BabylonianUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		B593FAA51C97556B00A1EAE4 /* userTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B593FAAD1C97556B00A1EAE4 /* Build configuration list for PBXNativeTarget "userTest" */;
+			buildPhases = (
+				B593FAA21C97556B00A1EAE4 /* Sources */,
+				B593FAA31C97556B00A1EAE4 /* Frameworks */,
+				B593FAA41C97556B00A1EAE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B593FAAC1C97556B00A1EAE4 /* PBXTargetDependency */,
+			);
+			name = userTest;
+			productName = userTest;
+			productReference = B593FAA61C97556B00A1EAE4 /* userTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -276,6 +316,10 @@
 						DevelopmentTeam = 943498UXPL;
 						TestTargetID = 0705D4F51C8CEF270065467D;
 					};
+					B593FAA51C97556B00A1EAE4 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 0705D4F51C8CEF270065467D;
+					};
 				};
 			};
 			buildConfigurationList = 0705D4F11C8CEF270065467D /* Build configuration list for PBXProject "Babylonian" */;
@@ -294,6 +338,7 @@
 				0705D4F51C8CEF270065467D /* Babylonian */,
 				0705D50C1C8CEF270065467D /* BabylonianTests */,
 				0705D5171C8CEF270065467D /* BabylonianUITests */,
+				B593FAA51C97556B00A1EAE4 /* userTest */,
 			);
 		};
 /* End PBXProject section */
@@ -320,6 +365,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0705D5161C8CEF270065467D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B593FAA41C97556B00A1EAE4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -381,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B593FA9F1C974F4E00A1EAE4 /* User.swift in Sources */,
 				0705D4FC1C8CEF270065467D /* ViewController.swift in Sources */,
 				0705D4FA1C8CEF270065467D /* AppDelegate.swift in Sources */,
 				0705D5021C8CEF270065467D /* Babylonian.xcdatamodeld in Sources */,
@@ -391,6 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B593FAA11C97502000A1EAE4 /* UserModelTests.swift in Sources */,
 				0705D5121C8CEF270065467D /* BabylonianTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +454,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0705D51D1C8CEF270065467D /* BabylonianUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B593FAA21C97556B00A1EAE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +476,11 @@
 			isa = PBXTargetDependency;
 			target = 0705D4F51C8CEF270065467D /* Babylonian */;
 			targetProxy = 0705D5191C8CEF270065467D /* PBXContainerItemProxy */;
+		};
+		B593FAAC1C97556B00A1EAE4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0705D4F51C8CEF270065467D /* Babylonian */;
+			targetProxy = B593FAAB1C97556B00A1EAE4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -615,6 +681,30 @@
 			};
 			name = Release;
 		};
+		B593FAAE1C97556B00A1EAE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = userTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = CS506.userTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Babylonian.app/Babylonian";
+			};
+			name = Debug;
+		};
+		B593FAAF1C97556B00A1EAE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = userTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = CS506.userTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Babylonian.app/Babylonian";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -653,6 +743,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		B593FAAD1C97556B00A1EAE4 /* Build configuration list for PBXNativeTarget "userTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B593FAAE1C97556B00A1EAE4 /* Debug */,
+				B593FAAF1C97556B00A1EAE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
