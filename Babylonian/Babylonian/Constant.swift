@@ -7,4 +7,9 @@
 //
 
 import Foundation
-let BASE_URL = "https://babylonian.firebaseio.com"
+import Firebase
+
+
+
+
+let BASE_URL = Firebase(url: "https://babylonian.firebaseio.com")
