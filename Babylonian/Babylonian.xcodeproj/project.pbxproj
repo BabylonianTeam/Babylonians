@@ -22,6 +22,15 @@
 		305E471D1C8D169F004EEACE /* MyCourses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E471B1C8D169F004EEACE /* MyCourses.storyboard */; };
 		305E47201C8D1817004EEACE /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E471E1C8D1817004EEACE /* More.storyboard */; };
 		305E47231C8D182D004EEACE /* Discussions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E47211C8D182D004EEACE /* Discussions.storyboard */; };
+		9F625B8C1C9B282B00A08173 /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F625B861C9B282B00A08173 /* DatePickerCell.xib */; };
+		9F625B8D1C9B282B00A08173 /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F625B871C9B282B00A08173 /* NormalCell.xib */; };
+		9F625B8E1C9B282B00A08173 /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F625B881C9B282B00A08173 /* SliderCell.xib */; };
+		9F625B8F1C9B282B00A08173 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F625B891C9B282B00A08173 /* SwitchCell.xib */; };
+		9F625B901C9B282B00A08173 /* TextfieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F625B8A1C9B282B00A08173 /* TextfieldCell.xib */; };
+		9F625B911C9B282B00A08173 /* ValuePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F625B8B1C9B282B00A08173 /* ValuePickerCell.xib */; };
+		9F625B941C9B286300A08173 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F625B921C9B286300A08173 /* CustomCell.swift */; };
+		9F625B951C9B286300A08173 /* MoreUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F625B931C9B286300A08173 /* MoreUIViewController.swift */; };
+		9F625B971C9B28CE00A08173 /* CellDescriptor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F625B961C9B28CE00A08173 /* CellDescriptor.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +73,15 @@
 		305E471F1C8D1817004EEACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/More.storyboard; sourceTree = "<group>"; };
 		305E47221C8D182D004EEACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Discussions.storyboard; sourceTree = "<group>"; };
 		76CDD2D8D01CE5CB4C1FFBBD /* Pods-Babylonian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.debug.xcconfig"; sourceTree = "<group>"; };
+		9F625B861C9B282B00A08173 /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
+		9F625B871C9B282B00A08173 /* NormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
+		9F625B881C9B282B00A08173 /* SliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderCell.xib; sourceTree = "<group>"; };
+		9F625B891C9B282B00A08173 /* SwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
+		9F625B8A1C9B282B00A08173 /* TextfieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextfieldCell.xib; sourceTree = "<group>"; };
+		9F625B8B1C9B282B00A08173 /* ValuePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ValuePickerCell.xib; sourceTree = "<group>"; };
+		9F625B921C9B286300A08173 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		9F625B931C9B286300A08173 /* MoreUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreUIViewController.swift; sourceTree = "<group>"; };
+		9F625B961C9B28CE00A08173 /* CellDescriptor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CellDescriptor.plist; sourceTree = "<group>"; };
 		E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babylonian.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -152,12 +170,16 @@
 		076532461C8CFE7500825177 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9F625B851C9B281900A08173 /* Custom Cells */,
 				0705D4FD1C8CEF270065467D /* Main.storyboard */,
 				305E47211C8D182D004EEACE /* Discussions.storyboard */,
 				305E471E1C8D1817004EEACE /* More.storyboard */,
 				305E471B1C8D169F004EEACE /* MyCourses.storyboard */,
 				0705D5051C8CEF270065467D /* LaunchScreen.storyboard */,
+				9F625B921C9B286300A08173 /* CustomCell.swift */,
+				9F625B931C9B286300A08173 /* MoreUIViewController.swift */,
 				07EFFB611C97B128006F8ECB /* CourseCell.swift */,
+				9F625B961C9B28CE00A08173 /* CellDescriptor.plist */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -192,6 +214,19 @@
 				115FA039AF3895E52FC1599D /* Pods-Babylonian.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9F625B851C9B281900A08173 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9F625B861C9B282B00A08173 /* DatePickerCell.xib */,
+				9F625B871C9B282B00A08173 /* NormalCell.xib */,
+				9F625B881C9B282B00A08173 /* SliderCell.xib */,
+				9F625B891C9B282B00A08173 /* SwitchCell.xib */,
+				9F625B8A1C9B282B00A08173 /* TextfieldCell.xib */,
+				9F625B8B1C9B282B00A08173 /* ValuePickerCell.xib */,
+			);
+			name = "Custom Cells";
 			sourceTree = "<group>";
 		};
 		BEAC1E2330F91A8D52F04911 /* Frameworks */ = {
@@ -312,12 +347,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F625B971C9B28CE00A08173 /* CellDescriptor.plist in Resources */,
+				9F625B8E1C9B282B00A08173 /* SliderCell.xib in Resources */,
+				9F625B8D1C9B282B00A08173 /* NormalCell.xib in Resources */,
 				0705D5071C8CEF270065467D /* LaunchScreen.storyboard in Resources */,
+				9F625B911C9B282B00A08173 /* ValuePickerCell.xib in Resources */,
 				305E47201C8D1817004EEACE /* More.storyboard in Resources */,
 				305E471D1C8D169F004EEACE /* MyCourses.storyboard in Resources */,
+				9F625B8C1C9B282B00A08173 /* DatePickerCell.xib in Resources */,
 				0705D5041C8CEF270065467D /* Assets.xcassets in Resources */,
 				305E47231C8D182D004EEACE /* Discussions.storyboard in Resources */,
 				0705D4FF1C8CEF270065467D /* Main.storyboard in Resources */,
+				9F625B901C9B282B00A08173 /* TextfieldCell.xib in Resources */,
+				9F625B8F1C9B282B00A08173 /* SwitchCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +437,8 @@
 				077A6FC91C9B0FB3002BAF0D /* CreatorMyCoursesViewController.swift in Sources */,
 				0705D4FC1C8CEF270065467D /* ViewController.swift in Sources */,
 				0705D4FA1C8CEF270065467D /* AppDelegate.swift in Sources */,
+				9F625B951C9B286300A08173 /* MoreUIViewController.swift in Sources */,
+				9F625B941C9B286300A08173 /* CustomCell.swift in Sources */,
 				0705D5021C8CEF270065467D /* Babylonian.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
