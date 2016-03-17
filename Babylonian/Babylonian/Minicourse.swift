@@ -13,6 +13,9 @@ class Minicourse{
     static var currentText = [String]()
     static var minicourse = Minicourse()
     static var BOOL = false
+    static var Text = [String]()
+    static var base64String: NSString!
+    static var base64StringAudio: NSString!
     
     private var _BASE_REF = Firebase(url: "\(BASE_URL)")
     private var _COURSE_REF = Firebase(url: "\(BASE_URL)/courses")
@@ -46,19 +49,87 @@ class Minicourse{
     }
     
     
-    
+    class func setPrice(ref: String!, price: Double!){
+        let pricewrapper = ["price": price]
+        Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref)?.updateChildValues(pricewrapper)
+
+    }
+   
+    class func setAuthorName(ref: String!, name: String!){
+        let namewrapper = ["addedByUser": name]
+        Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref)?.updateChildValues(namewrapper)
+        
+    }
+   
+    class func setTag(ref: String!, tag: String!){
+        let tagwrapper = ["tag": tag]
+        Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref)?.updateChildValues(tagwrapper)
+        
+    }
     
     class func addMinicourseItem(MinicourseItem: AnyObject!) {
     
         
-     // let firebaseNewCourse =  Minicourse.minicourse.COURSE_REF.childByAutoId()
+     let firebaseNewCourse =  Minicourse.minicourse.COURSE_REF.childByAutoId()
         //let refUrl = MinicourseItem.ref.description
-      let firebaseNewCourse =  Minicourse.minicourse.COURSE_REF.childByAppendingPath("refUrl")
+     // let firebaseNewCourse =  Minicourse.minicourse.COURSE_REF.childByAppendingPath("refUrl")
         
         firebaseNewCourse.setValue(MinicourseItem)
     }
     
+    class func changeCourseName(courseRef: String!, newCourseName: String!){
+    
+    Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef)?.childByAppendingPath("coursename").setValue(newCourseName)
+    
+    }
+    
+    class func addText(ref: String!, newText: String!){
+        
+        Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref)?.childByAppendingPath("courseText").childByAutoId().setValue(newText)
+        
+    }
+    
+    class func delectText(refForDelectText: String!,courseRef: String!){
+        
+         Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef).childByAppendingPath("courseText").childByAppendingPath(refForDelectText).removeValue()
 
+        
+    }
+    
+    class func addImage(newImage: UIImage, ref: String!) {
+        var imageData: NSData? = UIImagePNGRepresentation(newImage)
+        self.base64String = imageData?.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+        
+       // var quoteString = ["string": self.base64String]
+
+        Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref).childByAppendingPath("images").childByAutoId().setValue(self.base64String)
+    }
+
+    class func deleteImage(imageRef: String, ref: String) {
+    
+         Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref).childByAppendingPath("images").childByAppendingPath(imageRef).removeValue()
+        
+    }
+    
+    
+    class func addVocie(newVoice: NSData, ref: String!){
+        self.base64StringAudio = newVoice.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+        
+        
+        Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref).childByAppendingPath("voice").childByAutoId().setValue(self.base64StringAudio)
+
+        
+        
+    }
+    
+    class func deleteVocie(voiceRef: String, ref: String){
+        
+        
+        
+        Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref).childByAppendingPath("voice").childByAppendingPath(ref).removeValue()
+        
+        
+    }
     
     class func deleteMinicourseItem(ref: String!){
         
@@ -122,30 +193,31 @@ class Minicourse{
     
    class func getUser(){
     
-    
-    Minicourse.minicourse.COURSE_REF.observeEventType(.Value, withBlock: { snapshot in
+    Minicourse.minicourse.COURSE_REF.queryOrderedByValue().observeEventType(.Value, withBlock: { snapshot in
             
 //            let currentUser = snapshot.value.objectForKey("addedByUser") as! String
 //            
 //            print("addedByUser: \(currentUser)")
 //            self.currentUsername  = currentUser
         
-            print(snapshot.value.objectForKey("refUrl")?.objectForKey("courseText"))
+           // print(snapshot.value.objectForKey("refUrl")?.objectForKey("courseText"))
         
         let newcurrentText = snapshot.value.objectForKey("refUrl")?.objectForKey("courseText") as! [String]
+        
+//        let newText = snapshot.value.objectForKey("refUrl")?.objectForKey("courseText") as! String
         self.currentText = newcurrentText
         
+   //     print(self.currentText)
         //print(self.currentText)
         }, withCancelBlock: { error in
                 print(error.description)
         })
     
-     //print(self.currentText)
     
     
     }
     
-    
+
     
     func addText(courseItem: MinicourseItem, newText: String){
         

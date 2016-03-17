@@ -16,6 +16,7 @@
 		0705D5121C8CEF270065467D /* BabylonianTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705D5111C8CEF270065467D /* BabylonianTests.swift */; };
 		0705D51D1C8CEF270065467D /* BabylonianUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705D51C1C8CEF270065467D /* BabylonianUITests.swift */; };
 		184F78979A3F5E7914753379 /* Pods_Babylonian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */; };
+		902FACC61C9A5AAC0041042A /* MinicourseTextItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902FACC51C9A5AAB0041042A /* MinicourseTextItem.swift */; };
 		908398B81C987EA800372C8B /* Minicourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908398B71C987EA800372C8B /* Minicourse.swift */; };
 		90999F671C98664A00402D27 /* MinicrouseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90999F661C98664A00402D27 /* MinicrouseItem.swift */; };
 		90A1D4971C961E870043E874 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A1D4961C961E870043E874 /* Constant.swift */; };
@@ -57,6 +58,7 @@
 		0705D51E1C8CEF270065467D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		115FA039AF3895E52FC1599D /* Pods-Babylonian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.release.xcconfig"; sourceTree = "<group>"; };
 		76CDD2D8D01CE5CB4C1FFBBD /* Pods-Babylonian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.debug.xcconfig"; sourceTree = "<group>"; };
+		902FACC51C9A5AAB0041042A /* MinicourseTextItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinicourseTextItem.swift; sourceTree = "<group>"; };
 		908398B71C987EA800372C8B /* Minicourse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Minicourse.swift; sourceTree = "<group>"; };
 		90999F661C98664A00402D27 /* MinicrouseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinicrouseItem.swift; sourceTree = "<group>"; };
 		90A1D4961C961E870043E874 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				90A1D4961C961E870043E874 /* Constant.swift */,
 				90999F661C98664A00402D27 /* MinicrouseItem.swift */,
+				902FACC51C9A5AAB0041042A /* MinicourseTextItem.swift */,
 				908398B71C987EA800372C8B /* Minicourse.swift */,
 			);
 			name = Models;
@@ -389,6 +392,7 @@
 				0705D4FA1C8CEF270065467D /* AppDelegate.swift in Sources */,
 				90A1D4971C961E870043E874 /* Constant.swift in Sources */,
 				0705D5021C8CEF270065467D /* Babylonian.xcdatamodeld in Sources */,
+				902FACC61C9A5AAC0041042A /* MinicourseTextItem.swift in Sources */,
 				90999F671C98664A00402D27 /* MinicrouseItem.swift in Sources */,
 				B5A8A33E1C8D016C00658BC6 /* SampleDataGenerator.swift in Sources */,
 			);
