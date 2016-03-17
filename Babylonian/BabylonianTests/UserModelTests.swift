@@ -41,7 +41,7 @@ class UserModelTests: XCTestCase {
     
     //calling the login method with valid credentials should succeed and return a unique uid
     func testUserCanLogInWithCorrectAuthentication() {
-        u.login()
+
     }
     
     //calling the login method with invalid credentials should fail
@@ -57,6 +57,9 @@ class UserModelTests: XCTestCase {
     //calling the changeEmail function should update the user's email
     func testUserCanChangeEmail() {
     
+    }
+    
+    func testMiscellany() {
     }
 
     func testPerformanceExample() {

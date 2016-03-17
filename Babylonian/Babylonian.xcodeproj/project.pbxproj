@@ -21,6 +21,7 @@
 		305E47231C8D182D004EEACE /* Discussions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E47211C8D182D004EEACE /* Discussions.storyboard */; };
 		B593FA9F1C974F4E00A1EAE4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B593FA9E1C974F4E00A1EAE4 /* User.swift */; };
 		B593FAA11C97502000A1EAE4 /* UserModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B593FAA01C97502000A1EAE4 /* UserModelTests.swift */; };
+		B593FAB91C976D1800A1EAE4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B593FAB81C976D1800A1EAE4 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		B593FA9E1C974F4E00A1EAE4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B593FAA01C97502000A1EAE4 /* UserModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModelTests.swift; sourceTree = "<group>"; };
 		B593FAA61C97556B00A1EAE4 /* userTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = userTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B593FAB81C976D1800A1EAE4 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babylonian.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -139,10 +141,10 @@
 				0705D4F91C8CEF270065467D /* AppDelegate.swift */,
 				0705D4FB1C8CEF270065467D /* ViewController.swift */,
 				B593FA9E1C974F4E00A1EAE4 /* User.swift */,
+				B593FAB81C976D1800A1EAE4 /* Constants.swift */,
 				0705D5031C8CEF270065467D /* Assets.xcassets */,
 				0705D5081C8CEF270065467D /* Info.plist */,
 				0705D5001C8CEF270065467D /* Babylonian.xcdatamodeld */,
-				B593FAB41C97675100A1EAE4 /* Constants.swift */,
 			);
 			path = Babylonian;
 			sourceTree = "<group>";
@@ -434,11 +436,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B593FAB91C976D1800A1EAE4 /* Constants.swift in Sources */,
 				B593FA9F1C974F4E00A1EAE4 /* User.swift in Sources */,
 				0705D4FC1C8CEF270065467D /* ViewController.swift in Sources */,
 				0705D4FA1C8CEF270065467D /* AppDelegate.swift in Sources */,
 				0705D5021C8CEF270065467D /* Babylonian.xcdatamodeld in Sources */,
-				B593FAB51C97675100A1EAE4 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,6 +755,7 @@
 				B593FAAF1C97556B00A1EAE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
