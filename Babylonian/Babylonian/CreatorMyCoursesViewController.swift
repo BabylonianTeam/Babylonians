@@ -19,6 +19,9 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     @IBOutlet weak var table: UITableView!
     
+    override func viewWillAppear(animated: Bool) {
+        table.reloadData()
+    }
     override func viewDidLoad() {
        
         table.delegate = self;
