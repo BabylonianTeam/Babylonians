@@ -11,18 +11,22 @@ import UIKit
 
 class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UITableViewDataSource{
     var courses = [CourseCell]()
+    //Need to hold a fake db for "Title, Text, and Profit"
+    
+    //Temporary Value for Testing. Safe to remove once Table Model is implemented
     var course1 = CourseCell();
     
     
     @IBOutlet weak var table: UITableView!
     
     override func viewDidLoad() {
-        loadMyCourses();
+       
         table.delegate = self;
         table.dataSource = self;
         table.rowHeight = 90;
+        
         table.reloadData()
-        print("Working");
+        loadMyCourses();
     }
     
     
@@ -40,25 +44,36 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         return courses.count
     }
     
+    /* 
+    * Paramaters: None
+    * Connect to Firebase database and pull myCourses data belonging to each user. Since we are using Firebase we don't have to worry about active
+    * record!
+    */
     func loadMyCourses(){
+        //TODO Create a test with/ a for loop that hooks in to the database model
+        print(course1);
+        course1.courseTitle?.text = "Beautiful Cuts Hair Salon"
+        course1.courseViewCount?.text = "55"
+        course1.profitAmount?.text = "$500"
+        
         courses += [course1]
-        //Populate courses form table
     }
     
-    //Populates a cells values
+   
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cellIdentifier = "CourseCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CourseCell
         print(courses.count);
         if(courses.count != 0){
-            //cell.eventText.text = event.eventTitle
-            //cell.startTime.text = event.start_time
-            //cell.finishTime.text = event.end_time
-            cell.courseTitle.text = "Something Random";
+         
+            let course = courses[indexPath.row];
+            print(course.courseTitle?.text)
+            //Create a unit test for these values
+            cell.courseTitle.text = "Beautiful Cuts Hair Salon";
             //Will probably have to convert some value here to a view count
-            cell.courseViewCount.text = "55";
-            cell.profitAmount.text = "Large Profit";
+            cell.courseViewCount.text = "55"
+            cell.profitAmount.text = "$500"
         }
         
         
