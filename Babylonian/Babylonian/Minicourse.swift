@@ -8,6 +8,9 @@
 
 import Foundation
 import Firebase
+import AVKit
+
+
 
 class Minicourse{
     static var currentText = [String]()
@@ -112,7 +115,8 @@ class Minicourse{
     }
     
     
-    class func addVocie(newVoice: NSData, ref: String!){
+    class func addVocie(newVoice: NSSound, ref: String!){
+        var sound: NSData = NSSound.
         self.base64StringAudio = newVoice.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
         
         

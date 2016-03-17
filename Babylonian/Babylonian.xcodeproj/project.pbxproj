@@ -17,6 +17,10 @@
 		0705D51D1C8CEF270065467D /* BabylonianUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705D51C1C8CEF270065467D /* BabylonianUITests.swift */; };
 		184F78979A3F5E7914753379 /* Pods_Babylonian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */; };
 		902FACC61C9A5AAC0041042A /* MinicourseTextItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902FACC51C9A5AAB0041042A /* MinicourseTextItem.swift */; };
+		902FACC81C9B3AD40041042A /* aa0f3d544a573d3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 902FACC71C9B3AD40041042A /* aa0f3d544a573d3.jpg */; };
+		902FACCA1C9B45850041042A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902FACC91C9B45850041042A /* AudioToolbox.framework */; };
+		902FACCB1C9B458B0041042A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902FACC91C9B45850041042A /* AudioToolbox.framework */; };
+		902FACCC1C9B458B0041042A /* AudioToolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 902FACC91C9B45850041042A /* AudioToolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		908398B81C987EA800372C8B /* Minicourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908398B71C987EA800372C8B /* Minicourse.swift */; };
 		90999F671C98664A00402D27 /* MinicrouseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90999F661C98664A00402D27 /* MinicrouseItem.swift */; };
 		90A1D4971C961E870043E874 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A1D4961C961E870043E874 /* Constant.swift */; };
@@ -41,6 +45,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		902FACCD1C9B458B0041042A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				902FACCC1C9B458B0041042A /* AudioToolbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0705D4F61C8CEF270065467D /* Babylonian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Babylonian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0705D4F91C8CEF270065467D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +77,8 @@
 		115FA039AF3895E52FC1599D /* Pods-Babylonian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.release.xcconfig"; sourceTree = "<group>"; };
 		76CDD2D8D01CE5CB4C1FFBBD /* Pods-Babylonian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.debug.xcconfig"; sourceTree = "<group>"; };
 		902FACC51C9A5AAB0041042A /* MinicourseTextItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinicourseTextItem.swift; sourceTree = "<group>"; };
+		902FACC71C9B3AD40041042A /* aa0f3d544a573d3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = aa0f3d544a573d3.jpg; path = ../../../../Desktop/aa0f3d544a573d3.jpg; sourceTree = "<group>"; };
+		902FACC91C9B45850041042A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		908398B71C987EA800372C8B /* Minicourse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Minicourse.swift; sourceTree = "<group>"; };
 		90999F661C98664A00402D27 /* MinicrouseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinicrouseItem.swift; sourceTree = "<group>"; };
 		90A1D4961C961E870043E874 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -72,7 +92,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				902FACCA1C9B45850041042A /* AudioToolbox.framework in Frameworks */,
 				184F78979A3F5E7914753379 /* Pods_Babylonian.framework in Frameworks */,
+				902FACCB1C9B458B0041042A /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +146,7 @@
 				076532481C8CFE8300825177 /* Models */,
 				0705D4F91C8CEF270065467D /* AppDelegate.swift */,
 				0705D4FB1C8CEF270065467D /* ViewController.swift */,
+				902FACC71C9B3AD40041042A /* aa0f3d544a573d3.jpg */,
 				0705D4FD1C8CEF270065467D /* Main.storyboard */,
 				0705D5031C8CEF270065467D /* Assets.xcassets */,
 				0705D5051C8CEF270065467D /* LaunchScreen.storyboard */,
@@ -197,6 +220,7 @@
 		BEAC1E2330F91A8D52F04911 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				902FACC91C9B45850041042A /* AudioToolbox.framework */,
 				E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */,
 			);
 			name = Frameworks;
@@ -215,6 +239,7 @@
 				0705D4F41C8CEF270065467D /* Resources */,
 				92404E11CC86FD5317C2F8E3 /* Embed Pods Frameworks */,
 				B91C09F2BC54F8227DF16CDD /* Copy Pods Resources */,
+				902FACCD1C9B458B0041042A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -313,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0705D5071C8CEF270065467D /* LaunchScreen.storyboard in Resources */,
+				902FACC81C9B3AD40041042A /* aa0f3d544a573d3.jpg in Resources */,
 				0705D5041C8CEF270065467D /* Assets.xcassets in Resources */,
 				0705D4FF1C8CEF270065467D /* Main.storyboard in Resources */,
 			);

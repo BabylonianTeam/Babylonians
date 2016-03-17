@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     
  var miniCourseitems = [MinicourseItem]()
     
@@ -18,19 +18,117 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+       //* test for add picture
+         let image: UIImage = UIImage(named: "aa0f3d544a573d3.jpg")!
+         Minicourse.addImage(image, ref: "refUrl")
+        
+        //* test for retrive picture 
+        
+        Minicourse.minicourse.COURSE_REF.childByAppendingPath("refUrl").childByAppendingPath("images").childByAppendingPath("-KD51MF0hq8cHEEhO3B1").observeEventType(.Value, withBlock: { snapshot in
+            
+            Minicourse.base64String = snapshot.value as! String
+            let decodedData = NSData(base64EncodedString: snapshot.value as! String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+            let decodeImage = UIImage(data: decodedData!)!
+           // self.imageview.image = decodeImage
+            print(Minicourse.base64String)
+            
+            })
+            
+            
+        //*get all minicourseItem
+           Minicourse.minicourse.COURSE_REF.observeEventType(.Value, withBlock: { snapshot in
+        
+
+          var newItems = [MinicourseItem]()
+          
+
+        
+                            for item in snapshot.children {
+                                let minicourseItem = MinicourseItem(snapshot: item as! FDataSnapshot)
+                                newItems.append(minicourseItem)
+                               // print(newItems)
+        
+                            }
+        
+                   // print(newItems)
+        
+                    }, withCancelBlock: { error in
+                        print(error.description)
+                })
+
+        //*get specific minicourseItem
+        
+        Minicourse.minicourse.COURSE_REF.observeEventType(.Value, withBlock: { snapshot in
+            
+            
+            var newItems = [MinicourseItem]()
+            
+            
+            
+            for item in snapshot.children {
+                let minicourseItem = MinicourseItem(snapshot: item as! FDataSnapshot)
+                newItems.append(minicourseItem)
+                // print(newItems)
                 
+            }
+            
+            self.miniCourseitems = newItems
+            let index = 0
+            let courseItem = newItems[index]
+           // print(courseItem)
+            
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
         
         
-   //     let newText = MinicourseTextItem(courseText: ["2333333333", "Nice to meet you"])
+        //*get the author of the minicourseItem
         
-//               let newCourse = MinicourseItem(
-//                    coursename:"test course4", addedByUser: "test user4", courseText : ["hi", "Nice to meet you"]
-//        )
-//        
-//        
-//        
-//                Minicourse.addMinicourseItem(newCourse.toAnyObject())
+    
+        Minicourse.minicourse.COURSE_REF.observeEventType(.Value, withBlock: { snapshot in
+            
+            
+            var newItems = [MinicourseItem]()
+            
+            
+            //print in json format
+           // print(snapshot.value)
+            
+            for item in snapshot.children {
+                let minicourseItem = MinicourseItem(snapshot: item as! FDataSnapshot)
+                newItems.append(minicourseItem)
+                // print(newItems)
+                
+            }
+            self.miniCourseitems = newItems
+            let index = 0
+            let courseItem = newItems[index]
+            let courseAuthor = courseItem.coursename
+           // print(courseAuthor)
+            
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //let newText = MinicourseTextItem(courseText: ["2333333333", "Nice to meet you"])
+        
+               let newCourse = MinicourseItem(
+                    coursename:"test course4", addedByUser: "test user4", courseText : ["hi", "Nice to meet you"]
+        )
+        
+        
+        
+                Minicourse.addMinicourseItem(newCourse.toAnyObject())
 
       //  Minicourse.setPrice("refUrl",price: 6.6)
 //        Minicourse.setTag("refUrl", tag: "travel")
