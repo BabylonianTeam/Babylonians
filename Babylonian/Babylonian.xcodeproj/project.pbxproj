@@ -15,6 +15,7 @@
 		0705D5071C8CEF270065467D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0705D5051C8CEF270065467D /* LaunchScreen.storyboard */; };
 		0705D5121C8CEF270065467D /* BabylonianTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705D5111C8CEF270065467D /* BabylonianTests.swift */; };
 		0705D51D1C8CEF270065467D /* BabylonianUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705D51C1C8CEF270065467D /* BabylonianUITests.swift */; };
+		077A6FC91C9B0FB3002BAF0D /* CreatorMyCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A6FC81C9B0FB3002BAF0D /* CreatorMyCoursesViewController.swift */; };
 		07EFFB621C97B128006F8ECB /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EFFB611C97B128006F8ECB /* CourseCell.swift */; };
 		184F78979A3F5E7914753379 /* Pods_Babylonian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */; };
 		304D8E7B1C9A5F6800B87CF1 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304D8E7A1C9A5F6800B87CF1 /* MainPageViewController.swift */; };
@@ -55,6 +56,7 @@
 		0705D5181C8CEF270065467D /* BabylonianUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabylonianUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0705D51C1C8CEF270065467D /* BabylonianUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabylonianUITests.swift; sourceTree = "<group>"; };
 		0705D51E1C8CEF270065467D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		077A6FC81C9B0FB3002BAF0D /* CreatorMyCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorMyCoursesViewController.swift; sourceTree = "<group>"; };
 		07EFFB611C97B128006F8ECB /* CourseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
 		115FA039AF3895E52FC1599D /* Pods-Babylonian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.release.xcconfig"; sourceTree = "<group>"; };
 		304D8E7A1C9A5F6800B87CF1 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				304D8E7A1C9A5F6800B87CF1 /* MainPageViewController.swift */,
+				077A6FC81C9B0FB3002BAF0D /* CreatorMyCoursesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 			files = (
 				07EFFB621C97B128006F8ECB /* CourseCell.swift in Sources */,
 				304D8E7B1C9A5F6800B87CF1 /* MainPageViewController.swift in Sources */,
+				077A6FC91C9B0FB3002BAF0D /* CreatorMyCoursesViewController.swift in Sources */,
 				0705D4FC1C8CEF270065467D /* ViewController.swift in Sources */,
 				0705D4FA1C8CEF270065467D /* AppDelegate.swift in Sources */,
 				0705D5021C8CEF270065467D /* Babylonian.xcdatamodeld in Sources */,
