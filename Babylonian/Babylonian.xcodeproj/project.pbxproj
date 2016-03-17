@@ -16,6 +16,7 @@
 		0705D5121C8CEF270065467D /* BabylonianTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705D5111C8CEF270065467D /* BabylonianTests.swift */; };
 		0705D51D1C8CEF270065467D /* BabylonianUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705D51C1C8CEF270065467D /* BabylonianUITests.swift */; };
 		184F78979A3F5E7914753379 /* Pods_Babylonian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */; };
+		304D8E7B1C9A5F6800B87CF1 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304D8E7A1C9A5F6800B87CF1 /* MainPageViewController.swift */; };
 		305E471D1C8D169F004EEACE /* MyCourses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E471B1C8D169F004EEACE /* MyCourses.storyboard */; };
 		305E47201C8D1817004EEACE /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E471E1C8D1817004EEACE /* More.storyboard */; };
 		305E47231C8D182D004EEACE /* Discussions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E47211C8D182D004EEACE /* Discussions.storyboard */; };
@@ -54,6 +55,7 @@
 		0705D51C1C8CEF270065467D /* BabylonianUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabylonianUITests.swift; sourceTree = "<group>"; };
 		0705D51E1C8CEF270065467D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		115FA039AF3895E52FC1599D /* Pods-Babylonian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.release.xcconfig"; sourceTree = "<group>"; };
+		304D8E7A1C9A5F6800B87CF1 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		305E471C1C8D169F004EEACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MyCourses.storyboard; sourceTree = "<group>"; };
 		305E471F1C8D1817004EEACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/More.storyboard; sourceTree = "<group>"; };
 		305E47221C8D182D004EEACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Discussions.storyboard; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		076532471C8CFE7C00825177 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				304D8E7A1C9A5F6800B87CF1 /* MainPageViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				304D8E7B1C9A5F6800B87CF1 /* MainPageViewController.swift in Sources */,
 				0705D4FC1C8CEF270065467D /* ViewController.swift in Sources */,
 				0705D4FA1C8CEF270065467D /* AppDelegate.swift in Sources */,
 				0705D5021C8CEF270065467D /* Babylonian.xcdatamodeld in Sources */,
