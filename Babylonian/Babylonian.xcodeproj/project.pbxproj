@@ -187,8 +187,6 @@
 				07EFFB611C97B128006F8ECB /* CourseCell.swift */,
 				9F66D60F1C9ADE6B00EB9C93 /* CustomCell.swift */,
 				306C323A1C9B9E830035608E /* MainCourseCell.swift */,
-				9F638F681C9B8A7500154A13 /* CreatorMyCoursesViewController.swift */,
-				9F66D6131C9AE05F00EB9C93 /* MoreUIViewController.swift */,
 				9F66D6111C9ADE9900EB9C93 /* CellDescriptor.plist */,
 			);
 			name = Views;
@@ -197,6 +195,8 @@
 		076532471C8CFE7C00825177 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9F638F681C9B8A7500154A13 /* CreatorMyCoursesViewController.swift */,
+				9F66D6131C9AE05F00EB9C93 /* MoreUIViewController.swift */,
 				306C32381C9B912C0035608E /* MainPageViewController.swift */,
 			);
 			name = Controllers;
