@@ -22,6 +22,9 @@
 		305E471D1C8D169F004EEACE /* MyCourses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E471B1C8D169F004EEACE /* MyCourses.storyboard */; };
 		305E47201C8D1817004EEACE /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E471E1C8D1817004EEACE /* More.storyboard */; };
 		305E47231C8D182D004EEACE /* Discussions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E47211C8D182D004EEACE /* Discussions.storyboard */; };
+		3099E0D11C9B7B7500C06231 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099E0CE1C9B7B7500C06231 /* Constant.swift */; };
+		3099E0D21C9B7B7500C06231 /* Minicourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099E0CF1C9B7B7500C06231 /* Minicourse.swift */; };
+		3099E0D31C9B7B7500C06231 /* MinicrouseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3099E0D01C9B7B7500C06231 /* MinicrouseItem.swift */; };
 		9F625B8C1C9B282B00A08173 /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F625B861C9B282B00A08173 /* DatePickerCell.xib */; };
 		9F625B8D1C9B282B00A08173 /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F625B871C9B282B00A08173 /* NormalCell.xib */; };
 		9F625B8E1C9B282B00A08173 /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F625B881C9B282B00A08173 /* SliderCell.xib */; };
@@ -72,6 +75,9 @@
 		305E471C1C8D169F004EEACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MyCourses.storyboard; sourceTree = "<group>"; };
 		305E471F1C8D1817004EEACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/More.storyboard; sourceTree = "<group>"; };
 		305E47221C8D182D004EEACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Discussions.storyboard; sourceTree = "<group>"; };
+		3099E0CE1C9B7B7500C06231 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		3099E0CF1C9B7B7500C06231 /* Minicourse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Minicourse.swift; sourceTree = "<group>"; };
+		3099E0D01C9B7B7500C06231 /* MinicrouseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinicrouseItem.swift; sourceTree = "<group>"; };
 		76CDD2D8D01CE5CB4C1FFBBD /* Pods-Babylonian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.debug.xcconfig"; sourceTree = "<group>"; };
 		9F625B861C9B282B00A08173 /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
 		9F625B871C9B282B00A08173 /* NormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
@@ -196,6 +202,9 @@
 		076532481C8CFE8300825177 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3099E0CE1C9B7B7500C06231 /* Constant.swift */,
+				3099E0CF1C9B7B7500C06231 /* Minicourse.swift */,
+				3099E0D01C9B7B7500C06231 /* MinicrouseItem.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -433,7 +442,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				07EFFB621C97B128006F8ECB /* CourseCell.swift in Sources */,
+				3099E0D21C9B7B7500C06231 /* Minicourse.swift in Sources */,
+				3099E0D31C9B7B7500C06231 /* MinicrouseItem.swift in Sources */,
 				304D8E7B1C9A5F6800B87CF1 /* MainPageViewController.swift in Sources */,
+				3099E0D11C9B7B7500C06231 /* Constant.swift in Sources */,
 				077A6FC91C9B0FB3002BAF0D /* CreatorMyCoursesViewController.swift in Sources */,
 				0705D4FC1C8CEF270065467D /* ViewController.swift in Sources */,
 				0705D4FA1C8CEF270065467D /* AppDelegate.swift in Sources */,
