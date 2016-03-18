@@ -14,6 +14,7 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // MARK: IBOutlet Properties
     @IBOutlet weak var tblExpandable: UITableView!
     
+    
     // MARK: Variables
     
     var cellDescriptors: NSMutableArray!

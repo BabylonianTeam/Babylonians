@@ -18,29 +18,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iSs-kz-1HK">
-                                <rect key="frame" x="10" y="8" width="580" height="543"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iQd-QM-X4W">
+                                <rect key="frame" x="40" y="82" width="520" height="449"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="c7Y-CS-Pxw" firstAttribute="top" secondItem="iSs-kz-1HK" secondAttribute="bottom" id="NCt-WX-Y24"/>
-                            <constraint firstItem="iSs-kz-1HK" firstAttribute="top" secondItem="VvU-IP-RaZ" secondAttribute="bottom" constant="-12" id="Nkv-s8-0lr"/>
-                            <constraint firstItem="iSs-kz-1HK" firstAttribute="leading" secondItem="Y6c-yu-lXc" secondAttribute="leadingMargin" constant="-10" id="SfF-Ik-bbZ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="iSs-kz-1HK" secondAttribute="trailing" constant="-10" id="WhG-Zu-zpi"/>
-                            <constraint firstItem="iSs-kz-1HK" firstAttribute="centerX" secondItem="Y6c-yu-lXc" secondAttribute="centerX" id="y96-So-EDl"/>
+                            <constraint firstItem="iQd-QM-X4W" firstAttribute="leading" secondItem="Y6c-yu-lXc" secondAttribute="leadingMargin" constant="20" id="3Qq-Jj-6Di"/>
+                            <constraint firstItem="iQd-QM-X4W" firstAttribute="centerX" secondItem="Y6c-yu-lXc" secondAttribute="centerX" id="CKr-Up-3bI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iQd-QM-X4W" secondAttribute="trailing" constant="20" id="RdC-hV-TGw"/>
+                            <constraint firstItem="iQd-QM-X4W" firstAttribute="top" secondItem="VvU-IP-RaZ" secondAttribute="bottom" constant="62" id="UMg-ev-abv"/>
+                            <constraint firstItem="c7Y-CS-Pxw" firstAttribute="top" secondItem="iQd-QM-X4W" secondAttribute="bottom" constant="20" id="eus-dZ-bEx"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="More..." id="qi6-WR-D4N"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="tblExpandable" destination="iSs-kz-1HK" id="Yyx-hF-PV9"/>
+                        <outlet property="tblExpandable" destination="iQd-QM-X4W" id="6CK-AP-XxS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTO-Hg-3Td" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="492" y="1677"/>
+            <point key="canvasLocation" x="-442" y="923"/>
         </scene>
     </scenes>
 </document>

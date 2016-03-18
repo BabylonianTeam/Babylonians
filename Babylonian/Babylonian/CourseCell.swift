@@ -11,7 +11,4 @@ import UIKit
 
 class CourseCell : UITableViewCell{
   
-    @IBOutlet weak var courseTitle: UILabel!
-    @IBOutlet weak var profitAmount: UILabel!
-    @IBOutlet weak var courseViewCount: UILabel!
 }
