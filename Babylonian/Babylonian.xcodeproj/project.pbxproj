@@ -20,7 +20,7 @@
 		305E471D1C8D169F004EEACE /* MyCourses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E471B1C8D169F004EEACE /* MyCourses.storyboard */; };
 		305E47201C8D1817004EEACE /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E471E1C8D1817004EEACE /* More.storyboard */; };
 		305E47231C8D182D004EEACE /* Discussions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E47211C8D182D004EEACE /* Discussions.storyboard */; };
-		9F638F671C9B8A6A00154A13 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F638F661C9B8A6A00154A13 /* MainPageViewController.swift */; };
+		306C32391C9B912C0035608E /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306C32381C9B912C0035608E /* MainPageViewController.swift */; };
 		9F638F691C9B8A7500154A13 /* CreatorMyCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F638F681C9B8A7500154A13 /* CreatorMyCoursesViewController.swift */; };
 		9F66D6041C9ADE0500EB9C93 /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F66D6031C9ADE0500EB9C93 /* DatePickerCell.xib */; };
 		9F66D60A1C9ADE1500EB9C93 /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F66D6051C9ADE1500EB9C93 /* NormalCell.xib */; };
@@ -73,8 +73,8 @@
 		305E471C1C8D169F004EEACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MyCourses.storyboard; sourceTree = "<group>"; };
 		305E471F1C8D1817004EEACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/More.storyboard; sourceTree = "<group>"; };
 		305E47221C8D182D004EEACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Discussions.storyboard; sourceTree = "<group>"; };
+		306C32381C9B912C0035608E /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		76CDD2D8D01CE5CB4C1FFBBD /* Pods-Babylonian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.debug.xcconfig"; sourceTree = "<group>"; };
-		9F638F661C9B8A6A00154A13 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		9F638F681C9B8A7500154A13 /* CreatorMyCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorMyCoursesViewController.swift; sourceTree = "<group>"; };
 		9F66D6031C9ADE0500EB9C93 /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
 		9F66D6051C9ADE1500EB9C93 /* NormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
@@ -184,7 +184,6 @@
 				0705D5051C8CEF270065467D /* LaunchScreen.storyboard */,
 				07EFFB611C97B128006F8ECB /* CourseCell.swift */,
 				9F66D60F1C9ADE6B00EB9C93 /* CustomCell.swift */,
-				9F638F661C9B8A6A00154A13 /* MainPageViewController.swift */,
 				9F638F681C9B8A7500154A13 /* CreatorMyCoursesViewController.swift */,
 				9F66D6131C9AE05F00EB9C93 /* MoreUIViewController.swift */,
 				9F66D6111C9ADE9900EB9C93 /* CellDescriptor.plist */,
@@ -195,6 +194,7 @@
 		076532471C8CFE7C00825177 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				306C32381C9B912C0035608E /* MainPageViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -446,10 +446,10 @@
 				9FBDE56A1C9B8E9D003A45BA /* MinicrouseItem.swift in Sources */,
 				07EFFB621C97B128006F8ECB /* CourseCell.swift in Sources */,
 				9FBDE5681C9B8E9D003A45BA /* Constant.swift in Sources */,
-				9F638F671C9B8A6A00154A13 /* MainPageViewController.swift in Sources */,
 				9F66D6141C9AE05F00EB9C93 /* MoreUIViewController.swift in Sources */,
 				0705D4FC1C8CEF270065467D /* ViewController.swift in Sources */,
 				9F66D6101C9ADE6B00EB9C93 /* CustomCell.swift in Sources */,
+				306C32391C9B912C0035608E /* MainPageViewController.swift in Sources */,
 				0705D4FA1C8CEF270065467D /* AppDelegate.swift in Sources */,
 				0705D5021C8CEF270065467D /* Babylonian.xcdatamodeld in Sources */,
 			);
