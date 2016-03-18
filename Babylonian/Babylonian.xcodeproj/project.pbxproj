@@ -31,6 +31,9 @@
 		9F66D6101C9ADE6B00EB9C93 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F66D60F1C9ADE6B00EB9C93 /* CustomCell.swift */; };
 		9F66D6121C9ADE9900EB9C93 /* CellDescriptor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F66D6111C9ADE9900EB9C93 /* CellDescriptor.plist */; };
 		9F66D6141C9AE05F00EB9C93 /* MoreUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F66D6131C9AE05F00EB9C93 /* MoreUIViewController.swift */; };
+		9FBDE5681C9B8E9D003A45BA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDE5651C9B8E9D003A45BA /* Constant.swift */; };
+		9FBDE5691C9B8E9D003A45BA /* Minicourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */; };
+		9FBDE56A1C9B8E9D003A45BA /* MinicrouseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDE5671C9B8E9D003A45BA /* MinicrouseItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +85,9 @@
 		9F66D60F1C9ADE6B00EB9C93 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		9F66D6111C9ADE9900EB9C93 /* CellDescriptor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CellDescriptor.plist; sourceTree = "<group>"; };
 		9F66D6131C9AE05F00EB9C93 /* MoreUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreUIViewController.swift; sourceTree = "<group>"; };
+		9FBDE5651C9B8E9D003A45BA /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Minicourse.swift; sourceTree = "<group>"; };
+		9FBDE5671C9B8E9D003A45BA /* MinicrouseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinicrouseItem.swift; sourceTree = "<group>"; };
 		E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babylonian.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -196,6 +202,9 @@
 		076532481C8CFE8300825177 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9FBDE5651C9B8E9D003A45BA /* Constant.swift */,
+				9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */,
+				9FBDE5671C9B8E9D003A45BA /* MinicrouseItem.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -433,7 +442,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F638F691C9B8A7500154A13 /* CreatorMyCoursesViewController.swift in Sources */,
+				9FBDE5691C9B8E9D003A45BA /* Minicourse.swift in Sources */,
+				9FBDE56A1C9B8E9D003A45BA /* MinicrouseItem.swift in Sources */,
 				07EFFB621C97B128006F8ECB /* CourseCell.swift in Sources */,
+				9FBDE5681C9B8E9D003A45BA /* Constant.swift in Sources */,
 				9F638F671C9B8A6A00154A13 /* MainPageViewController.swift in Sources */,
 				9F66D6141C9AE05F00EB9C93 /* MoreUIViewController.swift in Sources */,
 				0705D4FC1C8CEF270065467D /* ViewController.swift in Sources */,
