@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ruJ-ut-0kv">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ruJ-ut-0kv">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+>>>>>>> master
     </dependencies>
     <scenes>
         <!--More...-->
         <scene sceneID="gYC-iz-Jbk">
             <objects>
-                <viewController id="ruJ-ut-0kv" sceneMemberID="viewController">
+                <viewController id="ruJ-ut-0kv" customClass="MoreUIViewController" customModule="Babylonian" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VvU-IP-RaZ"/>
                         <viewControllerLayoutGuide type="bottom" id="c7Y-CS-Pxw"/>
@@ -16,10 +24,26 @@
                     <view key="view" contentMode="scaleToFill" id="Y6c-yu-lXc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iSs-kz-1HK">
+                                <rect key="frame" x="10" y="8" width="580" height="543"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="c7Y-CS-Pxw" firstAttribute="top" secondItem="iSs-kz-1HK" secondAttribute="bottom" id="NCt-WX-Y24"/>
+                            <constraint firstItem="iSs-kz-1HK" firstAttribute="top" secondItem="VvU-IP-RaZ" secondAttribute="bottom" constant="-12" id="Nkv-s8-0lr"/>
+                            <constraint firstItem="iSs-kz-1HK" firstAttribute="leading" secondItem="Y6c-yu-lXc" secondAttribute="leadingMargin" constant="-10" id="SfF-Ik-bbZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iSs-kz-1HK" secondAttribute="trailing" constant="-10" id="WhG-Zu-zpi"/>
+                            <constraint firstItem="iSs-kz-1HK" firstAttribute="centerX" secondItem="Y6c-yu-lXc" secondAttribute="centerX" id="y96-So-EDl"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="More..." id="qi6-WR-D4N"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tblExpandable" destination="iSs-kz-1HK" id="Yyx-hF-PV9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTO-Hg-3Td" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
