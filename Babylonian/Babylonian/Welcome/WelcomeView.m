@@ -208,16 +208,14 @@
 
 #pragma mark - Helper methods
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-- (void)userLoggedIn:(User *)user
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-{
-	//ParsePushUserAssign();
-	[[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_LOGGED_IN object:nil];
-    
-	[ProgressHUD showSuccess:[NSString stringWithFormat:@"Welcome back!"]];
-	[self dismissViewControllerAnimated:YES completion:nil];
-}
+//- (void)userLoggedIn:(User *)user
+//{
+//	//ParsePushUserAssign();
+//	[[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_LOGGED_IN object:nil];
+//    
+//	[ProgressHUD showSuccess:[NSString stringWithFormat:@"Welcome back!"]];
+//	[self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)loginFailed:(NSString *)message
