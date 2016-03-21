@@ -16,7 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         // Override point for customization after application launch.
+        
+        FIREBASE_REF.observeAuthEventWithBlock({ authData in
+            if authData != nil {
+                // user authenticated
+                print(authData)
+            } else {
+                // No user is signed in
+            }
+        })
         return true
     }
 
