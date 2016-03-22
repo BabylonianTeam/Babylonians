@@ -74,14 +74,23 @@ withCompletionBlock:^(NSError *error, FAuthData *authData) {
         [ProgressHUD showError:error.userInfo[@"error"]];
     } else {
         
-        // user is logged in, check authData for data
-        //NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        //[userDefaults setValue:authData.uid forKey:@"uid"];
+        // user found, log them in and store user data in userDefaults
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setValue:authData.uid forKey:@"uid"];
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_LOGGED_IN object:nil];
         
-        //TODO, replace email with displayed name
-        [ProgressHUD showSuccess:[NSString stringWithFormat:@"Welcome back %@!", authData.auth[@"displayName"]]];
-        [self dismissViewControllerAnimated:YES completion:nil];
+        //retrieve displayName
+        [DataService.dataService.CURRENT_USER_REF observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+            [userDefaults setValue:snapshot.value[USER_DISPLAYNAME] forKey:USER_DISPLAYNAME];
+            [userDefaults setValue:snapshot.value[USER_ROLE] forKey:USER_ROLE];
+            [ProgressHUD showSuccess:[NSString stringWithFormat:@"Welcome back %@!", snapshot.value[USER_DISPLAYNAME]]];
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+            [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController]
+                                                                animated: YES];
+            //[self dismissViewControllerAnimated:YES completion:nil];
+        }];
         
     }
 }];

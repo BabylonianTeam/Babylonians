@@ -18,15 +18,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        FIREBASE_REF.observeAuthEventWithBlock({ authData in
-            if authData != nil {
-                // user authenticated
-                print(authData)
-            } else {
-                // No user is signed in
+        // Authentication
+        if let _ = NSUserDefaults.standardUserDefaults().valueForKey("uid") {
+            
+            //logout codes
+            DataService.dataService.BASE_REF.unauth()
+            NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
+            if let role = NSUserDefaults.standardUserDefaults().valueForKey(USER_ROLE) {
+                if role as! String == USER_ROLE_CREATOR {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let initialViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as UIViewController
+                    self.window?.rootViewController = initialViewController
+                }
+                else{
+                    //load learner view
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let initialViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as UIViewController
+                    self.window?.rootViewController = initialViewController
+                }
             }
-        })
+            else {
+                print("No role assigned! Register a new account with a role!")
+                let navigationController = UINavigationController()
+                navigationController.viewControllers = [WelcomeView()]
+                window!.rootViewController = navigationController
+            }
+            
+        }
+        else {
+            let navigationController = UINavigationController()
+            navigationController.viewControllers = [WelcomeView()]
+            window!.rootViewController = navigationController
+        }
+        window!.makeKeyAndVisible()
         return true
     }
 
