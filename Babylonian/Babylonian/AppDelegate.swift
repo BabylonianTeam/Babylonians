@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //logout codes
             DataService.dataService.BASE_REF.unauth()
             NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
+            
             if let role = NSUserDefaults.standardUserDefaults().valueForKey(USER_ROLE) {
                 if role as! String == USER_ROLE_CREATOR {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -34,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 else{
                     //load learner view
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let storyboard = UIStoryboard(name: "LearnerMain", bundle: nil)
                     let initialViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as UIViewController
                     self.window?.rootViewController = initialViewController
                 }

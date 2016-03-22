@@ -83,7 +83,7 @@
                                               USER_EMAIL: email,
                                               USER_PASSWORD: password,
                                               USER_DISPLAYNAME: name,
-                                              USER_ROLE: USER_ROLE_CREATOR,
+                                              USER_ROLE: RUNTIME_USER_ROLE,
                                               @"lastActive": [df stringFromDate:[NSDate date]]
                                               };
                     [[[ref childByAppendingPath:@"users"] childByAppendingPath:authData.uid] setValue:newUser];
@@ -99,9 +99,16 @@
                     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_LOGGED_IN object:nil];
                     [ProgressHUD showSuccess:@"Registered successfully!"];
                     
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                    UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-                    [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
+                    if ([newUser[USER_ROLE] isEqual:USER_ROLE_CREATOR]) {
+                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                        UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+                        [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
+                    } else {
+                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"LearnerMain" bundle:nil];
+                        UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+                        [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
+                    }
+                    
                 }
             }];
         }

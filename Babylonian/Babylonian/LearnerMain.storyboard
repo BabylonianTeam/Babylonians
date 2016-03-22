@@ -28,7 +28,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Xrc-JP-27z">
             <objects>
-                <tabBarController id="mmC-cA-iMN" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainViewController" id="mmC-cA-iMN" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="cDX-Bq-3mV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
