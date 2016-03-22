@@ -1,14 +1,6 @@
-//Modified by Dongning Wang for Firebase
+//Modified by Dongning Wang for Firebase from Related Code - http://relatedcode.com
 
-// Copyright (c) 2015 Related Code - http://relatedcode.com
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
+
 @import Foundation;
 #import "ProgressHUD.h"
 #import "Firebase.h"
@@ -40,21 +32,18 @@
 {
 	[super viewDidLoad];
 	self.title = @"Register";
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
 	[self.tableView addGestureRecognizer:gestureRecognizer];
 	gestureRecognizer.cancelsTouchesInView = NO;
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)viewDidAppear:(BOOL)animated
-//-------------------------------------------------------------------------------------------------------------------------------------------------
+
 {
 	[super viewDidAppear:animated];
 	[fieldName becomeFirstResponder];
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)dismissKeyboard
 {
 	[self.view endEditing:YES];
@@ -74,40 +63,6 @@
 
     Firebase *ref = [[Firebase alloc] initWithUrl:FIREBASE];
     
-//    [ref authUser:email password:password
-//        withCompletionBlock:^(NSError *error, FAuthData *authData) {
-//    
-//            if (error) {
-//                // Something went wrong. :(
-//                 NSLog(@"%@", error);
-//                [ProgressHUD showError:error.userInfo[@"error"]];
-//            } else {
-//                // Authentication just completed successfully :)
-//        
-//                // The logged in user's unique identifier
-//                NSLog(@"%@", authData.uid);
-//        
-//                // Create a new user dictionary accessing the user's info
-//                // provided by the authData parameter
-//                NSDictionary *newUser = @{
-//                                  @"provider": authData.provider,
-//                                  @"displayName": authData.providerData[@"displayName"]
-//                                  };
-//        
-//                // Create a child path with a key set to the uid underneath the "users" node
-//                // This creates a URL path like the following:
-//                //  - https://<YOUR-FIREBASE-APP>.firebaseio.com/users/<uid>
-//                [[[ref childByAppendingPath:@"users"]
-//                  childByAppendingPath:authData.uid] setValue:newUser];
-//                
-//                [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_LOGGED_IN object:nil];
-//                [ProgressHUD showSuccess:@"Succeed."];
-//                
-//                [self dismissViewControllerAnimated:YES completion:nil];
-//            }
-//        }];
-    
-    
     [ref createUser:email password:password withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
         if (error) {
             // There was an error creating the account
@@ -125,22 +80,28 @@
                     NSDateFormatter *df = [[NSDateFormatter alloc] init];
                     df.dateFormat = USER_DATE_FORMAT;
                     NSDictionary *newUser = @{
-                                              @"email": email,
-                                              @"password": password,
-                                              @"displayName": name,
-                                              @"role": @"creator",
+                                              USER_EMAIL: email,
+                                              USER_PASSWORD: password,
+                                              USER_DISPLAYNAME: name,
+                                              USER_ROLE: USER_ROLE_CREATOR,
                                               @"lastActive": [df stringFromDate:[NSDate date]]
                                               };
                     [[[ref childByAppendingPath:@"users"] childByAppendingPath:authData.uid] setValue:newUser];
+                    
                     //NSLog(@"Successfully created user account with uid: %@", authData.uid);
                     //save userdata to userDefault
                     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                     [userDefaults setValue:authData.uid forKey:@"uid"];
-                    [userDefaults setValue:name forKey:@"displayName"];
-                    
+                    [userDefaults setValue:name forKey:USER_DISPLAYNAME];
+                    //currently
+                    [userDefaults setValue:newUser[USER_ROLE] forKey:USER_ROLE];
+                    //this may need to move into the comletion block of setValue above.
                     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_LOGGED_IN object:nil];
                     [ProgressHUD showSuccess:@"Registered successfully!"];
-                    [self dismissViewControllerAnimated:YES completion:nil];
+                    
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                    UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+                    [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
                 }
             }];
         }
@@ -151,23 +112,17 @@
 
 #pragma mark - Table view data source
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	return 1;
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	return 4;
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	if (indexPath.row == 0) return cellName;
 	if (indexPath.row == 1) return cellEmail;
@@ -178,20 +133,15 @@
 
 #pragma mark - Table view delegate
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	if (indexPath.row == 3) [self actionRegister];
 }
 
 #pragma mark - UITextField delegate
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	if (textField == fieldName)
 	{

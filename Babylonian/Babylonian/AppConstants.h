@@ -16,6 +16,8 @@
 #define		USER_PASSWORD                       @"password"
 #define		USER_DISPLAYNAME                    @"displayName"
 #define		USER_ROLE                           @"role"
+#define		USER_ROLE_CREATOR                   @"creator"
+#define		USER_ROLE_LEARNER                   @"learner"
 #define		USER_FACEBOOK                       @"facebook"
 #define		USER_TWITTER                        @"twitter"
 #define     USER_DATE_FORMAT                     @"yyyy-d-M"

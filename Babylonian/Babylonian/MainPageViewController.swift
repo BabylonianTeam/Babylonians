@@ -33,9 +33,6 @@ class MainPageViewController: UITableViewController, UISearchResultsUpdating{
         self.tableView.reloadData()
         
         
-
-        
-        
         //self.searchDisplayController.
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -46,18 +43,7 @@ class MainPageViewController: UITableViewController, UISearchResultsUpdating{
 
     
     override func viewDidAppear(animated: Bool) {
-        // Authentication
-        if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil {
-            
-            //logout codes
-            DataService.dataService.BASE_REF.unauth()
-            NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
-        }
-        else {
-            let welcome = WelcomeView()
-            let navController = UINavigationController(rootViewController: welcome)
-            self.presentViewController(navController, animated: true, completion: nil)
-        }
+
         
     }
     override func didReceiveMemoryWarning() {

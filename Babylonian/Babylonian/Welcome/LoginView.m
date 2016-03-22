@@ -80,10 +80,16 @@ withCompletionBlock:^(NSError *error, FAuthData *authData) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_LOGGED_IN object:nil];
         
         //retrieve displayName
-        [[DataService.dataService.CURRENT_USER_REF childByAppendingPath:@"displayName" ] observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot){
-            [userDefaults setValue:snapshot.value forKey:@"displayName"];
-            [ProgressHUD showSuccess:[NSString stringWithFormat:@"Welcome back %@!", snapshot.value]];
-            [self dismissViewControllerAnimated:YES completion:nil];
+        [DataService.dataService.CURRENT_USER_REF observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+            [userDefaults setValue:snapshot.value[USER_DISPLAYNAME] forKey:USER_DISPLAYNAME];
+            [userDefaults setValue:snapshot.value[USER_ROLE] forKey:USER_ROLE];
+            [ProgressHUD showSuccess:[NSString stringWithFormat:@"Welcome back %@!", snapshot.value[USER_DISPLAYNAME]]];
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+            [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController]
+                                                                animated: YES];
+            //[self dismissViewControllerAnimated:YES completion:nil];
         }];
         
     }
