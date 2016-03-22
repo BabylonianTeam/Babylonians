@@ -7,6 +7,7 @@
 //
 
 #define		FIREBASE							@"https://babylonian.firebaseio.com"
+#define		RUNTIME_USER_ROLE                   @"learner"
 
 #define		NOTIFICATION_APP_STARTED			@"NCAppStarted"
 #define		NOTIFICATION_USER_LOGGED_IN			@"NCUserLoggedIn"
@@ -20,7 +21,7 @@
 #define		USER_ROLE_LEARNER                   @"learner"
 #define		USER_FACEBOOK                       @"facebook"
 #define		USER_TWITTER                        @"twitter"
-#define     USER_DATE_FORMAT                     @"yyyy-d-M"
+#define     USER_DATE_FORMAT                    @"yyyy-d-M"
 
 
 #define		COURSE_TITLE                        @"title"
