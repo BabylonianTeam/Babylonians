@@ -12,3 +12,13 @@
 #define		NOTIFICATION_USER_LOGGED_IN			@"NCUserLoggedIn"
 #define		NOTIFICATION_USER_LOGGED_OUT		@"NCUserLoggedOut"
 
+#define		USER_EMAIL                          @"email"
+#define		USER_PASSWORD                       @"password"
+#define		USER_DISPLAYNAME                    @"displayName"
+#define		USER_ROLE                           @"role"
+#define		USER_FACEBOOK                       @"facebook"
+#define		USER_TWITTER                        @"twitter"
+#define     USER_DATE_FORMAT                     @"yyyy-d-M"
+
+
+#define		COURSE_TITLE                        @"title"

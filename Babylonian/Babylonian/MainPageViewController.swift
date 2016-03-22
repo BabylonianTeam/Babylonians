@@ -47,9 +47,11 @@ class MainPageViewController: UITableViewController, UISearchResultsUpdating{
     
     override func viewDidAppear(animated: Bool) {
         // Authentication
-        if let authData = DataService.dataService.BASE_REF.authData {
-            print(authData)
-            //DataService.dataService.BASE_REF.unauth()
+        if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil {
+            
+            //logout codes
+            DataService.dataService.BASE_REF.unauth()
+            NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
         }
         else {
             let welcome = WelcomeView()
@@ -57,18 +59,6 @@ class MainPageViewController: UITableViewController, UISearchResultsUpdating{
             self.presentViewController(navController, animated: true, completion: nil)
         }
         
-
-        
-        //approach 2: with
-//        if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil {
-//            // user authenticated
-//            print(NSUserDefaults.standardUserDefaults())
-//        } else {
-//            // No user is signed in
-//            let welcome = WelcomeView()
-//            let navController = UINavigationController(rootViewController: welcome)
-//            self.presentViewController(navController, animated: true, completion: nil)
-//        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

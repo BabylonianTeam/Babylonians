@@ -1,4 +1,5 @@
-//
+//Modified by Dongning Wang for Firebase
+
 // Copyright (c) 2015 Related Code - http://relatedcode.com
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -8,6 +9,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+@import Foundation;
 #import "ProgressHUD.h"
 #import "Firebase.h"
 #import "AppConstants.h"
@@ -120,53 +122,31 @@
                     [ProgressHUD showError:error.userInfo[@"Something Went wrong :(\n Unable to create account"]];
                 }
                 else {
+                    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+                    df.dateFormat = USER_DATE_FORMAT;
                     NSDictionary *newUser = @{
                                               @"email": email,
                                               @"password": password,
-                                              @"displayName": name
+                                              @"displayName": name,
+                                              @"role": @"creator",
+                                              @"lastActive": [df stringFromDate:[NSDate date]]
                                               };
                     [[[ref childByAppendingPath:@"users"] childByAppendingPath:authData.uid] setValue:newUser];
-                    NSLog(@"Successfully created user account with uid: %@", authData.uid);
-                    //NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-                    //[userDefaults setValue:authData.uid forKey:@"uid"];
+                    //NSLog(@"Successfully created user account with uid: %@", authData.uid);
+                    //save userdata to userDefault
+                    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                    [userDefaults setValue:authData.uid forKey:@"uid"];
+                    [userDefaults setValue:name forKey:@"displayName"];
+                    
                     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_LOGGED_IN object:nil];
                     [ProgressHUD showSuccess:@"Registered successfully!"];
                     [self dismissViewControllerAnimated:YES completion:nil];
                 }
             }];
         }
-
-            //NSString: *uid = [result objectForKey:@"uid"];
-        
-
         
     }];
     
-    //	User *user = [User user];
-//	user.email = email;
-//	user.username = email;
-//	user.password = password;
-//	user[PF_USER_EMAILCOPY] = email;
-//	user[PF_USER_FULLNAME] = name;
-//	user[PF_USER_FULLNAME_LOWER] = [name lowercaseString];
-//    user[PF_USER_ROLE] = PF_USER_ROLE_TRANSLATOR;
-//    user[PF_USER_AVAILABILITY] = PF_USER_AVAILABLE;
-//    user[PF_USER_LASTACTIVE] = [NSDate date];
-//    user[PF_USER_MISSEDREQUESTS] = @0;
-//    user[PF_USER_TRANSLATENUM] = @0;
-    
-    // to register
-//	[user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
-//	{
-//		if (error == nil)
-//		{
-//			ParsePushUserAssign();
-//			PostNotification(NOTIFICATION_USER_LOGGED_IN);
-//			[ProgressHUD showSuccess:@"Succeed."];
-//			[self dismissViewControllerAnimated:YES completion:nil];
-//		}
-//		else [ProgressHUD showError:error.userInfo[@"error"]];
-//	}];
 }
 
 #pragma mark - Table view data source
