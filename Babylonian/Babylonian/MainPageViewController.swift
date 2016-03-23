@@ -81,7 +81,6 @@ class MainPageViewController: UITableViewController, UISearchResultsUpdating{
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //let cell = tableView.dequeueReusableCellWithIdentifier("MainCourseCell", forIndexPath: indexPath)
         let cell = tableView.dequeueReusableCellWithIdentifier("MainCourseCell", forIndexPath: indexPath) as! MainCourseCell
 
         // Configure the cell...

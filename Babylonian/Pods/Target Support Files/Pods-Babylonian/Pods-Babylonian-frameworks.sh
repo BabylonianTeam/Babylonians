@@ -84,8 +84,14 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-Babylonian/Bolts.framework"
   install_framework "Pods-Babylonian/Firebase.framework"
+  install_framework "Pods-Babylonian/Parse.framework"
+  install_framework "Pods-Babylonian/Stripe.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-Babylonian/Bolts.framework"
   install_framework "Pods-Babylonian/Firebase.framework"
+  install_framework "Pods-Babylonian/Parse.framework"
+  install_framework "Pods-Babylonian/Stripe.framework"
 fi

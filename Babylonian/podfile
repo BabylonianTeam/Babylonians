@@ -5,6 +5,8 @@ use_frameworks!
 
 target 'Babylonian' do
 pod 'Firebase', '>= 2.5.0'
+pod 'Stripe'
+pod 'Parse'
 end
 
 target 'BabylonianTests' do

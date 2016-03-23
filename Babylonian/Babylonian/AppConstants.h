@@ -7,6 +7,9 @@
 //
 
 #define		FIREBASE							@"https://babylonian.firebaseio.com"
+#define     PARSE_SERVER                        @"http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/"
+#define     PARSE_APP_ID                        @"iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz"
+
 #define		RUNTIME_USER_ROLE                   @"learner"
 
 #define		NOTIFICATION_APP_STARTED			@"NCAppStarted"
@@ -25,3 +28,4 @@
 
 
 #define		COURSE_TITLE                        @"title"
+#define		COURSE_AUTHOR                       @"author"
