@@ -7,4 +7,5 @@
 //
 
 #import "Welcome/WelcomeView.h"
+#import "RNCryptor.h"
 #import "AppConstants.h"

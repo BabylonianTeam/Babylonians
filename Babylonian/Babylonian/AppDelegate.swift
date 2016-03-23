@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import Parse
+import Bolts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +19,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        // Initialize Parse.
+        let configuration = ParseClientConfiguration {
+            $0.applicationId = PARSE_APP_ID
+            $0.server = PARSE_SERVER
+        }
+        Parse.initializeWithConfiguration(configuration)
+        
+        //test parse
+//        let image = UIImage(named: "aa0f3d544a573d3-1.jpg")
+//        let data = UIImageJPEGRepresentation(image!, 1)
+//        let imageFile = PFFile(name: "aa0f3d544a573d3-1.jpg", data: data!)
+//
+//        let testObject = PFObject(className: "Course")
+//        testObject[COURSE_TITLE] = "course1"
+//        testObject[COURSE_AUTHOR] = "user1"
+//        testObject["content"] = imageFile
+//        
+//        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+//            print(error)
+//        }
+        
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
@@ -24,8 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let _ = NSUserDefaults.standardUserDefaults().valueForKey("uid") {
             
             //logout codes
-            DataService.dataService.BASE_REF.unauth()
-            NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
+            //DataService.dataService.BASE_REF.unauth()
+            //NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
             
             if let role = NSUserDefaults.standardUserDefaults().valueForKey(USER_ROLE) {
                 if role as! String == USER_ROLE_CREATOR {
