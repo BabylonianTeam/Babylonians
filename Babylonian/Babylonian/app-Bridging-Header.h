@@ -6,5 +6,6 @@
 //  Copyright © 2016 Eric Smith. All rights reserved.
 //
 
+#import "RNCryptor.h"
 #import "AppConstants.h"
 #import "Welcome/WelcomeView.h"

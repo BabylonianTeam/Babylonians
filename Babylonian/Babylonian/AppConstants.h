@@ -27,5 +27,5 @@
 #define     USER_DATE_FORMAT                    @"yyyy-d-M"
 
 
-#define		COURSE_TITLE                        @"title"
 #define		COURSE_AUTHOR                       @"author"
+#define		COURSE_TITLE                        @"title"
