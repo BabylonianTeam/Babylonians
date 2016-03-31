@@ -106,7 +106,7 @@
 		0705D51E1C8CEF270065467D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07EFFB611C97B128006F8ECB /* CourseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
 		115FA039AF3895E52FC1599D /* Pods-Babylonian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.release.xcconfig"; sourceTree = "<group>"; };
-		3057A6C41C9D482200C9C1A4 /* Welcome */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Welcome; path = /Users/Danny/Babylonians/Babylonian/Babylonian/Welcome; sourceTree = "<absolute>"; };
+		3057A6C41C9D482200C9C1A4 /* Welcome */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Welcome; path = Babylonian/Welcome; sourceTree = "<absolute>"; };
 		3057A6C81C9DED2400C9C1A4 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		3057A6CA1C9E30FF00C9C1A4 /* app-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "app-Bridging-Header.h"; sourceTree = "<group>"; };
 		305E471C1C8D169F004EEACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MyCourses.storyboard; sourceTree = "<group>"; };
