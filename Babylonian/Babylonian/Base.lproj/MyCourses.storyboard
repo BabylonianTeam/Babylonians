@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ddc-S3-Pd7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ddc-S3-Pd7">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -120,14 +120,27 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ep6-ZH-Rj2">
+                                <rect key="frame" x="25" y="28" width="125" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="A6B-xc-qsS"/>
+                                    <constraint firstAttribute="height" constant="30" id="lD2-Ws-DSX"/>
+                                </constraints>
+                                <state key="normal" title="+Add New Course"/>
+                                <connections>
+                                    <action selector="createButton:" destination="Ddc-S3-Pd7" eventType="touchUpInside" id="fOD-dT-AF4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gk6-ER-UjE" firstAttribute="top" secondItem="iJV-gs-aqe" secondAttribute="bottom" constant="43" id="7jj-2a-D0a"/>
                             <constraint firstItem="07H-sj-sOm" firstAttribute="top" secondItem="r5E-eB-PSh" secondAttribute="bottom" constant="14" id="DvV-qV-zQj"/>
+                            <constraint firstItem="Ep6-ZH-Rj2" firstAttribute="top" secondItem="iJV-gs-aqe" secondAttribute="bottom" constant="8" id="EQL-Ew-clJ"/>
                             <constraint firstItem="gk6-ER-UjE" firstAttribute="baseline" secondItem="07H-sj-sOm" secondAttribute="baseline" id="GuK-Ef-H9b"/>
                             <constraint firstItem="P55-wK-iHl" firstAttribute="top" secondItem="iJV-gs-aqe" secondAttribute="bottom" constant="42" id="H0J-mf-epM"/>
                             <constraint firstItem="g4b-SA-ypm" firstAttribute="bottom" secondItem="UOp-21-wuY" secondAttribute="top" id="I1g-Om-Tjt"/>
+                            <constraint firstItem="Ep6-ZH-Rj2" firstAttribute="leading" secondItem="H1i-lo-nNw" secondAttribute="leadingMargin" constant="5" id="MAW-k5-Ewm"/>
                             <constraint firstItem="YRN-9i-bXt" firstAttribute="leading" secondItem="P55-wK-iHl" secondAttribute="trailing" constant="74" id="NiH-y8-P4A"/>
                             <constraint firstAttribute="trailingMargin" secondItem="07H-sj-sOm" secondAttribute="trailing" constant="34" id="QR4-oY-wLu"/>
                             <constraint firstItem="YRN-9i-bXt" firstAttribute="baseline" secondItem="gk6-ER-UjE" secondAttribute="baseline" id="Xgn-Jc-Rc8"/>

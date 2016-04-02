@@ -277,11 +277,11 @@
 		076532461C8CFE7500825177 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3037A49F1CAF91F600C52232 /* CourseEditor */,
 				30DBCDD61C9E3BE7000CD59D /* WelcomeView */,
 				9F66D6021C9ADCA200EB9C93 /* Custom Cells */,
 				0705D4FD1C8CEF270065467D /* Main.storyboard */,
 				30F20AB41CA0F7E800A484E9 /* LearnerMain.storyboard */,
-				30F20AC01CA124C600A484E9 /* CourseView.storyboard */,
 				30F20ABA1CA0F99D00A484E9 /* LearnerMyCourses.storyboard */,
 				30F20AB81CA0F98300A484E9 /* LearnerDiscussion.storyboard */,
 				30F20AB61CA0F95700A484E9 /* LearnerMore.storyboard */,
@@ -326,6 +326,14 @@
 				30DBCDD71C9E3C3A000CD59D /* ProgressHUD */,
 			);
 			name = Vendors;
+			sourceTree = "<group>";
+		};
+		3037A49F1CAF91F600C52232 /* CourseEditor */ = {
+			isa = PBXGroup;
+			children = (
+				30F20AC01CA124C600A484E9 /* CourseView.storyboard */,
+			);
+			name = CourseEditor;
 			sourceTree = "<group>";
 		};
 		3068A0F61CA26EA500AE6CB4 /* Resources */ = {
