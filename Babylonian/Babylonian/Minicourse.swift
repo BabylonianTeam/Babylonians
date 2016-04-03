@@ -68,44 +68,48 @@ class Minicourse{
     
     }
     
-    class func addCourseItem(ref: String!, newText: String!){
+    class func addCourseItem(courseRef: String!, newCourseItem: CourseItem!){
         
-    Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref)?.childByAppendingPath("COURSE_TITLE").childByAutoId().setValue(newText)
-        
-    }
-    
-    class func delectCourseItem(refForDelectText: String!,courseRef: String!){
-        
-    Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef).childByAppendingPath("COURSE_TITLE").childByAppendingPath(refForDelectText).removeValue()
+    Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef)?.childByAppendingPath("content").childByAutoId().setValue(newCourseItem)
         
     }
     
-    class func addImage(newImage: UIImage, ref: String!) {
-
-        Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref).childByAppendingPath("images").childByAutoId().setValue(self.base64String)
-    }
-
-    class func deleteImage(imageRef: String, ref: String) {
-    
-         Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref).childByAppendingPath("images").childByAppendingPath(imageRef).removeValue()
+    class func delectCourseItem(refForDelect: String!,courseRef: String!){
+        
+    Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef).childByAppendingPath("content").childByAppendingPath(refForDelect).removeValue()
         
     }
-    
     
     class func deleteMinicourseItem(ref: String!){
         
-            
-            let removeCourseItem = Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref)
-            removeCourseItem.removeValue()
+    let removeCourseItem = Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref)
+        removeCourseItem.removeValue()
        
         
     }
     
-    class func addText(courseItem: BBCourse, newText: String){
-        
-          let newText = ["courseText": newText]
-          courseItem.ref?.updateChildValues(newText)
+    class func updateText(courseRef: String!, courseItemRef: String!, newText: String){
+    
+        Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef).childByAppendingPath("content").childByAppendingPath(courseItemRef).childByAppendingPath("courseText").setValue(newText)
 
+    }
+    
+    class func updateAudio(courseRef: String!, courseItemRef: String!, newAudio: String){
+        
+        Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef).childByAppendingPath("content").childByAppendingPath(courseItemRef).childByAppendingPath("courseAudio").setValue(newAudio)
+        
+    }
+    
+    class func updateImage(courseRef: String!, courseItemRef: String!, newImage: String){
+        
+        Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef).childByAppendingPath("content").childByAppendingPath(courseItemRef).childByAppendingPath("courseImage").setValue(newImage)
+        
+    }
+    
+    class func updateOrder(courseRef: String!, courseItemRef: String!, newOrder: Int){
+        
+        Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef).childByAppendingPath("content").childByAppendingPath(courseItemRef).childByAppendingPath("order").setValue(newOrder)
+        
     }
 
 }
