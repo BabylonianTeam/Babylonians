@@ -32,7 +32,7 @@ class ATItem: CourseItem {
             
             COURSE_ITEM_AUDIO: courseAudio,
             COURSE_ITEM_TEXT: courseText,
-            COURSE_ITEM_ORDER: order,
+            COURSE_ITEM_ORDER: order
             //"courseId": courseId
 
         ]

@@ -33,7 +33,7 @@ class ImageItem: CourseItem {
         return [
             
             COURSE_ITEM_IMAGE: courseImage,
-            COURSE_ITEM_ORDER: order,
+            COURSE_ITEM_ORDER: order
             //"courseId": courseId
             
             
