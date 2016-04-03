@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import Firebase
 
-class CourseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CourseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AVAudioRecorderDelegate {
 
     var courseItems = [CourseItem]()
     var recordingSession: AVAudioSession!
@@ -25,7 +25,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         self.courseTableView.delegate = self
         self.courseTableView.dataSource = self
         
-        let course_url = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEO4Pbpm3W3RHz9OIKY")
+        let course_url = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEOQDePGGLngWcdmSN7")
         //course_url.observeSingleEventOfType(.Value, withBlock: <#T##((FDataSnapshot!) -> Void)!##((FDataSnapshot!) -> Void)!##(FDataSnapshot!) -> Void#>)
         
         course_url.observeEventType(.Value, withBlock: { snapshot in
@@ -74,6 +74,44 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         //TODO: Push to the next view
     }
     
+    @IBAction func recordButtonPressed(sender: UIButton) {
+        startRecording()
+    }
+    
+    @IBAction func recordButtonReleased(sender: UIButton) {
+        finishRecording(success: true)
+    }
+    
+    
+    
+    func startRecording() {
+        let audioFilename = DataService.dataService.LOCAL_DIR+"recording.m4a"
+        print(audioFilename)
+        let audioURL = NSURL(fileURLWithPath: audioFilename)
+        
+        let settings = [
+            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+            AVSampleRateKey: 12000.0,
+            AVNumberOfChannelsKey: 1 as NSNumber,
+            AVEncoderAudioQualityKey: AVAudioQuality.High.rawValue
+        ]
+        
+        do {
+            audioRecorder = try AVAudioRecorder(URL: audioURL, settings: settings)
+            audioRecorder.delegate = self
+            audioRecorder.record()
+            
+        } catch {
+            finishRecording(success: false)
+        }
+    }
+    
+    func finishRecording(success success: Bool) {
+        audioRecorder.stop()
+        audioRecorder = nil
+        
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //print("numberOfRowsInSection")
         return self.courseItems.count
@@ -104,11 +142,6 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    class func getDocumentsDirectory() -> String {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
-    }
     
     /*
     // MARK: - Navigation
