@@ -43,7 +43,7 @@ class Minicourse{
    
     class func setAuthorName(ref: String!, name: String!){
        
-        let namewrapper = ["addedByUser": name]
+        let namewrapper = ["COURSE_AUTHOR": name]
         Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref)?.updateChildValues(namewrapper)
         
     }
@@ -68,7 +68,7 @@ class Minicourse{
     
     }
     
-    class func addCourseItem(courseRef: String!, newCourseItem: CourseItem!){
+    class func addCourseItem(courseRef: String!, newCourseItem: NSObject!){
         
     Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef)?.childByAppendingPath("content").childByAutoId().setValue(newCourseItem)
         
@@ -90,13 +90,13 @@ class Minicourse{
     
     class func updateText(courseRef: String!, courseItemRef: String!, newText: String){
     
-        Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef).childByAppendingPath("content").childByAppendingPath(courseItemRef).childByAppendingPath("courseText").setValue(newText)
+        Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef).childByAppendingPath("CONTENT").childByAppendingPath(courseItemRef).childByAppendingPath("courseText").setValue(newText)
 
     }
     
     class func updateAudio(courseRef: String!, courseItemRef: String!, newAudio: String){
         
-        Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef).childByAppendingPath("content").childByAppendingPath(courseItemRef).childByAppendingPath("courseAudio").setValue(newAudio)
+        Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef).childByAppendingPath("CONTENT").childByAppendingPath(courseItemRef).childByAppendingPath("courseAudio").setValue(newAudio)
         
     }
     
