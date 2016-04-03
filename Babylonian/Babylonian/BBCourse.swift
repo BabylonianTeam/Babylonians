@@ -11,25 +11,45 @@ import Foundation
 import Firebase
 
 
-class BBCourse {
-    var title: String!
-    var author: String!
-    var courseItems: [CourseItem]!
-    var ref: Firebase!
+class BBCourse: NSObject {
+    var Id_: String!
+    var title_: String!
+    var author_: String!
+    var courseItems_: [CourseItem]!
+    var ref_: Firebase!
 
-    init(title: String, author: String) {
-        self.title = title
-        self.author = author
-        //self.ref = Minicourse.minicourse.COURSE_REF.childByAppendingPath("refUrl")
+    init(ref: Firebase, author: String) {
+        self.author_ = author
+        self.ref_ = ref
     }
     
+    func setId(id: String) -> Void {
+        self.Id_ = id
+        self.ref_ = DataService.dataService.COURSE_REF.childByAppendingPath(id)
+    }
     
+    func setTitle(title: String) -> Void {
+        self.title_ = title
+    }
+    
+    var author: String {
+        return self.author_
+    }
+    var title: String {
+        return self.title_
+    }
+    var firebaseRef: Firebase {
+        return ref_
+    }
+    var contents: [CourseItem] {
+        return courseItems_
+    }
     
     func toAnyObject() -> AnyObject {
         
     return [
-        COURSE_TITLE: self.title,
-        COURSE_AUTHOR: self.author
+        COURSE_TITLE: self.title_,
+        COURSE_AUTHOR: self.author_
        
         ]
 }

@@ -201,10 +201,10 @@
             </objects>
             <point key="canvasLocation" x="-148" y="105"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Course Nav Controller-->
         <scene sceneID="WcH-5d-6NA">
             <objects>
-                <navigationController storyboardIdentifier="BBCourseView" id="elr-YT-dw5" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="BBCourseView" id="elr-YT-dw5" customClass="BBCourseNavController" customModule="Babylonian" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Riq-jJ-sYF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

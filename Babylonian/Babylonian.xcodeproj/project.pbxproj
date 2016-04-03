@@ -59,6 +59,7 @@
 		30DBCE101C9E41F6000CD59D /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DBCE0F1C9E41F6000CD59D /* ImageIO.framework */; };
 		30DBCE151C9E6D0C000CD59D /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DBCE141C9E6D0C000CD59D /* DataService.swift */; };
 		30E6DB3B1CB1C43B00F604E6 /* CourseSettingsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30E6DB3A1CB1C43B00F604E6 /* CourseSettingsView.storyboard */; };
+		30E6DB3D1CB1C59E00F604E6 /* BBCourseNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E6DB3C1CB1C59E00F604E6 /* BBCourseNavController.swift */; };
 		30F20AB51CA0F7E800A484E9 /* LearnerMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20AB41CA0F7E800A484E9 /* LearnerMain.storyboard */; };
 		30F20AB71CA0F95700A484E9 /* LearnerMore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20AB61CA0F95700A484E9 /* LearnerMore.storyboard */; };
 		30F20AB91CA0F98300A484E9 /* LearnerDiscussion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20AB81CA0F98300A484E9 /* LearnerDiscussion.storyboard */; };
@@ -178,6 +179,7 @@
 		30DBCE131C9E5432000CD59D /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
 		30DBCE141C9E6D0C000CD59D /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		30E6DB3A1CB1C43B00F604E6 /* CourseSettingsView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CourseSettingsView.storyboard; sourceTree = "<group>"; };
+		30E6DB3C1CB1C59E00F604E6 /* BBCourseNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBCourseNavController.swift; sourceTree = "<group>"; };
 		30F20AB41CA0F7E800A484E9 /* LearnerMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LearnerMain.storyboard; sourceTree = "<group>"; };
 		30F20AB61CA0F95700A484E9 /* LearnerMore.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LearnerMore.storyboard; sourceTree = "<group>"; };
 		30F20AB81CA0F98300A484E9 /* LearnerDiscussion.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LearnerDiscussion.storyboard; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				30F20AC01CA124C600A484E9 /* CourseView.storyboard */,
+				30E6DB3C1CB1C59E00F604E6 /* BBCourseNavController.swift */,
 				30E6DB3A1CB1C43B00F604E6 /* CourseSettingsView.storyboard */,
 				3037A4B01CB0B2E100C52232 /* ImageItemCell.swift */,
 				3037A4B21CB0B30100C52232 /* ATItemCell.swift */,
@@ -696,6 +699,7 @@
 				9FBDE5691C9B8E9D003A45BA /* Minicourse.swift in Sources */,
 				30DBCE0A1C9E4174000CD59D /* UIImage+MultiFormat.m in Sources */,
 				30DBCE0B1C9E4174000CD59D /* UIImage+WebP.m in Sources */,
+				30E6DB3D1CB1C59E00F604E6 /* BBCourseNavController.swift in Sources */,
 				30DBCDDC1C9E3C3A000CD59D /* ProgressHUD.m in Sources */,
 				30DBCE0D1C9E4174000CD59D /* UIImageView+WebCache.m in Sources */,
 				3057A6C91C9DED2400C9C1A4 /* Utilities.swift in Sources */,

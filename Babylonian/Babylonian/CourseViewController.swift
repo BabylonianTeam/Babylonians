@@ -12,6 +12,7 @@ import Firebase
 
 class CourseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AVAudioRecorderDelegate {
 
+    var currentCourse: BBCourse!
     var courseItems = [CourseItem]()
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
@@ -27,9 +28,19 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         self.courseTableView.delegate = self
         self.courseTableView.dataSource = self
         
-        let course_url = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEPJobHpCZ1z_4xOI6C")
+        if let _=(self.navigationController as! BBCourseNavController).currentCourse {
+            //has a value already
+            print("currentCourse has a value already")
+        }
+        else{
+            //let ref = DataService.dataService.COURSE_REF.childByAutoId()
+            let ref = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEPJobHpCZ1z_4xOI6C")
+            (self.navigationController as! BBCourseNavController).currentCourse = BBCourse(ref: ref, author: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
+            
+        }
+        self.currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
         
-        course_url.observeEventType(.Value, withBlock: { snapshot in
+        self.currentCourse.firebaseRef.observeEventType(.Value, withBlock: { snapshot in
             
             let content = snapshot.value.objectForKey("content") as! [String:NSDictionary]
             for item in content{
