@@ -24,12 +24,16 @@ class ImageItem: CourseItem {
         return self.courseId
     }
     
+    override func getType() -> String {
+        return COURSE_ITEM_TYPE_IMAGE
+    }
+    
     func toAnyObject() -> AnyObject {
         
         return [
             
-            "courseImage": courseImage,
-            "order": order,
+            COURSE_ITEM_IMAGE: courseImage,
+            COURSE_ITEM_ORDER: order,
             //"courseId": courseId
             
             

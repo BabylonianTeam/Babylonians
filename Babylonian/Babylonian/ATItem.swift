@@ -22,13 +22,17 @@ class ATItem: CourseItem {
        // self.ref = Minicourse.minicourse.COURSE_REF.childByAppendingPath("refUrl")
     }
     
+    override func getType() -> String {
+        return COURSE_ITEM_TYPE_AUDIOTEXT
+    }
+    
     func toAnyObject() -> AnyObject {
         
         return [
             
-            "courseAudio": courseAudio,
-            "courseText": courseText,
-            "order": order,
+            COURSE_ITEM_AUDIO: courseAudio,
+            COURSE_ITEM_TEXT: courseText,
+            COURSE_ITEM_ORDER: order,
             //"courseId": courseId
 
         ]

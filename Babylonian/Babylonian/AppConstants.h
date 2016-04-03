@@ -31,7 +31,15 @@
 #define		COURSE_TITLE                        @"title"
 #define		COURSE_STATUS                       @"status"
 
-
 #define		COURSE_STATUS_DRAFT                 @"draft"
 #define		COURSE_STATUS_ONSHELF               @"onshelf"
 #define		COURSE_STATUS_ARCHIVED              @"archived"
+
+
+#define		COURSE_ITEM_ORDER                   @"order"
+#define		COURSE_ITEM_IMAGE                   @"image"
+#define		COURSE_ITEM_AUDIO                   @"audio"
+#define		COURSE_ITEM_TEXT                    @"text"
+#define		COURSE_ITEM_TYPE                    @"type"
+#define		COURSE_ITEM_TYPE_IMAGE              @"IM"
+#define		COURSE_ITEM_TYPE_AUDIOTEXT          @"AT"

@@ -12,4 +12,9 @@ import Foundation
 class CourseItem {
     var order: Int!
     var courseId: String!
+    
+    func getType() -> String {
+        //this function need to be overriden
+        fatalError("Must Override")
+    }
 }
