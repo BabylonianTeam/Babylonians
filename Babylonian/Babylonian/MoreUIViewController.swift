@@ -9,7 +9,7 @@
 
 import UIKit
 
-class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate {
     
     // MARK: IBOutlet Properties
     @IBOutlet weak var tblExpandable: UITableView!
@@ -22,7 +22,10 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let items = [["Display Name", "Profile Photo", "E-mail", "Password"],
                  ["Show Location", "Connected to FB", "Connected to Twitter"]
                 ]
-    let cellIdentifier = "tableCell"
+    
+    let cellTypes = [ ["idLabelCell", "idLabelCell", "idLabelCell", "idLabelCell"],
+                     ["idCellSwitch", "idCellSwitch", "idCellSwitch"]
+                   ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +48,7 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func configureTableView() {
         tblExpandable.delegate = self
         tblExpandable.dataSource = self
-        //tblExpandable.tableFooterView = UIView(frame: CGRectZero)
+        tblExpandable.tableFooterView = UIView(frame: CGRectZero)
         
         tblExpandable.registerNib(UINib(nibName: "LabelCell", bundle: nil), forCellReuseIdentifier: "idLabelCell")
         tblExpandable.registerNib(UINib(nibName: "NormalCell", bundle: nil), forCellReuseIdentifier: "idCellNormal")
@@ -74,11 +77,21 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("idLabelCell", forIndexPath: indexPath)
+        
+        
+        //let cell = tableView.dequeueReusableCellWithIdentifier("idLabelCell", forIndexPath: indexPath)
+        let cellType = self.cellTypes[indexPath.section][indexPath.row]
+         let cell = tableView.dequeueReusableCellWithIdentifier(cellType, forIndexPath: indexPath) as! CustomCell
+        
         
         // Configure the cell...
         
-        cell.textLabel?.text = self.items[indexPath.section][indexPath.row]
+        if(cellType == "idLabelCell"){
+            cell.textLabel?.text = self.items[indexPath.section][indexPath.row]
+        }
+        else if(cellType == "idCellSwitch"){
+            cell.lblSwitchLabel.text = self.items[indexPath.section][indexPath.row]
+        }
         
         return cell
         
@@ -94,13 +107,91 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }*/
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("ts", sender: self)
+        if(indexPath.section < 1){
+            performSegueWithIdentifier("ts", sender: self)
+        }
     }
     
+    
     @IBAction func logoutPressed(sender: AnyObject) {
+        let navigationController = UINavigationController()
+        navigationController.viewControllers = [WelcomeView()]
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
         DataService.dataService.BASE_REF.unauth()
         NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
     }
+    
+    
+    //==============================================================
+    // MARK: CustomCellDelegate Functions
+    //==============================================================
+    func dateWasSelected(selectedDateString: String) {
+        /*
+        let dateCellSection = 0
+        let dateCellRow = 3
+        
+        cellDescriptors[dateCellSection][dateCellRow].setValue(selectedDateString, forKey: "primaryTitle")
+        */
+        tblExpandable.reloadData()
+    }
+    
+    
+    func maritalStatusSwitchChangedState(isOn: Bool) {
+        /*
+        let maritalSwitchCellSection = 0
+        let maritalSwitchCellRow = 6
+        
+        let valueToStore = (isOn) ? "true" : "false"
+        let valueToDisplay = (isOn) ? "Married" : "Single"
+        
+        cellDescriptors[maritalSwitchCellSection][maritalSwitchCellRow].setValue(valueToStore, forKey: "value")
+        cellDescriptors[maritalSwitchCellSection][maritalSwitchCellRow - 1].setValue(valueToDisplay, forKey: "primaryTitle")
+        */
+        tblExpandable.reloadData()
+    }
+    
+    
+    func textfieldTextWasChanged(newText: String, parentCell: CustomCell) {
+        /*
+        let parentCellIndexPath = tblExpandable.indexPathForCell(parentCell)
+        
+        
+        let currentFullname = cellDescriptors[0][0]["primaryTitle"] as! String
+        let fullnameParts = currentFullname.componentsSeparatedByString(" ")
+        
+        var newFullname = ""
+        
+        if parentCellIndexPath?.row == 1 {
+            if fullnameParts.count == 2 {
+                newFullname = "\(newText) \(fullnameParts[1])"
+            }
+            else {
+                newFullname = newText
+            }
+        }
+        else {
+            newFullname = "\(fullnameParts[0]) \(newText)"
+        }
+        
+        cellDescriptors[0][0].setValue(newFullname, forKey: "primaryTitle")
+        */
+        
+        tblExpandable.reloadData()
+    }
+    
+    
+    func sliderDidChangeValue(newSliderValue: String) {
+        /*
+        cellDescriptors[2][0].setValue(newSliderValue, forKey: "primaryTitle")
+        cellDescriptors[2][1].setValue(newSliderValue, forKey: "value")
+        */
+        
+        tblExpandable.reloadSections(NSIndexSet(index: 2), withRowAnimation: UITableViewRowAnimation.None)
+    }
+
 }
 
 
