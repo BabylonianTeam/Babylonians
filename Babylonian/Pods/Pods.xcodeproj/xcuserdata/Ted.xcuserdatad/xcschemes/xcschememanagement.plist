@@ -4,25 +4,60 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Bolts.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>Firebase.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+		<key>Parse.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>Pods-Babylonian.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>Stripe.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>147E0D82D8357C766CE85AD2EFF963C3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>87DE974A8397FF450BEAB6A65C76DB8B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8BB1933D1D02E754261E29159CB8EDC8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9E137FF602361C6CB498C96998DA6491</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>B7AC9326D819482593FE118E915409D7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BCA053B6430690326435042FEB61B458</key>
 		<dict>
 			<key>primary</key>
 			<true/>
