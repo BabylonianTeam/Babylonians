@@ -16,8 +16,7 @@ class ATItem: CourseItem {
         self.content = [COURSE_ITEM_TEXT:courseText,COURSE_ITEM_AUDIO:courseAudio]
         self.order = order
         self.courseId = courseId
-        // self.tag = tag
-       // self.ref = Minicourse.minicourse.COURSE_REF.childByAppendingPath("refUrl")
+        
     }
     
     override func getType() -> String {
