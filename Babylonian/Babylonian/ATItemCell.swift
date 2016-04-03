@@ -10,9 +10,18 @@ import UIKit
 
 class ATItemCell: UITableViewCell {
 
+    var audioPath : String!
+    @IBOutlet weak var audioPlayer: UIButton!
+    
+    @IBOutlet weak var transcript: UITextView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    @IBAction func playButtonPressed(sender: UIButton) {
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

@@ -37,9 +37,9 @@
 
 
 #define		COURSE_ITEM_ORDER                   @"order"
-#define		COURSE_ITEM_IMAGE                   @"image"
-#define		COURSE_ITEM_AUDIO                   @"audio"
-#define		COURSE_ITEM_TEXT                    @"text"
+#define		COURSE_ITEM_IMAGE                   @"courseImage"
+#define		COURSE_ITEM_AUDIO                   @"courseAudio"
+#define		COURSE_ITEM_TEXT                    @"courseText"
 #define		COURSE_ITEM_TYPE                    @"type"
 #define		COURSE_ITEM_TYPE_IMAGE              @"IM"
 #define		COURSE_ITEM_TYPE_AUDIOTEXT          @"AT"

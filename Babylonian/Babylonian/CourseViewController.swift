@@ -25,27 +25,31 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         self.courseTableView.delegate = self
         self.courseTableView.dataSource = self
         
-        let course_url = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEOQDePGGLngWcdmSN7")
-        //course_url.observeSingleEventOfType(.Value, withBlock: <#T##((FDataSnapshot!) -> Void)!##((FDataSnapshot!) -> Void)!##(FDataSnapshot!) -> Void#>)
+        let course_url = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEPJobHpCZ1z_4xOI6C")
         
         course_url.observeEventType(.Value, withBlock: { snapshot in
             
-            print("printing snapshot")
-            print(snapshot.value)
-            //for item in snapshot.children {
-                //print(item as! FDataSnapshot)
-                //let minicourseItem = MinicourseItem(snapshot: item as! FDataSnapshot)
-                //self.courseItems.append(minicourseItem)
-                // print(newItems)
+            let content = snapshot.value.objectForKey("content") as! [String:NSDictionary]
+            for item in content{
+                if let im_ref = item.1[COURSE_ITEM_IMAGE] {
+                    let courseItem = ImageItem(courseImage: im_ref as! String,order: item.1[COURSE_ITEM_ORDER] as! Int)
+                    self.courseItems.append(courseItem)
+                    
+                }
+                else if let text_ref = item.1[COURSE_ITEM_TEXT]  {
+                    let courseItem = ATItem(courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int)
+                    self.courseItems.append(courseItem)
+                }
                 
-            //}
-            
-            // print(newItems)
+            }
+            print(self.courseItems)
             
             }, withCancelBlock: { error in
                 print(error.description)
         })
         
+        
+        //prepare for recording
         recordingSession = AVAudioSession.sharedInstance()
         
         do {
@@ -123,14 +127,25 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("MainCourseCell", forIndexPath: indexPath) as! MainCourseCell
-        
-        // Configure the cell...
 
-        cell.title?.text = self.courseItems[indexPath.row].courseId
-        cell.numOfView.text = "1k"
-        return cell
         
+        if self.courseItems[indexPath.row].getType()==COURSE_ITEM_TYPE_AUDIOTEXT {
+            let cell1 = tableView.dequeueReusableCellWithIdentifier("ATItemCell", forIndexPath: indexPath) as! ATItemCell
+            let dic = self.courseItems[indexPath.row].content as! [String:String]
+            cell1.transcript.text = dic[COURSE_ITEM_TEXT]
+            cell1.audioPath = dic[COURSE_ITEM_AUDIO]
+            return cell1
+
+        }
+        else {
+            
+            let cell2 = tableView.dequeueReusableCellWithIdentifier("ImageItemCell", forIndexPath: indexPath) as! ImageItemCell
+            let dic = self.courseItems[indexPath.row].content as! [String:String]
+            cell2.imageView?.image = UIImage(contentsOfFile: dic[COURSE_ITEM_IMAGE]!)
+            return cell2
+        }
+        
+                
     }
     
     override func didReceiveMemoryWarning() {

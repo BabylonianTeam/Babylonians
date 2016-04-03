@@ -9,9 +9,15 @@
 import Foundation
 
 
-class CourseItem {
+class CourseItem: NSObject {
     var order: Int!
+    var content: NSDictionary!
+        
     var courseId: String!
+    
+    override init() {
+        content = NSDictionary()
+    }
     
     func getType() -> String {
         //this function need to be overriden

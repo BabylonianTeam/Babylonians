@@ -1,4 +1,4 @@
-//
+ //
 //  ATItem.swift
 //  Babylonian
 //
@@ -9,13 +9,11 @@
 import Foundation
 
 class ATItem: CourseItem {
-     var courseText: NSObject!
-     var courseAudio: String!
     
-    init(courseText: NSObject, courseAudio: String, order: Int) {//, courseText: NSObject
+    init(courseText: String, courseAudio: String, order: Int) {//, courseText: NSObject
         super.init()
-        self.courseText = courseText
-        self.courseAudio = courseAudio
+        
+        self.content = [COURSE_ITEM_TEXT:courseText,COURSE_ITEM_AUDIO:courseAudio]
         self.order = order
         self.courseId = courseId
         // self.tag = tag
@@ -30,8 +28,8 @@ class ATItem: CourseItem {
         
         return [
             
-            COURSE_ITEM_AUDIO: courseAudio,
-            COURSE_ITEM_TEXT: courseText,
+            COURSE_ITEM_AUDIO: self.content[COURSE_ITEM_AUDIO] as! String,
+            COURSE_ITEM_TEXT: self.content[COURSE_ITEM_TEXT] as! String,
             COURSE_ITEM_ORDER: order,
             //"courseId": courseId
 

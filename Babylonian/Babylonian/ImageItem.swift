@@ -10,11 +10,9 @@ import Foundation
 
 class ImageItem: CourseItem {
     
-    var courseImage: String!
-    
     init(courseImage: String, order: Int) {//, courseText: NSObject
         super.init()
-        self.courseImage = courseImage
+        self.content=[COURSE_ITEM_IMAGE:courseImage]
         self.order = order
         self.courseId = courseId
      
@@ -32,11 +30,9 @@ class ImageItem: CourseItem {
         
         return [
             
-            COURSE_ITEM_IMAGE: courseImage,
-            COURSE_ITEM_ORDER: order,
+            COURSE_ITEM_IMAGE: self.content[COURSE_ITEM_IMAGE] as! String,
+            COURSE_ITEM_ORDER: order
             //"courseId": courseId
-            
-            
             
         ]
     }
