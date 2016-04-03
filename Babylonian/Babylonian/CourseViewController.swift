@@ -85,7 +85,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func startRecording() {
-        let audioFilename = DataService.dataService.LOCAL_DIR+"recording.m4a"
+        let audioFilename = DataService.dataService.LOCAL_DIR+"/recording.m4a"
         print(audioFilename)
         let audioURL = NSURL(fileURLWithPath: audioFilename)
         

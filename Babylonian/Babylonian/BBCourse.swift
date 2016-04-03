@@ -12,15 +12,15 @@ import Firebase
 
 
 class BBCourse {
-    var COURSE_TITLE: String!
-    var COURSE_AUTHOR: String!
+    var title: String!
+    var author: String!
     var courseItems: [CourseItem]!
     var ref: Firebase!
 
-    init(COURSE_TITLE: String, COURSE_AUTHOR: String) {
-        self.COURSE_TITLE = COURSE_TITLE
-        self.COURSE_AUTHOR = COURSE_AUTHOR
-        self.ref = Minicourse.minicourse.COURSE_REF.childByAppendingPath("refUrl")
+    init(title: String, author: String) {
+        self.title = title
+        self.author = author
+        //self.ref = Minicourse.minicourse.COURSE_REF.childByAppendingPath("refUrl")
     }
     
     
@@ -28,8 +28,8 @@ class BBCourse {
     func toAnyObject() -> AnyObject {
         
     return [
-        "COURSE_TITLE": COURSE_TITLE,
-        "COURSE_AUTHOR": COURSE_AUTHOR
+        COURSE_TITLE: self.title,
+        COURSE_AUTHOR: self.author
        
         ]
 }
