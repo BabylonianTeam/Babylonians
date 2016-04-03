@@ -29,3 +29,9 @@
 
 #define		COURSE_AUTHOR                       @"author"
 #define		COURSE_TITLE                        @"title"
+#define		COURSE_STATUS                       @"status"
+
+
+#define		COURSE_STATUS_DRAFT                 @"draft"
+#define		COURSE_STATUS_ONSHELF               @"onshelf"
+#define		COURSE_STATUS_ARCHIVED              @"archived"

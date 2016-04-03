@@ -23,7 +23,7 @@ class Minicourse{
     private var _BASE_REF = Firebase(url: "\(BASE_URL)")
     private var _COURSE_REF = Firebase(url: "\(BASE_URL)/courses")
     
-  private static var currentMinicourse: MinicourseItem?
+  private static var currentMinicourse: BBCourse?
     
     var BASE_REF: Firebase {
         return _BASE_REF
@@ -225,7 +225,7 @@ class Minicourse{
     
 
     
-    func addText(courseItem: MinicourseItem, newText: String){
+    func addText(courseItem: BBCourse, newText: String){
         
           let newText = ["courseText": newText]
           courseItem.ref?.updateChildValues(newText)
