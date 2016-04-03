@@ -317,12 +317,12 @@
 		076532481C8CFE8300825177 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3037A4A61CB09F6600C52232 /* ImageItem.swift */,
-				3037A4A71CB09F6600C52232 /* ATItem.swift */,
+				9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */,
 				3037A4AC1CB0A1DF00C52232 /* BBCourse.swift */,
 				3037A4A81CB09F6600C52232 /* CourseItem.swift */,
+				3037A4A61CB09F6600C52232 /* ImageItem.swift */,
+				3037A4A71CB09F6600C52232 /* ATItem.swift */,
 				9FBDE5651C9B8E9D003A45BA /* Constant.swift */,
-				9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */,
 				30DBCE141C9E6D0C000CD59D /* DataService.swift */,
 			);
 			name = Models;
