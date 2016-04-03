@@ -12,7 +12,7 @@ class ImageItem: CourseItem {
     
     var courseImage: String!
     
-    init(courseImage: String, order: Int, courseId: String) {//, courseText: NSObject
+    init(courseImage: String, order: Int) {//, courseText: NSObject
         super.init()
         self.courseImage = courseImage
         self.order = order
@@ -30,7 +30,7 @@ class ImageItem: CourseItem {
             
             "courseImage": courseImage,
             "order": order,
-            "courseId": courseId
+            //"courseId": courseId
             
             
             

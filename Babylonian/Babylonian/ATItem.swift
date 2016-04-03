@@ -12,7 +12,7 @@ class ATItem: CourseItem {
      var courseText: NSObject!
      var courseAudio: String!
     
-    init(courseText: NSObject, courseAudio: String, order: Int, courseId: String) {//, courseText: NSObject
+    init(courseText: NSObject, courseAudio: String, order: Int) {//, courseText: NSObject
         super.init()
         self.courseText = courseText
         self.courseAudio = courseAudio
@@ -29,7 +29,7 @@ class ATItem: CourseItem {
             "courseAudio": courseAudio,
             "courseText": courseText,
             "order": order,
-            "courseId": courseId
+            //"courseId": courseId
 
         ]
     }
