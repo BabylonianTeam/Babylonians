@@ -90,13 +90,13 @@ class Minicourse{
     
     class func updateText(courseRef: String!, courseItemRef: String!, newText: String){
     
-        Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef).childByAppendingPath("CONTENT").childByAppendingPath(courseItemRef).childByAppendingPath("courseText").setValue(newText)
+        Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef).childByAppendingPath("content").childByAppendingPath(courseItemRef).childByAppendingPath("courseText").setValue(newText)
 
     }
     
     class func updateAudio(courseRef: String!, courseItemRef: String!, newAudio: String){
         
-        Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef).childByAppendingPath("CONTENT").childByAppendingPath(courseItemRef).childByAppendingPath("courseAudio").setValue(newAudio)
+        Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef).childByAppendingPath("content").childByAppendingPath(courseItemRef).childByAppendingPath("courseAudio").setValue(newAudio)
         
     }
     
