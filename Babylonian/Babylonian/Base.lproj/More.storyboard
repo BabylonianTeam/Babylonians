@@ -18,20 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iQd-QM-X4W">
-                                <rect key="frame" x="40" y="126" width="520" height="405"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableCell" id="PWJ-V7-IbB">
-                                        <rect key="frame" x="0.0" y="92" width="520" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PWJ-V7-IbB" id="CUK-Kz-XIU">
-                                            <rect key="frame" x="0.0" y="0.0" width="520" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5c-uY-77I">
                                 <rect key="frame" x="532" y="72" width="48" height="30"/>
                                 <state key="normal" title="Logout"/>
@@ -39,15 +25,18 @@
                                     <action selector="logoutPressed:" destination="ruJ-ut-0kv" eventType="touchUpInside" id="8Od-kF-9tb"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iQd-QM-X4W">
+                                <rect key="frame" x="0.0" y="182" width="600" height="418"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="iQd-QM-X4W" secondAttribute="trailing" id="0gN-Le-5hQ"/>
                             <constraint firstItem="e5c-uY-77I" firstAttribute="trailing" secondItem="Y6c-yu-lXc" secondAttribute="trailingMargin" id="3BA-hI-lGM"/>
-                            <constraint firstItem="iQd-QM-X4W" firstAttribute="leading" secondItem="Y6c-yu-lXc" secondAttribute="leadingMargin" constant="20" id="3Qq-Jj-6Di"/>
-                            <constraint firstItem="iQd-QM-X4W" firstAttribute="centerX" secondItem="Y6c-yu-lXc" secondAttribute="centerX" id="CKr-Up-3bI"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="iQd-QM-X4W" secondAttribute="trailing" constant="20" id="RdC-hV-TGw"/>
-                            <constraint firstItem="iQd-QM-X4W" firstAttribute="top" secondItem="VvU-IP-RaZ" secondAttribute="bottom" constant="62" id="UMg-ev-abv"/>
-                            <constraint firstItem="c7Y-CS-Pxw" firstAttribute="top" secondItem="iQd-QM-X4W" secondAttribute="bottom" constant="20" id="eus-dZ-bEx"/>
+                            <constraint firstAttribute="bottom" secondItem="iQd-QM-X4W" secondAttribute="bottom" id="3F1-F6-RGj"/>
+                            <constraint firstItem="iQd-QM-X4W" firstAttribute="leading" secondItem="Y6c-yu-lXc" secondAttribute="leading" id="Ipe-9X-FIw"/>
+                            <constraint firstItem="iQd-QM-X4W" firstAttribute="top" secondItem="e5c-uY-77I" secondAttribute="bottom" constant="80" id="dlL-Hv-oXR"/>
                             <constraint firstItem="e5c-uY-77I" firstAttribute="top" secondItem="VvU-IP-RaZ" secondAttribute="bottom" constant="8" symbolic="YES" id="fHE-Ld-nLi"/>
                         </constraints>
                     </view>
