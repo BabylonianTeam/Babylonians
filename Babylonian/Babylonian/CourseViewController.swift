@@ -15,6 +15,8 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     var courseItems = [CourseItem]()
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
+    var audioPlayer = AVAudioPlayer()
+    var audioURL = NSURL()
     
     @IBOutlet weak var courseTableView: UITableView!
     
@@ -40,9 +42,8 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
                     let courseItem = ATItem(courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int)
                     self.courseItems.append(courseItem)
                 }
-                
             }
-            print(self.courseItems)
+            self.courseTableView.reloadData()
             
             }, withCancelBlock: { error in
                 print(error.description)
@@ -90,6 +91,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     
     func startRecording() {
         let audioFilename = DataService.dataService.LOCAL_DIR+"/recording.m4a"
+        self.audioURL = NSURL(fileURLWithPath: audioFilename)
         print(audioFilename)
         let audioURL = NSURL(fileURLWithPath: audioFilename)
         
@@ -111,8 +113,16 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     @IBAction func testplay(sender: UIButton) {
+        do{
+            self.audioPlayer = try AVAudioPlayer(contentsOfURL:self.audioURL, fileTypeHint:nil)
+            self.audioPlayer.prepareToPlay()
+            self.audioPlayer.play()
+        }catch {
+            print("Error getting the audio file")
+        }
         
     }
+    
     func finishRecording(success success: Bool) {
         audioRecorder.stop()
         audioRecorder = nil
@@ -121,7 +131,6 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //print("numberOfRowsInSection")
         return self.courseItems.count
     }
     
@@ -143,7 +152,14 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             
             let cell2 = tableView.dequeueReusableCellWithIdentifier("ImageItemCell", forIndexPath: indexPath) as! ImageItemCell
             let dic = self.courseItems[indexPath.row].content as! [String:String]
-            cell2.imageView?.image = UIImage(contentsOfFile: dic[COURSE_ITEM_IMAGE]!)
+            
+            if let stringUrl = dic[COURSE_ITEM_IMAGE] {
+                if let url = NSURL(string: stringUrl) {
+                    if let data = NSData(contentsOfURL: url) {
+                        cell2.imageView?.image = UIImage(data: data)
+                    }
+                }
+            }
             return cell2
         }
         
