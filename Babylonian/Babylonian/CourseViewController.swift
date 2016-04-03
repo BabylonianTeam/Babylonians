@@ -110,11 +110,15 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    @IBAction func testplay(sender: UIButton) {
+        
+    }
     func finishRecording(success success: Bool) {
         audioRecorder.stop()
         audioRecorder = nil
         
     }
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //print("numberOfRowsInSection")
@@ -126,9 +130,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-
-        
+   
         if self.courseItems[indexPath.row].getType()==COURSE_ITEM_TYPE_AUDIOTEXT {
             let cell1 = tableView.dequeueReusableCellWithIdentifier("ATItemCell", forIndexPath: indexPath) as! ATItemCell
             let dic = self.courseItems[indexPath.row].content as! [String:String]
