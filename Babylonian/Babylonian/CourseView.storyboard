@@ -32,7 +32,7 @@
                                     <action selector="recordButtonReleased:" destination="45I-xC-lAC" eventType="touchUpInside" id="qHX-fd-jvM"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7dH-ch-bSx">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7dH-ch-bSx" customClass="LPRTableView" customModule="Babylonian" customModuleProvider="target">
                                 <rect key="frame" x="20" y="64" width="560" height="384"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -46,11 +46,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyg-6b-Yti">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyg-6b-Yti" customClass="PlaybackButton" customModule="Babylonian" customModuleProvider="target">
                                                     <rect key="frame" x="18" y="12" width="22" height="22"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="22" id="1vS-GH-3va"/>
-                                                        <constraint firstAttribute="width" constant="22" id="Wgx-6G-5bj"/>
+                                                        <constraint firstAttribute="height" constant="22" id="1vS-GH-3va" userLabel="height = 30"/>
+                                                        <constraint firstAttribute="width" constant="22" id="Wgx-6G-5bj" userLabel="width = 30"/>
                                                     </constraints>
                                                     <connections>
                                                         <action selector="playButtonPressed:" destination="Jms-fq-3kc" eventType="touchUpInside" id="62y-yO-b2W"/>
@@ -195,6 +195,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="courseTableView" destination="7dH-ch-bSx" id="of6-Us-kgV"/>
+                        <outlet property="tableEditButton" destination="DeV-f2-z4K" id="1Rv-H8-XdC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s5d-vD-rVr" userLabel="First Responder" sceneMemberID="firstResponder"/>

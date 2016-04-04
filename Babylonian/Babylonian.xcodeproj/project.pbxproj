@@ -61,6 +61,7 @@
 		30E6DB3B1CB1C43B00F604E6 /* CourseSettingsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30E6DB3A1CB1C43B00F604E6 /* CourseSettingsView.storyboard */; };
 		30E6DB3D1CB1C59E00F604E6 /* BBCourseNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E6DB3C1CB1C59E00F604E6 /* BBCourseNavController.swift */; };
 		30E6DB3F1CB1E97D00F604E6 /* PlaybackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E6DB3E1CB1E97D00F604E6 /* PlaybackButton.swift */; };
+		30E6DB411CB2193200F604E6 /* LPRTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E6DB401CB2193200F604E6 /* LPRTableView.swift */; };
 		30F20AB51CA0F7E800A484E9 /* LearnerMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20AB41CA0F7E800A484E9 /* LearnerMain.storyboard */; };
 		30F20AB71CA0F95700A484E9 /* LearnerMore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20AB61CA0F95700A484E9 /* LearnerMore.storyboard */; };
 		30F20AB91CA0F98300A484E9 /* LearnerDiscussion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20AB81CA0F98300A484E9 /* LearnerDiscussion.storyboard */; };
@@ -183,6 +184,7 @@
 		30E6DB3A1CB1C43B00F604E6 /* CourseSettingsView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CourseSettingsView.storyboard; sourceTree = "<group>"; };
 		30E6DB3C1CB1C59E00F604E6 /* BBCourseNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBCourseNavController.swift; sourceTree = "<group>"; };
 		30E6DB3E1CB1E97D00F604E6 /* PlaybackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackButton.swift; sourceTree = "<group>"; };
+		30E6DB401CB2193200F604E6 /* LPRTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LPRTableView.swift; sourceTree = "<group>"; };
 		30F20AB41CA0F7E800A484E9 /* LearnerMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LearnerMain.storyboard; sourceTree = "<group>"; };
 		30F20AB61CA0F95700A484E9 /* LearnerMore.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LearnerMore.storyboard; sourceTree = "<group>"; };
 		30F20AB81CA0F98300A484E9 /* LearnerDiscussion.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LearnerDiscussion.storyboard; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				30E6DB3E1CB1E97D00F604E6 /* PlaybackButton.swift */,
 				30F20AC01CA124C600A484E9 /* CourseView.storyboard */,
 				30E6DB3C1CB1C59E00F604E6 /* BBCourseNavController.swift */,
+				30E6DB401CB2193200F604E6 /* LPRTableView.swift */,
 				30E6DB3A1CB1C43B00F604E6 /* CourseSettingsView.storyboard */,
 				3037A4B01CB0B2E100C52232 /* ImageItemCell.swift */,
 				3037A4B21CB0B30100C52232 /* ATItemCell.swift */,
@@ -722,6 +725,7 @@
 				3037A4AA1CB09F6600C52232 /* ATItem.swift in Sources */,
 				30DBCE001C9E4174000CD59D /* NSData+ImageContentType.m in Sources */,
 				3037A4B31CB0B30100C52232 /* ATItemCell.swift in Sources */,
+				30E6DB411CB2193200F604E6 /* LPRTableView.swift in Sources */,
 				9F66D6101C9ADE6B00EB9C93 /* CustomCell.swift in Sources */,
 				306C32391C9B912C0035608E /* MainPageViewController.swift in Sources */,
 				30DBCE061C9E4174000CD59D /* SDWebImageManager.m in Sources */,

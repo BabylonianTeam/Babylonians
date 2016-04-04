@@ -21,8 +21,9 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
 //    var audioPlayer = AVAudioPlayer()
     var audioURL = NSURL()
     
-    @IBOutlet weak var courseTableView: UITableView!
+    @IBOutlet weak var courseTableView: LPRTableView!
     
+    @IBOutlet weak var tableEditButton: UIButton!
     //TODO: initwithCourseId
     
     override func viewDidLoad() {
@@ -31,6 +32,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.courseTableView.delegate = self
         self.courseTableView.dataSource = self
+        self.courseTableView.longPressReorderEnabled = false
         
         if let _=(self.navigationController as! BBCourseNavController).currentCourse {
             //has a value already
@@ -45,22 +47,28 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         }
         self.currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
         
-        
         self.currentCourse.firebaseRef.observeEventType(.Value, withBlock: { snapshot in
             
-            let content = snapshot.value.objectForKey("content") as! [String:NSDictionary]
-            for item in content{
-                if let im_ref = item.1[COURSE_ITEM_IMAGE] {
-                    let courseItem = ImageItem(courseImage: im_ref as! String,order: item.1[COURSE_ITEM_ORDER] as! Int)
-                    self.currentCourse.addCourseItem(courseItem)
-                    
+            if let content = snapshot.value.objectForKey("content"){
+                
+                for item in content as! [String:NSDictionary]{
+                    if let im_ref = item.1[COURSE_ITEM_IMAGE] {
+                        let courseItem = ImageItem(courseImage: im_ref as! String,order: item.1[COURSE_ITEM_ORDER] as! Int)
+                        self.currentCourse.addCourseItem(courseItem)
+                        
+                    }
+                    else if let text_ref = item.1[COURSE_ITEM_TEXT]  {
+                        let courseItem = ATItem(courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int)
+                        self.currentCourse.addCourseItem(courseItem)
+                    }
                 }
-                else if let text_ref = item.1[COURSE_ITEM_TEXT]  {
-                    let courseItem = ATItem(courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int)
-                    self.currentCourse.addCourseItem(courseItem)
-                }
+                self.courseTableView.reloadData()
             }
-            self.courseTableView.reloadData()
+            else{
+                //course without content
+                
+            }
+            
             
             }, withCancelBlock: { error in
                 print(error.description)
@@ -87,8 +95,19 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         }
         // Do any additional setup after loading the view.
     }
+    
     @IBAction func editButton(sender: UIButton) {
          //TODO: change tableview status
+        
+        if self.courseTableView.editing {
+            self.courseTableView.setEditing(false, animated: true)
+            self.tableEditButton.setTitle("Edit", forState: .Normal)
+        }
+        else{
+            self.courseTableView.setEditing(true, animated: true)
+            self.tableEditButton.setTitle("Done", forState: .Normal)
+        }
+        
     }
 
     @IBAction func nextButton(sender: UIButton) {
@@ -183,6 +202,19 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         
                 
     }
+    
+    //Long-press reordering can be disabled entirely by setting a Bool to lprTableView.longPressReorderEnabled
+    
+    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        // Modify this code as needed to support more advanced reordering, such as between sections.
+        let source = self.currentCourse.contents[sourceIndexPath.row]
+        let destination = self.currentCourse.contents[destinationIndexPath.row]
+        //self.currentCourse.contents[sourceIndexPath.row] = destination
+        //self.currentCourse.contents[destinationIndexPath.row] = source
+        //TODO: reorder
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
