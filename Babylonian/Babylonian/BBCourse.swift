@@ -86,6 +86,10 @@ class BBCourse: NSObject {
         self.courseItems_ = self.contents.sort({$0.order<$1.order})
     }
     
+    func moveItemTo(from:Int, to:Int) -> Void{
+        //TODO
+    }
+    
     var author: String {
         return self.author_
     }

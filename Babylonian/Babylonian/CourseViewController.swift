@@ -261,20 +261,20 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
                 
     }
     
-    //Long-press reordering can be disabled entirely by setting a Bool to lprTableView.longPressReorderEnabled
-    
-    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        // Modify this code as needed to support more advanced reordering, such as between sections.
-        //let source = self.currentCourse.contents[sourceIndexPath.row]
-        //let destination = self.currentCourse.contents[destinationIndexPath.row]
-        //self.currentCourse.contents[sourceIndexPath.row] = destination
-        //self.currentCourse.contents[destinationIndexPath.row] = source
-        //TODO: reorder
-        //self.currentCourse.reorder(sourceIndexPath.row,destinationIndexPath.row)
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            self.currentCourse.deleteCourseItem(indexPath.row+1)
+        }
     }
     
     
+    //Long-press reordering can be disabled entirely by setting a Bool to lprTableView.longPressReorderEnabled
     
+    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        self.currentCourse.moveItemTo(sourceIndexPath.row+1,to: destinationIndexPath.row+1)
+    }
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
