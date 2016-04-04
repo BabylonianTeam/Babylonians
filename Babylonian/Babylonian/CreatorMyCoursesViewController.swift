@@ -52,6 +52,17 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     * Connect to Firebase database and pull myCourses data belonging to each user. Since we are using Firebase we don't have to worry about active
     * record!
     */
+    
+    @IBAction func createButton(sender: UIButton) {
+        //initiate courseview
+        let storyboard = UIStoryboard.init(name: "CourseView", bundle: nil)
+        
+        let rootController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView")
+        print("button pressed")
+        
+        self.presentViewController(rootController, animated: true, completion: nil)
+    }
+    
     func loadMyCourses(){
         //TODO Create a test with/ a for loop that hooks in to the database model
         print(course1);

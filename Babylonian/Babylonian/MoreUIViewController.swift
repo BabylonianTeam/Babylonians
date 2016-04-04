@@ -137,14 +137,18 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     @IBAction func logoutPressed(sender: AnyObject) {
-        let navigationController = UINavigationController()
-        navigationController.viewControllers = [WelcomeView()]
-        
+        DataService.dataService.BASE_REF.unauth()
+        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
+
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        DataService.dataService.BASE_REF.unauth()
-        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
+        let navigationController = UINavigationController()
+        navigationController.viewControllers = [WelcomeView()]
+        
+        
+        appDelegate.window!.rootViewController = navigationController
+        appDelegate.window!.makeKeyAndVisible()
     }
     
     
