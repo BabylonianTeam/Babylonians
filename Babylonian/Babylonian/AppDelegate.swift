@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+
         
         // Initialize Parse.
         let configuration = ParseClientConfiguration {
@@ -45,10 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Authentication
         if let _ = NSUserDefaults.standardUserDefaults().valueForKey("uid") {
-            
-            //logout codes
-            //DataService.dataService.BASE_REF.unauth()
-            //NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
             
             if let role = NSUserDefaults.standardUserDefaults().valueForKey(USER_ROLE) {
                 if role as! String == USER_ROLE_CREATOR {
