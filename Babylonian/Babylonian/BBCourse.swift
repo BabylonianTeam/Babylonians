@@ -121,8 +121,6 @@ class BBCourse: NSObject {
                 }
             }
         }
-        
-        
     }
     
     var author: String {
