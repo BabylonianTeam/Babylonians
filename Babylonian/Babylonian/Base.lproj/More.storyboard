@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--More-->
+        <!--More...-->
         <scene sceneID="gYC-iz-Jbk">
             <objects>
-                <viewController id="ruJ-ut-0kv" customClass="MoreUIViewController" customModule="Babylonian" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="More..." id="ruJ-ut-0kv" customClass="MoreUIViewController" customModule="Babylonian" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VvU-IP-RaZ"/>
                         <viewControllerLayoutGuide type="bottom" id="c7Y-CS-Pxw"/>
