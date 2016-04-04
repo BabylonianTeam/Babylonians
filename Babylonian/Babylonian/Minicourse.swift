@@ -74,7 +74,7 @@ class Minicourse{
         
     }
     
-    class func delectCourseItem(refForDelect: String!,courseRef: String!){
+    class func deleteCourseItem(refForDelect: String!,courseRef: String!){
         
     Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef).childByAppendingPath("content").childByAppendingPath(refForDelect).removeValue()
         

@@ -31,6 +31,7 @@
 #define		COURSE_TITLE                        @"title"
 #define		COURSE_STATUS                       @"status"
 #define     COURSE_PRICE                        @"price"
+#define     COURSE_CONTENT                      @"content"
 
 #define		COURSE_STATUS_DRAFT                 @"draft"
 #define		COURSE_STATUS_ONSHELF               @"onshelf"
@@ -44,3 +45,7 @@
 #define		COURSE_ITEM_TYPE                    @"type"
 #define		COURSE_ITEM_TYPE_IMAGE              @"IM"
 #define		COURSE_ITEM_TYPE_AUDIOTEXT          @"AT"
+
+#define		PARSE_AUDIO_FILENAME                @"filename"
+#define		PARSE_IMAGE_FILENAME                @"filename"
+

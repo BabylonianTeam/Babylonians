@@ -1,21 +1,19 @@
 //
-//  ImageItemCell.swift
+//  CreateCourseItemCell.swift
 //  Babylonian
 //
-//  Created by Dongning Wang on 4/2/16.
+//  Created by Dongning Wang on 4/4/16.
 //  Copyright © 2016 Eric Smith. All rights reserved.
 //
 
 import UIKit
 
-class ImageItemCell: UITableViewCell {
+class CreateCourseItemCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    
-    //TODO: adjust size
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -23,4 +21,12 @@ class ImageItemCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    
+    @IBAction func addATItem(sender: UIButton) {
+        
+    }
+    @IBAction func addImageItem(sender: UIButton) {
+        
+    }
+    
 }

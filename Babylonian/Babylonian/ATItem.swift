@@ -7,31 +7,34 @@
 //
 
 import Foundation
+import Firebase
 
 class ATItem: CourseItem {
     
-    init(courseText: String, courseAudio: String, order: Int) {//, courseText: NSObject
-        super.init()
-        
+    init(ref: Firebase, courseText: String, courseAudio: String, order: Int) {//, courseText: NSObject
+        super.init(ref: ref, order:order)
         self.content = [COURSE_ITEM_TEXT:courseText,COURSE_ITEM_AUDIO:courseAudio]
-        self.order = order
-        self.courseId = courseId
-        
     }
     
     override func getType() -> String {
         return COURSE_ITEM_TYPE_AUDIOTEXT
     }
     
-    func toAnyObject() -> AnyObject {
+    func setText(text:String!) {
+        self.content.setValue(text, forKey: COURSE_ITEM_TEXT)
+    }
+    
+    func setAudio(audioUrl:String!) {
+        self.content.setValue(audioUrl, forKey: COURSE_ITEM_AUDIO)
+    }
+    
+    override func toAnyObject() -> AnyObject {
         
         return [
             
             COURSE_ITEM_AUDIO: self.content[COURSE_ITEM_AUDIO] as! String,
             COURSE_ITEM_TEXT: self.content[COURSE_ITEM_TEXT] as! String,
-            COURSE_ITEM_ORDER: order,
-            //"courseId": courseId
-
+            COURSE_ITEM_ORDER: order
         ]
     }
 

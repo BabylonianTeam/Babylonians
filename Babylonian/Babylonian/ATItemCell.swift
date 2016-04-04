@@ -29,8 +29,13 @@ class ATItemCell: UITableViewCell {
         }catch {
             print("Error getting the audio file")
         }
+        //TODO: don't play
     }
 
+    //TODO: tap and drag//tap and hold to record
+    
+    //TODO: change text
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

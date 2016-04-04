@@ -9,17 +9,16 @@
 import UIKit
 import AVFoundation
 import Firebase
+import Parse
 
-class CourseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AVAudioRecorderDelegate {
+class CourseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AVAudioRecorderDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     var currentCourse: BBCourse!
-    var currentCourseItem: CourseItem!
-    //var courseItems = [CourseItem]()
     
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
-//    var audioPlayer = AVAudioPlayer()
     var audioURL = NSURL()
+    var imagePicker = UIImagePickerController()
     
     @IBOutlet weak var courseTableView: LPRTableView!
     
@@ -30,6 +29,8 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .Plain, target: self, action: #selector(CourseViewController.backTapped))
         
+        self.imagePicker.delegate = self
+
         self.courseTableView.delegate = self
         self.courseTableView.dataSource = self
         self.courseTableView.longPressReorderEnabled = false
@@ -47,18 +48,22 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         }
         self.currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
         
-        self.currentCourse.firebaseRef.observeEventType(.Value, withBlock: { snapshot in
+        //TODO: should update new value only
+        
+        self.currentCourse.courseRef.observeEventType(.Value, withBlock: { snapshot in
             
             if let content = snapshot.value.objectForKey("content"){
                 
                 for item in content as! [String:NSDictionary]{
+                    let item_ref = self.currentCourse.contentRef.childByAppendingPath(item.0)
                     if let im_ref = item.1[COURSE_ITEM_IMAGE] {
-                        let courseItem = ImageItem(courseImage: im_ref as! String,order: item.1[COURSE_ITEM_ORDER] as! Int)
+                        
+                        let courseItem = ImageItem(ref: item_ref, courseImage: im_ref as! String,order: item.1[COURSE_ITEM_ORDER] as! Int)
                         self.currentCourse.addCourseItem(courseItem)
                         
                     }
                     else if let text_ref = item.1[COURSE_ITEM_TEXT]  {
-                        let courseItem = ATItem(courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int)
+                        let courseItem = ATItem(ref: item_ref,courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int)
                         self.currentCourse.addCourseItem(courseItem)
                     }
                 }
@@ -110,6 +115,38 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
 
+    @IBAction func addImageItem(sender: UIButton) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
+            imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum;
+            imagePicker.allowsEditing = true
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+        
+    }
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
+        //TODO: image don't upload
+        let data = UIImageJPEGRepresentation(image!, 1)
+        let imageFile = PFFile(name: "image.jpg", data: data!)
+        
+        let pObject = PFObject(className: "Image")
+        pObject[PARSE_IMAGE_FILENAME]  = imageFile
+        
+        pObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            if success {
+                self.currentCourse.addNewImageItem((imageFile?.url)!)
+            }else {
+                print(error)
+            }
+        }
+        
+    }
+    
     @IBAction func nextButton(sender: UIButton) {
         //TODO: check item number
         //TODO: Push to the next view
@@ -121,7 +158,21 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBAction func recordButtonReleased(sender: UIButton) {
         finishRecording(success: true)
-        //self.currentCourseItem.addVoice(url)
+        
+        let data = NSData(contentsOfURL: self.audioURL)
+        let audioFile = PFFile(name: "audio.m4a", data: data!)
+        
+        let pObject = PFObject(className: "Audio")
+        pObject[PARSE_AUDIO_FILENAME]  = audioFile
+        
+        pObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            if success {
+                self.currentCourse.addNewATItem("", courseAudio: (audioFile?.url)!)
+            }else {
+                print(error)
+            }
+        }
+        
     }
     
     
@@ -129,8 +180,6 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     func startRecording() {
         let audioFilename = DataService.dataService.LOCAL_DIR+"/recording.m4a"
         self.audioURL = NSURL(fileURLWithPath: audioFilename)
-        print(audioFilename)
-        let audioURL = NSURL(fileURLWithPath: audioFilename)
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -140,13 +189,18 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         ]
         
         do {
-            audioRecorder = try AVAudioRecorder(URL: audioURL, settings: settings)
+            audioRecorder = try AVAudioRecorder(URL: self.audioURL, settings: settings)
             audioRecorder.delegate = self
             audioRecorder.record()
             
         } catch {
             finishRecording(success: false)
         }
+    }
+    func finishRecording(success success: Bool) {
+        audioRecorder.stop()
+        audioRecorder = nil
+        
     }
     
 //    @IBAction func testplay(sender: UIButton) {
@@ -160,11 +214,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
 //        
  //   }
     
-    func finishRecording(success success: Bool) {
-        audioRecorder.stop()
-        audioRecorder = nil
-        
-    }
+
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -176,16 +226,17 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-   
-        if self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_AUDIOTEXT {
-            let cell1 = tableView.dequeueReusableCellWithIdentifier("ATItemCell", forIndexPath: indexPath) as! ATItemCell
+        
+        
+        if indexPath.row<self.currentCourse.contents.count && self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_AUDIOTEXT {
+            let cell = tableView.dequeueReusableCellWithIdentifier("ATItemCell", forIndexPath: indexPath) as! ATItemCell
             let dic = self.currentCourse.contents[indexPath.row].content as! [String:String]
-            cell1.transcript.text = dic[COURSE_ITEM_TEXT]
-            cell1.audioUrl = NSURL(fileURLWithPath: dic[COURSE_ITEM_AUDIO]!)
-            return cell1
+            cell.transcript.text = dic[COURSE_ITEM_TEXT]
+            cell.audioUrl = NSURL(fileURLWithPath: dic[COURSE_ITEM_AUDIO]!)
+            return cell
 
         }
-        else {
+        if indexPath.row<self.currentCourse.contents.count && self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_IMAGE {
             
             let cell2 = tableView.dequeueReusableCellWithIdentifier("ImageItemCell", forIndexPath: indexPath) as! ImageItemCell
             let dic = self.currentCourse.contents[indexPath.row].content as! [String:String]
@@ -200,6 +251,13 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             return cell2
         }
         
+        //if indexPath.row==self.currentCourse.contents.count+1 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("CreateCourseItemCell", forIndexPath: indexPath) as! CreateCourseItemCell
+            
+            
+            return cell
+        //}
+        
                 
     }
     
@@ -207,11 +265,12 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
         // Modify this code as needed to support more advanced reordering, such as between sections.
-        let source = self.currentCourse.contents[sourceIndexPath.row]
-        let destination = self.currentCourse.contents[destinationIndexPath.row]
+        //let source = self.currentCourse.contents[sourceIndexPath.row]
+        //let destination = self.currentCourse.contents[destinationIndexPath.row]
         //self.currentCourse.contents[sourceIndexPath.row] = destination
         //self.currentCourse.contents[destinationIndexPath.row] = source
         //TODO: reorder
+        //self.currentCourse.reorder(sourceIndexPath.row,destinationIndexPath.row)
     }
     
     
