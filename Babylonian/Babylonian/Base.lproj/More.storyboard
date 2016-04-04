@@ -19,30 +19,68 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5c-uY-77I">
-                                <rect key="frame" x="532" y="72" width="48" height="30"/>
+                                <rect key="frame" x="461" y="83" width="119" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="119" id="Tja-89-CLK"/>
+                                </constraints>
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="logoutPressed:" destination="ruJ-ut-0kv" eventType="touchUpInside" id="8Od-kF-9tb"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G6E-bt-Siw">
+                                <rect key="frame" x="20" y="89" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="3bt-wl-6pL"/>
+                                    <constraint firstAttribute="height" constant="64" id="HPL-n8-IAr"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoQ-i9-Z2U">
+                                <rect key="frame" x="92" y="89" width="105" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKa-cz-QO3">
+                                <rect key="frame" x="92" y="132" width="44" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iQd-QM-X4W">
-                                <rect key="frame" x="0.0" y="182" width="600" height="418"/>
+                                <rect key="frame" x="0.0" y="163" width="600" height="437"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="iQd-QM-X4W" secondAttribute="trailing" id="0gN-Le-5hQ"/>
-                            <constraint firstItem="e5c-uY-77I" firstAttribute="trailing" secondItem="Y6c-yu-lXc" secondAttribute="trailingMargin" id="3BA-hI-lGM"/>
-                            <constraint firstAttribute="bottom" secondItem="iQd-QM-X4W" secondAttribute="bottom" id="3F1-F6-RGj"/>
-                            <constraint firstItem="iQd-QM-X4W" firstAttribute="leading" secondItem="Y6c-yu-lXc" secondAttribute="leading" id="Ipe-9X-FIw"/>
-                            <constraint firstItem="iQd-QM-X4W" firstAttribute="top" secondItem="e5c-uY-77I" secondAttribute="bottom" constant="80" id="dlL-Hv-oXR"/>
-                            <constraint firstItem="e5c-uY-77I" firstAttribute="top" secondItem="VvU-IP-RaZ" secondAttribute="bottom" constant="8" symbolic="YES" id="fHE-Ld-nLi"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="G6E-bt-Siw" secondAttribute="leading" id="2GO-5p-q9N"/>
+                            <constraint firstItem="G6E-bt-Siw" firstAttribute="top" secondItem="VvU-IP-RaZ" secondAttribute="bottom" constant="25" id="2uK-Cw-dti"/>
+                            <constraint firstItem="WoQ-i9-Z2U" firstAttribute="leading" secondItem="DKa-cz-QO3" secondAttribute="leading" id="6h9-iI-mll"/>
+                            <constraint firstItem="e5c-uY-77I" firstAttribute="trailing" secondItem="Y6c-yu-lXc" secondAttribute="trailingMargin" id="78v-MU-6vW"/>
+                            <constraint firstItem="e5c-uY-77I" firstAttribute="top" secondItem="VvU-IP-RaZ" secondAttribute="bottom" constant="19" id="Bai-Jo-NaJ"/>
+                            <constraint firstItem="WoQ-i9-Z2U" firstAttribute="leading" secondItem="Y6c-yu-lXc" secondAttribute="leadingMargin" constant="114" id="J1i-GI-qYw"/>
+                            <constraint firstItem="WoQ-i9-Z2U" firstAttribute="top" secondItem="G6E-bt-Siw" secondAttribute="top" id="MbH-Eg-4jV"/>
+                            <constraint firstItem="iQd-QM-X4W" firstAttribute="leading" secondItem="Y6c-yu-lXc" secondAttribute="leading" id="SJl-0X-ezz"/>
+                            <constraint firstItem="DKa-cz-QO3" firstAttribute="bottom" secondItem="e5c-uY-77I" secondAttribute="bottom" id="WC5-hH-1we"/>
+                            <constraint firstAttribute="trailing" secondItem="iQd-QM-X4W" secondAttribute="trailing" id="d8q-uR-b5s"/>
+                            <constraint firstItem="DKa-cz-QO3" firstAttribute="bottom" secondItem="G6E-bt-Siw" secondAttribute="bottom" id="gRd-MR-Y3c"/>
+                            <constraint firstItem="iQd-QM-X4W" firstAttribute="top" secondItem="G6E-bt-Siw" secondAttribute="bottom" constant="10" id="geK-bc-6Tf"/>
+                            <constraint firstAttribute="bottom" secondItem="iQd-QM-X4W" secondAttribute="bottom" id="ndN-Du-x7G"/>
+                            <constraint firstItem="WoQ-i9-Z2U" firstAttribute="leading" secondItem="G6E-bt-Siw" secondAttribute="trailing" constant="8" symbolic="YES" id="ti7-tc-ruX"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="J1i-GI-qYw"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="More" id="uj2-zW-t4X"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="labelDisplayName" destination="WoQ-i9-Z2U" id="R1O-pW-6Ob"/>
+                        <outlet property="labelMoney" destination="DKa-cz-QO3" id="6pe-Oa-wfc"/>
+                        <outlet property="profilePhoto" destination="G6E-bt-Siw" id="lhs-bZ-nXf"/>
                         <outlet property="tblExpandable" destination="iQd-QM-X4W" id="6CK-AP-XxS"/>
                         <segue destination="BPo-7o-WNi" kind="show" identifier="ts" id="8g3-0w-69s"/>
                     </connections>

@@ -11,9 +11,9 @@ import UIKit
 
 class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate {
     
-    // MARK: IBOutlet Properties
-    @IBOutlet weak var tblExpandable: UITableView!
-    
+    @IBOutlet weak var profilePhoto: UIImageView!
+    @IBOutlet weak var labelDisplayName: UILabel!
+    @IBOutlet weak var labelMoney: UILabel!
     
     // MARK: Variables
     
@@ -27,11 +27,31 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
                      ["idCellSwitch", "idCellSwitch", "idCellSwitch"]
                    ]
     
+    
+    // MARK: Constants
+    
+    let bigFont = UIFont(name: "Avenir-Book", size: 17.0)
+    
+    let smallFont = UIFont(name: "Avenir-Light", size: 17.0)
+    
+    let primaryColor = UIColor.blackColor()
+    
+    let secondaryColor = UIColor.lightGrayColor()
+    
+    
+    // MARK: IBOutlet Properties
+    @IBOutlet weak var tblExpandable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         configureTableView()
+        
+        profilePhoto.image = UIImage(named: "p1.png")
+        labelDisplayName?.font = bigFont
+        labelMoney?.font = bigFont
+        
     }
     
     
@@ -61,21 +81,23 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // MARK: UITableView Delegate and Datasource Functions
     
+    // Number of sections
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.sections.count
     }
     
-    
+    // Number of rows in each section
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items[section].count
     }
     
     
+    // Title for each section
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.sections[section]
     }
     
-    
+    // Generate a cell for each row
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         
@@ -88,9 +110,10 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         if(cellType == "idLabelCell"){
             cell.textLabel?.text = self.items[indexPath.section][indexPath.row]
+            cell.detailTextLabel?.text = "More Info"
         }
         else if(cellType == "idCellSwitch"){
-            cell.lblSwitchLabel.text = self.items[indexPath.section][indexPath.row]
+            cell.lblSwitchLabel?.text = self.items[indexPath.section][indexPath.row]
         }
         
         return cell
