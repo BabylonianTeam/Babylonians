@@ -7,15 +7,52 @@
 //
 
 import UIKit
+import Firebase
+
 
 class CourseSettingViewController: UIViewController {
 
+    var currentCourse: BBCourse!
+    
+    @IBOutlet weak var courseTitle: UITextField!
+    @IBOutlet weak var coursePrice: UITextField!
+    @IBOutlet weak var courseTag: UITextField!
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+         currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
+        
+        
     }
 
+    
+    @IBAction func addCourseTitle(sender: UIButton) {
+        
+       currentCourse.setTitle(courseTitle.text!)
+    }
+    
+    
+    
+    @IBAction func addCoursePrice(sender: UIButton) {
+        let price = (coursePrice.text! as NSString).floatValue
+        currentCourse.setPrice(price)
+    }
+    
+    
+ 
+    @IBAction func addCourseTag(sender: UIButton) {
+        
+        currentCourse.setTag([courseTag.text!])
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

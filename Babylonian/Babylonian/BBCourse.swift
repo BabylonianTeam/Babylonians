@@ -19,6 +19,7 @@ class BBCourse: NSObject {
     var ref_: Firebase!
     var price_: Float!
     var tag_: [String]!
+    
 
     init(ref: Firebase, author: String) {
         self.ref_ = ref
@@ -123,6 +124,23 @@ class BBCourse: NSObject {
         }
     }
     
+    
+    func setAuthorName(author: String) -> Void {
+        self.author_ = author
+        self.firebaseRef.updateChildValues([COURSE_AUTHOR:author])
+    }
+    
+    func setTag(tag: [String]) -> Void {
+        self.tag_ = tag
+        self.firebaseRef.updateChildValues([COURSE_TAG:tag])
+    }
+    
+    
+    func deleteBBCourse() -> Void{
+        
+        self.firebaseRef.removeValue()
+    }
+    
     var author: String {
         return self.author_
     }
@@ -137,6 +155,14 @@ class BBCourse: NSObject {
     }
     var contents: [CourseItem] {
         return courseItems_
+    }
+    
+    var tag: [String] {
+        return tag_
+    }
+    
+    var price: Float {
+        return price_
     }
     
     func toAnyObject() -> AnyObject {
