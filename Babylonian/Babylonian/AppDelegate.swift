@@ -1,3 +1,4 @@
+
 //
 //  AppDelegate.swift
 //  Babylonian
@@ -23,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let newminicourse = BBCourse(COURSE_TITLE: "new BBcourse123", COURSE_AUTHOR:"new BBcourse123")
 //        Minicourse.addBBCourse(newminicourse.toAnyObject())
         
+      // BBCourse.setTitle("setTitle")
        
- //       let newcourseitem = ATItem(courseText:"new BBcourse", courseAudio: "new audio", order: 2)
   //      Minicourse.addCourseItem("-KEPJobHpCZ1z_4xOI6C", newCourseItem: newcourseitem.toAnyObject() as! NSObject)
         
         

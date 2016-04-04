@@ -37,8 +37,15 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             //uncomment above and comment below to actually create new course.
             let ref = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEPJobHpCZ1z_4xOI6C")
             (self.navigationController as! BBCourseNavController).currentCourse = BBCourse(ref: ref, author: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
+            
+            
+            
         }
+        
+        
+        
         self.currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
+        self.currentCourse.setTitle("This is new title")
         
         self.currentCourse.firebaseRef.observeEventType(.Value, withBlock: { snapshot in
             

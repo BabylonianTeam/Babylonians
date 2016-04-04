@@ -12,13 +12,14 @@ import Firebase
 
 
 class BBCourse: NSObject {
-    var Id_: String!
+    
     var title_: String!
     var author_: String!
     var courseItems_: [CourseItem]!
     var ref_: Firebase!
     var price_: Float!
     var tag_: [String]!
+    
 
     init(ref: Firebase, author: String) {
         self.ref_ = ref
@@ -26,10 +27,6 @@ class BBCourse: NSObject {
         self.ref_.updateChildValues([COURSE_AUTHOR:author])
     }
     
-    func setId(id: String) -> Void {
-        self.Id_ = id
-        self.ref_ = DataService.dataService.COURSE_REF.childByAppendingPath(id)
-    }
     
     func setTitle(title: String) -> Void {
         self.title_ = title
@@ -39,6 +36,23 @@ class BBCourse: NSObject {
     func setPrice(price: Float) -> Void {
         self.price_ = price
         self.firebaseRef.updateChildValues([COURSE_PRICE:price])
+    }
+    
+    
+    func setAuthorName(author: String) -> Void {
+        self.author_ = author
+        self.firebaseRef.updateChildValues([COURSE_AUTHOR:author])
+    }
+    
+    func setTag(tag: [String]) -> Void {
+        self.tag_ = tag
+        self.firebaseRef.updateChildValues([COURSE_TAG:tag])
+    }
+    
+    
+    func deleteBBCourse() -> Void{
+        
+        self.firebaseRef.removeValue()
     }
     
     var author: String {
@@ -52,6 +66,14 @@ class BBCourse: NSObject {
     }
     var contents: [CourseItem] {
         return courseItems_
+    }
+    
+    var tag: [String] {
+        return tag_
+    }
+    
+    var price: Float {
+        return price_
     }
     
     func toAnyObject() -> AnyObject {
