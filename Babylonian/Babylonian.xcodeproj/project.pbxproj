@@ -67,6 +67,7 @@
 		30F20ABB1CA0F99D00A484E9 /* LearnerMyCourses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20ABA1CA0F99D00A484E9 /* LearnerMyCourses.storyboard */; };
 		30F20ABE1CA121E700A484E9 /* RNCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F20ABD1CA121E700A484E9 /* RNCryptor.swift */; };
 		30F20AC11CA124C600A484E9 /* CourseView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20AC01CA124C600A484E9 /* CourseView.storyboard */; };
+		92C42CE81CB211BD003091FC /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C42CE71CB211BD003091FC /* PersonalInfo.swift */; };
 		9F638F691C9B8A7500154A13 /* CreatorMyCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F638F681C9B8A7500154A13 /* CreatorMyCoursesViewController.swift */; };
 		9F66D6041C9ADE0500EB9C93 /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F66D6031C9ADE0500EB9C93 /* DatePickerCell.xib */; };
 		9F66D60A1C9ADE1500EB9C93 /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F66D6051C9ADE1500EB9C93 /* NormalCell.xib */; };
@@ -191,6 +192,7 @@
 		30F20ABD1CA121E700A484E9 /* RNCryptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNCryptor.swift; sourceTree = "<group>"; };
 		30F20AC01CA124C600A484E9 /* CourseView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CourseView.storyboard; sourceTree = "<group>"; };
 		76CDD2D8D01CE5CB4C1FFBBD /* Pods-Babylonian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.debug.xcconfig"; sourceTree = "<group>"; };
+		92C42CE71CB211BD003091FC /* PersonalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
 		9F638F681C9B8A7500154A13 /* CreatorMyCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorMyCoursesViewController.swift; sourceTree = "<group>"; };
 		9F66D6031C9ADE0500EB9C93 /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
 		9F66D6051C9ADE1500EB9C93 /* NormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 		076532481C8CFE8300825177 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				92C42CE71CB211BD003091FC /* PersonalInfo.swift */,
 				9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */,
 				3037A4AC1CB0A1DF00C52232 /* BBCourse.swift */,
 				3037A4A81CB09F6600C52232 /* CourseItem.swift */,
@@ -733,6 +736,7 @@
 				3037A4B11CB0B2E100C52232 /* ImageItemCell.swift in Sources */,
 				30E6DB3F1CB1E97D00F604E6 /* PlaybackButton.swift in Sources */,
 				3037A4A11CB03A9B00C52232 /* CourseViewController.swift in Sources */,
+				92C42CE81CB211BD003091FC /* PersonalInfo.swift in Sources */,
 				30DBCE151C9E6D0C000CD59D /* DataService.swift in Sources */,
 				30DBCE021C9E4174000CD59D /* SDWebImageCompat.m in Sources */,
 				30DBCE081C9E4174000CD59D /* UIButton+WebCache.m in Sources */,
