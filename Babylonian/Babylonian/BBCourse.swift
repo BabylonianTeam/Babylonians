@@ -87,7 +87,6 @@ class BBCourse: NSObject {
             }
             else if item.order==ord {
                 item.itemRef.removeValue()
-                //TODO: reorder
                 success = true
             }
         }
@@ -99,7 +98,31 @@ class BBCourse: NSObject {
     }
     
     func moveItemTo(from:Int, to:Int) -> Void{
-        //TODO
+        if from == to {
+            return
+        }
+        else if from>to {
+            for item in contents {
+                if item.order==from {
+                    item.order = to
+                }
+                else if item.order<from && item.order>=to{
+                    item.order = item.order+1
+                }
+            }
+        }
+        else {
+            for item in contents {
+                if item.order==from {
+                    item.order = to
+                }
+                else if item.order>from && item.order<=to {
+                    item.order = item.order-1
+                }
+            }
+        }
+        
+        
     }
     
     var author: String {
