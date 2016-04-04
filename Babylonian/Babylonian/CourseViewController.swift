@@ -13,13 +13,17 @@ import Firebase
 class CourseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AVAudioRecorderDelegate {
 
     var currentCourse: BBCourse!
-    var courseItems = [CourseItem]()
+    var currentCourseItem: CourseItem!
+    //var courseItems = [CourseItem]()
+    
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
-    var audioPlayer = AVAudioPlayer()
+//    var audioPlayer = AVAudioPlayer()
     var audioURL = NSURL()
     
     @IBOutlet weak var courseTableView: UITableView!
+    
+    //TODO: initwithCourseId
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +35,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         if let _=(self.navigationController as! BBCourseNavController).currentCourse {
             //has a value already
             print("currentCourse has a value already")
+            
         }
         else{
             //let ref = DataService.dataService.COURSE_REF.childByAutoId()
@@ -40,18 +45,19 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         }
         self.currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
         
+        
         self.currentCourse.firebaseRef.observeEventType(.Value, withBlock: { snapshot in
             
             let content = snapshot.value.objectForKey("content") as! [String:NSDictionary]
             for item in content{
                 if let im_ref = item.1[COURSE_ITEM_IMAGE] {
                     let courseItem = ImageItem(courseImage: im_ref as! String,order: item.1[COURSE_ITEM_ORDER] as! Int)
-                    self.courseItems.append(courseItem)
+                    self.currentCourse.addCourseItem(courseItem)
                     
                 }
                 else if let text_ref = item.1[COURSE_ITEM_TEXT]  {
                     let courseItem = ATItem(courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int)
-                    self.courseItems.append(courseItem)
+                    self.currentCourse.addCourseItem(courseItem)
                 }
             }
             self.courseTableView.reloadData()
@@ -96,6 +102,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBAction func recordButtonReleased(sender: UIButton) {
         finishRecording(success: true)
+        //self.currentCourseItem.addVoice(url)
     }
     
     
@@ -123,16 +130,16 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
-    @IBAction func testplay(sender: UIButton) {
-        do{
-            self.audioPlayer = try AVAudioPlayer(contentsOfURL:self.audioURL, fileTypeHint:nil)
-            self.audioPlayer.prepareToPlay()
-            self.audioPlayer.play()
-        }catch {
-            print("Error getting the audio file")
-        }
-        
-    }
+//    @IBAction func testplay(sender: UIButton) {
+//        do{
+//            self.audioPlayer = try AVAudioPlayer(contentsOfURL:self.audioURL, fileTypeHint:nil)
+//            self.audioPlayer.prepareToPlay()
+//            self.audioPlayer.play()
+//        }catch {
+//            print("Error getting the audio file")
+//        }
+//        
+ //   }
     
     func finishRecording(success success: Bool) {
         audioRecorder.stop()
@@ -142,7 +149,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.courseItems.count
+        return self.currentCourse.contents.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -151,18 +158,18 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
    
-        if self.courseItems[indexPath.row].getType()==COURSE_ITEM_TYPE_AUDIOTEXT {
+        if self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_AUDIOTEXT {
             let cell1 = tableView.dequeueReusableCellWithIdentifier("ATItemCell", forIndexPath: indexPath) as! ATItemCell
-            let dic = self.courseItems[indexPath.row].content as! [String:String]
+            let dic = self.currentCourse.contents[indexPath.row].content as! [String:String]
             cell1.transcript.text = dic[COURSE_ITEM_TEXT]
-            cell1.audioPath = dic[COURSE_ITEM_AUDIO]
+            cell1.audioUrl = NSURL(fileURLWithPath: dic[COURSE_ITEM_AUDIO]!)
             return cell1
 
         }
         else {
             
             let cell2 = tableView.dequeueReusableCellWithIdentifier("ImageItemCell", forIndexPath: indexPath) as! ImageItemCell
-            let dic = self.courseItems[indexPath.row].content as! [String:String]
+            let dic = self.currentCourse.contents[indexPath.row].content as! [String:String]
             
             if let stringUrl = dic[COURSE_ITEM_IMAGE] {
                 if let url = NSURL(string: stringUrl) {

@@ -60,6 +60,7 @@
 		30DBCE151C9E6D0C000CD59D /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DBCE141C9E6D0C000CD59D /* DataService.swift */; };
 		30E6DB3B1CB1C43B00F604E6 /* CourseSettingsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30E6DB3A1CB1C43B00F604E6 /* CourseSettingsView.storyboard */; };
 		30E6DB3D1CB1C59E00F604E6 /* BBCourseNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E6DB3C1CB1C59E00F604E6 /* BBCourseNavController.swift */; };
+		30E6DB3F1CB1E97D00F604E6 /* PlaybackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E6DB3E1CB1E97D00F604E6 /* PlaybackButton.swift */; };
 		30F20AB51CA0F7E800A484E9 /* LearnerMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20AB41CA0F7E800A484E9 /* LearnerMain.storyboard */; };
 		30F20AB71CA0F95700A484E9 /* LearnerMore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20AB61CA0F95700A484E9 /* LearnerMore.storyboard */; };
 		30F20AB91CA0F98300A484E9 /* LearnerDiscussion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20AB81CA0F98300A484E9 /* LearnerDiscussion.storyboard */; };
@@ -180,6 +181,7 @@
 		30DBCE141C9E6D0C000CD59D /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		30E6DB3A1CB1C43B00F604E6 /* CourseSettingsView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CourseSettingsView.storyboard; sourceTree = "<group>"; };
 		30E6DB3C1CB1C59E00F604E6 /* BBCourseNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBCourseNavController.swift; sourceTree = "<group>"; };
+		30E6DB3E1CB1E97D00F604E6 /* PlaybackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackButton.swift; sourceTree = "<group>"; };
 		30F20AB41CA0F7E800A484E9 /* LearnerMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LearnerMain.storyboard; sourceTree = "<group>"; };
 		30F20AB61CA0F95700A484E9 /* LearnerMore.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LearnerMore.storyboard; sourceTree = "<group>"; };
 		30F20AB81CA0F98300A484E9 /* LearnerDiscussion.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LearnerDiscussion.storyboard; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 		3037A49F1CAF91F600C52232 /* CourseEditor */ = {
 			isa = PBXGroup;
 			children = (
+				30E6DB3E1CB1E97D00F604E6 /* PlaybackButton.swift */,
 				30F20AC01CA124C600A484E9 /* CourseView.storyboard */,
 				30E6DB3C1CB1C59E00F604E6 /* BBCourseNavController.swift */,
 				30E6DB3A1CB1C43B00F604E6 /* CourseSettingsView.storyboard */,
@@ -724,6 +727,7 @@
 				0705D5021C8CEF270065467D /* Babylonian.xcdatamodeld in Sources */,
 				30DBCDFF1C9E4174000CD59D /* MKAnnotationView+WebCache.m in Sources */,
 				3037A4B11CB0B2E100C52232 /* ImageItemCell.swift in Sources */,
+				30E6DB3F1CB1E97D00F604E6 /* PlaybackButton.swift in Sources */,
 				3037A4A11CB03A9B00C52232 /* CourseViewController.swift in Sources */,
 				30DBCE151C9E6D0C000CD59D /* DataService.swift in Sources */,
 				30DBCE021C9E4174000CD59D /* SDWebImageCompat.m in Sources */,

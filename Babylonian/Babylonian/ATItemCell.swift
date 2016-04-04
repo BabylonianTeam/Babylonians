@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ATItemCell: UITableViewCell {
 
-    var audioPath : String!
-    @IBOutlet weak var audioPlayer: UIButton!
+    var audioUrl : NSURL!
+    var audioPlayer : AVAudioPlayer!
     
     @IBOutlet weak var transcript: UITextView!
     
@@ -21,7 +22,13 @@ class ATItemCell: UITableViewCell {
     }
     
     @IBAction func playButtonPressed(sender: UIButton) {
-        
+        do{
+            self.audioPlayer = try AVAudioPlayer(contentsOfURL:self.audioUrl, fileTypeHint:nil)
+            self.audioPlayer.prepareToPlay()
+            self.audioPlayer.play()
+        }catch {
+            print("Error getting the audio file")
+        }
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

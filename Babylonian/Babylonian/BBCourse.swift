@@ -24,6 +24,7 @@ class BBCourse: NSObject {
         self.ref_ = ref
         self.author_ = author
         self.ref_.updateChildValues([COURSE_AUTHOR:author])
+        self.courseItems_ = [CourseItem]()
     }
     
     func setId(id: String) -> Void {
@@ -39,6 +40,10 @@ class BBCourse: NSObject {
     func setPrice(price: Float) -> Void {
         self.price_ = price
         self.firebaseRef.updateChildValues([COURSE_PRICE:price])
+    }
+    
+    func addCourseItem(item:CourseItem) -> Void {
+        self.courseItems_.append(item)
     }
     
     var author: String {
