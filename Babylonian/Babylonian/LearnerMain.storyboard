@@ -8,7 +8,7 @@
         <!--Main-->
         <scene sceneID="x9Q-ls-fLv">
             <objects>
-                <viewController id="cj1-Xs-HuM" userLabel="Main" customClass="MainPageViewController" customModule="Babylonian" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cj1-Xs-HuM" userLabel="Main" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MPq-4T-jly"/>
                         <viewControllerLayoutGuide type="bottom" id="TkE-Eh-IkJ"/>
@@ -16,19 +16,6 @@
                     <view key="view" contentMode="scaleToFill" id="KVv-6s-kA4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0nf-DF-Uo9">
-                                <rect key="frame" x="42" y="148" width="538" height="272"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TvC-2K-15f">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="cj1-Xs-HuM" id="Loe-XP-L6r"/>
-                                </connections>
-                            </searchBar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Main" id="3wY-Ao-yS6" userLabel="Main"/>
@@ -40,7 +27,6 @@
                 <searchDisplayController id="dbs-9Q-Pw1">
                     <connections>
                         <outlet property="delegate" destination="cj1-Xs-HuM" id="YYl-Ik-OVh"/>
-                        <outlet property="searchBar" destination="TvC-2K-15f" id="bdi-Xk-npP"/>
                         <outlet property="searchContentsController" destination="cj1-Xs-HuM" id="kGc-pz-V48"/>
                         <outlet property="searchResultsDataSource" destination="cj1-Xs-HuM" id="jg4-zq-laT"/>
                         <outlet property="searchResultsDelegate" destination="cj1-Xs-HuM" id="yGS-m3-FuY"/>
