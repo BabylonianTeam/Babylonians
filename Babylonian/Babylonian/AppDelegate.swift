@@ -19,6 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+//        
+//        let newminicourse = BBCourse(COURSE_TITLE: "new BBcourse123", COURSE_AUTHOR:"new BBcourse123")
+//        Minicourse.addBBCourse(newminicourse.toAnyObject())
+        
+       
+ //       let newcourseitem = ATItem(courseText:"new BBcourse", courseAudio: "new audio", order: 2)
+  //      Minicourse.addCourseItem("-KEPJobHpCZ1z_4xOI6C", newCourseItem: newcourseitem.toAnyObject() as! NSObject)
+        
+        
+        
         // Initialize Parse.
         let configuration = ParseClientConfiguration {
             $0.applicationId = PARSE_APP_ID

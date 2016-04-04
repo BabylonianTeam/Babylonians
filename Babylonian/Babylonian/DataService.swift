@@ -15,6 +15,11 @@ import Firebase
     private var _BASE_REF = Firebase(url: "\(BASE_URL)")
     private var _USER_REF = Firebase(url: "\(BASE_URL)/users")
     private var _COURSE_REF = Firebase(url: "\(BASE_URL)/courses")
+    private var _LOCAL_DIR = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+    
+    var LOCAL_DIR: String {
+        return _LOCAL_DIR
+    }
     
     var BASE_REF: Firebase {
         return _BASE_REF
