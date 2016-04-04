@@ -6,7 +6,8 @@
 //  Copyright © 2016年 Eric Smith. All rights reserved.
 //
 
-
+import Foundation
+import Firebase
 import UIKit
 
 class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate {
@@ -39,6 +40,9 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let secondaryColor = UIColor.lightGrayColor()
     
     
+    var userInfo = PersonalInfo()
+    var _USER_REF = Firebase(url: "\(BASE_URL)/users")
+    
     // MARK: IBOutlet Properties
     @IBOutlet weak var tblExpandable: UITableView!
     
@@ -52,6 +56,13 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
         labelDisplayName?.font = bigFont
         labelMoney?.font = bigFont
         
+        //retrieve displayName from firebase, and display it on More page
+        _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
+                if let displayName = snapshot.value["displayName"] as? String {
+                    print("display name is \(displayName)")
+                    self.labelDisplayName?.text = ("\(displayName)")
+            }
+        })
     }
     
     
