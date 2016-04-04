@@ -274,7 +274,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
         self.currentCourse.moveItemTo(sourceIndexPath.row+1,to: destinationIndexPath.row+1)
     }
-        
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

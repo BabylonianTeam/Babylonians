@@ -63,7 +63,14 @@ class BBCourse: NSObject {
     
     func deleteCourseItem(item:CourseItem) -> Bool{
         if item.courseRef==self.courseRef {
+            let order = item.order
             item.itemRef.removeValue()
+
+            for itm in contents {
+                if itm.order>order {
+                    itm.order = itm.order-1
+                }
+            }
             return true
         }
         else {
@@ -73,13 +80,18 @@ class BBCourse: NSObject {
     }
     
     func deleteCourseItem(ord: Int!) -> Bool {
+        var success = false
         for item in contents {
-            if item.order==ord {
+            if item.order>ord {
+                item.order = item.order-1
+            }
+            else if item.order==ord {
                 item.itemRef.removeValue()
-                return true
+                //TODO: reorder
+                success = true
             }
         }
-        return false
+        return success
     }
     
     func sortContentsByOrder() -> Void{
