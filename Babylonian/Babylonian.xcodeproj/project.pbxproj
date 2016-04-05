@@ -392,9 +392,9 @@
 				30E6DB401CB2193200F604E6 /* LPRTableView.swift */,
 				30E6DB421CB22C7E00F604E6 /* CreateCourseItemCell.swift */,
 				30E6DB3A1CB1C43B00F604E6 /* CourseSettingsView.storyboard */,
+				3037A4A21CB0513400C52232 /* CourseSettingViewController.swift */,
 				3037A4B01CB0B2E100C52232 /* ImageItemCell.swift */,
 				3037A4B21CB0B30100C52232 /* ATItemCell.swift */,
-				3037A4A21CB0513400C52232 /* CourseSettingViewController.swift */,
 				3037A4A01CB03A9B00C52232 /* CourseViewController.swift */,
 			);
 			name = CourseEditor;
