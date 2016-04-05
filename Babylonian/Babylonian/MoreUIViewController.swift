@@ -141,8 +141,14 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }*/
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if(indexPath.section < 1){
-            performSegueWithIdentifier("ts", sender: self)
+        if((indexPath.section == 0) && (indexPath.row == 2)){
+            performSegueWithIdentifier("emailSegue", sender: self)
+        }
+        else if((indexPath.section == 0) && (indexPath.row == 0)){
+            performSegueWithIdentifier("nameSegue", sender: self)
+        }
+        else if(indexPath.section == 0){
+            performSegueWithIdentifier("testSegue", sender: self)
         }
     }
     
