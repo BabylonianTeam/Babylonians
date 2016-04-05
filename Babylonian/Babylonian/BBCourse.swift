@@ -191,22 +191,7 @@ class BBCourse: NSObject {
         }
     }
     
-    
-    func setAuthorName(author: String) -> Void {
-        self.author_ = author
-        self.courseRef.updateChildValues([COURSE_AUTHOR:author])
-    }
-    
-    func setTag(tag: [String]) -> Void {
-        self.tag_ = tag
-        self.courseRef.updateChildValues([COURSE_TAG:tag])
-    }
-    
-    
-    func deleteBBCourse() -> Void{
-        
-        self.courseRef.removeValue()
-    }
+
     
     var author: String {
         return self.author_
