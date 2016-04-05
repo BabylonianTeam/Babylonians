@@ -60,7 +60,7 @@ class ATItemCell: UITableViewCell, UITextViewDelegate {
 
     //TODO: tap and drag//tap and hold to record
     
-    //TODO: change text
+    
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n") {
             self.item.setText(self.transcript.text)

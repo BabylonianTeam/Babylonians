@@ -11,6 +11,7 @@ import AVFoundation
 import Firebase
 import Parse
 
+
 class CourseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AVAudioRecorderDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     var currentCourse: BBCourse!
@@ -37,15 +38,19 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         self.courseTableView.dataSource = self
         self.courseTableView.longPressReorderEnabled = false
         
+        //For developing, remove when connected 
+        let ref = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEPJobHpCZ1z_4xOI6C")
+        (self.navigationController as! BBCourseNavController).currentCourse = BBCourse(ref: ref, author: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
+        
+        
         if let _=(self.navigationController as! BBCourseNavController).currentCourse {
             //has a value already
             print("currentCourse has a value already")
             
         }
         else{
-            //let ref = DataService.dataService.COURSE_REF.childByAutoId()
+            let ref = DataService.dataService.COURSE_REF.childByAutoId()
             //uncomment above and comment below to actually create new course.
-            let ref = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEPJobHpCZ1z_4xOI6C")
             (self.navigationController as! BBCourseNavController).currentCourse = BBCourse(ref: ref, author: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
         }
         
@@ -91,7 +96,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
             
         })
-        //TODO: image don't upload
+        
         let data = UIImageJPEGRepresentation(image!, 1)
         let imageFile = PFFile(name: "image.jpg", data: data!)
         
@@ -99,11 +104,12 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         let pObject = PFObject(className: "Image")
         pObject[PARSE_IMAGE_FILENAME]  = imageFile
         
+        //TODO: create a local storage for BBCourse, distinguish from addToLocal and addToRemote
         pObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if success {
                 self.currentCourse.addNewImageItem((imageFile?.url)!)
                 self.courseTableView.reloadData()
-                //TODO: try not reload
+                
             }else {
                 print(error)
             }
@@ -112,7 +118,11 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     @IBAction func nextButton(sender: UIButton) {
-        //TODO: check item number
+        
+        if self.currentCourse.contents.count<(Int(COURSE_MIN_ITEMS)){
+            ProgressHUD.showError("Course should have at least "+String(COURSE_MIN_ITEMS)+" items")
+            //TODO: next view or not?
+        }
         //TODO: Push to the next view
     }
     
@@ -174,6 +184,19 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //
     }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row<self.currentCourse.contents.count && self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_AUDIOTEXT {
+            
+            return 40
+            
+        }
+        if indexPath.row<self.currentCourse.contents.count && self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_IMAGE {
+            
+            return 100
+        }
+        return 30
+    }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -187,22 +210,21 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         }
         if indexPath.row<self.currentCourse.contents.count && self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_IMAGE {
             
-            let cell2 = tableView.dequeueReusableCellWithIdentifier("ImageItemCell", forIndexPath: indexPath) as! ImageItemCell
-            let dic = self.currentCourse.contents[indexPath.row].content as! [String:String]
+            let cell = tableView.dequeueReusableCellWithIdentifier("ImageItemCell", forIndexPath: indexPath) as! ImageItemCell
+            let dic = self.currentCourse.contents[indexPath.row].content
             
             if let stringUrl = dic[COURSE_ITEM_IMAGE] {
-                if let url = NSURL(string: stringUrl) {
+                if let url = NSURL(string: stringUrl as! String) {
                     if let data = NSData(contentsOfURL: url) {
-                        cell2.imageView?.image = UIImage(data: data)
+                        cell.imageView?.image = UIImage(data: data)
                     }
                 }
             }
-            return cell2
+            return cell
         }
         
         //if indexPath.row==self.currentCourse.contents.count+1 {
             let cell = tableView.dequeueReusableCellWithIdentifier("CreateCourseItemCell", forIndexPath: indexPath) as! CreateCourseItemCell
-            
             
             return cell
         //}
@@ -265,7 +287,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
 //            })
 //        }
         
-        
+        ProgressHUD.show("Loading Course")
         self.currentCourse.contentRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             if let content = snapshot.value{
                 for item in content as! [String:NSDictionary]{
@@ -282,7 +304,11 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
                     }
                 }
                 self.currentCourse.sortContentsByOrder()
+                ProgressHUD.dismiss()
                 self.courseTableView.reloadData()
+                let indexPath = NSIndexPath(forRow: self.currentCourse.contents.count-1, inSection: 0)
+                self.courseTableView.scrollToRowAtIndexPath(indexPath,
+                    atScrollPosition: UITableViewScrollPosition.Middle, animated: true)
             }
             else{
                 //course without content
