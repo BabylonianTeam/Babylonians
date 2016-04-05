@@ -18,17 +18,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F68-nE-e9y">
-                                <rect key="frame" x="0.0" y="106" width="600" height="494"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F68-nE-e9y">
+                                <rect key="frame" x="0.0" y="106" width="600" height="302"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6T-We-gmP">
+                                <rect key="frame" x="273" y="416" width="55" height="30"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="confirmChange:" destination="Hd7-Na-Pfp" eventType="touchUpInside" id="dc3-tV-Xff"/>
+                                    <segue destination="ruJ-ut-0kv" kind="show" id="oSA-A6-wm8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="F68-nE-e9y" secondAttribute="trailing" id="OT3-te-AC9"/>
-                            <constraint firstItem="F68-nE-e9y" firstAttribute="leading" secondItem="hCT-uL-6l4" secondAttribute="leading" id="j45-yd-k5x"/>
-                            <constraint firstItem="F68-nE-e9y" firstAttribute="top" secondItem="vTH-As-9Bu" secondAttribute="bottom" constant="42" id="l11-Yj-MpW"/>
-                            <constraint firstAttribute="bottom" secondItem="F68-nE-e9y" secondAttribute="bottom" id="uTe-3T-rzd"/>
+                            <constraint firstItem="F68-nE-e9y" firstAttribute="centerX" secondItem="v6T-We-gmP" secondAttribute="centerX" id="Aed-Ma-MPd"/>
+                            <constraint firstItem="fey-4W-AyJ" firstAttribute="top" secondItem="v6T-We-gmP" secondAttribute="bottom" constant="105" id="B4p-Cv-0Ni"/>
+                            <constraint firstItem="v6T-We-gmP" firstAttribute="top" secondItem="F68-nE-e9y" secondAttribute="bottom" constant="8" symbolic="YES" id="SyS-wt-L6X"/>
+                            <constraint firstItem="F68-nE-e9y" firstAttribute="top" secondItem="vTH-As-9Bu" secondAttribute="bottom" constant="42" id="f6X-e9-4SK"/>
+                            <constraint firstItem="F68-nE-e9y" firstAttribute="leading" secondItem="hCT-uL-6l4" secondAttribute="leading" id="s5i-EZ-RHu"/>
+                            <constraint firstAttribute="trailing" secondItem="F68-nE-e9y" secondAttribute="trailing" id="wTh-Qz-86v"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Change Display Name" id="h6T-d1-vtm"/>
@@ -38,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="avi-ST-gwr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164" y="1676"/>
+            <point key="canvasLocation" x="376" y="1612"/>
         </scene>
         <!--Test-->
         <scene sceneID="1gc-nR-3OH">
@@ -76,7 +86,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="119" id="Tja-89-CLK"/>
                                 </constraints>
-                                <state key="normal" title="Logout"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="1" green="0.13462557783411866" blue="0.20478678511224147" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="logoutPressed:" destination="ruJ-ut-0kv" eventType="touchUpInside" id="8Od-kF-9tb"/>
                                 </connections>
@@ -156,7 +168,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cMY-3l-Enz">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cMY-3l-Enz">
                                 <rect key="frame" x="0.0" y="214" width="600" height="386"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -198,4 +210,7 @@
             <point key="canvasLocation" x="-442" y="923"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="oSA-A6-wm8"/>
+    </inferredMetricsTieBreakers>
 </document>
