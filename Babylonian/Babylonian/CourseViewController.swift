@@ -58,6 +58,10 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        self.currentCourse.contentRef.removeAllObservers()
+    }
+    
     @IBAction func editButton(sender: UIButton) {
          //TODO: change tableview status
         
@@ -125,14 +129,13 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         pObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if success {
                 self.currentCourse.addNewATItem("", courseAudio: (audioFile?.url)!)
+                self.courseTableView.reloadData()
             }else {
                 print(error)
             }
         }
         
     }
-    
-    
     
     func startRecording() {
         let audioFilename = DataService.dataService.LOCAL_DIR+"/recording.m4a"
@@ -159,19 +162,6 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         audioRecorder = nil
         
     }
-    
-//    @IBAction func testplay(sender: UIButton) {
-//        do{
-//            self.audioPlayer = try AVAudioPlayer(contentsOfURL:self.audioURL, fileTypeHint:nil)
-//            self.audioPlayer.prepareToPlay()
-//            self.audioPlayer.play()
-//        }catch {
-//            print("Error getting the audio file")
-//        }
-//        
- //   }
-    
-
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -222,6 +212,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         if editingStyle == .Delete {
             // Delete the row from the data source
             self.currentCourse.deleteCourseItem(indexPath.row+1)
+            self.courseTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
     
@@ -242,35 +233,35 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func loadCourse() -> Void {
-//        self.initialized = false
-//        print((self.initialized != nil))
-//        if (self.initialized != nil) {
-//            //play a sound
-//        }else {
-//            
-//            self.currentCourse.contentRef.observeEventType(.ChildAdded, withBlock: {snapshot in
-//                print(snapshot.key)
-//                if let content = snapshot.value {
-//                    let item = content as! [String:AnyObject]
-//                    if let im_ref = item[COURSE_ITEM_IMAGE] {
-//                        
-//                        let courseItem = ImageItem(ref: snapshot.ref, courseImage: im_ref as! String,order: item[COURSE_ITEM_ORDER] as! Int)
-//                        self.currentCourse.addCourseItem(courseItem)
-//                        
-//                    }
-//                    else if let text_ref = item[COURSE_ITEM_TEXT]  {
-//                        let courseItem = ATItem(ref: snapshot.ref,courseText: text_ref as! String, courseAudio: item[COURSE_ITEM_AUDIO] as! String, order: item[COURSE_ITEM_ORDER] as! Int)
-//                        self.currentCourse.addCourseItem(courseItem)
-//                    }
-//                    
-//                    self.courseTableView.reloadData()
-//                }
-//                else{
-//                    //course without content
-//                    
-//                }
-//            })
-//        }
+        self.initialized = false
+        print((self.initialized != nil))
+        if (self.initialized != nil) {
+            //play a sound
+        }else {
+            
+            self.currentCourse.contentRef.observeEventType(.ChildAdded, withBlock: {snapshot in
+                print(snapshot.key)
+                if let content = snapshot.value {
+                    let item = content as! [String:AnyObject]
+                    if let im_ref = item[COURSE_ITEM_IMAGE] {
+                        
+                        let courseItem = ImageItem(ref: snapshot.ref, courseImage: im_ref as! String,order: item[COURSE_ITEM_ORDER] as! Int)
+                        self.currentCourse.addCourseItem(courseItem)
+                        
+                    }
+                    else if let text_ref = item[COURSE_ITEM_TEXT]  {
+                        let courseItem = ATItem(ref: snapshot.ref,courseText: text_ref as! String, courseAudio: item[COURSE_ITEM_AUDIO] as! String, order: item[COURSE_ITEM_ORDER] as! Int)
+                        self.currentCourse.addCourseItem(courseItem)
+                    }
+                    
+                    self.courseTableView.reloadData()
+                }
+                else{
+                    //course without content
+                    
+                }
+            })
+        }
         
         
         self.currentCourse.contentRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
@@ -295,9 +286,10 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
                 //course without content
                 
             }
-            
-            
+            self.initialized = true
         })
+        
+        
     }
     
     func prepareRecording() -> Void{

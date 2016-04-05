@@ -73,6 +73,18 @@ class BBCourse: NSObject {
         self.courseRef.updateChildValues([COURSE_TAG:tag])
     }
     
+    func updateCourseItem(item:CourseItem) -> Bool {
+        if item.courseRef==self.courseRef {
+            item.itemRef.updateChildValues(item.toAnyObject() as! [NSObject : AnyObject])
+            
+            return true
+        }
+        else {
+            print("Cannot delete item in another course")
+            return false
+        }
+    }
+    
     func deleteCourseItem(item:CourseItem) -> Bool{
         if item.courseRef==self.courseRef {
             let order = item.order
@@ -93,18 +105,23 @@ class BBCourse: NSObject {
     
     func deleteCourseItem(ord: Int!) -> Bool {
         var success = false
+        var i = 0
         for item in contents {
             if item.order>ord {
                 item.order = item.order-1
+                item.itemRef.childByAppendingPath(COURSE_ITEM_ORDER).setValue(item.order)
             }
             else if item.order==ord {
+                self.courseItems_.removeAtIndex(i)
                 item.itemRef.removeValue()
                 success = true
             }
+            i = i+1
         }
         return success
     }
     
+    //this is a dangerous function. If course is deleted remotely, while this instance is not destroyed, most operations in this class will lead to error
     func deleteBBCourse() -> Void{
         self.courseRef.removeValue()
     }
@@ -117,8 +134,30 @@ class BBCourse: NSObject {
         var i = 0
         for item in courseItems_ {
             item.order = i
+            item.itemRef.setValue(item.order, forKeyPath: COURSE_ITEM_ORDER)
             i = i+1
         }
+    }
+    
+    func reloadContentsFromRef() {
+        self.contentRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
+            if let content = snapshot.value {
+                for item in content as! [String:NSDictionary]{
+                    let item_ref = self.contentRef.childByAppendingPath(item.0)
+                    if let im_ref = item.1[COURSE_ITEM_IMAGE] {
+                        
+                        let courseItem = ImageItem(ref: item_ref, courseImage: im_ref as! String,order: item.1[COURSE_ITEM_ORDER] as! Int)
+                        self.addCourseItem(courseItem)
+                        
+                    }
+                    else if let text_ref = item.1[COURSE_ITEM_TEXT]  {
+                        let courseItem = ATItem(ref: item_ref,courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int)
+                        self.addCourseItem(courseItem)
+                    }
+                }
+                self.sortContentsByOrder()
+            }
+        })
     }
     
     func moveItemTo(from:Int, to:Int) -> Void{
@@ -127,21 +166,28 @@ class BBCourse: NSObject {
         }
         else if from>to {
             for item in contents {
+                print(item.itemRef)
                 if item.order==from {
                     item.order = to
+                    
+                    item.itemRef.updateChildValues([COURSE_ITEM_ORDER:item.order])
                 }
                 else if item.order<from && item.order>=to{
                     item.order = item.order+1
+                    item.itemRef.updateChildValues([COURSE_ITEM_ORDER:item.order])
                 }
             }
         }
         else {
             for item in contents {
+                print(item.itemRef)
                 if item.order==from {
                     item.order = to
+                    item.itemRef.updateChildValues([COURSE_ITEM_ORDER:item.order])
                 }
                 else if item.order>from && item.order<=to {
                     item.order = item.order-1
+                    item.itemRef.updateChildValues([COURSE_ITEM_ORDER:item.order])
                 }
             }
         }
