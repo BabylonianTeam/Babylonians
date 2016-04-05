@@ -18,16 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F68-nE-e9y">
-                                <rect key="frame" x="0.0" y="106" width="600" height="302"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F68-nE-e9y">
+                                <rect key="frame" x="0.0" y="106" width="600" height="295"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6T-We-gmP">
-                                <rect key="frame" x="273" y="416" width="55" height="30"/>
+                                <rect key="frame" x="273" y="421" width="55" height="30"/>
                                 <state key="normal" title="Confirm"/>
                                 <connections>
                                     <action selector="confirmChange:" destination="Hd7-Na-Pfp" eventType="touchUpInside" id="dc3-tV-Xff"/>
-                                    <segue destination="ruJ-ut-0kv" kind="show" id="oSA-A6-wm8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -35,20 +34,22 @@
                         <constraints>
                             <constraint firstItem="F68-nE-e9y" firstAttribute="centerX" secondItem="v6T-We-gmP" secondAttribute="centerX" id="Aed-Ma-MPd"/>
                             <constraint firstItem="fey-4W-AyJ" firstAttribute="top" secondItem="v6T-We-gmP" secondAttribute="bottom" constant="105" id="B4p-Cv-0Ni"/>
-                            <constraint firstItem="v6T-We-gmP" firstAttribute="top" secondItem="F68-nE-e9y" secondAttribute="bottom" constant="8" symbolic="YES" id="SyS-wt-L6X"/>
+                            <constraint firstItem="v6T-We-gmP" firstAttribute="top" secondItem="F68-nE-e9y" secondAttribute="bottom" constant="20" id="SyS-wt-L6X"/>
                             <constraint firstItem="F68-nE-e9y" firstAttribute="top" secondItem="vTH-As-9Bu" secondAttribute="bottom" constant="42" id="f6X-e9-4SK"/>
                             <constraint firstItem="F68-nE-e9y" firstAttribute="leading" secondItem="hCT-uL-6l4" secondAttribute="leading" id="s5i-EZ-RHu"/>
                             <constraint firstAttribute="trailing" secondItem="F68-nE-e9y" secondAttribute="trailing" id="wTh-Qz-86v"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Change Display Name" id="h6T-d1-vtm"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tblExpandable" destination="F68-nE-e9y" id="dT3-Aw-LgQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="avi-ST-gwr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="376" y="1612"/>
+            <point key="canvasLocation" x="198" y="232"/>
         </scene>
         <!--Test-->
         <scene sceneID="1gc-nR-3OH">
@@ -67,7 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ud2-dr-pLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="376" y="237"/>
+            <point key="canvasLocation" x="1164" y="273"/>
         </scene>
         <!--More...-->
         <scene sceneID="gYC-iz-Jbk">
@@ -168,17 +169,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cMY-3l-Enz">
-                                <rect key="frame" x="0.0" y="214" width="600" height="386"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cMY-3l-Enz">
+                                <rect key="frame" x="0.0" y="132" width="600" height="179"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIO-eb-UNN">
+                                <rect key="frame" x="273" y="321" width="55" height="30"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="changeConfirm:" destination="47c-a1-XZd" eventType="touchUpInside" id="lwZ-LA-wh0"/>
+                                    <action selector="confirmChange:" destination="Hd7-Na-Pfp" eventType="touchUpInside" id="9KQ-KO-4lb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="cMY-3l-Enz" secondAttribute="bottom" id="5Ot-2U-u7e"/>
-                            <constraint firstItem="cMY-3l-Enz" firstAttribute="top" secondItem="IYY-HC-0wB" secondAttribute="bottom" constant="150" id="Whj-iQ-Gqg"/>
-                            <constraint firstAttribute="trailing" secondItem="cMY-3l-Enz" secondAttribute="trailing" id="b2o-bC-VtW"/>
-                            <constraint firstItem="cMY-3l-Enz" firstAttribute="leading" secondItem="zYT-fO-7is" secondAttribute="leading" id="bRL-0K-lP7"/>
+                            <constraint firstItem="cMY-3l-Enz" firstAttribute="top" secondItem="IYY-HC-0wB" secondAttribute="bottom" constant="68" id="1XA-cN-Uvu"/>
+                            <constraint firstItem="fFT-Bz-SUQ" firstAttribute="top" secondItem="TIO-eb-UNN" secondAttribute="bottom" constant="200" id="8xo-qp-s1b"/>
+                            <constraint firstAttribute="trailing" secondItem="cMY-3l-Enz" secondAttribute="trailing" id="C5X-Bu-B2a"/>
+                            <constraint firstItem="cMY-3l-Enz" firstAttribute="leading" secondItem="zYT-fO-7is" secondAttribute="leading" id="bke-Zd-Naq"/>
+                            <constraint firstItem="cMY-3l-Enz" firstAttribute="centerX" secondItem="TIO-eb-UNN" secondAttribute="centerX" id="rpB-Nc-rZi"/>
+                            <constraint firstItem="TIO-eb-UNN" firstAttribute="top" secondItem="cMY-3l-Enz" secondAttribute="bottom" constant="10" id="wE2-PF-XG8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Change Email" id="K9W-Yj-t34"/>
@@ -210,7 +221,4 @@
             <point key="canvasLocation" x="-442" y="923"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="oSA-A6-wm8"/>
-    </inferredMetricsTieBreakers>
 </document>

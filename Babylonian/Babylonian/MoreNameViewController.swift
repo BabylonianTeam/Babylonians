@@ -37,8 +37,6 @@ class MoreNameViewController: UIViewController, UITableViewDelegate, UITableView
     var userInfo = PersonalInfo()
     var _USER_REF = Firebase(url: "\(BASE_URL)/users")
     
-    var newName = ""
-    
     
     // MARK: IBOutlet Properties
     @IBOutlet weak var tblExpandable: UITableView!
@@ -132,7 +130,14 @@ class MoreNameViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func confirmChange(sender: AnyObject) {
-        userInfo.updateDisplayName(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String, newDisplayName: "newName")
+        
+        let cell = self.tblExpandable.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! CustomCell
+        let newName = cell.textField.text!
+        
+        if (newName.characters.count > 0) {
+            userInfo.updateDisplayName(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String, newDisplayName: newName)
+            tblExpandable.reloadData()
+        }
     }
     
     /*
@@ -202,8 +207,6 @@ class MoreNameViewController: UIViewController, UITableViewDelegate, UITableView
          
          cellDescriptors[0][0].setValue(newFullname, forKey: "primaryTitle")
          */
-        
-        self.newName = newText
         
         tblExpandable.reloadData()
     }

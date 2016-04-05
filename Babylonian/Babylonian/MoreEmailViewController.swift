@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MoreEmailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate {
     
@@ -32,7 +33,10 @@ class MoreEmailViewController: UIViewController, UITableViewDelegate, UITableVie
         let primaryColor = UIColor.blackColor()
         
         let secondaryColor = UIColor.lightGrayColor()
-        
+    
+        var userInfo = PersonalInfo()
+        var _USER_REF = Firebase(url: "\(BASE_URL)/users")
+    
         
         // MARK: IBOutlet Properties
         @IBOutlet weak var tblExpandable: UITableView!
@@ -99,7 +103,15 @@ class MoreEmailViewController: UIViewController, UITableViewDelegate, UITableVie
             
             // Configure the cell...
             
-            if(cellType == "idLabelCell"){
+            if(indexPath.section == 0 && indexPath.row == 0){
+                _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
+                    if let email = snapshot.value["email"] as? String {
+                        cell.textLabel?.text = email
+                    }
+                })
+            }
+            
+            else if(cellType == "idLabelCell"){
                 cell.textLabel?.text = self.items[indexPath.section][indexPath.row]
             }
             else if(cellType == "idCellTextfield"){
@@ -116,7 +128,7 @@ class MoreEmailViewController: UIViewController, UITableViewDelegate, UITableVie
         func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
             return 50.0
         }
-        
+    
         /*
         func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 1.0
@@ -130,7 +142,45 @@ class MoreEmailViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         */
 
+    @IBAction func changeConfirm(sender: AnyObject) {
+        let cell1 = self.tblExpandable.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! CustomCell
+        let cell2 = self.tblExpandable.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 1)) as! CustomCell
+
+        let addr1 = cell1.textField.text!
+        let addr2 = cell2.textField.text!
         
+        if((addr1 != addr2) || (addr1.characters.count < 1)){
+            handleEmailMismatch()
+        }
+        else{
+            userInfo.updateEmail(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String, newEmail: addr1)
+            tblExpandable.reloadData()
+        }
+    }
+    
+    
+    func handleEmailMismatch(){
+        //Create the AlertController
+        let actionSheetController: UIAlertController = UIAlertController(title: "Email mismatch!", message: "E-mail address cannot be empty nor mismatch", preferredStyle: .Alert)
+        
+        /*
+        //Create and add the Setting action
+        let settingAction: UIAlertAction = UIAlertAction(title: "Setting", style: .Cancel) { action -> Void in
+            //Do some stuff
+            UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
+        }
+        actionSheetController.addAction(settingAction)
+        */
+        
+        //Create and an option action
+        let retryAction: UIAlertAction = UIAlertAction(title: "Retry", style: .Default) { action -> Void in
+        }
+        actionSheetController.addAction(retryAction)
+        
+        //Present the AlertController
+        self.presentViewController(actionSheetController, animated: true, completion: nil)
+    }
+    
         //==============================================================
         // MARK: CustomCellDelegate Functions
         //==============================================================

@@ -65,7 +65,7 @@ class PersonalInfo{
     
     //update email
     func updateEmail(id: String, newEmail: String){
-        let emailWrapper = ["displayName": newEmail]
+        let emailWrapper = ["email": newEmail]
         _USER_REF.childByAppendingPath(id)?.updateChildValues(emailWrapper)
     }
     
