@@ -21,12 +21,14 @@ class ATItemCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.playButton.layer.cornerRadius = self.playButton.frame.size.height / 2
+        //self.playButton.sizeToFit()
+        self.playButton.contentEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
+        self.playButton.layer.cornerRadius = self.playButton.frame.size.height/2
         print(self.playButton.frame.size.height / 2)
-        //self.playButton.layer.borderColor = self.playButton
-        self.playButton.layer.borderWidth = 2.0
+        self.playButton.layer.borderColor = self.playButton.tintColor.CGColor
+        self.playButton.layer.borderWidth = 1.0
         self.playButton.duration = 0.3
-        //self.playButton.adjustMargin = 1
+        self.playButton.adjustMargin = 1
 
     }
     
@@ -40,7 +42,6 @@ class ATItemCell: UITableViewCell {
             audioPlayer.play(self.audioUrl.absoluteString)
             self.playButton.setButtonState(.Playing, animated: true)
         }
-        //TODO: don't play
     }
 
     //TODO: tap and drag//tap and hold to record
