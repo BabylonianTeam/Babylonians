@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MoreNameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate {
     
@@ -32,6 +33,11 @@ class MoreNameViewController: UIViewController, UITableViewDelegate, UITableView
     let primaryColor = UIColor.blackColor()
     
     let secondaryColor = UIColor.lightGrayColor()
+    
+    var userInfo = PersonalInfo()
+    var _USER_REF = Firebase(url: "\(BASE_URL)/users")
+    
+    var newName = ""
     
     
     // MARK: IBOutlet Properties
@@ -99,7 +105,15 @@ class MoreNameViewController: UIViewController, UITableViewDelegate, UITableView
         
         // Configure the cell...
         
-        if(cellType == "idLabelCell"){
+        if(indexPath.section == 0 && indexPath.row == 0){
+            _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
+                if let displayName = snapshot.value["displayName"] as? String {
+                    cell.textLabel?.text = displayName
+                }
+            })
+        }
+        
+        else if(cellType == "idLabelCell"){
             cell.textLabel?.text = self.items[indexPath.section][indexPath.row]
         }
         else if(cellType == "idCellTextfield"){
@@ -115,6 +129,10 @@ class MoreNameViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50.0
+    }
+    
+    @IBAction func confirmChange(sender: AnyObject) {
+        userInfo.updateDisplayName(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String, newDisplayName: "newName")
     }
     
     /*
@@ -184,6 +202,8 @@ class MoreNameViewController: UIViewController, UITableViewDelegate, UITableView
          
          cellDescriptors[0][0].setValue(newFullname, forKey: "primaryTitle")
          */
+        
+        self.newName = newText
         
         tblExpandable.reloadData()
     }

@@ -43,8 +43,23 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var userInfo = PersonalInfo()
     var _USER_REF = Firebase(url: "\(BASE_URL)/users")
     
+    
+    
     // MARK: IBOutlet Properties
     @IBOutlet weak var tblExpandable: UITableView!
+    
+    
+    /*
+     func retrieveData(){
+     //retrieve displayName from firebase, and display it on More page
+     _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
+     if let displayName = snapshot.value["displayName"] as? String {
+     self.FdisplayName = displayName
+     print("displayName is \(self.FdisplayName)")
+     }
+     })
+     }
+     */
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,8 +74,7 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //retrieve displayName from firebase, and display it on More page
         _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
                 if let displayName = snapshot.value["displayName"] as? String {
-                    print("display name is \(displayName)")
-                    self.labelDisplayName?.text = ("\(displayName)")
+                    self.labelDisplayName?.text = displayName
             }
         })
     }
@@ -114,14 +128,32 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //let cell = tableView.dequeueReusableCellWithIdentifier("idLabelCell", forIndexPath: indexPath)
         let cellType = self.cellTypes[indexPath.section][indexPath.row]
-         let cell = tableView.dequeueReusableCellWithIdentifier(cellType, forIndexPath: indexPath) as! CustomCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellType, forIndexPath: indexPath) as! CustomCell
         
         
         // Configure the cell...
-        
+        //set the detailTextLabel
         if(cellType == "idLabelCell"){
             cell.textLabel?.text = self.items[indexPath.section][indexPath.row]
-            cell.detailTextLabel?.text = "More Info"
+            if(cell.textLabel?.text == "Display Name"){
+                _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
+                    if let displayName = snapshot.value["displayName"] as? String {
+                        //print("displayName is \(displayName)")
+                        cell.detailTextLabel?.text = displayName
+                    }
+                })
+            }
+            else if(cell.textLabel?.text == "E-mail"){
+                _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
+                    if let email = snapshot.value["email"] as? String {
+                        //print("email is \(email)")
+                        cell.detailTextLabel?.text = email
+                    }
+                })
+            }
+            else{
+                cell.detailTextLabel?.text = "More Info"
+            }
         }
         else if(cellType == "idCellSwitch"){
             cell.lblSwitchLabel?.text = self.items[indexPath.section][indexPath.row]
