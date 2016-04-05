@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Course View Controller-->
         <scene sceneID="fDM-HD-ZnI">
             <objects>
-                <viewController id="45I-xC-lAC" customClass="CourseViewController" customModule="Babylonian" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="45I-xC-lAC" customClass="CourseViewController" customModule="Babylonian" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CHB-J9-DmZ"/>
                         <viewControllerLayoutGuide type="bottom" id="6BG-Sl-0dx"/>
@@ -18,29 +19,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7dH-ch-bSx" customClass="LPRTableView" customModule="Babylonian" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="2" sectionFooterHeight="2" translatesAutoresizingMaskIntoConstraints="NO" id="7dH-ch-bSx" customClass="LPRTableView" customModule="Babylonian" customModuleProvider="target">
                                 <rect key="frame" x="20" y="64" width="560" height="482"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ATItemCell" id="Jms-fq-3kc" customClass="ATItemCell" customModule="Babylonian" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="560" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ATItemCell" rowHeight="50" id="Jms-fq-3kc" customClass="ATItemCell" customModule="Babylonian" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="2" width="560" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jms-fq-3kc" id="fnp-UJ-H0e">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyg-6b-Yti" customClass="PlaybackButton" customModule="Babylonian" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="18" width="22" height="22"/>
+                                                    <rect key="frame" x="8" y="18" width="24" height="24"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="22" id="1vS-GH-3va" userLabel="height = 30"/>
-                                                        <constraint firstAttribute="width" constant="22" id="Wgx-6G-5bj" userLabel="width = 30"/>
+                                                        <constraint firstAttribute="height" constant="24" id="1vS-GH-3va" userLabel="height = 30"/>
+                                                        <constraint firstAttribute="width" constant="24" id="Wgx-6G-5bj" userLabel="width = 30"/>
                                                     </constraints>
                                                     <connections>
                                                         <action selector="playButtonPressed:" destination="Jms-fq-3kc" eventType="touchUpInside" id="62y-yO-b2W"/>
+                                                        <action selector="throughAudio:" destination="Jms-fq-3kc" eventType="touchDragOutside" id="hdz-mA-5tk"/>
                                                     </connections>
                                                 </button>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tap and hold to edit transcripts" translatesAutoresizingMaskIntoConstraints="NO" id="TOh-oZ-vIX">
-                                                    <rect key="frame" x="40" y="8" width="502" height="50"/>
+                                                    <rect key="frame" x="48" y="8" width="494" height="50"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="ACs-Ze-mfR"/>
@@ -52,7 +54,7 @@
                                             <constraints>
                                                 <constraint firstItem="TOh-oZ-vIX" firstAttribute="top" secondItem="eyg-6b-Yti" secondAttribute="top" constant="-10" id="2yq-QE-QfX"/>
                                                 <constraint firstItem="eyg-6b-Yti" firstAttribute="leading" secondItem="fnp-UJ-H0e" secondAttribute="leadingMargin" id="OKH-IB-dfm"/>
-                                                <constraint firstItem="TOh-oZ-vIX" firstAttribute="leading" secondItem="eyg-6b-Yti" secondAttribute="trailing" constant="10" id="bUN-L7-Tak"/>
+                                                <constraint firstItem="TOh-oZ-vIX" firstAttribute="leading" secondItem="eyg-6b-Yti" secondAttribute="trailing" constant="16" id="bUN-L7-Tak"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="TOh-oZ-vIX" secondAttribute="trailing" constant="10" id="gmA-eY-uPc"/>
                                                 <constraint firstItem="TOh-oZ-vIX" firstAttribute="top" secondItem="fnp-UJ-H0e" secondAttribute="topMargin" constant="1" id="jUR-zR-MrW"/>
                                                 <constraint firstItem="eyg-6b-Yti" firstAttribute="top" secondItem="fnp-UJ-H0e" secondAttribute="topMargin" constant="10" id="qHK-bO-1zp"/>
@@ -64,15 +66,15 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="audioPlayer" destination="eyg-6b-Yti" id="3U7-em-ZvF"/>
+                                            <outlet property="playButton" destination="eyg-6b-Yti" id="lzF-ke-cBJ"/>
                                             <outlet property="transcript" destination="TOh-oZ-vIX" id="tNt-j2-vlA"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageItemCell" id="n8s-X3-ehg" customClass="ImageItemCell" customModule="Babylonian" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="136" width="560" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageItemCell" rowHeight="200" id="n8s-X3-ehg" customClass="ImageItemCell" customModule="Babylonian" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="52" width="560" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n8s-X3-ehg" id="6ZH-Nv-BL0">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wZu-ZS-5Kj">
@@ -104,7 +106,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CreateCourseItemCell" id="rid-vB-xh4" customClass="CreateCourseItemCell" customModule="Babylonian" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="180" width="560" height="44"/>
+                                        <rect key="frame" x="0.0" y="252" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rid-vB-xh4" id="adY-Je-hhk">
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
@@ -148,7 +150,7 @@
                                 </prototypes>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uJ8-X4-H5F">
-                                <rect key="frame" x="20" y="556" width="560" height="44"/>
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem width="80" style="plain" id="gew-Y4-We3">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="grw-dj-BoF">
@@ -186,36 +188,48 @@
                             <constraint firstItem="7dH-ch-bSx" firstAttribute="leading" secondItem="Bb5-fQ-lV8" secondAttribute="leadingMargin" id="F4q-xF-mmR"/>
                             <constraint firstItem="7dH-ch-bSx" firstAttribute="top" secondItem="CHB-J9-DmZ" secondAttribute="bottom" id="IPG-c1-GRE"/>
                             <constraint firstItem="6BG-Sl-0dx" firstAttribute="top" secondItem="uJ8-X4-H5F" secondAttribute="bottom" id="NPR-dt-8m1"/>
+                            <constraint firstItem="uJ8-X4-H5F" firstAttribute="leading" secondItem="Bb5-fQ-lV8" secondAttribute="leading" id="RdY-ee-bNZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uJ8-X4-H5F" secondAttribute="trailing" id="T4D-Rb-Ep0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7dH-ch-bSx" secondAttribute="trailing" id="Tii-Uz-xX7"/>
+                            <constraint firstItem="uJ8-X4-H5F" firstAttribute="centerX" secondItem="7dH-ch-bSx" secondAttribute="centerX" id="YHZ-oJ-raO"/>
                             <constraint firstItem="uJ8-X4-H5F" firstAttribute="leading" secondItem="Bb5-fQ-lV8" secondAttribute="leadingMargin" id="crd-V8-lX9"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="T4D-Rb-Ep0"/>
+                                <exclude reference="crd-V8-lX9"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="ieS-Co-FmT">
                         <nil key="title"/>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DeV-f2-z4K">
-                            <rect key="frame" x="218" y="7" width="164" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Edit"/>
-                            <connections>
-                                <action selector="editButton:" destination="45I-xC-lAC" eventType="touchUpInside" id="UyX-O6-eKi"/>
-                            </connections>
-                        </button>
-                        <barButtonItem key="rightBarButtonItem" style="done" id="htp-DI-tCa">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xDf-XI-WRo">
-                                <rect key="frame" x="447" y="7" width="133" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Next &gt;&gt;"/>
-                                <connections>
-                                    <action selector="nextButton:" destination="45I-xC-lAC" eventType="touchUpInside" id="iy7-vD-QBc"/>
-                                    <segue destination="Kv9-3G-TY8" kind="show" id="6TR-Na-F66"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem style="done" id="htp-DI-tCa">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xDf-XI-WRo">
+                                    <rect key="frame" x="530" y="7" width="50" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Next"/>
+                                    <connections>
+                                        <action selector="nextButton:" destination="45I-xC-lAC" eventType="touchUpInside" id="iy7-vD-QBc"/>
+                                        <segue destination="Kv9-3G-TY8" kind="show" id="6TR-Na-F66"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="X4W-tl-gcf">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0T0-l5-5nF">
+                                    <rect key="frame" x="462" y="7" width="60" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Edit"/>
+                                    <connections>
+                                        <action selector="editButton:" destination="45I-xC-lAC" eventType="touchUpInside" id="7de-XJ-4tg"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="courseTableView" destination="7dH-ch-bSx" id="of6-Us-kgV"/>
-                        <outlet property="tableEditButton" destination="DeV-f2-z4K" id="1Rv-H8-XdC"/>
+                        <outlet property="tableEditButton" destination="0T0-l5-5nF" id="v4o-NJ-tvk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s5d-vD-rVr" userLabel="First Responder" sceneMemberID="firstResponder"/>

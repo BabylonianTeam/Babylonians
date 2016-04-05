@@ -12,11 +12,11 @@ import Firebase
 
 class CourseItem: NSObject {
     var order: Int!
-    var content: NSDictionary!
+    var content: NSMutableDictionary!
     var ref_: Firebase!
             
     init(ref:Firebase!, order: Int) {
-        content = NSDictionary()
+        content = NSMutableDictionary()
         self.ref_ = ref
         self.order = order
     }
