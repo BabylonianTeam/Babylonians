@@ -134,8 +134,11 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Configure the cell...
         //set the detailTextLabel
         if(cellType == "idLabelCell"){
+            
             cell.textLabel?.text = self.items[indexPath.section][indexPath.row]
+            
             if(cell.textLabel?.text == "Display Name"){
+                cell.detailTextLabel?.text = " "
                 _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
                     if let displayName = snapshot.value["displayName"] as? String {
                         //print("displayName is \(displayName)")
@@ -144,6 +147,7 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 })
             }
             else if(cell.textLabel?.text == "E-mail"){
+                cell.detailTextLabel?.text = " "
                 _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
                     if let email = snapshot.value["email"] as? String {
                         //print("email is \(email)")
@@ -152,7 +156,7 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 })
             }
             else{
-                cell.detailTextLabel?.text = "More Info"
+                cell.detailTextLabel?.text = " "
             }
         }
         else if(cellType == "idCellSwitch"){
