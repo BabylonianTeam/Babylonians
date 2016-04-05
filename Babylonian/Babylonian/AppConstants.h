@@ -18,6 +18,7 @@
 
 #define		USER_EMAIL                          @"email"
 #define		USER_PASSWORD                       @"password"
+#define     USER_PROVIDER                       @"provider"
 #define		USER_DISPLAYNAME                    @"displayName"
 #define		USER_ROLE                           @"role"
 #define		USER_ROLE_CREATOR                   @"creator"

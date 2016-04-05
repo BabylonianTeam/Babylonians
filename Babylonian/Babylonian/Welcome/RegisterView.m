@@ -81,12 +81,13 @@
                     df.dateFormat = USER_DATE_FORMAT;
                     NSDictionary *newUser = @{
                                               USER_EMAIL: email,
-                                              USER_PASSWORD: password,
+                                              USER_PROVIDER: [authData provider],
                                               USER_DISPLAYNAME: name,
                                               USER_ROLE: RUNTIME_USER_ROLE,
                                               @"lastActive": [df stringFromDate:[NSDate date]]
                                               };
                     [[[ref childByAppendingPath:@"users"] childByAppendingPath:authData.uid] setValue:newUser];
+                    
                     
                     //NSLog(@"Successfully created user account with uid: %@", authData.uid);
                     //save userdata to userDefault
