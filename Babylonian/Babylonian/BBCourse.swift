@@ -13,6 +13,7 @@ import Firebase
 
 
 class BBCourse: NSObject {
+    
     var title_: String!
     var author_: String!
     var courseItems_: [CourseItem]!
@@ -28,6 +29,7 @@ class BBCourse: NSObject {
         self.courseItems_ = [CourseItem]()
     }
     
+    
     func setTitle(title: String) -> Void {
         self.title_ = title
         self.courseRef.updateChildValues([COURSE_TITLE:title])
@@ -40,6 +42,11 @@ class BBCourse: NSObject {
     
     func addCourseItem(item:CourseItem) -> Void {
         self.courseItems_.append(item)
+    }
+    
+    func setAuthorName(author: String) -> Void {
+        self.author_ = author
+        self.courseRef.updateChildValues([COURSE_AUTHOR:author])
     }
     
     func addNewCourseItem() -> Void {
@@ -61,6 +68,10 @@ class BBCourse: NSObject {
         self.courseItems_.append(ImageItem(ref: item_ref, courseImage:courseImage, order: self.contents.count+1))
     }
     
+    func setTag(tag: [String]) -> Void {
+        self.tag_ = tag
+        self.courseRef.updateChildValues([COURSE_TAG:tag])
+    }
     
     func deleteCourseItem(item:CourseItem) -> Bool{
         if item.courseRef==self.courseRef {
@@ -94,8 +105,20 @@ class BBCourse: NSObject {
         return success
     }
     
+    func deleteBBCourse() -> Void{
+        self.courseRef.removeValue()
+    }
+
     func sortContentsByOrder() -> Void{
         self.courseItems_ = self.contents.sort({$0.order<$1.order})
+    }
+    
+    func setItemOrdersAsInContents() -> Void {
+        var i = 0
+        for item in courseItems_ {
+            item.order = i
+            i = i+1
+        }
     }
     
     func moveItemTo(from:Int, to:Int) -> Void{
@@ -122,23 +145,6 @@ class BBCourse: NSObject {
                 }
             }
         }
-    }
-    
-    
-    func setAuthorName(author: String) -> Void {
-        self.author_ = author
-        self.firebaseRef.updateChildValues([COURSE_AUTHOR:author])
-    }
-    
-    func setTag(tag: [String]) -> Void {
-        self.tag_ = tag
-        self.firebaseRef.updateChildValues([COURSE_TAG:tag])
-    }
-    
-    
-    func deleteBBCourse() -> Void{
-        
-        self.firebaseRef.removeValue()
     }
     
     var author: String {

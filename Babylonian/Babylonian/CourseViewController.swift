@@ -19,6 +19,8 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     var audioRecorder: AVAudioRecorder!
     var audioURL = NSURL()
     var imagePicker = UIImagePickerController()
+    var initialized: Bool!
+    
     
     @IBOutlet weak var courseTableView: LPRTableView!
     
@@ -45,67 +47,15 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             //uncomment above and comment below to actually create new course.
             let ref = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEPJobHpCZ1z_4xOI6C")
             (self.navigationController as! BBCourseNavController).currentCourse = BBCourse(ref: ref, author: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
-            
-            
-            
         }
-        
-        
         
         self.currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
         self.currentCourse.setTitle("This is new title")
         
-        //TODO: should update new value only
         
-        self.currentCourse.courseRef.observeEventType(.Value, withBlock: { snapshot in
-            
-            if let content = snapshot.value.objectForKey("content"){
-                
-                for item in content as! [String:NSDictionary]{
-                    let item_ref = self.currentCourse.contentRef.childByAppendingPath(item.0)
-                    if let im_ref = item.1[COURSE_ITEM_IMAGE] {
-                        
-                        let courseItem = ImageItem(ref: item_ref, courseImage: im_ref as! String,order: item.1[COURSE_ITEM_ORDER] as! Int)
-                        self.currentCourse.addCourseItem(courseItem)
-                        
-                    }
-                    else if let text_ref = item.1[COURSE_ITEM_TEXT]  {
-                        let courseItem = ATItem(ref: item_ref,courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int)
-                        self.currentCourse.addCourseItem(courseItem)
-                    }
-                }
-                self.courseTableView.reloadData()
-            }
-            else{
-                //course without content
-                
-            }
-            
-            
-            }, withCancelBlock: { error in
-                print(error.description)
-        })
+        self.loadCourse()
+        self.prepareRecording()
         
-        
-        //prepare for recording
-        recordingSession = AVAudioSession.sharedInstance()
-        
-        do {
-            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try recordingSession.setActive(true)
-            recordingSession.requestRecordPermission() { [unowned self] (allowed: Bool) -> Void in
-                dispatch_async(dispatch_get_main_queue()) {
-                    if allowed {
-                        //self.loadRecordingUI()
-                    } else {
-                        // failed to record!
-                    }
-                }
-            }
-        } catch {
-            // failed to record!
-        }
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func editButton(sender: UIButton) {
@@ -239,7 +189,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             let cell = tableView.dequeueReusableCellWithIdentifier("ATItemCell", forIndexPath: indexPath) as! ATItemCell
             let dic = self.currentCourse.contents[indexPath.row].content as! [String:String]
             cell.transcript.text = dic[COURSE_ITEM_TEXT]
-            cell.audioUrl = NSURL(fileURLWithPath: dic[COURSE_ITEM_AUDIO]!)
+            cell.audioUrl = NSURL(string: dic[COURSE_ITEM_AUDIO]!)
             return cell
 
         }
@@ -291,15 +241,94 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func loadCourse() -> Void {
+//        self.initialized = false
+//        print((self.initialized != nil))
+//        if (self.initialized != nil) {
+//            //play a sound
+//        }else {
+//            
+//            self.currentCourse.contentRef.observeEventType(.ChildAdded, withBlock: {snapshot in
+//                print(snapshot.key)
+//                if let content = snapshot.value {
+//                    let item = content as! [String:AnyObject]
+//                    if let im_ref = item[COURSE_ITEM_IMAGE] {
+//                        
+//                        let courseItem = ImageItem(ref: snapshot.ref, courseImage: im_ref as! String,order: item[COURSE_ITEM_ORDER] as! Int)
+//                        self.currentCourse.addCourseItem(courseItem)
+//                        
+//                    }
+//                    else if let text_ref = item[COURSE_ITEM_TEXT]  {
+//                        let courseItem = ATItem(ref: snapshot.ref,courseText: text_ref as! String, courseAudio: item[COURSE_ITEM_AUDIO] as! String, order: item[COURSE_ITEM_ORDER] as! Int)
+//                        self.currentCourse.addCourseItem(courseItem)
+//                    }
+//                    
+//                    self.courseTableView.reloadData()
+//                }
+//                else{
+//                    //course without content
+//                    
+//                }
+//            })
+//        }
+        
+        
+        self.currentCourse.contentRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if let content = snapshot.value{
+                for item in content as! [String:NSDictionary]{
+                    let item_ref = self.currentCourse.contentRef.childByAppendingPath(item.0)
+                    if let im_ref = item.1[COURSE_ITEM_IMAGE] {
+                        
+                        let courseItem = ImageItem(ref: item_ref, courseImage: im_ref as! String,order: item.1[COURSE_ITEM_ORDER] as! Int)
+                        self.currentCourse.addCourseItem(courseItem)
+                        
+                    }
+                    else if let text_ref = item.1[COURSE_ITEM_TEXT]  {
+                        let courseItem = ATItem(ref: item_ref,courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int)
+                        self.currentCourse.addCourseItem(courseItem)
+                    }
+                }
+                self.currentCourse.sortContentsByOrder()
+                self.courseTableView.reloadData()
+            }
+            else{
+                //course without content
+                
+            }
+            
+            
+        })
+    }
     
-    /*
+    func prepareRecording() -> Void{
+        recordingSession = AVAudioSession.sharedInstance()
+        
+        do {
+            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try recordingSession.setActive(true)
+            recordingSession.requestRecordPermission() { [unowned self] (allowed: Bool) -> Void in
+                dispatch_async(dispatch_get_main_queue()) {
+                    if allowed {
+                        //self.loadRecordingUI()
+                    } else {
+                        // failed to record!
+                    }
+                }
+            }
+        } catch {
+            print("failed to record!")
+        }
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+
     }
-    */
+ 
 
 }
