@@ -34,26 +34,26 @@ class Minicourse{
     }
     
     
-    class func setPrice(ref: String!, price: Double!){
-        
-        let pricewrapper = ["price": price]
-        Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref)?.updateChildValues(pricewrapper)
-   
-    }
-   
-    class func setAuthorName(ref: String!, name: String!){
-       
-        let namewrapper = ["COURSE_AUTHOR": name]
-        Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref)?.updateChildValues(namewrapper)
-        
-    }
-   
-    class func setTag(ref: String!, tag: String!){
-        
-        let tagwrapper = ["tag": tag]
-        Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref)?.updateChildValues(tagwrapper)
-        
-    }
+//    class func setPrice(ref: String!, price: Double!){
+//        
+//        let pricewrapper = ["price": price]
+//        Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref)?.updateChildValues(pricewrapper)
+//   
+//    }
+//   
+//    class func setAuthorName(ref: String!, name: String!){
+//       
+//        let namewrapper = ["COURSE_AUTHOR": name]
+//        Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref)?.updateChildValues(namewrapper)
+//        
+//    }
+//   
+//    class func setTag(ref: String!, tag: String!){
+//        
+//        let tagwrapper = ["tag": tag]
+//        Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref)?.updateChildValues(tagwrapper)
+//        
+//    }
     
     class func addBBCourse(BBCourse: AnyObject!) {
         
