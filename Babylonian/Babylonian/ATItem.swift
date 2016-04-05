@@ -22,10 +22,13 @@ class ATItem: CourseItem {
     
     func setText(text:String!) {
         self.content.setValue(text, forKey: COURSE_ITEM_TEXT)
+        
+        self.itemRef.updateChildValues([COURSE_ITEM_TEXT:text])
     }
     
     func setAudio(audioUrl:String!) {
         self.content.setValue(audioUrl, forKey: COURSE_ITEM_AUDIO)
+        self.itemRef.updateChildValues([COURSE_ITEM_AUDIO:audioUrl])
     }
     
     override func toAnyObject() -> AnyObject {

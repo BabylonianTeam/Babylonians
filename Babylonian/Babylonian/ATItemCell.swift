@@ -63,7 +63,7 @@ class ATItemCell: UITableViewCell, UITextViewDelegate {
     //TODO: change text
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n") {
-            
+            self.item.setText(self.transcript.text)
             textView.resignFirstResponder()
             return false
         }
