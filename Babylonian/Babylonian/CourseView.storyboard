@@ -38,6 +38,7 @@
                                                     </constraints>
                                                     <connections>
                                                         <action selector="playButtonPressed:" destination="Jms-fq-3kc" eventType="touchUpInside" id="62y-yO-b2W"/>
+                                                        <action selector="throughAudio:" destination="Jms-fq-3kc" eventType="touchDragOutside" id="hdz-mA-5tk"/>
                                                     </connections>
                                                 </button>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tap and hold to edit transcripts" translatesAutoresizingMaskIntoConstraints="NO" id="TOh-oZ-vIX">

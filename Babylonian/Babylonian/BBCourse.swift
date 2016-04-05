@@ -166,7 +166,6 @@ class BBCourse: NSObject {
         }
         else if from>to {
             for item in contents {
-                print(item.itemRef)
                 if item.order==from {
                     item.order = to
                     
@@ -180,7 +179,6 @@ class BBCourse: NSObject {
         }
         else {
             for item in contents {
-                print(item.itemRef)
                 if item.order==from {
                     item.order = to
                     item.itemRef.updateChildValues([COURSE_ITEM_ORDER:item.order])

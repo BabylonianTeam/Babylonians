@@ -95,12 +95,15 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         let data = UIImageJPEGRepresentation(image!, 1)
         let imageFile = PFFile(name: "image.jpg", data: data!)
         
+        print(imageFile?.url)
         let pObject = PFObject(className: "Image")
         pObject[PARSE_IMAGE_FILENAME]  = imageFile
         
         pObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if success {
                 self.currentCourse.addNewImageItem((imageFile?.url)!)
+                self.courseTableView.reloadData()
+                //TODO: try not reload
             }else {
                 print(error)
             }
@@ -177,9 +180,8 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         
         if indexPath.row<self.currentCourse.contents.count && self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_AUDIOTEXT {
             let cell = tableView.dequeueReusableCellWithIdentifier("ATItemCell", forIndexPath: indexPath) as! ATItemCell
-            let dic = self.currentCourse.contents[indexPath.row].content as! [String:String]
-            cell.transcript.text = dic[COURSE_ITEM_TEXT]
-            cell.audioUrl = NSURL(string: dic[COURSE_ITEM_AUDIO]!)
+            cell.item = self.currentCourse.contents[indexPath.row] as! ATItem
+            cell.refreshText()
             return cell
 
         }
@@ -233,35 +235,35 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func loadCourse() -> Void {
-        self.initialized = false
-        print((self.initialized != nil))
-        if (self.initialized != nil) {
-            //play a sound
-        }else {
-            
-            self.currentCourse.contentRef.observeEventType(.ChildAdded, withBlock: {snapshot in
-                print(snapshot.key)
-                if let content = snapshot.value {
-                    let item = content as! [String:AnyObject]
-                    if let im_ref = item[COURSE_ITEM_IMAGE] {
-                        
-                        let courseItem = ImageItem(ref: snapshot.ref, courseImage: im_ref as! String,order: item[COURSE_ITEM_ORDER] as! Int)
-                        self.currentCourse.addCourseItem(courseItem)
-                        
-                    }
-                    else if let text_ref = item[COURSE_ITEM_TEXT]  {
-                        let courseItem = ATItem(ref: snapshot.ref,courseText: text_ref as! String, courseAudio: item[COURSE_ITEM_AUDIO] as! String, order: item[COURSE_ITEM_ORDER] as! Int)
-                        self.currentCourse.addCourseItem(courseItem)
-                    }
-                    
-                    self.courseTableView.reloadData()
-                }
-                else{
-                    //course without content
-                    
-                }
-            })
-        }
+//        self.initialized = false
+//        
+//        if ((self.initialized) != nil && self.initialized) {
+//            //play a sound
+//        }else {
+//            
+//            self.currentCourse.contentRef.observeEventType(.ChildAdded, withBlock: {snapshot in
+//                print(snapshot.key)
+//                if let content = snapshot.value {
+//                    let item = content as! [String:AnyObject]
+//                    if let im_ref = item[COURSE_ITEM_IMAGE] {
+//                        
+//                        let courseItem = ImageItem(ref: snapshot.ref, courseImage: im_ref as! String,order: item[COURSE_ITEM_ORDER] as! Int)
+//                        self.currentCourse.addCourseItem(courseItem)
+//                        
+//                    }
+//                    else if let text_ref = item[COURSE_ITEM_TEXT]  {
+//                        let courseItem = ATItem(ref: snapshot.ref,courseText: text_ref as! String, courseAudio: item[COURSE_ITEM_AUDIO] as! String, order: item[COURSE_ITEM_ORDER] as! Int)
+//                        self.currentCourse.addCourseItem(courseItem)
+//                    }
+//                    
+//                    self.courseTableView.reloadData()
+//                }
+//                else{
+//                    //course without content
+//                    
+//                }
+//            })
+//        }
         
         
         self.currentCourse.contentRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
