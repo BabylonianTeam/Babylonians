@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Babylonian
+import Babylonian
 
 class BBCourseTest: XCTestCase {
     var testBBCourse: BBCourse!

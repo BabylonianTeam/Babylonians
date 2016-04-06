@@ -25,7 +25,6 @@ class ImageItem: CourseItem {
         return [
             COURSE_ITEM_IMAGE: self.content[COURSE_ITEM_IMAGE] as! String,
             COURSE_ITEM_ORDER: order
-            //"courseId": courseId
         ]
     }
 

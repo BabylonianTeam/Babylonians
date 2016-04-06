@@ -35,7 +35,7 @@
 #define     COURSE_CONTENT                      @"content"
 #define     COURSE_TAG                          @"tag"
 #define     COURSE_MIN_ITEMS                    10
-
+#define     COURSE_NUM_SOLD                     @"soldnum"
 
 #define		COURSE_STATUS_DRAFT                 @"draft"
 #define		COURSE_STATUS_ONSHELF               @"onshelf"

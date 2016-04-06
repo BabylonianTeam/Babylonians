@@ -21,7 +21,6 @@ class ATItem: CourseItem {
     
     func setText(text:String!) {
         self.content.setValue(text, forKey: COURSE_ITEM_TEXT)
-        
         self.itemRef.updateChildValues([COURSE_ITEM_TEXT:text])
     }
     
@@ -30,13 +29,18 @@ class ATItem: CourseItem {
         self.itemRef.updateChildValues([COURSE_ITEM_AUDIO:audioUrl])
     }
     
+    func setAudioDuration(duration:Float!) {
+        self.content.setValue(duration, forKey: COURSE_ITEM_AUDIO_DURATION)
+        self.itemRef.updateChildValues([COURSE_ITEM_AUDIO_DURATION:duration])
+    }
+    
     override func toAnyObject() -> AnyObject {
         
         return [
-            
             COURSE_ITEM_AUDIO: self.content[COURSE_ITEM_AUDIO] as! String,
             COURSE_ITEM_TEXT: self.content[COURSE_ITEM_TEXT] as! String,
-            COURSE_ITEM_ORDER: order
+            COURSE_ITEM_ORDER: order,
+            COURSE_ITEM_AUDIO_DURATION: self.content[COURSE_ITEM_AUDIO_DURATION] as! Float
         ]
     }
 
