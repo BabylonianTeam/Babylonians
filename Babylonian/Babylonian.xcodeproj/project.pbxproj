@@ -32,6 +32,7 @@
 		3068A0F51CA2477000AE6CB4 /* aa0f3d544a573d3-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3068A0F41CA2477000AE6CB4 /* aa0f3d544a573d3-1.jpg */; };
 		306C32391C9B912C0035608E /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306C32381C9B912C0035608E /* MainPageViewController.swift */; };
 		306C323B1C9B9E830035608E /* MainCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306C323A1C9B9E830035608E /* MainCourseCell.swift */; };
+		3075D8831CB56C7000B5262F /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3075D8821CB56C7000B5262F /* SearchCell.swift */; };
 		3098187B1CB36ECB0026D19A /* NSMutableArray+STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 309818691CB36ECB0026D19A /* NSMutableArray+STKAudioPlayer.m */; };
 		3098187C1CB36ECB0026D19A /* STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3098186B1CB36ECB0026D19A /* STKAudioPlayer.m */; };
 		3098187D1CB36ECB0026D19A /* STKAutoRecoveringHTTPDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3098186D1CB36ECB0026D19A /* STKAutoRecoveringHTTPDataSource.m */; };
@@ -144,6 +145,7 @@
 		3068A0F41CA2477000AE6CB4 /* aa0f3d544a573d3-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "aa0f3d544a573d3-1.jpg"; path = "Babylonian/aa0f3d544a573d3-1.jpg"; sourceTree = "<group>"; };
 		306C32381C9B912C0035608E /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		306C323A1C9B9E830035608E /* MainCourseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCourseCell.swift; sourceTree = "<group>"; };
+		3075D8821CB56C7000B5262F /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		309818681CB36ECB0026D19A /* NSMutableArray+STKAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+STKAudioPlayer.h"; sourceTree = "<group>"; };
 		309818691CB36ECB0026D19A /* NSMutableArray+STKAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+STKAudioPlayer.m"; sourceTree = "<group>"; };
 		3098186A1CB36ECB0026D19A /* STKAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKAudioPlayer.h; sourceTree = "<group>"; };
@@ -335,16 +337,13 @@
 				30DBCDD61C9E3BE7000CD59D /* Welcome */,
 				9F66D6021C9ADCA200EB9C93 /* Custom Cells */,
 				30E6DB391CB19D5100F604E6 /* Main */,
-				30F20ABA1CA0F99D00A484E9 /* LearnerMyCourses.storyboard */,
+				3075D8841CB56CCE00B5262F /* MyCourseTab */,
 				30F20AB81CA0F98300A484E9 /* LearnerDiscussion.storyboard */,
 				30F20AB61CA0F95700A484E9 /* LearnerMore.storyboard */,
 				305E47211C8D182D004EEACE /* Discussions.storyboard */,
 				305E471E1C8D1817004EEACE /* More.storyboard */,
-				305E471B1C8D169F004EEACE /* MyCourses.storyboard */,
 				0705D5051C8CEF270065467D /* LaunchScreen.storyboard */,
-				07EFFB611C97B128006F8ECB /* CourseCell.swift */,
 				9F66D60F1C9ADE6B00EB9C93 /* CustomCell.swift */,
-				9F638F681C9B8A7500154A13 /* CreatorMyCoursesViewController.swift */,
 				9F66D6131C9AE05F00EB9C93 /* MoreUIViewController.swift */,
 				9F66D6111C9ADE9900EB9C93 /* CellDescriptor.plist */,
 			);
@@ -406,6 +405,18 @@
 				3068A0F41CA2477000AE6CB4 /* aa0f3d544a573d3-1.jpg */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		3075D8841CB56CCE00B5262F /* MyCourseTab */ = {
+			isa = PBXGroup;
+			children = (
+				30F20ABA1CA0F99D00A484E9 /* LearnerMyCourses.storyboard */,
+				305E471B1C8D169F004EEACE /* MyCourses.storyboard */,
+				07EFFB611C97B128006F8ECB /* CourseCell.swift */,
+				9F638F681C9B8A7500154A13 /* CreatorMyCoursesViewController.swift */,
+				3075D8821CB56C7000B5262F /* SearchCell.swift */,
+			);
+			name = MyCourseTab;
 			sourceTree = "<group>";
 		};
 		309818671CB36ECB0026D19A /* StreamingKit */ = {
@@ -762,6 +773,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				309818801CB36ECB0026D19A /* STKDataSourceWrapper.m in Sources */,
+				3075D8831CB56C7000B5262F /* SearchCell.swift in Sources */,
 				30DBCE041C9E4174000CD59D /* SDWebImageDownloader.m in Sources */,
 				3037A4A91CB09F6600C52232 /* ImageItem.swift in Sources */,
 				9F638F691C9B8A7500154A13 /* CreatorMyCoursesViewController.swift in Sources */,

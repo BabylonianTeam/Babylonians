@@ -14,7 +14,7 @@ import Firebase
 
 class BBCourse: NSObject {
     
-    var title_: String!
+    var title_: String?
     var author_: String!
     var courseItems_: [CourseItem]!
     var ref_: Firebase!
@@ -22,14 +22,17 @@ class BBCourse: NSObject {
     var tag_: [String]!
     var purchased_counter_: Int!
 
-    init(ref: Firebase, author: String) { // to create a course
+    init(ref: Firebase, author: String) {
+        // to create a course
         self.ref_ = ref
         self.author_ = author
         self.ref_.updateChildValues([COURSE_AUTHOR:author])
         self.courseItems_ = [CourseItem]()
         self.tag_ = [String]()
     }
-    init(ref: Firebase) { //to read a course
+    
+    init(ref: Firebase) {
+        //to read a course
         self.ref_ = ref
         self.courseItems_ = [CourseItem]()
         self.tag_ = [String]()
@@ -244,12 +247,8 @@ class BBCourse: NSObject {
     var author: String {
         return self.author_
     }
-    var title: String {
-        var ti = ""
-        if let t=self.title_{
-            ti = t
-        }
-        return ti
+    var title: String? {
+        return self.title_
     }
     var courseRef: Firebase {
         return ref_

@@ -6,30 +6,36 @@
 //  Copyright © 2016 Eric Smith. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UITableViewDataSource{
-    var courses = [CourseCell]()
+class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate{
     //Need to hold a fake db for "Title, Text, and Profit"
     
     //Temporary Value for Testing. Safe to remove once Table Model is implemented
-    var course1 = CourseCell();
     
+    var draftCourses = [BBCourse]()
+    var publishedCourses = [BBCourse]()
     
+    @IBOutlet weak var searchResult: UITableView!
     @IBOutlet weak var table: UITableView!
     
+    @IBOutlet weak var searchBar: UISearchBar!
     override func viewWillAppear(animated: Bool) {
         table.reloadData()
     }
     override func viewDidLoad() {
         
-        table.delegate = self;
-        table.dataSource = self;
-        table.rowHeight = 90;
+        table.delegate = self
+        table.dataSource = self
+        table.rowHeight = 90
         
+        searchResult.dataSource = self
+        searchBar.delegate = self
+        
+        
+        self.searchResult.hidden = true
         table.reloadData()
-        loadMyCourses();
+        loadMyCourses()
     }
     
     
@@ -44,7 +50,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courses.count
+        return self.publishedCourses.count
     }
     
     /*
@@ -65,33 +71,62 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     func loadMyCourses(){
         //TODO Create a test with/ a for loop that hooks in to the database model
-        print(course1);
-        course1.courseTitle?.text = "Beautiful Cuts Hair Salon"
-        course1.courseViewCount?.text = "55"
-        course1.profitAmount?.text = "$500"
-        
-        courses += [course1]
+        ProgressHUD.show("Loading Courses")
+        DataService.dataService.COURSE_REF.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            ProgressHUD.dismiss()
+            if let content = snapshot.value {
+                if !(content is NSNull) {
+                    for (cId,cData) in (content as! [String:NSDictionary]) {
+                        let cref = DataService.dataService.COURSE_REF.childByAppendingPath(cId)
+                        let c = BBCourse(ref: cref)
+                        if let t = cData[COURSE_TITLE]{
+                            c.setTitle(t as! String)
+                        }
+                        self.publishedCourses.append(c)
+                    }
+                    self.table.reloadData()
+                }
+            }
+            else{
+                //course without content
+            }
+            
+        })
+
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cellIdentifier = "CourseCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CourseCell
-        print(courses.count);
-        if(courses.count != 0){
-            
-            let course = courses[indexPath.row];
-            print(course.courseTitle?.text)
-            //Create a unit test for these values
-            cell.courseTitle.text = "Beautiful Cuts Hair Salon";
-            //Will probably have to convert some value here to a view count
-            cell.courseViewCount.text = "55"
-            cell.profitAmount.text = "$500"
+        if tableView==self.searchResult {
+            let searchcell = tableView.dequeueReusableCellWithIdentifier("SearchCell", forIndexPath: indexPath) as! SearchCell
+            searchcell.courseTitle.text = "test"
+            return searchcell
         }
         
+        let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell", forIndexPath: indexPath) as! CourseCell
         
+        let course = self.publishedCourses[indexPath.row];
+            //Create a unit test for these values
+        if let _ = course.title {
+            cell.courseTitle.text = course.title
+        }
+        else {
+            cell.courseTitle.text="null"
+        }
+            //Will probably have to convert some value here to a view count
+        cell.courseViewCount.text = "55"
+        cell.profitAmount.text = "$500"
         
         return cell
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.table.hidden = true
+        self.searchResult.hidden = false
+    }
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        self.table.hidden = true
+        self.searchResult.hidden = false
     }
 }
