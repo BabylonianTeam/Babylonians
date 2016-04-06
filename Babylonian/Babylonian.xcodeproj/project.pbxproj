@@ -80,6 +80,8 @@
 		30F20ABB1CA0F99D00A484E9 /* LearnerMyCourses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20ABA1CA0F99D00A484E9 /* LearnerMyCourses.storyboard */; };
 		30F20ABE1CA121E700A484E9 /* RNCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F20ABD1CA121E700A484E9 /* RNCryptor.swift */; };
 		30F20AC11CA124C600A484E9 /* CourseView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20AC01CA124C600A484E9 /* CourseView.storyboard */; };
+		92C42CE81CB211BD003091FC /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C42CE71CB211BD003091FC /* PersonalInfo.swift */; };
+		9F371F751CB35557006E925A /* MoreNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F371F741CB35557006E925A /* MoreNameViewController.swift */; };
 		9F638F691C9B8A7500154A13 /* CreatorMyCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F638F681C9B8A7500154A13 /* CreatorMyCoursesViewController.swift */; };
 		9F66D6041C9ADE0500EB9C93 /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F66D6031C9ADE0500EB9C93 /* DatePickerCell.xib */; };
 		9F66D60A1C9ADE1500EB9C93 /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F66D6051C9ADE1500EB9C93 /* NormalCell.xib */; };
@@ -93,6 +95,7 @@
 		9F9619AC1CB110A6007D5FA3 /* LabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F9619AB1CB110A6007D5FA3 /* LabelCell.xib */; };
 		9FBDE5681C9B8E9D003A45BA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDE5651C9B8E9D003A45BA /* Constant.swift */; };
 		9FBDE5691C9B8E9D003A45BA /* Minicourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */; };
+		9FCA548F1CB2DE690052917B /* MoreEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCA548E1CB2DE690052917B /* MoreEmailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +230,8 @@
 		30F20ABD1CA121E700A484E9 /* RNCryptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNCryptor.swift; sourceTree = "<group>"; };
 		30F20AC01CA124C600A484E9 /* CourseView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CourseView.storyboard; sourceTree = "<group>"; };
 		76CDD2D8D01CE5CB4C1FFBBD /* Pods-Babylonian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.debug.xcconfig"; sourceTree = "<group>"; };
+		92C42CE71CB211BD003091FC /* PersonalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
+		9F371F741CB35557006E925A /* MoreNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreNameViewController.swift; sourceTree = "<group>"; };
 		9F638F681C9B8A7500154A13 /* CreatorMyCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorMyCoursesViewController.swift; sourceTree = "<group>"; };
 		9F66D6031C9ADE0500EB9C93 /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
 		9F66D6051C9ADE1500EB9C93 /* NormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
@@ -240,6 +245,7 @@
 		9F9619AB1CB110A6007D5FA3 /* LabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelCell.xib; sourceTree = "<group>"; };
 		9FBDE5651C9B8E9D003A45BA /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Minicourse.swift; sourceTree = "<group>"; };
+		9FCA548E1CB2DE690052917B /* MoreEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreEmailViewController.swift; sourceTree = "<group>"; };
 		E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babylonian.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -345,6 +351,8 @@
 				0705D5051C8CEF270065467D /* LaunchScreen.storyboard */,
 				9F66D60F1C9ADE6B00EB9C93 /* CustomCell.swift */,
 				9F66D6131C9AE05F00EB9C93 /* MoreUIViewController.swift */,
+				9FCA548E1CB2DE690052917B /* MoreEmailViewController.swift */,
+				9F371F741CB35557006E925A /* MoreNameViewController.swift */,
 				9F66D6111C9ADE9900EB9C93 /* CellDescriptor.plist */,
 			);
 			name = Views;
@@ -360,8 +368,9 @@
 		076532481C8CFE8300825177 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */,
 				3037A4AC1CB0A1DF00C52232 /* BBCourse.swift */,
+				92C42CE71CB211BD003091FC /* PersonalInfo.swift */,
+				9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */,
 				3037A4A81CB09F6600C52232 /* CourseItem.swift */,
 				3037A4A61CB09F6600C52232 /* ImageItem.swift */,
 				3037A4A71CB09F6600C52232 /* ATItem.swift */,
@@ -780,6 +789,7 @@
 				306C323B1C9B9E830035608E /* MainCourseCell.swift in Sources */,
 				30DBCE071C9E4174000CD59D /* SDWebImagePrefetcher.m in Sources */,
 				30DBCE0E1C9E4174000CD59D /* UIView+WebCacheOperation.m in Sources */,
+				9FCA548F1CB2DE690052917B /* MoreEmailViewController.swift in Sources */,
 				30DBCDD01C9E3BC5000CD59D /* LoginView.m in Sources */,
 				9FBDE5691C9B8E9D003A45BA /* Minicourse.swift in Sources */,
 				30DBCE0A1C9E4174000CD59D /* UIImage+MultiFormat.m in Sources */,
@@ -809,6 +819,7 @@
 				9F66D6101C9ADE6B00EB9C93 /* CustomCell.swift in Sources */,
 				306C32391C9B912C0035608E /* MainPageViewController.swift in Sources */,
 				30DBCE061C9E4174000CD59D /* SDWebImageManager.m in Sources */,
+				9F371F751CB35557006E925A /* MoreNameViewController.swift in Sources */,
 				30DBCE031C9E4174000CD59D /* SDWebImageDecoder.m in Sources */,
 				30DBCE051C9E4174000CD59D /* SDWebImageDownloaderOperation.m in Sources */,
 				0705D4FA1C8CEF270065467D /* AppDelegate.swift in Sources */,
