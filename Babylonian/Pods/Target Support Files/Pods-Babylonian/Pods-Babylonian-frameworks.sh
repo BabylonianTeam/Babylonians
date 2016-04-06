@@ -88,10 +88,14 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Babylonian/Firebase.framework"
   install_framework "Pods-Babylonian/Parse.framework"
   install_framework "Pods-Babylonian/Stripe.framework"
+  install_framework "Pods-Babylonian/TFBubbleItUp.framework"
+  install_framework "Pods-Babylonian/TagListView.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Babylonian/Bolts.framework"
   install_framework "Pods-Babylonian/Firebase.framework"
   install_framework "Pods-Babylonian/Parse.framework"
   install_framework "Pods-Babylonian/Stripe.framework"
+  install_framework "Pods-Babylonian/TFBubbleItUp.framework"
+  install_framework "Pods-Babylonian/TagListView.framework"
 fi

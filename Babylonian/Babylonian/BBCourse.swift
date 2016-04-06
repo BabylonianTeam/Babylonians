@@ -73,6 +73,10 @@ class BBCourse: NSObject {
         self.courseRef.updateChildValues([COURSE_TAG:tag])
     }
     
+    func deleteAllTag(sender: AnyObject?) {
+        self.courseRef.childByAppendingPath("tag").removeValue()
+    }
+    
     func updateCourseItem(item:CourseItem) -> Bool {
         if item.courseRef==self.courseRef {
             item.itemRef.updateChildValues(item.toAnyObject() as! [NSObject : AnyObject])

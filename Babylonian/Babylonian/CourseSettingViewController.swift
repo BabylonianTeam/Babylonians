@@ -8,21 +8,24 @@
 
 import UIKit
 import Firebase
+import TagListView
 
 
-class CourseSettingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class CourseSettingViewController: UIViewController, TagListViewDelegate{
 
     var currentCourse: BBCourse!
     var tagTransfer: NSArray!
     var fullTagArr: NSArray!
     var firstTag: NSString!
+    var i: Int!
+   
     
     @IBOutlet weak var courseTitle: UITextField!
     @IBOutlet weak var coursePrice: UITextField!
     @IBOutlet weak var courseTag: UITextField!
     
- 
-    @IBOutlet weak var tableView: UITableView!
+
+    @IBOutlet weak var tagListView: TagListView!
   
     @IBOutlet weak var bbtitle: UITextView!
     @IBOutlet weak var price: UITextView!
@@ -30,35 +33,33 @@ class CourseSettingViewController: UIViewController, UITableViewDataSource, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.delegate = self
-       self.tableView.dataSource = self
+       // self.tableView.delegate = self
+     //  self.tableView.dataSource = self
         currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
         // Set up swipe to delete
        // tableView.allowsMultipleSelectionDuringEditing = false
         
+        tagListView.delegate = self
         self.currentCourse.courseRef.observeEventType(.Value, withBlock: { snapshot in
             
             
         self.price.text = (snapshot.value.objectForKey("price") as? NSNumber)?.stringValue
         self.bbtitle.text = snapshot.value.objectForKey("title") as? String
             
-            self.tagTransfer = (snapshot.value.objectForKey("tag") as? NSArray)!
-            self.tag.text = self.tagTransfer.objectAtIndex(0) as! NSString as String
+        self.tagTransfer = (snapshot.value.objectForKey("tag") as? NSArray)!
+        self.tag.text = self.tagTransfer.objectAtIndex(0) as! NSString as String
+        self.fullTagArr = self.tag.text.characters.split{$0 == "|"}.map(String.init)
             
-            let fullTagArr = self.tag.text.characters.split{$0 == "|"}.map(String.init)
+        self.tagListView.textFont = UIFont.systemFontOfSize(24)
+        self.tagListView.alignment = .Center // possible values are .Left, .Center, and .Right
             
-            print(fullTagArr) // First
-          //  print(fullTagArr[1]) // Last
-            
-            self.tableView.reloadData()
-            
+            for var i = 0; i <= self.fullTagArr.count-1; i++ {
+                 self.tagListView.addTag(self.fullTagArr[i] as! String)
+            }
             
             }, withCancelBlock: { error in
                 print(error.description)
         })
-        
-       
-        
     }
     
 
@@ -82,31 +83,56 @@ class CourseSettingViewController: UIViewController, UITableViewDataSource, UITa
     }
     
 
-    // MARK: UITableView Delegate methods
-    
-    func tableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(fullTagArr == nil){
-            return 0
-        }
-        else{
-            return fullTagArr.count
-        }
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("tagCell", forIndexPath: indexPath) as! UITableViewCell
+    @IBAction func clearAllTag(sender: UIButton) {
         
-        if(fullTagArr==nil){
-            print("full tag is empty!")
-        }
-        cell.textLabel?.text = fullTagArr[indexPath.row] as! String
-        return cell
+        
+        tagListView.removeAllTags()
+        
+        
+        
+        
     }
-
-    
+    // MARK: UITableView Delegate methods
+//    
+//    func tableView(tableView: UITableView) -> Int {
+//        return 1
+//    }
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        if(self.fullTagArr == nil){
+//            return 0
+//        }
+//        else{
+//            return fullTagArr.count
+//        }
+//    }
+//    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCellWithIdentifier("tagCell", forIndexPath: indexPath) as! UITableViewCell
+//        
+//        if(self.fullTagArr == nil){
+//            print("full tag is empty!")
+//        }
+//        cell.textLabel?.text = self.fullTagArr[indexPath.row] as! String
+//        return cell
+//    }
+//
+//    func tableViewScrollToBottom(animated: Bool) {
+//        
+//        let delay = 0.1 * Double(NSEC_PER_SEC)
+//        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+//        
+//        dispatch_after(time, dispatch_get_main_queue(), {
+//            
+//            let numberOfSections = self.tableView.numberOfSections
+//            let numberOfRows = self.tableView.numberOfRowsInSection(numberOfSections-1)
+//            
+//            if numberOfRows > 0 {
+//                let indexPath = NSIndexPath(forRow: numberOfRows-1, inSection: (numberOfSections-1))
+//                self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: animated)
+//            }
+//            
+//        })
+//    }
     
     
     
@@ -120,10 +146,10 @@ class CourseSettingViewController: UIViewController, UITableViewDataSource, UITa
 //        return cell
 //    }
     
-//    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-//        return true
-//    }
-//    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+//
 //    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 //        if editingStyle == .Delete {
 //            
