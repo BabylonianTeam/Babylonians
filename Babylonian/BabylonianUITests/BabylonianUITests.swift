@@ -109,7 +109,7 @@ class BabylonianUITests: XCTestCase {
         tablesQuery2.secureTextFields["Password"].tap()
         tablesQuery3.childrenMatchingType(.Cell).elementBoundByIndex(1).childrenMatchingType(.SecureTextField).element
         tablesQuery2.staticTexts["ENTER"].tap()
-        
+      
         //////////////
     }
     

@@ -12,6 +12,10 @@
 
 #define		RUNTIME_USER_ROLE                   @"creator"
 
+#define     FONT_BIG                            @"Avenir-Book"
+#define     FONT_SMALL                          @"Avenir-Light"
+#define     FONT_SIZE                           17
+
 #define		NOTIFICATION_APP_STARTED			@"NCAppStarted"
 #define		NOTIFICATION_USER_LOGGED_IN			@"NCUserLoggedIn"
 #define		NOTIFICATION_USER_LOGGED_OUT		@"NCUserLoggedOut"
