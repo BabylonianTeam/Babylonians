@@ -7,19 +7,34 @@
 //
 
 import Foundation
+import Firebase
 
 
 class CourseItem: NSObject {
     var order: Int!
-    var content: NSDictionary!
-        
-    var courseId: String!
+    var content: NSMutableDictionary!
+    var ref_: Firebase!
+            
+    init(ref:Firebase!, order: Int) {
+        content = NSMutableDictionary()
+        self.ref_ = ref
+        self.order = order
+    }
     
-    override init() {
-        content = NSDictionary()
+    var itemRef: Firebase {
+        return self.ref_
+    }
+    
+    var courseRef: Firebase {
+        return self.ref_.parent
     }
     
     func getType() -> String {
+        //this function need to be overriden
+        fatalError("Must Override")
+    }
+    
+    func toAnyObject() -> AnyObject {
         //this function need to be overriden
         fatalError("Must Override")
     }

@@ -14,4 +14,33 @@ class CourseCell : UITableViewCell{
     @IBOutlet weak var courseTitle: UILabel!
     @IBOutlet weak var profitAmount: UILabel!
     @IBOutlet weak var courseViewCount: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        let bigFont = UIFont(name: FONT_BIG, size: CGFloat(FONT_SIZE))
+        
+        let smallFont = UIFont(name: FONT_SMALL, size: CGFloat(FONT_SIZE))
+        
+        let primaryColor = UIColor.blackColor()
+        
+        let secondaryColor = UIColor.lightGrayColor()
+    
+        courseTitle.font = bigFont
+        courseTitle.textColor = primaryColor
+        
+        
+        profitAmount.font = bigFont
+        profitAmount.textColor = secondaryColor
+        courseViewCount.font = bigFont
+        courseViewCount.textColor = secondaryColor
+        
+        
+        if detailTextLabel != nil {
+            detailTextLabel?.font = smallFont
+            detailTextLabel?.textColor = secondaryColor
+        }
+        
+
+    }
 }

@@ -41,7 +41,7 @@ class Minicourse{
    
     }
    
-    class func setAuthorName(ref: String!, name: String!){
+    class func setAuthor(ref: String!, name: String!){
        
         let namewrapper = ["COURSE_AUTHOR": name]
         Minicourse.minicourse.COURSE_REF.childByAppendingPath(ref)?.updateChildValues(namewrapper)
@@ -74,7 +74,7 @@ class Minicourse{
         
     }
     
-    class func delectCourseItem(refForDelect: String!,courseRef: String!){
+    class func deleteCourseItem(refForDelect: String!,courseRef: String!){
         
     Minicourse.minicourse.COURSE_REF.childByAppendingPath(courseRef).childByAppendingPath("content").childByAppendingPath(refForDelect).removeValue()
         

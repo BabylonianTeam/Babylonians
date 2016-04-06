@@ -34,7 +34,7 @@ class MoreNameViewController: UIViewController, UITableViewDelegate, UITableView
     
     let secondaryColor = UIColor.lightGrayColor()
     
-    var userInfo = PersonalInfo()
+    var userInfo = PersonalInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
     var _USER_REF = Firebase(url: "\(BASE_URL)/users")
     
     
@@ -135,7 +135,7 @@ class MoreNameViewController: UIViewController, UITableViewDelegate, UITableView
         let newName = cell.textField.text!
         
         if (newName.characters.count > 0) {
-            userInfo.updateDisplayName(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String, newDisplayName: newName)
+            userInfo.updateDisplayName(newName)
             tblExpandable.reloadData()
         }
     }

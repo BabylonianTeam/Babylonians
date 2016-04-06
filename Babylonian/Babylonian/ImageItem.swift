@@ -7,33 +7,24 @@
 //
 
 import Foundation
+import Firebase
 
 class ImageItem: CourseItem {
     
-    init(courseImage: String, order: Int) {//, courseText: NSObject
-        super.init()
+    init(ref: Firebase, courseImage: String, order: Int) {//, courseText: NSObject
+        super.init(ref: ref, order:order)
         self.content=[COURSE_ITEM_IMAGE:courseImage]
-        self.order = order
-        self.courseId = courseId
-     
-    }
-    
-    var id : String{
-        return self.courseId
     }
     
     override func getType() -> String {
         return COURSE_ITEM_TYPE_IMAGE
     }
     
-    func toAnyObject() -> AnyObject {
+    override func toAnyObject() -> AnyObject {
         
         return [
-            
             COURSE_ITEM_IMAGE: self.content[COURSE_ITEM_IMAGE] as! String,
             COURSE_ITEM_ORDER: order
-            //"courseId": courseId
-            
         ]
     }
 
