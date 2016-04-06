@@ -55,12 +55,12 @@ class BBCourse: NSObject {
         item_ref.setValue([COURSE_ITEM_ORDER:self.contents.count+1])
         self.courseItems_.append(CourseItem(ref: item_ref, order: self.contents.count+1))
     }
-    func addNewATItem(courseText: String, courseAudio: String) -> Void {
+    func addNewATItem(courseText: String, courseAudio: String, duration: Float) -> Void {
         let item_ref = self.ref_.childByAppendingPath(COURSE_CONTENT).childByAutoId()
         item_ref.setValue([COURSE_ITEM_ORDER:self.contents.count+1,
             COURSE_ITEM_TEXT:courseText,
             COURSE_ITEM_AUDIO:courseAudio])
-        self.courseItems_.append(ATItem(ref: item_ref, courseText: courseText, courseAudio: courseAudio, order: self.contents.count+1))
+        self.courseItems_.append(ATItem(ref: item_ref, courseText: courseText, courseAudio: courseAudio, order: self.contents.count+1, duration:duration))
     }
     func addNewImageItem(courseImage: String) -> Void {
         let item_ref = self.ref_.childByAppendingPath(COURSE_CONTENT).childByAutoId()
@@ -152,7 +152,7 @@ class BBCourse: NSObject {
                         
                     }
                     else if let text_ref = item.1[COURSE_ITEM_TEXT]  {
-                        let courseItem = ATItem(ref: item_ref,courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int)
+                        let courseItem = ATItem(ref: item_ref,courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int, duration: item.1[COURSE_ITEM_AUDIO_DURATION] as! Float)
                         self.addCourseItem(courseItem)
                     }
                 }

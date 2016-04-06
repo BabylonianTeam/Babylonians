@@ -42,6 +42,7 @@
 		309818821CB36ECB0026D19A /* STKLocalFileDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 309818771CB36ECB0026D19A /* STKLocalFileDataSource.m */; };
 		309818831CB36ECB0026D19A /* STKQueueEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 309818791CB36ECB0026D19A /* STKQueueEntry.m */; };
 		309818851CB39E7C0026D19A /* BBCourseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309818841CB39E7C0026D19A /* BBCourseTest.swift */; };
+		309818871CB4BDCB0026D19A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309818861CB4BDCA0026D19A /* QuartzCore.framework */; };
 		30DBCDD01C9E3BC5000CD59D /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBCDC71C9E3BC5000CD59D /* LoginView.m */; };
 		30DBCDD11C9E3BC5000CD59D /* WelcomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBCDC81C9E3BC5000CD59D /* WelcomeView.m */; };
 		30DBCDD21C9E3BC5000CD59D /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBCDC91C9E3BC5000CD59D /* RegisterView.m */; };
@@ -164,6 +165,7 @@
 		309818791CB36ECB0026D19A /* STKQueueEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKQueueEntry.m; sourceTree = "<group>"; };
 		3098187A1CB36ECB0026D19A /* StreamingKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "StreamingKit-Prefix.pch"; sourceTree = "<group>"; };
 		309818841CB39E7C0026D19A /* BBCourseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBCourseTest.swift; sourceTree = "<group>"; };
+		309818861CB4BDCA0026D19A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		30DBCDC71C9E3BC5000CD59D /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginView.m; path = Welcome/LoginView.m; sourceTree = "<group>"; };
 		30DBCDC81C9E3BC5000CD59D /* WelcomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WelcomeView.m; path = Welcome/WelcomeView.m; sourceTree = "<group>"; };
 		30DBCDC91C9E3BC5000CD59D /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterView.m; path = Welcome/RegisterView.m; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				309818871CB4BDCB0026D19A /* QuartzCore.framework in Frameworks */,
 				30DBCE101C9E41F6000CD59D /* ImageIO.framework in Frameworks */,
 				184F78979A3F5E7914753379 /* Pods_Babylonian.framework in Frameworks */,
 			);
@@ -546,6 +549,7 @@
 		BEAC1E2330F91A8D52F04911 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				309818861CB4BDCA0026D19A /* QuartzCore.framework */,
 				30DBCE0F1C9E41F6000CD59D /* ImageIO.framework */,
 				E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */,
 			);

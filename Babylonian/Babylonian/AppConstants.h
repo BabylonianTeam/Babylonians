@@ -45,6 +45,7 @@
 #define		COURSE_ITEM_ORDER                   @"order"
 #define		COURSE_ITEM_IMAGE                   @"courseImage"
 #define		COURSE_ITEM_AUDIO                   @"courseAudio"
+#define		COURSE_ITEM_AUDIO_DURATION          @"duration"
 #define		COURSE_ITEM_TEXT                    @"courseText"
 #define		COURSE_ITEM_TYPE                    @"type"
 #define		COURSE_ITEM_TYPE_IMAGE              @"IM"

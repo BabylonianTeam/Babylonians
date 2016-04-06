@@ -10,10 +10,9 @@ import Foundation
 import Firebase
 
 class ATItem: CourseItem {
-    
-    init(ref: Firebase, courseText: String, courseAudio: String, order: Int) {//, courseText: NSObject
+    init(ref: Firebase, courseText: String, courseAudio: String, order: Int, duration:Float) {//, courseText: NSObject
         super.init(ref: ref, order:order)
-        self.content = [COURSE_ITEM_TEXT:courseText,COURSE_ITEM_AUDIO:courseAudio]
+        self.content = [COURSE_ITEM_TEXT:courseText,COURSE_ITEM_AUDIO:courseAudio,COURSE_ITEM_AUDIO_DURATION:duration]
     }
     
     override func getType() -> String {

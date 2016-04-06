@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import Firebase
 import Parse
+import QuartzCore
 
 
 class CourseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AVAudioRecorderDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
@@ -21,6 +22,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     var audioURL = NSURL()
     var imagePicker = UIImagePickerController()
     var initialized: Bool!
+    var audioTimer = CACurrentMediaTime()
     
     
     @IBOutlet weak var courseTableView: LPRTableView!
@@ -125,11 +127,14 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     @IBAction func recordButtonPressed(sender: UIButton) {
+        self.audioTimer = CACurrentMediaTime()
         startRecording()
     }
     
     @IBAction func recordButtonReleased(sender: UIButton) {
         finishRecording(success: true)
+        
+        let duration = Float(CACurrentMediaTime() - self.audioTimer)
         
         let data = NSData(contentsOfURL: self.audioURL)
         let audioFile = PFFile(name: "audio.m4a", data: data!)
@@ -139,7 +144,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         
         pObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if success {
-                self.currentCourse.addNewATItem("", courseAudio: (audioFile?.url)!)
+                self.currentCourse.addNewATItem("", courseAudio: (audioFile?.url)!, duration:duration)
                 self.courseTableView.reloadData()
             }else {
                 print(error)
@@ -298,7 +303,11 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
                             
                         }
                         else if let text_ref = item.1[COURSE_ITEM_TEXT]  {
-                            let courseItem = ATItem(ref: item_ref,courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int)
+                            var duration: Float = 1.0
+                            if let d = item.1[COURSE_ITEM_AUDIO_DURATION]{
+                                duration = d as! Float
+                            }
+                            let courseItem = ATItem(ref: item_ref,courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int, duration: duration)
                             self.currentCourse.addCourseItem(courseItem)
                         }
                     }
