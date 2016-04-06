@@ -20,6 +20,7 @@
 #define		USER_PASSWORD                       @"password"
 #define     USER_PROVIDER                       @"provider"
 #define		USER_DISPLAYNAME                    @"displayName"
+#define     USER_BALANCE                        @"balance"
 #define		USER_ROLE                           @"role"
 #define		USER_ROLE_CREATOR                   @"creator"
 #define		USER_ROLE_LEARNER                   @"learner"

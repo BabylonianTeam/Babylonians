@@ -40,7 +40,7 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let secondaryColor = UIColor.lightGrayColor()
     
     
-    var userInfo = PersonalInfo()
+    //var userInfo = PersonalInfo()
     var _USER_REF = Firebase(url: "\(BASE_URL)/users")
     
     

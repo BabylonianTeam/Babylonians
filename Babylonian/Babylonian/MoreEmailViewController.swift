@@ -34,10 +34,10 @@ class MoreEmailViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let secondaryColor = UIColor.lightGrayColor()
     
-        var userInfo = PersonalInfo()
+    var userInfo = PersonalInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
         var _USER_REF = Firebase(url: "\(BASE_URL)/users")
+        var _BASE_REF = Firebase(url: "\(BASE_URL)")
     
-        
         // MARK: IBOutlet Properties
         @IBOutlet weak var tblExpandable: UITableView!
     
@@ -48,10 +48,22 @@ class MoreEmailViewController: UIViewController, UITableViewDelegate, UITableVie
             
             configureTableView()
         }
-        
-        
+    
         override func viewWillAppear(animated: Bool) {
             super.viewWillAppear(animated)
+
+            //userInfo.updatePassword("abc@abc.com", oldPassword: "asdfghjkl", newPassword: "bcd")
+            /*
+            _BASE_REF.changePasswordForUser("abc@abc.com", fromOld: "asdfghjkl", toNew: "abc", withCompletionBlock: { error in
+                if (error != nil){
+                    print("error message")
+                }
+                else {
+                    print("Change password successfully")
+                }
+                
+            })
+            */
         }
         
         
@@ -153,7 +165,7 @@ class MoreEmailViewController: UIViewController, UITableViewDelegate, UITableVie
             handleEmailMismatch()
         }
         else{
-            userInfo.updateEmail(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String, newEmail: addr1)
+            userInfo.updateEmail(addr1)
             tblExpandable.reloadData()
         }
     }
