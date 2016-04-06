@@ -14,7 +14,7 @@ import Firebase
 
 class BBCourse: NSObject {
     
-    var title_: String!
+    var title_: String?
     var author_: String!
     var courseItems_: [CourseItem]!
     var ref_: Firebase!
@@ -23,12 +23,20 @@ class BBCourse: NSObject {
     
 
     init(ref: Firebase, author: String) {
+        // to create a course
         self.ref_ = ref
         self.author_ = author
         self.ref_.updateChildValues([COURSE_AUTHOR:author])
         self.courseItems_ = [CourseItem]()
+        self.tag_ = [String]()
     }
     
+    init(ref: Firebase) {
+        //to read a course
+        self.ref_ = ref
+        self.courseItems_ = [CourseItem]()
+        self.tag_ = [String]()
+    }
     
     func setTitle(title: String) -> Void {
         self.title_ = title
@@ -44,22 +52,25 @@ class BBCourse: NSObject {
         self.courseItems_.append(item)
     }
     
-    func setAuthorName(author: String) -> Void {
+    func setAuthor(author: String) -> Void {
         self.author_ = author
         self.courseRef.updateChildValues([COURSE_AUTHOR:author])
     }
     
+    //may need depreciate
     func addNewCourseItem() -> Void {
         let item_ref = self.ref_.childByAppendingPath(COURSE_CONTENT).childByAutoId()
         item_ref.setValue([COURSE_ITEM_ORDER:self.contents.count+1])
         self.courseItems_.append(CourseItem(ref: item_ref, order: self.contents.count+1))
     }
-    func addNewATItem(courseText: String, courseAudio: String) -> Void {
+    
+    func addNewATItem(courseText: String, courseAudio: String, duration: Float) -> Void {
         let item_ref = self.ref_.childByAppendingPath(COURSE_CONTENT).childByAutoId()
         item_ref.setValue([COURSE_ITEM_ORDER:self.contents.count+1,
             COURSE_ITEM_TEXT:courseText,
-            COURSE_ITEM_AUDIO:courseAudio])
-        self.courseItems_.append(ATItem(ref: item_ref, courseText: courseText, courseAudio: courseAudio, order: self.contents.count+1))
+            COURSE_ITEM_AUDIO:courseAudio,
+            COURSE_ITEM_AUDIO_DURATION:duration])
+        self.courseItems_.append(ATItem(ref: item_ref, courseText: courseText, courseAudio: courseAudio, order: self.contents.count+1, duration:duration))
     }
     func addNewImageItem(courseImage: String) -> Void {
         let item_ref = self.ref_.childByAppendingPath(COURSE_CONTENT).childByAutoId()
@@ -143,6 +154,46 @@ class BBCourse: NSObject {
         }
     }
     
+    func reloadCourseFromRef() -> Void {
+        self.courseRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
+            if let course = snapshot.value {
+                for (key, value) in course as! [String:AnyObject]{
+                    
+                    switch key {
+                    case COURSE_CONTENT:
+                        for item in value as! [String:NSDictionary]{
+                            let item_ref = self.contentRef.childByAppendingPath(item.0)
+                            if let im_ref = item.1[COURSE_ITEM_IMAGE] {
+                                
+                                let courseItem = ImageItem(ref: item_ref, courseImage: im_ref as! String,order: item.1[COURSE_ITEM_ORDER] as! Int)
+                                self.addCourseItem(courseItem)
+                                
+                            }
+                            else if let text_ref = item.1[COURSE_ITEM_TEXT]  {
+                                let courseItem = ATItem(ref: item_ref,courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int, duration: item.1[COURSE_ITEM_AUDIO_DURATION] as! Float)
+                                self.addCourseItem(courseItem)
+                            }
+                        }
+                    case COURSE_AUTHOR:
+                        self.author_ = value as! String
+                    case COURSE_TITLE:
+                        self.title_ = value as? String
+                    case COURSE_PRICE:
+                        self.price_ = value as! Float
+                    case COURSE_TAG:
+                        self.tag_ = value as! [String]
+                    case COURSE_NUM_SOLD:
+                        self.purchased_counter_ = value as! Int
+                    default:
+                        print("forgoten key: "+key)
+                    }
+                }
+                
+                self.sortContentsByOrder()
+            }
+        })
+    }
+    
     func reloadContentsFromRef() {
         self.contentRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
             if let content = snapshot.value {
@@ -155,7 +206,7 @@ class BBCourse: NSObject {
                         
                     }
                     else if let text_ref = item.1[COURSE_ITEM_TEXT]  {
-                        let courseItem = ATItem(ref: item_ref,courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int)
+                        let courseItem = ATItem(ref: item_ref,courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int, duration: item.1[COURSE_ITEM_AUDIO_DURATION] as! Float)
                         self.addCourseItem(courseItem)
                     }
                 }
@@ -201,7 +252,7 @@ class BBCourse: NSObject {
     var author: String {
         return self.author_
     }
-    var title: String {
+    var title: String? {
         return self.title_
     }
     var courseRef: Firebase {
@@ -227,7 +278,6 @@ class BBCourse: NSObject {
         return [
             COURSE_TITLE: self.title_,
             COURSE_AUTHOR: self.author_
-       
             ]
     }
 }

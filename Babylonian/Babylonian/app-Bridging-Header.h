@@ -8,6 +8,6 @@
 
 #import "RNCryptor.h"
 #import "AppConstants.h"
-#import "Welcome/WelcomeView.h"
 #import "StreamingKit/STKAudioPlayer.h"
+#import "Welcome/WelcomeView.h"
 #import "ProgressHUD.h"

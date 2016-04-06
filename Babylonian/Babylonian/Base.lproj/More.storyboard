@@ -6,6 +6,70 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Change Display Name-->
+        <scene sceneID="CxS-c5-fxe">
+            <objects>
+                <viewController id="Hd7-Na-Pfp" customClass="MoreNameViewController" customModule="Babylonian" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vTH-As-9Bu"/>
+                        <viewControllerLayoutGuide type="bottom" id="fey-4W-AyJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hCT-uL-6l4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F68-nE-e9y">
+                                <rect key="frame" x="0.0" y="106" width="600" height="295"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6T-We-gmP">
+                                <rect key="frame" x="273" y="421" width="55" height="30"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="confirmChange:" destination="Hd7-Na-Pfp" eventType="touchUpInside" id="dc3-tV-Xff"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="F68-nE-e9y" firstAttribute="centerX" secondItem="v6T-We-gmP" secondAttribute="centerX" id="Aed-Ma-MPd"/>
+                            <constraint firstItem="fey-4W-AyJ" firstAttribute="top" secondItem="v6T-We-gmP" secondAttribute="bottom" constant="105" id="B4p-Cv-0Ni"/>
+                            <constraint firstItem="v6T-We-gmP" firstAttribute="top" secondItem="F68-nE-e9y" secondAttribute="bottom" constant="20" id="SyS-wt-L6X"/>
+                            <constraint firstItem="F68-nE-e9y" firstAttribute="top" secondItem="vTH-As-9Bu" secondAttribute="bottom" constant="42" id="f6X-e9-4SK"/>
+                            <constraint firstItem="F68-nE-e9y" firstAttribute="leading" secondItem="hCT-uL-6l4" secondAttribute="leading" id="s5i-EZ-RHu"/>
+                            <constraint firstAttribute="trailing" secondItem="F68-nE-e9y" secondAttribute="trailing" id="wTh-Qz-86v"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Change Display Name" id="h6T-d1-vtm"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tblExpandable" destination="F68-nE-e9y" id="dT3-Aw-LgQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="avi-ST-gwr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="198" y="232"/>
+        </scene>
+        <!--Test-->
+        <scene sceneID="1gc-nR-3OH">
+            <objects>
+                <viewController id="VUS-Oo-ZQa" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vF1-Th-vYa"/>
+                        <viewControllerLayoutGuide type="bottom" id="XIM-mt-iwa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Cm-TR-VkP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Test" id="719-IR-YqB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ud2-dr-pLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1164" y="273"/>
+        </scene>
         <!--More...-->
         <scene sceneID="gYC-iz-Jbk">
             <objects>
@@ -23,7 +87,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="119" id="Tja-89-CLK"/>
                                 </constraints>
-                                <state key="normal" title="Logout"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="1" green="0.13462557783411866" blue="0.20478678511224147" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="logoutPressed:" destination="ruJ-ut-0kv" eventType="touchUpInside" id="8Od-kF-9tb"/>
                                 </connections>
@@ -82,31 +148,58 @@
                         <outlet property="labelMoney" destination="DKa-cz-QO3" id="6pe-Oa-wfc"/>
                         <outlet property="profilePhoto" destination="G6E-bt-Siw" id="lhs-bZ-nXf"/>
                         <outlet property="tblExpandable" destination="iQd-QM-X4W" id="6CK-AP-XxS"/>
-                        <segue destination="BPo-7o-WNi" kind="show" identifier="ts" id="8g3-0w-69s"/>
+                        <segue destination="47c-a1-XZd" kind="show" identifier="emailSegue" id="9LC-U5-rWZ"/>
+                        <segue destination="Hd7-Na-Pfp" kind="show" identifier="nameSegue" id="058-Jv-se3"/>
+                        <segue destination="VUS-Oo-ZQa" kind="show" identifier="testSegue" id="u3k-je-B5t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTO-Hg-3Td" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="370" y="923"/>
+            <point key="canvasLocation" x="376" y="936"/>
         </scene>
-        <!--Test-->
-        <scene sceneID="ciX-sg-P6k">
+        <!--Change Email-->
+        <scene sceneID="Hbu-Ag-hzM">
             <objects>
-                <viewController id="BPo-7o-WNi" sceneMemberID="viewController">
+                <viewController id="47c-a1-XZd" customClass="MoreEmailViewController" customModule="Babylonian" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GAo-5y-S2A"/>
-                        <viewControllerLayoutGuide type="bottom" id="dIE-de-kar"/>
+                        <viewControllerLayoutGuide type="top" id="IYY-HC-0wB"/>
+                        <viewControllerLayoutGuide type="bottom" id="fFT-Bz-SUQ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="KkK-zN-GUk">
+                    <view key="view" contentMode="scaleToFill" id="zYT-fO-7is">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cMY-3l-Enz">
+                                <rect key="frame" x="0.0" y="132" width="600" height="179"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIO-eb-UNN">
+                                <rect key="frame" x="273" y="321" width="55" height="30"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="changeConfirm:" destination="47c-a1-XZd" eventType="touchUpInside" id="lwZ-LA-wh0"/>
+                                    <action selector="confirmChange:" destination="Hd7-Na-Pfp" eventType="touchUpInside" id="9KQ-KO-4lb"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cMY-3l-Enz" firstAttribute="top" secondItem="IYY-HC-0wB" secondAttribute="bottom" constant="68" id="1XA-cN-Uvu"/>
+                            <constraint firstItem="fFT-Bz-SUQ" firstAttribute="top" secondItem="TIO-eb-UNN" secondAttribute="bottom" constant="200" id="8xo-qp-s1b"/>
+                            <constraint firstAttribute="trailing" secondItem="cMY-3l-Enz" secondAttribute="trailing" id="C5X-Bu-B2a"/>
+                            <constraint firstItem="cMY-3l-Enz" firstAttribute="leading" secondItem="zYT-fO-7is" secondAttribute="leading" id="bke-Zd-Naq"/>
+                            <constraint firstItem="cMY-3l-Enz" firstAttribute="centerX" secondItem="TIO-eb-UNN" secondAttribute="centerX" id="rpB-Nc-rZi"/>
+                            <constraint firstItem="TIO-eb-UNN" firstAttribute="top" secondItem="cMY-3l-Enz" secondAttribute="bottom" constant="10" id="wE2-PF-XG8"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Test" id="JNM-En-013"/>
+                    <navigationItem key="navigationItem" title="Change Email" id="K9W-Yj-t34"/>
+                    <connections>
+                        <outlet property="tblExpandable" destination="cMY-3l-Enz" id="XbP-ru-iT5"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SS6-3C-87d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ynd-Zv-92L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1114" y="923"/>
+            <point key="canvasLocation" x="1164" y="936"/>
         </scene>
         <!--More...-->
         <scene sceneID="JGb-ky-rfI">

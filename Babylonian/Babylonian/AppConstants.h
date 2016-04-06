@@ -18,7 +18,9 @@
 
 #define		USER_EMAIL                          @"email"
 #define		USER_PASSWORD                       @"password"
+#define     USER_PROVIDER                       @"provider"
 #define		USER_DISPLAYNAME                    @"displayName"
+#define     USER_BALANCE                        @"balance"
 #define		USER_ROLE                           @"role"
 #define		USER_ROLE_CREATOR                   @"creator"
 #define		USER_ROLE_LEARNER                   @"learner"
@@ -35,7 +37,7 @@
 #define     COURSE_CONTENT                      @"content"
 #define     COURSE_TAG                          @"tag"
 #define     COURSE_MIN_ITEMS                    10
-
+#define     COURSE_NUM_SOLD                     @"soldnum"
 
 #define		COURSE_STATUS_DRAFT                 @"draft"
 #define		COURSE_STATUS_ONSHELF               @"onshelf"
@@ -45,6 +47,7 @@
 #define		COURSE_ITEM_ORDER                   @"order"
 #define		COURSE_ITEM_IMAGE                   @"courseImage"
 #define		COURSE_ITEM_AUDIO                   @"courseAudio"
+#define		COURSE_ITEM_AUDIO_DURATION          @"duration"
 #define		COURSE_ITEM_TEXT                    @"courseText"
 #define		COURSE_ITEM_TYPE                    @"type"
 #define		COURSE_ITEM_TYPE_IMAGE              @"IM"
