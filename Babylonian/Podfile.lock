@@ -7,14 +7,12 @@ PODS:
     - Stripe/Core (= 6.2.0)
   - Stripe/Core (6.2.0)
   - TagListView (0.5)
-  - TFBubbleItUp (1.5.1)
 
 DEPENDENCIES:
   - Firebase (>= 2.5.0)
   - Parse
   - Stripe
   - TagListView
-  - TFBubbleItUp
 
 SPEC CHECKSUMS:
   Bolts: f52a250053bb517ca874523c3913776359ab3def
@@ -22,6 +20,5 @@ SPEC CHECKSUMS:
   Parse: f51c24d2feb412e4b2d6cc73d37cb24e8d0089bc
   Stripe: 275524137e6c4cc1058f6d32ece248adf30a21f9
   TagListView: d9e6f0f30eca6a84138669f8449b89df068e6573
-  TFBubbleItUp: 10b744a90ccb8072c62a8e9890ec1b387457a784
 
 COCOAPODS: 0.39.0

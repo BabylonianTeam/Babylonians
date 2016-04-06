@@ -19,7 +19,7 @@ class BBCourse: NSObject {
     var courseItems_: [CourseItem]!
     var ref_: Firebase!
     var price_: Float!
-    var tag_: [String]!
+    var tag_: String!
     
 
     init(ref: Firebase, author: String) {
@@ -68,9 +68,9 @@ class BBCourse: NSObject {
         self.courseItems_.append(ImageItem(ref: item_ref, courseImage:courseImage, order: self.contents.count+1))
     }
     
-    func setTag(tag: [String]) -> Void {
+    func setTag(tag: String) -> Void {
         self.tag_ = tag
-        self.courseRef.updateChildValues([COURSE_TAG:tag])
+        self.courseRef.setValue([COURSE_TAG:tag])
     }
     
     func deleteAllTag(sender: AnyObject?) {
@@ -214,7 +214,7 @@ class BBCourse: NSObject {
         return courseItems_
     }
     
-    var tag: [String] {
+    var tag: String {
         return tag_
     }
     

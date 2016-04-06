@@ -14,10 +14,11 @@ import TagListView
 class CourseSettingViewController: UIViewController, TagListViewDelegate{
 
     var currentCourse: BBCourse!
-    var tagTransfer: NSArray!
+    var addTagTransfer: String!
     var fullTagArr: NSArray!
-    var firstTag: NSString!
     var i: Int!
+    var tagView = [TagView]()
+    
    
     
     @IBOutlet weak var courseTitle: UITextField!
@@ -42,21 +43,36 @@ class CourseSettingViewController: UIViewController, TagListViewDelegate{
         tagListView.delegate = self
         self.currentCourse.courseRef.observeEventType(.Value, withBlock: { snapshot in
             
-            
-        self.price.text = (snapshot.value.objectForKey("price") as? NSNumber)?.stringValue
-        self.bbtitle.text = snapshot.value.objectForKey("title") as? String
-            
-        self.tagTransfer = (snapshot.value.objectForKey("tag") as? NSArray)!
-        self.tag.text = self.tagTransfer.objectAtIndex(0) as! NSString as String
-        self.fullTagArr = self.tag.text.characters.split{$0 == "|"}.map(String.init)
-            
-        self.tagListView.textFont = UIFont.systemFontOfSize(24)
-        self.tagListView.alignment = .Center // possible values are .Left, .Center, and .Right
-            
-            for var i = 0; i <= self.fullTagArr.count-1; i++ {
-                 self.tagListView.addTag(self.fullTagArr[i] as! String)
+            if let pricestr = snapshot.value.objectForKey("price"){
+                self.price.text = (pricestr as? NSNumber)?.stringValue
             }
             
+            if let bbtitlestr = snapshot.value.objectForKey("title"){
+                self.bbtitle.text = bbtitlestr as? String
+            }
+            
+            if let tagstr = snapshot.value.objectForKey("tag") {
+                //self.tagTransfer = (tagstr as? NSArray)!
+                self.tag.text = tagstr as? String
+                self.fullTagArr = self.tag.text.characters.split{$0 == "|"}.map(String.init)
+                print(self.fullTagArr)
+                self.tagListView.textFont = UIFont.systemFontOfSize(24)
+                self.tagListView.alignment = .Center // possible values are .Left, .Center, and .Right
+                
+                for var i = 0; i <= self.fullTagArr.count-1; i++ {
+                    
+                    if let tagview = self.tagListView.addTag(self.fullTagArr[i] as! String) as? TagView{
+                        print(tagview)
+                        self.tagView.append(tagview)
+                        self.tagView[i].tagBackgroundColor = UIColor.blueColor()
+                        self.tagView[i].onTap = { tagView in
+                           print("Don’t tap me!")
+                    
+                    }
+                }
+                }
+                
+           }
             }, withCancelBlock: { error in
                 print(error.description)
         })
@@ -78,8 +94,14 @@ class CourseSettingViewController: UIViewController, TagListViewDelegate{
     
  
     @IBAction func addCourseTag(sender: UIButton) {
-        
-        currentCourse.setTag([courseTag.text!])
+        if self.addTagTransfer == nil{
+            self.addTagTransfer = courseTag.text! + "|"
+        }
+        else {
+             self.addTagTransfer = self.addTagTransfer + courseTag.text! + "|"
+        }
+       
+        currentCourse.setTag(self.addTagTransfer)
     }
     
 
