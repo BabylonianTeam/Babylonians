@@ -20,13 +20,14 @@ class BBCourse: NSObject {
     var ref_: Firebase!
     var price_: Float!
     var tag_: [String]!
-    
+    var purchased_counter_: Int!
 
     init(ref: Firebase, author: String) {
         self.ref_ = ref
         self.author_ = author
         self.ref_.updateChildValues([COURSE_AUTHOR:author])
         self.courseItems_ = [CourseItem]()
+        self.tag_ = [String]()
     }
     
     

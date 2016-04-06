@@ -99,7 +99,6 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         let data = UIImageJPEGRepresentation(image!, 1)
         let imageFile = PFFile(name: "image.jpg", data: data!)
         
-        print(imageFile?.url)
         let pObject = PFObject(className: "Image")
         pObject[PARSE_IMAGE_FILENAME]  = imageFile
         

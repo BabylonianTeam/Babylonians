@@ -42,10 +42,12 @@ class CourseSettingViewController: UIViewController {
 //               self.tag.text = snapshot.value.objectForKey("tag")!.objectForKey(String(i)) as? String
 //            }
             
-         
-          self.tagTransfer = (snapshot.value.objectForKey("tag") as? NSArray)!
-          self.tag.text = self.tagTransfer.objectAtIndex(0) as! NSString as String
-          //  print(snapshot.value.objectForKey("title"))
+            if let tagstr = snapshot.value.objectForKey("tag") {
+                self.tagTransfer = (tagstr as? NSArray)!
+            }
+            
+            self.tag.text = self.tagTransfer.objectAtIndex(0) as! NSString as String
+            //  print(snapshot.value.objectForKey("title"))
             
             
             self.bbtitle.text = snapshot.value.objectForKey("title") as? String
