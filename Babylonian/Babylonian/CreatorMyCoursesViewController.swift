@@ -1,7 +1,8 @@
 //
 //  CreatorMyCoursesViewController.swift
 //  Babylonian
-//
+
+//  Modified by Dongning
 //  Created by Eric Smith on 3/16/16.
 //  Copyright © 2016 Eric Smith. All rights reserved.
 //
@@ -15,6 +16,9 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     var draftCourses = [BBCourse]()
     var publishedCourses = [BBCourse]()
+    var allCourseTitles = [String]()
+    var filtered = [String]()
+    var searchActive : Bool = false
     
     @IBOutlet weak var searchResult: UITableView!
     @IBOutlet weak var table: UITableView!
@@ -38,29 +42,50 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         loadMyCourses()
     }
     
-    
-    //Setting up table
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    //seting search bar
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.publishedCourses.count
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+        self.table.hidden = false
+        self.searchResult.hidden = true
+        self.searchBar.resignFirstResponder()
     }
     
-    /*
-    * Paramaters: None
-    * Connect to Firebase database and pull myCourses data belonging to each user. Since we are using Firebase we don't have to worry about active
-    * record!
-    */
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+        if let text = self.searchBar.text where !text.isEmpty {
+            self.table.hidden = true
+            self.searchResult.hidden = false
+            self.searchBar.resignFirstResponder()
+        }
+    }
     
-    @IBAction func createButton(sender: UIButton) {
-        //initiate courseview
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filtered = allCourseTitles.filter({ (text) -> Bool in
+            let tmp: NSString = text
+            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return range.location != NSNotFound
+        })
+        if(filtered.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.searchResult.reloadData()
+    }
+    
+    
+    @IBAction func createNewCourse(sender: UIBarButtonItem) {
+            //initiate courseview
         let storyboard = UIStoryboard.init(name: "CourseView", bundle: nil)
         
         let rootController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView")
@@ -69,38 +94,27 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         self.presentViewController(rootController, animated: true, completion: nil)
     }
     
-    func loadMyCourses(){
-        //TODO Create a test with/ a for loop that hooks in to the database model
-        ProgressHUD.show("Loading Courses")
-        DataService.dataService.COURSE_REF.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            
-            ProgressHUD.dismiss()
-            if let content = snapshot.value {
-                if !(content is NSNull) {
-                    for (cId,cData) in (content as! [String:NSDictionary]) {
-                        let cref = DataService.dataService.COURSE_REF.childByAppendingPath(cId)
-                        let c = BBCourse(ref: cref)
-                        if let t = cData[COURSE_TITLE]{
-                            c.setTitle(t as! String)
-                        }
-                        self.publishedCourses.append(c)
-                    }
-                    self.table.reloadData()
-                }
-            }
-            else{
-                //course without content
-            }
-            
-        })
-
+    //Setting up tables
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
     }
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(self.searchResult==tableView) {
+            return filtered.count
+        }
+        return self.publishedCourses.count
+    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if tableView==self.searchResult {
             let searchcell = tableView.dequeueReusableCellWithIdentifier("SearchCell", forIndexPath: indexPath) as! SearchCell
-            searchcell.courseTitle.text = "test"
+            searchcell.courseTitle.text = filtered[indexPath.row]
             return searchcell
         }
         
@@ -121,12 +135,38 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         return cell
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        self.table.hidden = true
-        self.searchResult.hidden = false
-    }
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        self.table.hidden = true
-        self.searchResult.hidden = false
+    /*
+     * Paramaters: None
+     * Connect to Firebase database and pull myCourses data belonging to each user. Since we are using Firebase we don't have to worry about active
+     * record!
+     */
+    
+    func loadMyCourses(){
+        //TODO Create a test with/ a for loop that hooks in to the database model
+        ProgressHUD.show("Loading Courses")
+        DataService.dataService.COURSE_REF.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            ProgressHUD.dismiss()
+            if let content = snapshot.value {
+                if !(content is NSNull) {
+                    for (cId,cData) in (content as! [String:NSDictionary]) {
+                        let cref = DataService.dataService.COURSE_REF.childByAppendingPath(cId)
+                        let c = BBCourse(ref: cref)
+                        if let t = cData[COURSE_TITLE]{
+                            c.setTitle(t as! String)
+                            self.allCourseTitles.append(c.title!)
+                        }
+                        
+                        self.publishedCourses.append(c)
+                    }
+                    self.table.reloadData()
+                }
+            }
+            else{
+                //course without content
+            }
+            
+        })
+        
     }
 }

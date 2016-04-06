@@ -173,7 +173,7 @@ class BBCourse: NSObject {
                     case COURSE_AUTHOR:
                         self.author_ = value as! String
                     case COURSE_TITLE:
-                        self.title_ = value as! String
+                        self.title_ = value as? String
                     case COURSE_PRICE:
                         self.price_ = value as! Float
                     case COURSE_TAG:

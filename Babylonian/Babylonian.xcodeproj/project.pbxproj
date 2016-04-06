@@ -368,12 +368,9 @@
 		076532481C8CFE8300825177 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3037A4AC1CB0A1DF00C52232 /* BBCourse.swift */,
+				3075D8851CB5936D00B5262F /* CourseModel */,
 				92C42CE71CB211BD003091FC /* PersonalInfo.swift */,
 				9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */,
-				3037A4A81CB09F6600C52232 /* CourseItem.swift */,
-				3037A4A61CB09F6600C52232 /* ImageItem.swift */,
-				3037A4A71CB09F6600C52232 /* ATItem.swift */,
 				9FBDE5651C9B8E9D003A45BA /* Constant.swift */,
 				30DBCE141C9E6D0C000CD59D /* DataService.swift */,
 			);
@@ -426,6 +423,17 @@
 				3075D8821CB56C7000B5262F /* SearchCell.swift */,
 			);
 			name = MyCourseTab;
+			sourceTree = "<group>";
+		};
+		3075D8851CB5936D00B5262F /* CourseModel */ = {
+			isa = PBXGroup;
+			children = (
+				3037A4AC1CB0A1DF00C52232 /* BBCourse.swift */,
+				3037A4A81CB09F6600C52232 /* CourseItem.swift */,
+				3037A4A61CB09F6600C52232 /* ImageItem.swift */,
+				3037A4A71CB09F6600C52232 /* ATItem.swift */,
+			);
+			name = CourseModel;
 			sourceTree = "<group>";
 		};
 		309818671CB36ECB0026D19A /* StreamingKit */ = {
@@ -830,6 +838,7 @@
 				3037A4A11CB03A9B00C52232 /* CourseViewController.swift in Sources */,
 				309818811CB36ECB0026D19A /* STKHTTPDataSource.m in Sources */,
 				30E6DB431CB22C7E00F604E6 /* CreateCourseItemCell.swift in Sources */,
+				92C42CE81CB211BD003091FC /* PersonalInfo.swift in Sources */,
 				30DBCE151C9E6D0C000CD59D /* DataService.swift in Sources */,
 				30DBCE021C9E4174000CD59D /* SDWebImageCompat.m in Sources */,
 				3098187E1CB36ECB0026D19A /* STKCoreFoundationDataSource.m in Sources */,
