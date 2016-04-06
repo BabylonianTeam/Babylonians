@@ -39,8 +39,8 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         self.courseTableView.longPressReorderEnabled = false
         
         //For developing, remove when connected 
-        let ref = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEPJobHpCZ1z_4xOI6C")
-        (self.navigationController as! BBCourseNavController).currentCourse = BBCourse(ref: ref, author: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
+        //let ref = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEPJobHpCZ1z_4xOI6C")
+        //(self.navigationController as! BBCourseNavController).currentCourse = BBCourse(ref: ref, author: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
         
         
         if let _=(self.navigationController as! BBCourseNavController).currentCourse {
@@ -50,7 +50,6 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         }
         else{
             let ref = DataService.dataService.COURSE_REF.childByAutoId()
-            //uncomment above and comment below to actually create new course.
             (self.navigationController as! BBCourseNavController).currentCourse = BBCourse(ref: ref, author: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
         }
         
@@ -289,31 +288,33 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         
         ProgressHUD.show("Loading Course")
         self.currentCourse.contentRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            if let content = snapshot.value{
-                for item in content as! [String:NSDictionary]{
-                    let item_ref = self.currentCourse.contentRef.childByAppendingPath(item.0)
-                    if let im_ref = item.1[COURSE_ITEM_IMAGE] {
-                        
-                        let courseItem = ImageItem(ref: item_ref, courseImage: im_ref as! String,order: item.1[COURSE_ITEM_ORDER] as! Int)
-                        self.currentCourse.addCourseItem(courseItem)
-                        
+            if let content = snapshot.value {
+                if !(content is NSNull) {
+                    for item in content as! [String:NSDictionary]{
+                        let item_ref = self.currentCourse.contentRef.childByAppendingPath(item.0)
+                        if let im_ref = item.1[COURSE_ITEM_IMAGE] {
+                            
+                            let courseItem = ImageItem(ref: item_ref, courseImage: im_ref as! String,order: item.1[COURSE_ITEM_ORDER] as! Int)
+                            self.currentCourse.addCourseItem(courseItem)
+                            
+                        }
+                        else if let text_ref = item.1[COURSE_ITEM_TEXT]  {
+                            let courseItem = ATItem(ref: item_ref,courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int)
+                            self.currentCourse.addCourseItem(courseItem)
+                        }
                     }
-                    else if let text_ref = item.1[COURSE_ITEM_TEXT]  {
-                        let courseItem = ATItem(ref: item_ref,courseText: text_ref as! String, courseAudio: item.1[COURSE_ITEM_AUDIO] as! String, order: item.1[COURSE_ITEM_ORDER] as! Int)
-                        self.currentCourse.addCourseItem(courseItem)
-                    }
+                    self.currentCourse.sortContentsByOrder()
+                    self.courseTableView.reloadData()
+                    let indexPath = NSIndexPath(forRow: self.currentCourse.contents.count-1, inSection: 0)
+                    self.courseTableView.scrollToRowAtIndexPath(indexPath,
+                        atScrollPosition: UITableViewScrollPosition.Middle, animated: true)
                 }
-                self.currentCourse.sortContentsByOrder()
-                ProgressHUD.dismiss()
-                self.courseTableView.reloadData()
-                let indexPath = NSIndexPath(forRow: self.currentCourse.contents.count-1, inSection: 0)
-                self.courseTableView.scrollToRowAtIndexPath(indexPath,
-                    atScrollPosition: UITableViewScrollPosition.Middle, animated: true)
             }
             else{
                 //course without content
                 
             }
+            ProgressHUD.dismiss()
             self.initialized = true
         })
         
