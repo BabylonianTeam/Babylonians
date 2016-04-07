@@ -232,6 +232,8 @@
 		76CDD2D8D01CE5CB4C1FFBBD /* Pods-Babylonian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.debug.xcconfig"; sourceTree = "<group>"; };
 		92C42CE71CB211BD003091FC /* PersonalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
 		9F371F741CB35557006E925A /* MoreNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreNameViewController.swift; sourceTree = "<group>"; };
+		903F44B61CB433340023E412 /* CourseSettingViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSettingViewControllerTests.swift; sourceTree = "<group>"; };
+		903F44B81CB446460023E412 /* tagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tagTableViewCell.swift; sourceTree = "<group>"; };
 		9F638F681C9B8A7500154A13 /* CreatorMyCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorMyCoursesViewController.swift; sourceTree = "<group>"; };
 		9F66D6031C9ADE0500EB9C93 /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
 		9F66D6051C9ADE1500EB9C93 /* NormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				0705D5111C8CEF270065467D /* BabylonianTests.swift */,
+				903F44B61CB433340023E412 /* CourseSettingViewControllerTests.swift */,
 				0705D5131C8CEF270065467D /* Info.plist */,
 			);
 			path = BabylonianTests;
@@ -401,6 +404,7 @@
 				3037A4B01CB0B2E100C52232 /* ImageItemCell.swift */,
 				3037A4B21CB0B30100C52232 /* ATItemCell.swift */,
 				3037A4A01CB03A9B00C52232 /* CourseViewController.swift */,
+				903F44B81CB446460023E412 /* tagTableViewCell.swift */,
 			);
 			name = CourseEditor;
 			sourceTree = "<group>";
@@ -815,6 +819,7 @@
 				3098187D1CB36ECB0026D19A /* STKAutoRecoveringHTTPDataSource.m in Sources */,
 				9FBDE5681C9B8E9D003A45BA /* Constant.swift in Sources */,
 				9F66D6141C9AE05F00EB9C93 /* MoreUIViewController.swift in Sources */,
+				903F44B91CB446460023E412 /* tagTableViewCell.swift in Sources */,
 				30DBCDD21C9E3BC5000CD59D /* RegisterView.m in Sources */,
 				3098187B1CB36ECB0026D19A /* NSMutableArray+STKAudioPlayer.m in Sources */,
 				30F20ABE1CA121E700A484E9 /* RNCryptor.swift in Sources */,
@@ -854,6 +859,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				903F44B71CB433340023E412 /* CourseSettingViewControllerTests.swift in Sources */,
 				0705D5121C8CEF270065467D /* BabylonianTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
