@@ -45,19 +45,17 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         //(self.navigationController as! BBCourseNavController).currentCourse = BBCourse(ref: ref, author: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
         
         
-        if let _=(self.navigationController as! BBCourseNavController).currentCourse {
+        if let cur_course=(self.navigationController as! BBCourseNavController).currentCourse {
             //has a value already
             print("currentCourse has a value already")
-            
+            self.currentCourse = cur_course
         }
         else{
             let ref = DataService.dataService.COURSE_REF.childByAutoId()
             (self.navigationController as! BBCourseNavController).currentCourse = BBCourse(ref: ref, author: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
+            self.currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
+            self.currentCourse.setTitle("")
         }
-        
-        self.currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
-        self.currentCourse.setTitle("This is new title")
-        
         
         self.loadCourse()
         self.prepareRecording()

@@ -35,7 +35,7 @@ class BabylonianTests: XCTestCase {
     
     func testExample2()  {
         //change status test
-        let ref = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEPJobHpCZ1z_4xOI6C")
+        let ref = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEiG16h2M4KCVitV9y3")
         let testBBCourse3 = BBCourse(ref: ref)
         testBBCourse3.setStatus(COURSE_STATUS_DRAFT)
         testBBCourse3.courseRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
@@ -123,7 +123,7 @@ class BabylonianTests: XCTestCase {
                     default:
                         assertionFailure("forgot key: "+key)
                     }
-                    assert(self.testBBCourse.title!.containsString("title"), "Pass")
+                    //assert(self.testBBCourse.title!.containsString("title"), "Pass")
                 }
                 
                 self.testBBCourse.sortContentsByOrder()

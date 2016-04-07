@@ -33,6 +33,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         table.dataSource = self
         
         searchResult.dataSource = self
+        searchResult.delegate = self
         searchBar.delegate = self
         
         self.searchResult.hidden = true
@@ -108,10 +109,10 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if tableView==self.table {
             if section==1 {
-                return "Draft Courses"
+                return "Drafts"
             }
             else {
-                return "Published Courses"
+                return "Published"
             }
         }
         return nil
@@ -134,7 +135,8 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if tableView==self.table {
-            return 30.0
+            30
+            
         }
         return 0
     }
@@ -155,16 +157,18 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if tableView==self.searchResult {
+            print("here")
             let courseId = filtered[indexPath.row].componentsSeparatedByString("|")[0]
             
             let storyboard = UIStoryboard.init(name: "CourseView", bundle: nil)
-            let bbCourseController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView") as! CourseViewController
+            let bbCourseController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView") as! BBCourseNavController
             
             bbCourseController.currentCourse = BBCourse(ref: DataService.dataService.COURSE_REF.childByAppendingPath(courseId))
             
             self.presentViewController(bbCourseController, animated: true, completion: nil)
 
         }
+        print("you tab here")
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
