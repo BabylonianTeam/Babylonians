@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ruJ-ut-0kv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ruJ-ut-0kv">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -49,26 +49,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="avi-ST-gwr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="198" y="232"/>
-        </scene>
-        <!--Test-->
-        <scene sceneID="1gc-nR-3OH">
-            <objects>
-                <viewController id="VUS-Oo-ZQa" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vF1-Th-vYa"/>
-                        <viewControllerLayoutGuide type="bottom" id="XIM-mt-iwa"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6Cm-TR-VkP">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Test" id="719-IR-YqB"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ud2-dr-pLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1164" y="273"/>
+            <point key="canvasLocation" x="1090" y="804"/>
         </scene>
         <!--More...-->
         <scene sceneID="gYC-iz-Jbk">
@@ -150,7 +131,7 @@
                         <outlet property="tblExpandable" destination="iQd-QM-X4W" id="6CK-AP-XxS"/>
                         <segue destination="47c-a1-XZd" kind="show" identifier="emailSegue" id="9LC-U5-rWZ"/>
                         <segue destination="Hd7-Na-Pfp" kind="show" identifier="nameSegue" id="058-Jv-se3"/>
-                        <segue destination="VUS-Oo-ZQa" kind="show" identifier="testSegue" id="u3k-je-B5t"/>
+                        <segue destination="KUb-N2-dSW" kind="show" identifier="passwdSegue" id="8D3-X1-kgh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTO-Hg-3Td" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -199,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ynd-Zv-92L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164" y="936"/>
+            <point key="canvasLocation" x="1090" y="127"/>
         </scene>
         <!--More...-->
         <scene sceneID="JGb-ky-rfI">
@@ -219,6 +200,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4Q-8l-6nS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-442" y="923"/>
+        </scene>
+        <!--Change Password-->
+        <scene sceneID="JYw-rZ-Q7m">
+            <objects>
+                <viewController id="KUb-N2-dSW" customClass="MorePasswdViewController" customModule="Babylonian" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h6H-IW-o9p"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qmo-gr-jX2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dvl-kb-XhZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CsZ-cW-SrE">
+                                <rect key="frame" x="0.0" y="132" width="600" height="179"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGh-lA-ctU">
+                                <rect key="frame" x="273" y="321" width="55" height="30"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="changeConfirm:" destination="KUb-N2-dSW" eventType="touchUpInside" id="AtF-m7-MO0"/>
+                                    <action selector="confirmChange:" destination="Hd7-Na-Pfp" eventType="touchUpInside" id="eaH-kQ-ZuP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CsZ-cW-SrE" firstAttribute="centerX" secondItem="lGh-lA-ctU" secondAttribute="centerX" id="7F5-LJ-Run"/>
+                            <constraint firstItem="CsZ-cW-SrE" firstAttribute="top" secondItem="h6H-IW-o9p" secondAttribute="bottom" constant="68" id="7wP-mM-Kao"/>
+                            <constraint firstAttribute="trailing" secondItem="CsZ-cW-SrE" secondAttribute="trailing" id="CXd-c1-XgY"/>
+                            <constraint firstItem="CsZ-cW-SrE" firstAttribute="leading" secondItem="Dvl-kb-XhZ" secondAttribute="leading" id="Qrf-eI-oX8"/>
+                            <constraint firstItem="lGh-lA-ctU" firstAttribute="top" secondItem="CsZ-cW-SrE" secondAttribute="bottom" constant="10" id="aMY-qe-M3x"/>
+                            <constraint firstItem="Qmo-gr-jX2" firstAttribute="top" secondItem="lGh-lA-ctU" secondAttribute="bottom" constant="200" id="vvZ-Nd-BHh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Change Password" id="73s-pT-Uhk"/>
+                    <connections>
+                        <outlet property="tblExpandable" destination="CsZ-cW-SrE" id="eN3-Y1-PRn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x6y-1k-X91" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1090" y="1470"/>
         </scene>
     </scenes>
 </document>

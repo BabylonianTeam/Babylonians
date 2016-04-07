@@ -29,10 +29,30 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>TagListView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>147E0D82D8357C766CE85AD2EFF963C3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4558DEDED81B3714A9520AAA81735405</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5F8918342C29B48F442E0992E481F3BD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>63A563D9B6491209D0060B613BF6DD95</key>
 		<dict>
 			<key>primary</key>
 			<true/>
