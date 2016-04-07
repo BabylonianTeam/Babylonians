@@ -8,6 +8,7 @@
 
 
 import XCTest
+@testable import Babylonian
 
 class BabylonianUITests: XCTestCase {
         
@@ -115,6 +116,8 @@ class BabylonianUITests: XCTestCase {
     }
     
     func testExample2() {
+        
+        
         
     }
     
