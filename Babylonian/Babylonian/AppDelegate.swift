@@ -11,6 +11,7 @@ import UIKit
 import CoreData
 import Parse
 import Bolts
+import Firebase
 
 
 @UIApplicationMain
@@ -28,6 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.server = PARSE_SERVER
         }
         Parse.initializeWithConfiguration(configuration)
+//        
+//        let courseref = DataService.dataService.COURSE_REF.childByAutoId()
+//        let courseC = BBCourse(ref: courseref, author: "test for delete")
+//        Minicourse.addBBCourse(courseC.toAnyObject())
+//        courseC.deleteBBCourse()
+//        
         
         //test parse
 //        let image = UIImage(named: "aa0f3d544a573d3-1.jpg")

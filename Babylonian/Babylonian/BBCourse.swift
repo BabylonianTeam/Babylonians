@@ -282,5 +282,5 @@ class BBCourse: NSObject {
             COURSE_AUTHOR: self.author_
             ]
     }
-}
+   }
 
