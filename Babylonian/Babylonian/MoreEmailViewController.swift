@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class MoreEmailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate {
+class MoreEmailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, CustomCellDelegate {
     
         // MARK: Variables
         
@@ -35,13 +35,17 @@ class MoreEmailViewController: UIViewController, UITableViewDelegate, UITableVie
     let secondaryColor = UIColor.lightGrayColor()
     
     var userInfo = PersonalInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
-        var _USER_REF = Firebase(url: "\(BASE_URL)/users")
-        var _BASE_REF = Firebase(url: "\(BASE_URL)")
+    var _USER_REF = Firebase(url: "\(BASE_URL)/users")
+    var _BASE_REF = Firebase(url: "\(BASE_URL)")
     
-        // MARK: IBOutlet Properties
-        @IBOutlet weak var tblExpandable: UITableView!
+    // MARK: IBOutlet Properties
+    @IBOutlet weak var tblExpandable: UITableView!
     
-        
+    @IBAction func backToLastPage(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
         override func viewDidLoad() {
             super.viewDidLoad()
             // Do any additional setup after loading the view, typically from a nib.
@@ -167,6 +171,7 @@ class MoreEmailViewController: UIViewController, UITableViewDelegate, UITableVie
         else{
             userInfo.updateEmail(addr1)
             tblExpandable.reloadData()
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
