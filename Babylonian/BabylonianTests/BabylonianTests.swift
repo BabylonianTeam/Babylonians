@@ -12,7 +12,7 @@ import XCTest
 class BabylonianTests: XCTestCase {
     var testBBCourse : BBCourse! = nil
     var testBBCourse2 : BBCourse! = nil
-    var expectation:XCTestExpectation?
+    weak var expectation:XCTestExpectation?
     
     override func setUp() {
         super.setUp()
@@ -187,28 +187,39 @@ class BabylonianTests: XCTestCase {
 
     
     func testaddImageItem()  {
-        
         expectation = self.expectationWithDescription("asynchronous request")
         let ref = DataService.dataService.COURSE_REF.childByAppendingPath("-KEcvUWthBmKalnyep3y")
         let testBBCourse4 = BBCourse(ref: ref)
-        testBBCourse4.addNewATItem("new", courseAudio: "new", duration: 1)
+        //let newAt = ATItem(ref: ref, courseText: "newText", courseAudio: "newAudio",order: 1, duration: 1)
+        testBBCourse4.addNewATItem("newText", courseAudio: "newAudio", duration: 1)
         
         testBBCourse4.courseRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
             
             if let data = snapshot.value {
                 print(data)
                  for (key,value) in data as! [String:AnyObject]{
-                    if let _ = (value as! [String:AnyObject])[COURSE_AUTHOR]{
-                        
-                    }else{
-                        
-                    }
+                    print(value)
+                    if key == "content" {
+                        for (key,valuee) in value as! [String:AnyObject]{
+                            //if key == n
+                         print(valuee)
                     
+                           // assert(valuee[COURSE_ITEM_ORDER]==1)
+                           //assert(valuee[COURSE_ITEM_AUDIO]=="newAudio")
+                           // assert(valuee[COURSE_ITEM_TEXT]=="newText")
+                           // assert(valuee[COURSE_ITEM_AUDIO_DURATION]==1)
+                            self.expectation?.fulfill()
+                            self.expectation = nil
+                            
+                        }
+        
+                    }else{
+                        print("not go through")
+                    }
                 }
-                
-                self.expectation?.fulfill()
             }
-        })
+        
+            })
         self.waitForExpectationsWithTimeout(10.0, handler:nil)
     }
 
