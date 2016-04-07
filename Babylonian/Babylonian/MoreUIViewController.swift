@@ -9,8 +9,9 @@
 import Foundation
 import Firebase
 import UIKit
+import Parse
 
-class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate {
+class MoreUIViewController: UIViewController, UIImagePickerControllerDelegate, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, CustomCellDelegate {
     
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var labelDisplayName: UILabel!
@@ -39,10 +40,10 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     let secondaryColor = UIColor.lightGrayColor()
     
+    var imagePicker = UIImagePickerController()
     
-    //var userInfo = PersonalInfo()
+
     var _USER_REF = Firebase(url: "\(BASE_URL)/users")
-    
     
     
     // MARK: IBOutlet Properties
@@ -65,17 +66,35 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.imagePicker.delegate = self
         configureTableView()
         
-        profilePhoto.image = UIImage(named: "p1.png")
         labelDisplayName?.font = bigFont
         labelMoney?.font = bigFont
         
         //retrieve displayName from firebase, and display it on More page
         _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
-                if let displayName = snapshot.value["displayName"] as? String {
+            if let content = snapshot.value {
+                if let displayName = (content as! [String:String])[USER_DISPLAYNAME] {
                     self.labelDisplayName?.text = displayName
+                }
             }
+            
+        })
+        
+        // retriebe profile photo
+        _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
+            if let content = snapshot.value {
+                if let url = (content as! [String:String])[USER_PROFILEPHOTO] {
+                    
+                    if let nsURL = NSURL(string: url) {
+                        if let data = NSData(contentsOfURL: nsURL) {
+                            self.profilePhoto.image = UIImage(data: data)
+                        }
+                    }
+                }
+            }
+            
         })
     }
     
@@ -140,19 +159,23 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if(cell.textLabel?.text == "Display Name"){
                 cell.detailTextLabel?.text = " "
                 _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
-                    if let displayName = snapshot.value["displayName"] as? String {
-                        //print("displayName is \(displayName)")
-                        cell.detailTextLabel?.text = displayName
+                    if let content = snapshot.value {
+                        if let displayName = (content as! [String:String])[USER_DISPLAYNAME] {
+                            cell.detailTextLabel?.text = displayName
+                        }
                     }
+                    
                 })
             }
             else if(cell.textLabel?.text == "E-mail"){
                 cell.detailTextLabel?.text = " "
                 _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
-                    if let email = snapshot.value["email"] as? String {
-                        //print("email is \(email)")
-                        cell.detailTextLabel?.text = email
+                    if let content = snapshot.value {
+                        if let email = (content as! [String:String])[USER_EMAIL] {
+                            cell.detailTextLabel?.text = email
+                        }
                     }
+                    
                 })
             }
             else{
@@ -183,8 +206,11 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
         else if((indexPath.section == 0) && (indexPath.row == 0)){
             performSegueWithIdentifier("nameSegue", sender: self)
         }
-        else if(indexPath.section == 0){
-            performSegueWithIdentifier("testSegue", sender: self)
+        else if((indexPath.section == 0) && (indexPath.row == 3)){
+            performSegueWithIdentifier("passwdSegue", sender: self)
+        }
+        else if((indexPath.section == 0) && (indexPath.row == 1)){
+            changeImageItem()
         }
     }
     
@@ -204,6 +230,52 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
         appDelegate.window!.makeKeyAndVisible()
     }
     
+    func changeImageItem() {
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum){
+            imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum;
+            imagePicker.allowsEditing = true
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+        
+        print("change")
+    }
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
+        
+        let data = UIImageJPEGRepresentation(image!, 1)
+        let imageFile = PFFile(name: "image.jpg", data: data!)
+        
+        print(imageFile?.url)
+        let pObject = PFObject(className: "Image")
+        pObject[PARSE_IMAGE_FILENAME]  = imageFile
+        
+        print("update")
+        
+        //TODO: create a local storage for BBCourse, distinguish from addToLocal and addToRemote
+        pObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            if success {
+                
+                if let stringUrl = imageFile?.url {
+                    print("update url \(stringUrl)")
+                    if let url = NSURL(string: stringUrl ) {
+                        if let data = NSData(contentsOfURL: url) {
+                            self.profilePhoto.image = UIImage(data: data)
+                        }
+                    }
+                }
+                
+            }else {
+                print("update profile photho error")
+            }
+        }
+        
+    }
+
     
     //==============================================================
     // MARK: CustomCellDelegate Functions

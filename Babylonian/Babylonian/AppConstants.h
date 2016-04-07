@@ -31,6 +31,7 @@
 #define		USER_FACEBOOK                       @"facebook"
 #define		USER_TWITTER                        @"twitter"
 #define     USER_DATE_FORMAT                    @"yyyy-d-M"
+#define     USER_PROFILEPHOTO                   @"profilePhoto"
 
 
 #define		COURSE_AUTHOR                       @"author"

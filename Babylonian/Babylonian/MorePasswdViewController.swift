@@ -9,18 +9,18 @@
 import UIKit
 import Firebase
 
-class MoreNameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate {
+class MorePasswdViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate {
     
     // MARK: Variables
     
-    let sections = ["Current Name", "New Name"]
+    let sections = ["Original Password", "New Password"]
     
-    let items = [["currentName"],
-                 ["Please type new name"]
+    let items = [["Please type original password"],
+                 ["Please type new password", "Please type new password again"]
     ]
     
-    let cellTypes = [ ["idCellValuePicker"],
-                      ["idCellTextfield"]
+    let cellTypes = [ ["idCellTextfield"],
+                      ["idCellTextfield", "idCellTextfield"]
     ]
     
     
@@ -36,7 +36,9 @@ class MoreNameViewController: UIViewController, UITableViewDelegate, UITableView
     
     var userInfo = PersonalInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
     var _USER_REF = Firebase(url: "\(BASE_URL)/users")
+    var _BASE_REF = Firebase(url: "\(BASE_URL)")
     
+    var account = ""
     
     // MARK: IBOutlet Properties
     @IBOutlet weak var tblExpandable: UITableView!
@@ -49,9 +51,18 @@ class MoreNameViewController: UIViewController, UITableViewDelegate, UITableView
         configureTableView()
     }
     
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //retrieve displayName from firebase, and display it on More page
+        _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
+            if let content = snapshot.value {
+                if let email = (content as! [String:String])[USER_EMAIL] {
+                    self.account = email
+                }
+            }
+            
+        })
     }
     
     
@@ -102,16 +113,7 @@ class MoreNameViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         // Configure the cell...
-        
-        if(indexPath.section == 0 && indexPath.row == 0){
-            _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
-                if let displayName = snapshot.value[USER_DISPLAYNAME] as? String {
-                    cell.textLabel?.text = displayName
-                }
-            })
-        }
-        
-        else if(cellType == "idLabelCell"){
+        if(cellType == "idLabelCell"){
             cell.textLabel?.text = self.items[indexPath.section][indexPath.row]
         }
         else if(cellType == "idCellTextfield"){
@@ -129,17 +131,6 @@ class MoreNameViewController: UIViewController, UITableViewDelegate, UITableView
         return 50.0
     }
     
-    @IBAction func confirmChange(sender: AnyObject) {
-        
-        let cell = self.tblExpandable.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! CustomCell
-        let newName = cell.textField.text!
-        
-        if (newName.characters.count > 0) {
-            userInfo.updateDisplayName(newName)
-            tblExpandable.reloadData()
-        }
-    }
-    
     /*
      func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
      return 1.0
@@ -153,6 +144,58 @@ class MoreNameViewController: UIViewController, UITableViewDelegate, UITableView
      }
      */
     
+    @IBAction func changeConfirm(sender: AnyObject) {
+        let cell0 = self.tblExpandable.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! CustomCell
+        let cell1 = self.tblExpandable.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! CustomCell
+        let cell2 = self.tblExpandable.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 1)) as! CustomCell
+        
+        let passwdOrg = cell0.textField.text!
+        let passwd1   = cell1.textField.text!
+        let passwd2   = cell2.textField.text!
+        
+        if((passwd1 != passwd2) || (passwd1.characters.count < 1)){
+            handleNewPasswdMismatch()
+        }
+        else{
+            _BASE_REF.changePasswordForUser(self.account, fromOld: passwdOrg, toNew: passwd1, withCompletionBlock: { error in
+                if (error != nil){
+                    self.handleOrgPasswdMismatch()
+                }
+                else {
+                    print("Change password successfully")
+                }
+                
+            })
+            tblExpandable.reloadData()
+        }
+    }
+    
+    
+    func handleNewPasswdMismatch(){
+        //Create the AlertController
+        let actionSheetController: UIAlertController = UIAlertController(title: "Password mismatch!", message: "New password cannot be empty nor mismatch", preferredStyle: .Alert)
+        
+        //Create and an option action
+        let retryAction: UIAlertAction = UIAlertAction(title: "Retry", style: .Default) { action -> Void in
+        }
+        actionSheetController.addAction(retryAction)
+        
+        //Present the AlertController
+        self.presentViewController(actionSheetController, animated: true, completion: nil)
+    }
+    
+    func handleOrgPasswdMismatch(){
+        //Create the AlertController
+        let actionSheetController: UIAlertController = UIAlertController(title: "Wrong Password!", message: "Please check your original password", preferredStyle: .Alert)
+        
+        //Create and an option action
+        let retryAction: UIAlertAction = UIAlertAction(title: "Retry", style: .Default) { action -> Void in
+        }
+        actionSheetController.addAction(retryAction)
+        
+        //Present the AlertController
+        self.presentViewController(actionSheetController, animated: true, completion: nil)
+    }
     
     //==============================================================
     // MARK: CustomCellDelegate Functions
