@@ -31,9 +31,9 @@ class MoreUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // MARK: Constants
     
-    let bigFont = UIFont(name: "Avenir-Book", size: 17.0)
+    let bigFont = UIFont(name: FONT_BIG, size: CGFloat(FONT_SIZE))
     
-    let smallFont = UIFont(name: "Avenir-Light", size: 17.0)
+    let smallFont = UIFont(name: FONT_SMALL, size: CGFloat(FONT_SIZE))
     
     let primaryColor = UIColor.blackColor()
     
