@@ -17,6 +17,7 @@ class BabylonianTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         let ref = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEPJobHpCZ1z_4xOI6C")
         testBBCourse = BBCourse(ref: ref)
+        
         let newref = DataService.dataService.COURSE_REF.childByAutoId()
         testBBCourse2 = BBCourse(ref:newref)
         testBBCourse2.addNewImageItem("http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/files/iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz/74d213665211cddfdfaaa85cb4b8c657_image.jpg")
@@ -31,6 +32,61 @@ class BabylonianTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+    
+    func testExample2()  {
+        //change status test
+        let ref = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEPJobHpCZ1z_4xOI6C")
+        let testBBCourse3 = BBCourse(ref: ref)
+        testBBCourse3.setStatus(COURSE_STATUS_DRAFT)
+        testBBCourse3.courseRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
+            if let value = snapshot.value {
+                assert(value[COURSE_STATUS]==COURSE_STATUS_DRAFT)
+            }
+            
+        })
+    }
+    
+    func testReadAllCourse(){
+        let ref = DataService.dataService.COURSE_REF
+        let expectation = self.expectationWithDescription("data read")
+        
+        ref.observeSingleEventOfType(.Value, withBlock: {snapshot in
+            print(snapshot)
+            if let data = snapshot.value {
+                print("been there")
+                for (key,value) in data as! [String:AnyObject]{
+                    let b = BBCourse(ref: ref.childByAppendingPath(key))
+                    if let _ = (value as! [String:AnyObject])[COURSE_AUTHOR]{
+                        //
+                    }else{
+                        b.deleteBBCourse()
+                    }
+                    
+                    let r = random()
+                    
+                    if value[COURSE_TITLE]==nil && value[COURSE_CONTENT]==nil {
+                        b.deleteBBCourse()
+                    }
+                    if r%3==0 {
+                        //do something
+                        b.courseRef.updateChildValues([COURSE_STATUS:COURSE_STATUS_ONSHELF])
+                    }else if r%3==1{
+                        //do something
+                        b.courseRef.updateChildValues([COURSE_STATUS:COURSE_STATUS_ARCHIVED])
+                    }else {
+                        b.courseRef.updateChildValues([COURSE_STATUS:COURSE_STATUS_DRAFT])
+                    }
+                    
+                
+                }
+                expectation.fulfill()
+            }
+        
+        })
+        self.waitForExpectationsWithTimeout(300, handler:nil)
+    }
+    
+    
     
     func testExample() {
         // This is an example of a functional test case.
@@ -63,11 +119,11 @@ class BabylonianTests: XCTestCase {
                     case COURSE_TAG:
                         self.testBBCourse.setTag( value as! [String])
                     case COURSE_NUM_SOLD:
-                        self.testBBCourse.purchased_counter_ = value as! Int
+                        self.testBBCourse.purchased_counter_ = value as? Int
                     default:
                         assertionFailure("forgot key: "+key)
                     }
-                    assert(self.testBBCourse.title.containsString("title"), "Pass")
+                    assert(self.testBBCourse.title!.containsString("title"), "Pass")
                 }
                 
                 self.testBBCourse.sortContentsByOrder()

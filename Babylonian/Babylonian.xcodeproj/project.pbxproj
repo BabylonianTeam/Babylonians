@@ -342,9 +342,9 @@
 		076532461C8CFE7500825177 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3037A49F1CAF91F600C52232 /* CourseEditor */,
-				30DBCDD61C9E3BE7000CD59D /* Welcome */,
 				9F66D6021C9ADCA200EB9C93 /* Custom Cells */,
+				30DBCDD61C9E3BE7000CD59D /* Welcome */,
+				3037A49F1CAF91F600C52232 /* CourseEditor */,
 				30E6DB391CB19D5100F604E6 /* Main */,
 				3075D8841CB56CCE00B5262F /* MyCourseTab */,
 				30F20AB81CA0F98300A484E9 /* LearnerDiscussion.storyboard */,
@@ -422,9 +422,9 @@
 			children = (
 				30F20ABA1CA0F99D00A484E9 /* LearnerMyCourses.storyboard */,
 				305E471B1C8D169F004EEACE /* MyCourses.storyboard */,
+				3075D8821CB56C7000B5262F /* SearchCell.swift */,
 				07EFFB611C97B128006F8ECB /* CourseCell.swift */,
 				9F638F681C9B8A7500154A13 /* CreatorMyCoursesViewController.swift */,
-				3075D8821CB56C7000B5262F /* SearchCell.swift */,
 			);
 			name = MyCourseTab;
 			sourceTree = "<group>";
@@ -536,9 +536,9 @@
 			isa = PBXGroup;
 			children = (
 				30F20AB41CA0F7E800A484E9 /* LearnerMain.storyboard */,
-				306C32381C9B912C0035608E /* MainPageViewController.swift */,
 				0705D4FD1C8CEF270065467D /* Main.storyboard */,
 				306C323A1C9B9E830035608E /* MainCourseCell.swift */,
+				306C32381C9B912C0035608E /* MainPageViewController.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";

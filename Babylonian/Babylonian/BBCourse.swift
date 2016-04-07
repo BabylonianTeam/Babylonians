@@ -16,7 +16,8 @@ class BBCourse: NSObject {
     
     var title_: String?
     var author_: String!
-    var courseItems_: [CourseItem]!
+    var status_: String!
+    var courseItems_ = [CourseItem]()
     var ref_: Firebase!
     var price_: Float!
     var tag_: [String]!
@@ -28,15 +29,11 @@ class BBCourse: NSObject {
         self.ref_ = ref
         self.author_ = author
         self.ref_.updateChildValues([COURSE_AUTHOR:author])
-        self.courseItems_ = [CourseItem]()
-        self.tag_ = [String]()
     }
     
     init(ref: Firebase) {
         //to read a course
         self.ref_ = ref
-        self.courseItems_ = [CourseItem]()
-        self.tag_ = [String]()
     }
     
     func setTitle(title: String) -> Void {
@@ -49,8 +46,17 @@ class BBCourse: NSObject {
         self.courseRef.updateChildValues([COURSE_PRICE:price])
     }
     
+    func setStatus(status: String) -> Void {
+        self.status_ = status
+        self.courseRef.updateChildValues([COURSE_STATUS:status])
+    }
+    
     func addCourseItem(item:CourseItem) -> Void {
         self.courseItems_.append(item)
+    }
+    
+    func increasePurchasedNum() -> Void {
+        self.purchased_counter_ = self.purchased_counter_!+1
     }
     
     func setAuthor(author: String) -> Void {
@@ -181,11 +187,11 @@ class BBCourse: NSObject {
                     case COURSE_TITLE:
                         self.title_ = value as? String
                     case COURSE_PRICE:
-                        self.price_ = value as! Float
+                        self.price_ = value as? Float
                     case COURSE_TAG:
                         self.tag_ = value as! [String]
                     case COURSE_NUM_SOLD:
-                        self.purchased_counter_ = value as! Int
+                        self.purchased_counter_ = value as? Int
                     default:
                         print("forgoten key: "+key)
                     }
@@ -267,13 +273,22 @@ class BBCourse: NSObject {
         return courseItems_
     }
     
+    var status: String {
+        return status_
+    }
+    
     var tag: [String] {
         return tag_
     }
     
-    var price: Float {
+    var price: Float? {
         return price_
     }
+    
+    var numOfPurchase: Int? {
+        return purchased_counter_
+    }
+    
     
     func toAnyObject() -> AnyObject {
         

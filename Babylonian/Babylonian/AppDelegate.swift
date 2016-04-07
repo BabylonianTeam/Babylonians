@@ -18,11 +18,13 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    override init() {
+        super.init()
+        Firebase.defaultConfig().persistenceEnabled = true
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-        
         // Initialize Parse.
         let configuration = ParseClientConfiguration {
             $0.applicationId = PARSE_APP_ID
@@ -36,19 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        courseC.deleteBBCourse()
 //        
         
-        //test parse
-//        let image = UIImage(named: "aa0f3d544a573d3-1.jpg")
-//        let data = UIImageJPEGRepresentation(image!, 1)
-//        let imageFile = PFFile(name: "aa0f3d544a573d3-1.jpg", data: data!)
-//
-//        let testObject = PFObject(className: "Course")
-//        testObject[COURSE_TITLE] = "course1"
-//        testObject[COURSE_AUTHOR] = "user1"
-//        testObject["content"] = imageFile
-//        
-//        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-//            print(error)
-//        }
         
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
