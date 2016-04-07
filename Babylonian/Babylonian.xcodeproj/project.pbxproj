@@ -42,6 +42,7 @@
 		309818811CB36ECB0026D19A /* STKHTTPDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 309818751CB36ECB0026D19A /* STKHTTPDataSource.m */; };
 		309818821CB36ECB0026D19A /* STKLocalFileDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 309818771CB36ECB0026D19A /* STKLocalFileDataSource.m */; };
 		309818831CB36ECB0026D19A /* STKQueueEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 309818791CB36ECB0026D19A /* STKQueueEntry.m */; };
+		309818871CB4BDCB0026D19A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309818861CB4BDCA0026D19A /* QuartzCore.framework */; };
 		30DBCDD01C9E3BC5000CD59D /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBCDC71C9E3BC5000CD59D /* LoginView.m */; };
 		30DBCDD11C9E3BC5000CD59D /* WelcomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBCDC81C9E3BC5000CD59D /* WelcomeView.m */; };
 		30DBCDD21C9E3BC5000CD59D /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DBCDC91C9E3BC5000CD59D /* RegisterView.m */; };
@@ -79,8 +80,8 @@
 		30F20ABB1CA0F99D00A484E9 /* LearnerMyCourses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20ABA1CA0F99D00A484E9 /* LearnerMyCourses.storyboard */; };
 		30F20ABE1CA121E700A484E9 /* RNCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F20ABD1CA121E700A484E9 /* RNCryptor.swift */; };
 		30F20AC11CA124C600A484E9 /* CourseView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20AC01CA124C600A484E9 /* CourseView.storyboard */; };
-		903F44B71CB433340023E412 /* CourseSettingViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903F44B61CB433340023E412 /* CourseSettingViewControllerTests.swift */; };
-		903F44B91CB446460023E412 /* tagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903F44B81CB446460023E412 /* tagTableViewCell.swift */; };
+		92C42CE81CB211BD003091FC /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C42CE71CB211BD003091FC /* PersonalInfo.swift */; };
+		9F371F751CB35557006E925A /* MoreNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F371F741CB35557006E925A /* MoreNameViewController.swift */; };
 		9F638F691C9B8A7500154A13 /* CreatorMyCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F638F681C9B8A7500154A13 /* CreatorMyCoursesViewController.swift */; };
 		9F66D6041C9ADE0500EB9C93 /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F66D6031C9ADE0500EB9C93 /* DatePickerCell.xib */; };
 		9F66D60A1C9ADE1500EB9C93 /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F66D6051C9ADE1500EB9C93 /* NormalCell.xib */; };
@@ -167,6 +168,7 @@
 		309818781CB36ECB0026D19A /* STKQueueEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKQueueEntry.h; sourceTree = "<group>"; };
 		309818791CB36ECB0026D19A /* STKQueueEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKQueueEntry.m; sourceTree = "<group>"; };
 		3098187A1CB36ECB0026D19A /* StreamingKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "StreamingKit-Prefix.pch"; sourceTree = "<group>"; };
+		309818861CB4BDCA0026D19A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		30DBCDC71C9E3BC5000CD59D /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginView.m; path = Welcome/LoginView.m; sourceTree = "<group>"; };
 		30DBCDC81C9E3BC5000CD59D /* WelcomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WelcomeView.m; path = Welcome/WelcomeView.m; sourceTree = "<group>"; };
 		30DBCDC91C9E3BC5000CD59D /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterView.m; path = Welcome/RegisterView.m; sourceTree = "<group>"; };
@@ -228,6 +230,8 @@
 		30F20ABD1CA121E700A484E9 /* RNCryptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNCryptor.swift; sourceTree = "<group>"; };
 		30F20AC01CA124C600A484E9 /* CourseView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CourseView.storyboard; sourceTree = "<group>"; };
 		76CDD2D8D01CE5CB4C1FFBBD /* Pods-Babylonian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.debug.xcconfig"; sourceTree = "<group>"; };
+		92C42CE71CB211BD003091FC /* PersonalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
+		9F371F741CB35557006E925A /* MoreNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreNameViewController.swift; sourceTree = "<group>"; };
 		903F44B61CB433340023E412 /* CourseSettingViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSettingViewControllerTests.swift; sourceTree = "<group>"; };
 		903F44B81CB446460023E412 /* tagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tagTableViewCell.swift; sourceTree = "<group>"; };
 		9F638F681C9B8A7500154A13 /* CreatorMyCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorMyCoursesViewController.swift; sourceTree = "<group>"; };

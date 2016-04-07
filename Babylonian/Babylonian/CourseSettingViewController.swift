@@ -15,9 +15,11 @@ class CourseSettingViewController: UIViewController, TagListViewDelegate{
 
     var currentCourse: BBCourse!
     var addTagTransfer: String!
+    var addTagArray = [String]()
     var fullTagArr: NSArray!
-    var i: Int!
     var tagView = [TagView]()
+    var tag: String?
+    
     
    
     
@@ -30,19 +32,16 @@ class CourseSettingViewController: UIViewController, TagListViewDelegate{
   
     @IBOutlet weak var bbtitle: UITextView!
     @IBOutlet weak var price: UITextView!
-    @IBOutlet weak var tag: UITextView!
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.tableView.delegate = self
-     //  self.tableView.dataSource = self
+      
         currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
-        // Set up swipe to delete
-       // tableView.allowsMultipleSelectionDuringEditing = false
-        
         tagListView.delegate = self
+        
         self.currentCourse.courseRef.observeEventType(.Value, withBlock: { snapshot in
-            
+           
             if let pricestr = snapshot.value.objectForKey("price"){
                 self.price.text = (pricestr as? NSNumber)?.stringValue
             }
@@ -51,25 +50,54 @@ class CourseSettingViewController: UIViewController, TagListViewDelegate{
                 self.bbtitle.text = bbtitlestr as? String
             }
             
+            
             if let tagstr = snapshot.value.objectForKey("tag") {
                 //self.tagTransfer = (tagstr as? NSArray)!
-                self.tag.text = tagstr as? String
-                self.fullTagArr = self.tag.text.characters.split{$0 == "|"}.map(String.init)
-                print(self.fullTagArr)
+                self.tag = tagstr as? String
+                self.fullTagArr = self.tag!.characters.split{$0 == "|"}.map(String.init)
                 self.tagListView.textFont = UIFont.systemFontOfSize(24)
                 self.tagListView.alignment = .Center // possible values are .Left, .Center, and .Right
-                
+                self.tagListView.removeAllTags()
                 for var i = 0; i <= self.fullTagArr.count-1; i++ {
-                    
-                    if let tagview = self.tagListView.addTag(self.fullTagArr[i] as! String) as? TagView{
-                        print(tagview)
+                    let tagstring = self.fullTagArr[i] as? String
+                   
+                    if let tagview = self.tagListView.addTag(tagstring!) as? TagView{
+    
                         self.tagView.append(tagview)
-                        self.tagView[i].tagBackgroundColor = UIColor.blueColor()
-                        self.tagView[i].onTap = { tagView in
-                           print("Don’t tap me!")
-                    
+                        
+//                        self.tagView[i].onTap = { tagView in
+//                            
+//                             print(i)
+//                            
+//                               self.tagListView.removeTag(tagstring!)
+ //                       }
+                        
+                        
+//                        tagview.onTap = { tagView in
+//                            
+//                            print("Don’t tap me!")
+//                            if let tagstring = self.fullTagArr[i] as? String {
+//                            self.tagListView.removeTag(tagstring)
+//                                
+//                                
+//                                for var j = 0; j<=self.addTagArray.count-2; j++ {
+//                                    if self.addTagArray[j] == tagstring {
+//                                          self.addTagArray.removeAtIndex(j)
+//                                        let stringRepresentation = self.addTagArray.joinWithSeparator("|")
+//                                        self.currentCourse.setTag(stringRepresentation, tagArray: self.addTagArray)
+//                                        
+//                                    }
+//                           
+//                                }
+//                            }
+//                            
+//                        }
+//                        
+                        
+                        
+                        
+                        
                     }
-                }
                 }
                 
            }
@@ -101,19 +129,20 @@ class CourseSettingViewController: UIViewController, TagListViewDelegate{
              self.addTagTransfer = self.addTagTransfer + courseTag.text! + "|"
         }
        
-        currentCourse.setTag(self.addTagTransfer)
+            self.addTagArray.append(courseTag.text!)
+       
+        currentCourse.setTag(self.addTagTransfer, tagArray: self.addTagArray)
     }
     
 
     @IBAction func clearAllTag(sender: UIButton) {
-        
-        
+        self.addTagTransfer.removeAll()
+        self.addTagArray.removeAll()
+        currentCourse.deleteAllTag()
         tagListView.removeAllTags()
         
-        
-        
-        
     }
+    
     // MARK: UITableView Delegate methods
 //    
 //    func tableView(tableView: UITableView) -> Int {

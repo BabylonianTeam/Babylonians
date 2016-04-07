@@ -19,8 +19,9 @@ class BBCourse: NSObject {
     var courseItems_: [CourseItem]!
     var ref_: Firebase!
     var price_: Float!
-    var tag_: String!
+    var tag_: [String]!
     
+    var purchased_counter_: Int!
 
     init(ref: Firebase, author: String) {
         // to create a course
@@ -79,13 +80,14 @@ class BBCourse: NSObject {
         self.courseItems_.append(ImageItem(ref: item_ref, courseImage:courseImage, order: self.contents.count+1))
     }
     
-    func setTag(tag: String) -> Void {
-        self.tag_ = tag
+    func setTag(tag: String, tagArray: [String]) -> Void {
+        self.tag_ = tagArray
         self.courseRef.setValue([COURSE_TAG:tag])
     }
     
-    func deleteAllTag(sender: AnyObject?) {
-        self.courseRef.childByAppendingPath("tag").removeValue()
+    func deleteAllTag() -> Void {
+        self.tag_.removeAll()
+        self.courseRef.updateChildValues([COURSE_TAG: ""])
     }
     
     func updateCourseItem(item:CourseItem) -> Bool {
@@ -265,7 +267,7 @@ class BBCourse: NSObject {
         return courseItems_
     }
     
-    var tag: String {
+    var tag: [String] {
         return tag_
     }
     
