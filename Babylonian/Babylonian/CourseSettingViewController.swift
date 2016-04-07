@@ -131,7 +131,7 @@ class CourseSettingViewController: UIViewController, TagListViewDelegate{
        
             self.addTagArray.append(courseTag.text!)
        
-        currentCourse.setTag(self.addTagTransfer, tagArray: self.addTagArray)
+        currentCourse.setTag(self.addTagArray)
     }
     
 

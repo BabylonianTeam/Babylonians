@@ -18,19 +18,49 @@ class BabylonianTests: XCTestCase {
         let ref = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEPJobHpCZ1z_4xOI6C")
         testBBCourse = BBCourse(ref: ref)
         
-        let newref = DataService.dataService.COURSE_REF.childByAutoId()
-        testBBCourse2 = BBCourse(ref:newref)
-        testBBCourse2.addNewImageItem("http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/files/iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz/74d213665211cddfdfaaa85cb4b8c657_image.jpg")
-        testBBCourse2.addNewATItem("item1", courseAudio: "http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/files/iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz/5ce7574bbba01cc794551ab4ecbbce5d_audio.m4a", duration: 1)
-        testBBCourse2.addNewATItem("item2", courseAudio: "http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/files/iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz/5ce7574bbba01cc794551ab4ecbbce5d_audio.m4a", duration: 1)
-        testBBCourse2.addNewATItem("item3", courseAudio: "http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/files/iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz/5ce7574bbba01cc794551ab4ecbbce5d_audio.m4a", duration: 1)
-        testBBCourse2.addNewATItem("item4", courseAudio: "http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/files/iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz/5ce7574bbba01cc794551ab4ecbbce5d_audio.m4a", duration: 1)
-        testBBCourse2.moveItemTo(5, to: 3)
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+    }
+    
+    func testWriters() {
+        
+        
+        for _ in 1...3 {
+            let newref = DataService.dataService.COURSE_REF.childByAutoId()
+            testBBCourse2 = BBCourse(ref:newref)
+            _ = self.keyValueObservingExpectationForObject(testBBCourse2, keyPath: "status", expectedValue: COURSE_STATUS_ONSHELF)
+            testBBCourse2.addNewImageItem("http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/files/iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz/74d213665211cddfdfaaa85cb4b8c657_image.jpg")
+            testBBCourse2.addNewATItem("item1", courseAudio: "http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/files/iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz/5ce7574bbba01cc794551ab4ecbbce5d_audio.m4a", duration: 1)
+            testBBCourse2.addNewATItem("item2", courseAudio: "http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/files/iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz/5ce7574bbba01cc794551ab4ecbbce5d_audio.m4a", duration: 1)
+            testBBCourse2.addNewATItem("item3", courseAudio: "http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/files/iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz/5ce7574bbba01cc794551ab4ecbbce5d_audio.m4a", duration: 1)
+            testBBCourse2.addNewATItem("item4", courseAudio: "http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/files/iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz/5ce7574bbba01cc794551ab4ecbbce5d_audio.m4a", duration: 1)
+            testBBCourse2.setTitle("A fake course")
+            let newItem = ImageItem(ref: testBBCourse2.contentRef.childByAutoId(), courseImage: "http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/files/iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz/74d213665211cddfdfaaa85cb4b8c657_image.jpg", order: 5)
+            testBBCourse2.addCourseItem(newItem)
+            testBBCourse2.setAuthor("1e6100ee-c30f-4945-845d-658648beb102")
+            testBBCourse2.setStatus(COURSE_STATUS_DRAFT)
+            testBBCourse2.moveItemTo(6, to: 3)
+        }
+        for _ in 1...3 {
+            let newref = DataService.dataService.COURSE_REF.childByAutoId()
+
+            testBBCourse2 = BBCourse(ref:newref)
+            testBBCourse2.addNewImageItem("http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/files/iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz/74d213665211cddfdfaaa85cb4b8c657_image.jpg")
+            testBBCourse2.addNewATItem("item1", courseAudio: "http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/files/iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz/5ce7574bbba01cc794551ab4ecbbce5d_audio.m4a", duration: 1)
+            testBBCourse2.addNewATItem("item2", courseAudio: "http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/files/iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz/5ce7574bbba01cc794551ab4ecbbce5d_audio.m4a", duration: 1)
+            testBBCourse2.addNewATItem("item3", courseAudio: "http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/files/iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz/5ce7574bbba01cc794551ab4ecbbce5d_audio.m4a", duration: 1)
+            testBBCourse2.addNewATItem("item4", courseAudio: "http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/files/iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz/5ce7574bbba01cc794551ab4ecbbce5d_audio.m4a", duration: 1)
+            testBBCourse2.setTitle("A fake course")
+            let newItem = ImageItem(ref: testBBCourse2.contentRef.childByAutoId(), courseImage: "http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/files/iZBQhKLvStLDiflpBDUy1NTMhfa6I8aHNa35J0Cz/74d213665211cddfdfaaa85cb4b8c657_image.jpg", order: 5)
+            testBBCourse2.addCourseItem(newItem)
+            testBBCourse2.setAuthor("1e6100ee-c30f-4945-845d-658648beb102")
+            testBBCourse2.setStatus(COURSE_STATUS_ONSHELF)
+            testBBCourse2.moveItemTo(6, to: 3)
+        }
+         waitForExpectationsWithTimeout(50, handler: nil)
     }
     
     func testExample2()  {
@@ -117,7 +147,7 @@ class BabylonianTests: XCTestCase {
                     case COURSE_PRICE:
                         self.testBBCourse.setPrice(value as! Float)
                     case COURSE_TAG:
-                        self.testBBCourse.setTag( value as! [String])
+                        self.testBBCourse.setTag(value as! [String])
                     case COURSE_NUM_SOLD:
                         self.testBBCourse.purchased_counter_ = value as? Int
                     default:

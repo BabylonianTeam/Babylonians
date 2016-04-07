@@ -86,9 +86,9 @@ class BBCourse: NSObject {
         self.courseItems_.append(ImageItem(ref: item_ref, courseImage:courseImage, order: self.contents.count+1))
     }
     
-    func setTag(tag: String, tagArray: [String]) -> Void {
+    func setTag(tagArray: [String]) -> Void {
         self.tag_ = tagArray
-        self.courseRef.setValue([COURSE_TAG:tag])
+        self.courseRef.setValue([COURSE_TAG:tagArray.joinWithSeparator("|")])
     }
     
     func deleteAllTag() -> Void {

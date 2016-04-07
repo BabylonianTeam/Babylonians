@@ -14,14 +14,15 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     //Temporary Value for Testing. Safe to remove once Table Model is implemented
     
-    var draftCourses = [BBCourse]()
-    var publishedCourses = [BBCourse]()
+    var courseLists = [[BBCourse](),[BBCourse]()]
     var allCourseTitles = [String]()
     var filtered = [String]()
     var searchActive : Bool = false
+    let sections = ["Published", "Drafts"]
     
     @IBOutlet weak var searchResult: UITableView!
     @IBOutlet weak var table: UITableView!
+    
     
     @IBOutlet weak var searchBar: UISearchBar!
     override func viewWillAppear(animated: Bool) {
@@ -86,10 +87,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     @IBAction func createNewCourse(sender: UIBarButtonItem) {
             //initiate courseview
         let storyboard = UIStoryboard.init(name: "CourseView", bundle: nil)
-        
         let rootController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView")
-        print("button pressed")
-        
         self.presentViewController(rootController, animated: true, completion: nil)
     }
     
@@ -108,14 +106,10 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if tableView==self.table {
-            if section==1 {
-                return "Drafts"
-            }
-            else {
-                return "Published"
-            }
+            return sections[section]
         }
         return nil
+        
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -134,41 +128,39 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
 
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if tableView==self.table {
-            30
-            
+        if tableView.numberOfSections>1 {
+            return 30
         }
-        return 0
+        return 1
     }
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0
-    }
+    
+//    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return 10
+//    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
  
         if (self.searchResult==tableView) {
             return filtered.count
         }
-        if section==1 {
-            return min(self.draftCourses.count,5)
-        }
-        return min(self.publishedCourses.count,5)
+        
+        return min(self.courseLists[section].count,5)
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let storyboard = UIStoryboard.init(name: "CourseView", bundle: nil)
+        let bbCourseController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView") as! BBCourseNavController
+
         if tableView==self.searchResult {
-            print("here")
             let courseId = filtered[indexPath.row].componentsSeparatedByString("|")[0]
             
-            let storyboard = UIStoryboard.init(name: "CourseView", bundle: nil)
-            let bbCourseController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView") as! BBCourseNavController
-            
             bbCourseController.currentCourse = BBCourse(ref: DataService.dataService.COURSE_REF.childByAppendingPath(courseId))
-            
-            self.presentViewController(bbCourseController, animated: true, completion: nil)
 
         }
-        print("you tab here")
+        else {
+            bbCourseController.currentCourse = self.courseLists[indexPath.section][indexPath.row]
+        }
+        self.presentViewController(bbCourseController, animated: true, completion: nil)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -180,19 +172,17 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         
         let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell", forIndexPath: indexPath) as! CourseCell
      
-        if indexPath.section==1 {
-            if let t = self.draftCourses[indexPath.row].title{
-                cell.courseTitle.text = t
-            }
+        if let t = self.courseLists[indexPath.section][indexPath.row].title{
+            cell.courseTitle.text = t
         }
-        else{
-            if let t = self.publishedCourses[indexPath.row].title {
-                cell.courseTitle.text = t
-            }
-            else {
-                cell.courseTitle.text="null"
-            }
+        
+        if let t = self.courseLists[indexPath.section][indexPath.row].title{
+            cell.courseTitle.text = t
         }
+        else {
+            cell.courseTitle.text="null"
+        }
+
         
         //Will probably have to convert some value here to a view count
         cell.courseViewCount.text = "55 views"
@@ -224,10 +214,10 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
                         }
                         if let st = cData[COURSE_STATUS] {
                             if st as! String==COURSE_STATUS_ONSHELF {
-                                self.publishedCourses.append(c)
+                                self.courseLists[0].append(c)
                             }
                             else{
-                                self.draftCourses.append(c)
+                                self.courseLists[1].append(c)
                             }
                         }
                         
