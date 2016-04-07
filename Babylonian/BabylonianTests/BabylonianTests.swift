@@ -146,7 +146,7 @@ class BabylonianTests: XCTestCase {
     
     
     func testSetAuthor()  {
-        //change coursetag
+        
         expectation = self.expectationWithDescription("asynchronous request")
         let ref = DataService.dataService.COURSE_REF.childByAppendingPath("-KEcvUWthBmKalnyep3y")
         let testBBCourse4 = BBCourse(ref: ref)
@@ -166,6 +166,52 @@ class BabylonianTests: XCTestCase {
     
     
     
+    func testSetStatus()  {
+        
+        expectation = self.expectationWithDescription("asynchronous request")
+        let ref = DataService.dataService.COURSE_REF.childByAppendingPath("-KEcvUWthBmKalnyep3y")
+        let testBBCourse4 = BBCourse(ref: ref)
+        var status: String?
+        status = "author"
+        testBBCourse4.setStatus(status!)
+        testBBCourse4.courseRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
+            
+            if let value = snapshot.value {
+                print(value)
+                assert(value[COURSE_STATUS]==status)
+                self.expectation?.fulfill()
+            }
+        })
+        self.waitForExpectationsWithTimeout(10.0, handler:nil)
+    }
+
+    
+    func testaddImageItem()  {
+        
+        expectation = self.expectationWithDescription("asynchronous request")
+        let ref = DataService.dataService.COURSE_REF.childByAppendingPath("-KEcvUWthBmKalnyep3y")
+        let testBBCourse4 = BBCourse(ref: ref)
+        testBBCourse4.addNewATItem("new", courseAudio: "new", duration: 1)
+        
+        testBBCourse4.courseRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
+            
+            if let data = snapshot.value {
+                print(data)
+                 for (key,value) in data as! [String:AnyObject]{
+                    if let _ = (value as! [String:AnyObject])[COURSE_AUTHOR]{
+                        
+                    }else{
+                        
+                    }
+                    
+                }
+                
+                self.expectation?.fulfill()
+            }
+        })
+        self.waitForExpectationsWithTimeout(10.0, handler:nil)
+    }
+
     
     
     func testReadAllCourse(){
