@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class MorePasswdViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate {
+class MorePasswdViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, CustomCellDelegate {
     
     // MARK: Variables
     
@@ -42,6 +42,10 @@ class MorePasswdViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // MARK: IBOutlet Properties
     @IBOutlet weak var tblExpandable: UITableView!
+    
+    @IBAction func backToLastPage(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     
     override func viewDidLoad() {
@@ -163,6 +167,7 @@ class MorePasswdViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
                 else {
                     print("Change password successfully")
+                    self.dismissViewControllerAnimated(true, completion: nil)
                 }
                 
             })
