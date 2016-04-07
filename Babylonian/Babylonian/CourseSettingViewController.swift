@@ -40,7 +40,7 @@ class CourseSettingViewController: UIViewController, TagListViewDelegate{
         currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
         tagListView.delegate = self
         
-        self.currentCourse.courseRef.observeEventType(.Value, withBlock: { snapshot in
+        self.currentCourse.courseRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
            
             if let pricestr = snapshot.value.objectForKey("price"){
                 self.price.text = (pricestr as? NSNumber)?.stringValue
