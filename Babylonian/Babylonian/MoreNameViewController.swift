@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class MoreNameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate {
+class MoreNameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, CustomCellDelegate {
     
     // MARK: Variables
     
@@ -41,14 +41,18 @@ class MoreNameViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: IBOutlet Properties
     @IBOutlet weak var tblExpandable: UITableView!
     
+    @IBAction func backToLastPage(sender: AnyObject) {
+            self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        //self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<Back", style: .Plain, target: self, action: #selector(MoreNameViewController.backTapped))
         
         configureTableView()
     }
-    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -137,7 +141,25 @@ class MoreNameViewController: UIViewController, UITableViewDelegate, UITableView
         if (newName.characters.count > 0) {
             userInfo.updateDisplayName(newName)
             tblExpandable.reloadData()
+            self.dismissViewControllerAnimated(true, completion: nil)
+
         }
+        else{
+            handleNameError()
+        }        
+    }
+    
+    func handleNameError(){
+        //Create the AlertController
+        let actionSheetController: UIAlertController = UIAlertController(title: "Error!", message: "Name should not be empty", preferredStyle: .Alert)
+        
+        //Create and an option action
+        let retryAction: UIAlertAction = UIAlertAction(title: "Retry", style: .Default) { action -> Void in
+        }
+        actionSheetController.addAction(retryAction)
+        
+        //Present the AlertController
+        self.presentViewController(actionSheetController, animated: true, completion: nil)
     }
     
     /*

@@ -11,7 +11,7 @@ import Firebase
 import UIKit
 import Parse
 
-class MoreUIViewController: UIViewController, UIImagePickerControllerDelegate, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, CustomCellDelegate {
+class MoreUIViewController: UIViewController, UIImagePickerControllerDelegate, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate,CustomCellDelegate {
     
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var labelDisplayName: UILabel!
@@ -200,11 +200,15 @@ class MoreUIViewController: UIViewController, UIImagePickerControllerDelegate, U
     }*/
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let storyboard = UIStoryboard.init(name: "More", bundle: nil)
+        
         if((indexPath.section == 0) && (indexPath.row == 2)){
             performSegueWithIdentifier("emailSegue", sender: self)
         }
         else if((indexPath.section == 0) && (indexPath.row == 0)){
-            performSegueWithIdentifier("nameSegue", sender: self)
+            //performSegueWithIdentifier("nameSegue", sender: self)
+            let changeNameController = storyboard.instantiateViewControllerWithIdentifier("MoreNameView") as! MoreNameViewController
+            self.presentViewController(changeNameController, animated: true, completion: nil)
         }
         else if((indexPath.section == 0) && (indexPath.row == 3)){
             performSegueWithIdentifier("passwdSegue", sender: self)
@@ -213,6 +217,23 @@ class MoreUIViewController: UIViewController, UIImagePickerControllerDelegate, U
             changeImageItem()
         }
     }
+    
+    /*
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let storyboard = UIStoryboard.init(name: "CourseView", bundle: nil)
+        let bbCourseController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView") as! BBCourseNavController
+        
+        if tableView==self.searchResult {
+            let courseId = filtered[indexPath.row].componentsSeparatedByString("|")[0]
+            
+            bbCourseController.currentCourse = BBCourse(ref: DataService.dataService.COURSE_REF.childByAppendingPath(courseId))
+            
+        }
+        else {
+            bbCourseController.currentCourse = self.courseLists[indexPath.section][indexPath.row]
+        }
+        self.presentViewController(bbCourseController, animated: true, completion: nil)
+    }*/
     
     
     @IBAction func logoutPressed(sender: AnyObject) {
