@@ -202,32 +202,17 @@
                     <navigationItem key="navigationItem" id="ieS-Co-FmT">
                         <nil key="title"/>
                         <rightBarButtonItems>
-                            <barButtonItem style="done" id="htp-DI-tCa">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xDf-XI-WRo">
-                                    <rect key="frame" x="530" y="7" width="50" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Next"/>
-                                    <connections>
-                                        <action selector="nextButton:" destination="45I-xC-lAC" eventType="touchUpInside" id="iy7-vD-QBc"/>
-                                        <segue destination="Kv9-3G-TY8" kind="show" id="6TR-Na-F66"/>
-                                    </connections>
-                                </button>
+                            <barButtonItem title="Next" id="tcM-7P-8CC">
+                                <connections>
+                                    <segue destination="Kv9-3G-TY8" kind="show" id="tlj-ti-TaE"/>
+                                </connections>
                             </barButtonItem>
-                            <barButtonItem style="plain" id="X4W-tl-gcf">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0T0-l5-5nF">
-                                    <rect key="frame" x="462" y="7" width="60" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Edit"/>
-                                    <connections>
-                                        <action selector="editButton:" destination="45I-xC-lAC" eventType="touchUpInside" id="7de-XJ-4tg"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
+                            <barButtonItem title="Edit" id="qJ7-Xo-GGI"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="courseTableView" destination="7dH-ch-bSx" id="of6-Us-kgV"/>
-                        <outlet property="tableEditButton" destination="0T0-l5-5nF" id="v4o-NJ-tvk"/>
+                        <outlet property="tableEditButton" destination="qJ7-Xo-GGI" id="m2o-Jf-m34"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s5d-vD-rVr" userLabel="First Responder" sceneMemberID="firstResponder"/>

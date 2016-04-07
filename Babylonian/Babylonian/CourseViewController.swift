@@ -27,7 +27,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var courseTableView: LPRTableView!
     
-    @IBOutlet weak var tableEditButton: UIButton!
+    @IBOutlet weak var tableEditButton: UIBarButtonItem!
     //TODO: initwithCourseId
     
     override func viewDidLoad() {
@@ -73,11 +73,11 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         
         if self.courseTableView.editing {
             self.courseTableView.setEditing(false, animated: true)
-            self.tableEditButton.setTitle("Edit", forState: .Normal)
+            self.tableEditButton.title="Edit"
         }
         else{
             self.courseTableView.setEditing(true, animated: true)
-            self.tableEditButton.setTitle("Done", forState: .Normal)
+            self.tableEditButton.title="Done"
         }
         
     }
@@ -260,35 +260,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func loadCourse() -> Void {
-//        self.initialized = false
-//        
-//        if ((self.initialized) != nil && self.initialized) {
-//            //play a sound
-//        }else {
-//            
-//            self.currentCourse.contentRef.observeEventType(.ChildAdded, withBlock: {snapshot in
-//                print(snapshot.key)
-//                if let content = snapshot.value {
-//                    let item = content as! [String:AnyObject]
-//                    if let im_ref = item[COURSE_ITEM_IMAGE] {
-//                        
-//                        let courseItem = ImageItem(ref: snapshot.ref, courseImage: im_ref as! String,order: item[COURSE_ITEM_ORDER] as! Int)
-//                        self.currentCourse.addCourseItem(courseItem)
-//                        
-//                    }
-//                    else if let text_ref = item[COURSE_ITEM_TEXT]  {
-//                        let courseItem = ATItem(ref: snapshot.ref,courseText: text_ref as! String, courseAudio: item[COURSE_ITEM_AUDIO] as! String, order: item[COURSE_ITEM_ORDER] as! Int)
-//                        self.currentCourse.addCourseItem(courseItem)
-//                    }
-//                    
-//                    self.courseTableView.reloadData()
-//                }
-//                else{
-//                    //course without content
-//                    
-//                }
-//            })
-//        }
+
         
         ProgressHUD.show("Loading Course")
         self.currentCourse.contentRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
