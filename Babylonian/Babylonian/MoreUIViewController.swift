@@ -43,6 +43,7 @@ class MoreUIViewController: UIViewController, UIImagePickerControllerDelegate, U
     var imagePicker = UIImagePickerController()
     
 
+    var userInfo = PersonalInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
     var _USER_REF = Firebase(url: "\(BASE_URL)/users")
     
     
@@ -274,7 +275,6 @@ class MoreUIViewController: UIViewController, UIImagePickerControllerDelegate, U
             
         })
         
-        ProgressHUD.show("Loading...")
         let data = UIImageJPEGRepresentation(image!, 1)
         let imageFile = PFFile(name: "image.jpg", data: data!)
         
@@ -282,24 +282,27 @@ class MoreUIViewController: UIViewController, UIImagePickerControllerDelegate, U
         let pObject = PFObject(className: "Image")
         pObject[PARSE_IMAGE_FILENAME]  = imageFile
         
-        //TODO: create a local storage for BBCourse, distinguish from addToLocal and addToRemote
+
+        
         pObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if success {
                 if let stringUrl = imageFile?.url {
                     print("update url \(stringUrl)")
+                    //ProgressHUD.show("Loading...")
+
                     if let url = NSURL(string: stringUrl ) {
                         if let data = NSData(contentsOfURL: url) {
                             self.profilePhoto.image = UIImage(data: data)
+                            self.userInfo.updateProfilePhoto(stringUrl);
                         }
                     }
+                    //ProgressHUD.dismiss()
                 }
                 
             }else {
                 print("update profile photho error")
             }
         }
-        ProgressHUD.dismiss()
-        
     }
 
     
