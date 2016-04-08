@@ -8,6 +8,19 @@
 
 import Foundation
 
+extension String
+{
+    func trim() -> String
+    {
+        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+    }
+}
+
+extension String {
+    var floatValue: Float {
+        return (self as NSString).floatValue
+    }
+}
 
 //test parse
 //        let image = UIImage(named: "aa0f3d544a573d3-1.jpg")

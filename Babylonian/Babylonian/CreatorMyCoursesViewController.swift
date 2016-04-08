@@ -53,7 +53,6 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
         searchActive = false;
-
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
@@ -204,7 +203,8 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     func loadMyCourses(){
         //TODO Create a test with/ a for loop that hooks in to the database model
         ProgressHUD.show("Loading Courses")
-        DataService.dataService.COURSE_REF.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        
+        DataService.dataService.COURSE_REF.observeEventType(.Value, withBlock: { snapshot in
             
             ProgressHUD.dismiss()
             if let content = snapshot.value {

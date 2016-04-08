@@ -14,11 +14,9 @@ import TagListView
 class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagListViewDelegate{
 
     var currentCourse: BBCourse!
-    var addTagTransfer: String!
-    var addTagArray = [String]()
-    var fullTagArr: NSArray!
+    var tagStr: String?
+    var tagArray = [String]()
     var tagView = [TagView]()
-    var tag: String?
     
     
    
@@ -35,12 +33,16 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
     override func viewDidLoad() {
         super.viewDidLoad()
       
+        self.title = "Setings"
         currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
         tagListView.delegate = self
+        courseTitle.delegate = self
+        coursePrice.delegate = self
+        courseTag.delegate = self
         
         self.currentCourse.courseRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
            
-            if let pricestr = snapshot.value.objectForKey("price"){
+            if let pricestr = snapshot.value.objectForKey(COURSE_PRICE){
                 self.coursePrice.text = (pricestr as? NSNumber)?.stringValue
             }
             
@@ -51,17 +53,18 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
             
             if let tagstr = snapshot.value.objectForKey("tag") {
                 //self.tagTransfer = (tagstr as? NSArray)!
-                self.tag = tagstr as? String
-                self.fullTagArr = self.tag!.characters.split{$0 == "|"}.map(String.init)
+                self.tagStr = tagstr as? String
+                self.tagArray = self.tagStr!.componentsSeparatedByString("|")
                 self.tagListView.textFont = UIFont.systemFontOfSize(24)
                 self.tagListView.alignment = .Center // possible values are .Left, .Center, and .Right
                 self.tagListView.removeAllTags()
-                for var i = 0; i <= self.fullTagArr.count-1; i += 1 {
-                    let tagstring = self.fullTagArr[i] as? String
+                for i in 0...(self.tagArray.count-1) {
+                    let tagstring = self.tagArray[i]
                    
-                    if let tagview = self.tagListView.addTag(tagstring!) as? TagView{
+                    if let tagview = self.tagListView.addTag(tagstring) as? TagView{
     
                         self.tagView.append(tagview)
+                        
                         
 //                        self.tagView[i].onTap = { tagView in
 //                            
@@ -72,7 +75,7 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
                         
                         
 //                        tagview.onTap = { tagView in
-//                            
+//
 //                            print("Don’t tap me!")
 //                            if let tagstring = self.fullTagArr[i] as? String {
 //                            self.tagListView.removeTag(tagstring)
@@ -104,39 +107,60 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
         })
     }
     
+//    
+//    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+//        switch textField {
+//        case self.courseTitle:
+//            currentCourse.setTitle(courseTitle.text!)
+//            return true
+//        case self.coursePrice:
+//            currentCourse.setPrice(coursePrice.text!.floatValue)
+//            return true
+//        case self.courseTag:
+//            addTag()
+//            return true
+//        default:
+//            return true
+//        }
+//    }
     
-    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        switch textField {
-        case self.courseTitle:
-            currentCourse.setTitle(courseTitle.text!)
-            return true
-        case self.coursePrice:
-            let price = (coursePrice.text! as NSString).floatValue
-            currentCourse.setPrice(price)
-            return true
-        case self.courseTag:
-            addTag()
-            return true
-        default:
-            return true
-        }
-    }
+//    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+//        
+//        if(string == "\n") {
+//            switch textField {
+//            case self.courseTitle:
+//                currentCourse.setTitle(courseTitle.text!)
+//                textField.resignFirstResponder()
+//                return false
+//            case self.coursePrice:
+//                print("priced")
+//                currentCourse.setPrice(coursePrice.text!.floatValue)
+//                return false
+//            case self.courseTag:
+//                addTag()
+//                return true
+//            default: break
+//            }
+//            textField.resignFirstResponder()
+//            return false
+//        }
+//        return true
+//    }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         switch textField {
         case self.courseTitle:
             currentCourse.setTitle(courseTitle.text!)
-            return true
         case self.coursePrice:
-            let price = (coursePrice.text! as NSString).floatValue
-            currentCourse.setPrice(price)
-            return true
+            print("priced")
+            currentCourse.setPrice(coursePrice.text!.floatValue)
         case self.courseTag:
             addTag()
-            return true
-        default:
-            return true
+            
+        default:break
         }
+        textField.resignFirstResponder()
+        return true
     }
     
  
@@ -150,41 +174,27 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
     }
 
     @IBAction func clearAllTag(sender: UIButton) {
-        self.addTagTransfer.removeAll()
-        self.addTagArray.removeAll()
+        self.tagArray.removeAll()
         currentCourse.deleteAllTag()
         tagListView.removeAllTags()
         
     }
     
     func addTag() -> Void {
-        if self.addTagTransfer == nil{
-            self.addTagTransfer = courseTag.text! + "|"
+
+        if let t = courseTag.text{
+            
+            if t.trim().characters.count>0 {
+                self.tagArray.append(t)
+                
+                self.tagStr=self.tagArray.joinWithSeparator("|")
+                currentCourse.setTag(self.tagArray)
+            }
         }
-        else {
-            self.addTagTransfer = self.addTagTransfer + courseTag.text! + "|"
-        }
-        
-        self.addTagArray.append(courseTag.text!)
-        
-        currentCourse.setTag(self.addTagArray)
-        
     }
     
     // MARK: UITableView Delegate methods
-//    
-//    func tableView(tableView: UITableView) -> Int {
-//        return 1
-//    }
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if(self.fullTagArr == nil){
-//            return 0
-//        }
-//        else{
-//            return fullTagArr.count
-//        }
-//    }
-//    
+
 //    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCellWithIdentifier("tagCell", forIndexPath: indexPath) as! UITableViewCell
 //        

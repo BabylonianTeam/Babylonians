@@ -63,7 +63,7 @@ class ATItemCell: UITableViewCell, UITextViewDelegate {
         var dur:Float = 2.0
         if let i = self.item {
             if let d = i.duration {
-                dur = d
+                dur = d+1
             }
         }
         timer = NSTimer.scheduledTimerWithTimeInterval(Double(dur), target: self, selector: #selector(ATItemCell.stopPlay), userInfo: nil, repeats: false)
