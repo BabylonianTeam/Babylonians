@@ -189,8 +189,10 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
                 
                 self.tagStr=self.tagArray.joinWithSeparator("|")
                 currentCourse.setTag(self.tagArray)
+                self.tagListView.addTag(t)
             }
         }
+        
     }
     
     // MARK: UITableView Delegate methods
