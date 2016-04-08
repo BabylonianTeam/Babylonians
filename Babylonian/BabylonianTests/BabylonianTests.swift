@@ -74,18 +74,61 @@ class BabylonianTests: XCTestCase {
     
     func testChangeStatus()  {
         //change status test
-        let expectation = self.expectationWithDescription("data read")
-        let ref = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEiG16h2M4KCVitV9y3")
+        expectation = self.expectationWithDescription("asynchronous request")
+        let ref = DataService.dataService.COURSE_REF.childByAppendingPath("-KEcvUWthBmKalnyep3y")
         let testBBCourse3 = BBCourse(ref: ref)
         testBBCourse3.setStatus(COURSE_STATUS_DRAFT)
         testBBCourse3.courseRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
             if let value = snapshot.value {
                 assert(value[COURSE_STATUS]==COURSE_STATUS_DRAFT)
-                expectation.fulfill()
+                self.expectation?.fulfill()
             }
             
         })
-        waitForExpectationsWithTimeout(50, handler: nil)
+         self.waitForExpectationsWithTimeout(10.0, handler:nil)
+    }
+    
+    
+    func testSetTag()  {
+        //change coursetag
+        expectation = self.expectationWithDescription("asynchronous request")
+    
+        let ref = DataService.dataService.COURSE_REF.childByAppendingPath("-KEcvUWthBmKalnyep3y")
+        let testBBCourse4 = BBCourse(ref: ref)
+        let tagArray = ["happy", "sad"]
+        let tagArrayTransfer = "happy|sad"
+        testBBCourse4.setTag(tagArray)
+        testBBCourse4.courseRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
+            if let value = snapshot.value {
+                assert(value[COURSE_TAG]==tagArrayTransfer)
+                self.expectation?.fulfill()
+            }
+            
+        })
+        self.waitForExpectationsWithTimeout(10.0, handler:nil)
+        
+    }
+    func didReceiveWhatever(thing:String) {
+        expectation?.fulfill()
+    }
+
+    
+    func testSetPrice()  {
+        //change courseprice
+        expectation = self.expectationWithDescription("asynchronous request")
+        let ref = DataService.dataService.COURSE_REF.childByAppendingPath("-KEcvUWthBmKalnyep3y")
+        let testBBCourse4 = BBCourse(ref: ref)
+        var price: Float?
+        price = 3.9
+        testBBCourse4.setPrice(price!)
+        testBBCourse4.courseRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
+            if let value = snapshot.value {
+                assert(value[COURSE_PRICE]==price)
+                self.expectation?.fulfill()
+            }
+            
+        })
+        self.waitForExpectationsWithTimeout(10.0, handler:nil)
     }
     
     

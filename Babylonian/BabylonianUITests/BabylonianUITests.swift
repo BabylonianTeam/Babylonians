@@ -43,66 +43,7 @@ class BabylonianUITests: XCTestCase {
         let clearTextButton = app.searchFields.buttons["Clear text"]
         clearTextButton.tap()
         
-        let element = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element
-        let searchField = element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.SearchField).element
-        searchField.tap()
-        app.searchFields.containingType(.Button, identifier:"Clear text").element
-        app.typeText("\r")
-        clearTextButton.tap()
-        searchField.tap()
-        app.buttons["Cancel"].tap()
-        searchField.tap()
-        app.searchFields.containingType(.Button, identifier:"Clear text").element
-        app.typeText("\r")
-        element.childrenMatchingType(.Table).elementBoundByIndex(0).childrenMatchingType(.Cell).elementBoundByIndex(1).staticTexts["A fake course"].tap()
-        
-        let tablesQuery = app.tables
-        let button = tablesQuery.childrenMatchingType(.Cell).elementBoundByIndex(1).childrenMatchingType(.Button).element
-        button.tap()
-        button.tap()
-        
-        let button2 = tablesQuery.childrenMatchingType(.Cell).elementBoundByIndex(2).childrenMatchingType(.Button).element
-        button2.tap()
-        button2.tap()
-        
-        let babylonianCourseviewNavigationBar = app.navigationBars["Babylonian.CourseView"]
-        let editButton = babylonianCourseviewNavigationBar.buttons["Edit"]
-        editButton.tap()
-        editButton.tap()
-        babylonianCourseviewNavigationBar.buttons["Next"].tap()
-        
-        let element2 = element.childrenMatchingType(.Other).element
-        let textField = element2.childrenMatchingType(.TextField).elementBoundByIndex(0)
-        textField.tap()
-        textField.tap()
-        app.textFields.containingType(.Button, identifier:"Clear text").element
-        
-        let textField2 = element2.childrenMatchingType(.TextField).elementBoundByIndex(1)
-        textField2.tap()
-        textField2.tap()
-        app.textFields.containingType(.Button, identifier:"Clear text").element
-        
-        let textField3 = element2.childrenMatchingType(.TextField).elementBoundByIndex(2)
-        textField3.tap()
-        textField3.tap()
-        app.textFields.containingType(.Button, identifier:"Clear text").element
-        app.navigationBars["Babylonian.CourseSettingView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
-        
-        let toolbarsQuery = app.toolbars
-        toolbarsQuery.buttons["Press and Hold to Record"].pressForDuration(3.4);
-        toolbarsQuery.buttons["+image"].tap()
-        app.collectionViews["PhotosGridView"].cells["Photo, Portrait, August 08, 2012, 4:29 PM"].tap()
-        app.images["Photo, Portrait, August 08, 2012, 4:29 PM"].tap()
-        
-        let cell = tablesQuery.childrenMatchingType(.Cell).elementBoundByIndex(5)
-        cell.childrenMatchingType(.TextView).element.tap()
-        cell.childrenMatchingType(.TextView).element
-        app.typeText("lkjfda\r")
-        babylonianCourseviewNavigationBar.childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
-        tabBarsQuery.buttons["More..."].tap()
-        
-        //////////////
-    }
+           }
     
     func testExample2() {
         
@@ -148,7 +89,31 @@ class BabylonianUITests: XCTestCase {
         app.navigationBars["Babylonian.CourseSettingView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
         app.navigationBars["Babylonian.CourseView"].buttons["Edit"].tap()
         
+        let textField2 = element2.childrenMatchingType(.TextField).elementBoundByIndex(1)
+        textField2.tap()
+        textField2.tap()
+        app.textFields.containingType(.Button, identifier:"Clear text").element
         
+        let textField3 = element2.childrenMatchingType(.TextField).elementBoundByIndex(2)
+        textField3.tap()
+        textField3.tap()
+        app.textFields.containingType(.Button, identifier:"Clear text").element
+        app.navigationBars["Babylonian.CourseSettingView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
+        
+        let toolbarsQuery = app.toolbars
+        toolbarsQuery.buttons["Press and Hold to Record"].pressForDuration(3.4);
+        toolbarsQuery.buttons["+image"].tap()
+        app.collectionViews["PhotosGridView"].cells["Photo, Portrait, August 08, 2012, 4:29 PM"].tap()
+        app.images["Photo, Portrait, August 08, 2012, 4:29 PM"].tap()
+        
+        let cell = tablesQuery.childrenMatchingType(.Cell).elementBoundByIndex(5)
+        cell.childrenMatchingType(.TextView).element.tap()
+        cell.childrenMatchingType(.TextView).element
+        app.typeText("lkjfda\r")
+        babylonianCourseviewNavigationBar.childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
+        tabBarsQuery.buttons["More..."].tap()
+        
+        //////////////
     }
     
 }
