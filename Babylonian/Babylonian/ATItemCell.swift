@@ -13,6 +13,7 @@ class ATItemCell: UITableViewCell, UITextViewDelegate {
 
     //var audioUrl : NSURL!
     var item : ATItem!
+    var timer = NSTimer()
     
     @IBOutlet weak var playButton: PlaybackButton!
     @IBOutlet weak var transcript: UITextView!
@@ -58,6 +59,22 @@ class ATItemCell: UITableViewCell, UITextViewDelegate {
         } else if self.playButton.buttonState == .Pausing {
             audioPlayer.play(self.item.content[COURSE_ITEM_AUDIO] as! String)
             self.playButton.setButtonState(.Playing, animated: true)
+        }
+        var dur:Float = 2.0
+        if let i = self.item {
+            if let d = i.duration {
+                dur = d
+            }
+        }
+        timer = NSTimer.scheduledTimerWithTimeInterval(Double(dur), target: self, selector: #selector(ATItemCell.stopPlay), userInfo: nil, repeats: false)
+
+    }
+    
+    func stopPlay() -> Void {
+        let audioPlayer = STKAudioPlayer()
+        if self.playButton.buttonState == .Playing {
+            self.playButton.setButtonState(.Pausing, animated: true)
+            audioPlayer.stop()
         }
     }
     

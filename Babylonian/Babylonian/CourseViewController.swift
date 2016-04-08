@@ -50,6 +50,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             let ref = DataService.dataService.COURSE_REF.childByAutoId()
             (self.navigationController as! BBCourseNavController).currentCourse = BBCourse(ref: ref, author: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
             self.currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
+            self.currentCourse.setStatus(COURSE_STATUS_DRAFT)
             self.currentCourse.setTitle("")
         }
         

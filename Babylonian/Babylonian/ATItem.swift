@@ -33,6 +33,9 @@ class ATItem: CourseItem {
         self.content.setValue(duration, forKey: COURSE_ITEM_AUDIO_DURATION)
         self.itemRef.updateChildValues([COURSE_ITEM_AUDIO_DURATION:duration])
     }
+    var duration: Float? {
+        return self.content.valueForKey(COURSE_ITEM_AUDIO_DURATION) as? Float
+    }
     
     override func toAnyObject() -> AnyObject {
         
