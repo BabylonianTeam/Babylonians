@@ -19,6 +19,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     var filtered = [String]()
     var searchActive : Bool = false
     let sections = ["Published", "Drafts"]
+    var initialized = false
     
     @IBOutlet weak var searchResult: UITableView!
     @IBOutlet weak var table: UITableView!
@@ -40,6 +41,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         self.searchResult.hidden = true
         table.reloadData()
         loadMyCourses()
+        
     }
  
     deinit {
@@ -202,11 +204,38 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     func loadMyCourses(){
         //TODO Create a test with/ a for loop that hooks in to the database model
+        self.initialized = false
         ProgressHUD.show("Loading Courses")
         
-        DataService.dataService.COURSE_REF.observeEventType(.Value, withBlock: { snapshot in
+        
+        DataService.dataService.COURSE_REF.observeEventType(.ChildAdded, withBlock: { snapshot in
+            if self.initialized {
+
+                let c = BBCourse(ref: snapshot.ref)
+                if let t = snapshot.value.objectForKey(COURSE_TITLE) {
+                    c.setTitle(t as! String)
+                    self.allCourseTitles.append(snapshot.key+"|"+c.title!)
+                }
+                if let st = snapshot.value.objectForKey(COURSE_STATUS) {
+                    if  st as! String == COURSE_STATUS_ONSHELF{
+                        self.courseLists[0].append(c)
+                    }
+                    else{
+                        self.courseLists[1].append(c)
+                    }
+                }
+                else {
+                    c.setStatus(COURSE_STATUS_DRAFT)
+                    self.courseLists[1].append(c)
+                }
+                
+            }
+        })
+    
+        DataService.dataService.COURSE_REF.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             ProgressHUD.dismiss()
+            
             if let content = snapshot.value {
                 if !(content is NSNull) {
                     for (cId,cData) in (content as! [String:NSDictionary]) {
@@ -232,7 +261,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
             else{
                 //course without content
             }
-            
+            self.initialized = true
         })
         
     }

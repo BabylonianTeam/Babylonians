@@ -14,6 +14,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
     var filtered = [String]()
     var searchActive : Bool = false
     let sections = ["Popular", "Trending"]
+    var initialized = false
     
     @IBOutlet weak var searchResult: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -23,6 +24,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
     }
     override func viewDidLoad() {
         
+        self.navigationController?.navigationBarHidden = true
         table.delegate = self
         table.dataSource = self
         
@@ -33,8 +35,12 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         self.searchResult.hidden = true
         table.reloadData()
         loadTopCourses()
+        
     }
-    
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false
+
+    }
     
     deinit {
         DataService.dataService.COURSE_REF.removeAllObservers()
@@ -195,7 +201,52 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
     
     func loadTopCourses(){
         //TODO Create a test with/ a for loop that hooks in to the database model
+        self.initialized = false
         ProgressHUD.show("Loading Courses")
+        
+        
+        DataService.dataService.COURSE_REF.observeEventType(.ChildAdded, withBlock: { snapshot in
+            if self.initialized {
+                
+                let c = BBCourse(ref: snapshot.ref)
+                if let t = snapshot.value.objectForKey(COURSE_TITLE) {
+                    c.setTitle(t as! String)
+                    self.allCourseTitles.append(snapshot.key+"|"+c.title!)
+                }
+                if let st = snapshot.value.objectForKey(COURSE_STATUS) {
+                    if  st as! String == COURSE_STATUS_ONSHELF{
+                        self.courseLists[0].append(c)
+                    }
+                    else{
+                        self.courseLists[1].append(c)
+                    }
+                }
+                else {
+                    c.setStatus(COURSE_STATUS_DRAFT)
+                    self.courseLists[1].append(c)
+                }
+                
+            }
+        })
+        
+        DataService.dataService.COURSE_REF.observeEventType(.ChildAdded, withBlock: { snapshot in
+            if self.initialized {
+                
+                let c = BBCourse(ref: snapshot.ref)
+                if let t = snapshot.value.objectForKey(COURSE_TITLE) {
+                    c.setTitle(t as! String)
+                    self.allCourseTitles.append(snapshot.key+"|"+c.title!)
+                }
+                if snapshot.value.objectForKey(COURSE_STATUS) as! String == COURSE_STATUS_ONSHELF{
+                    self.courseLists[0].append(c)
+                }
+                else{
+                    self.courseLists[1].append(c)
+                }
+                
+            }
+        })
+        
         DataService.dataService.COURSE_REF.observeEventType(.Value, withBlock: { snapshot in
             
             ProgressHUD.dismiss()
@@ -232,7 +283,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
             else{
                 //course without content
             }
-            
+            self.initialized = true
         })
         
     }
