@@ -39,51 +39,5 @@ class BabylonianUITests: XCTestCase {
         
            }
     
-    func testExample2() {
-        
-        
-        let app = XCUIApplication()
-        let element = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element
-        let textField = element.childrenMatchingType(.TextField).elementBoundByIndex(2)
-        textField.tap()
-        textField.tap()
-        app.textFields.containingType(.Button, identifier:"Clear text").element
-        
-        let addButton = element.childrenMatchingType(.Button).matchingIdentifier("Add").elementBoundByIndex(2)
-        addButton.tap()
-        
-        let clearTextButton = app.buttons["Clear text"]
-        clearTextButton.tap()
-        app.textFields.containingType(.Button, identifier:"Clear text").element
-        addButton.tap()
-        clearTextButton.tap()
-        app.textFields.containingType(.Button, identifier:"Clear text").element
-        addButton.tap()
-        
-        let clearAllTagButton = app.buttons["Clear All Tag"]
-        clearAllTagButton.tap()
-        clearTextButton.tap()
-        
-        let textField2 = element.childrenMatchingType(.TextField).elementBoundByIndex(1)
-        textField2.tap()
-        textField2.tap()
-        app.textFields.containingType(.Button, identifier:"Clear text").element
-        element.childrenMatchingType(.Button).matchingIdentifier("Add").elementBoundByIndex(1).tap()
-        
-        let textField3 = element.childrenMatchingType(.TextField).elementBoundByIndex(0)
-        textField3.tap()
-        textField3.tap()
-        app.textFields.containingType(.Button, identifier:"Clear text").element
-        element.childrenMatchingType(.Button).matchingIdentifier("Add").elementBoundByIndex(0).tap()
-        textField.tap()
-        textField.tap()
-        app.textFields.containingType(.Button, identifier:"Clear text").element
-        addButton.tap()
-        clearAllTagButton.tap()
-        app.navigationBars["Babylonian.CourseSettingView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
-        app.navigationBars["Babylonian.CourseView"].buttons["Edit"].tap()
-        
-        
-    }
     
 }
