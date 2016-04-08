@@ -21,13 +21,13 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     var audioRecorder: AVAudioRecorder!
     var audioURL = NSURL()
     var imagePicker = UIImagePickerController()
-    var initialized: Bool!
+    var initialized: Bool = false
     var audioTimer = CACurrentMediaTime()
     
     
     @IBOutlet weak var courseTableView: LPRTableView!
     
-    @IBOutlet weak var tableEditButton: UIButton!
+    @IBOutlet weak var tableEditButton: UIBarButtonItem!
     //TODO: initwithCourseId
     
     override func viewDidLoad() {
@@ -40,44 +40,41 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         self.courseTableView.dataSource = self
         self.courseTableView.longPressReorderEnabled = false
         
-        //For developing, remove when connected 
-        //let ref = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEPJobHpCZ1z_4xOI6C")
-        //(self.navigationController as! BBCourseNavController).currentCourse = BBCourse(ref: ref, author: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
-        
-        
-        if let _=(self.navigationController as! BBCourseNavController).currentCourse {
+
+        if let cur_course=(self.navigationController as! BBCourseNavController).currentCourse {
             //has a value already
             print("currentCourse has a value already")
-            
+            self.currentCourse = cur_course
         }
         else{
             let ref = DataService.dataService.COURSE_REF.childByAutoId()
             (self.navigationController as! BBCourseNavController).currentCourse = BBCourse(ref: ref, author: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
+            self.currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
+            self.currentCourse.setTitle("")
         }
         
-        self.currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
-        self.currentCourse.setTitle("This is new title")
+        if !self.initialized {
+            self.loadCourse()
+        }
         
-        
-        self.loadCourse()
         self.prepareRecording()
         
     }
     
     override func viewWillDisappear(animated: Bool) {
         self.currentCourse.contentRef.removeAllObservers()
+        //self.currentCourse = nil
     }
     
-    @IBAction func editButton(sender: UIButton) {
+    @IBAction func editButton(sender: UIBarButtonItem) {
          //TODO: change tableview status
-        
         if self.courseTableView.editing {
             self.courseTableView.setEditing(false, animated: true)
-            self.tableEditButton.setTitle("Edit", forState: .Normal)
+            self.tableEditButton.title="Edit"
         }
         else{
             self.courseTableView.setEditing(true, animated: true)
-            self.tableEditButton.setTitle("Done", forState: .Normal)
+            self.tableEditButton.title="Done"
         }
         
     }
@@ -191,7 +188,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row<self.currentCourse.contents.count && self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_AUDIOTEXT {
             
-            return 40
+            return 50
             
         }
         if indexPath.row<self.currentCourse.contents.count && self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_IMAGE {
@@ -260,35 +257,9 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func loadCourse() -> Void {
-//        self.initialized = false
-//        
-//        if ((self.initialized) != nil && self.initialized) {
-//            //play a sound
-//        }else {
-//            
-//            self.currentCourse.contentRef.observeEventType(.ChildAdded, withBlock: {snapshot in
-//                print(snapshot.key)
-//                if let content = snapshot.value {
-//                    let item = content as! [String:AnyObject]
-//                    if let im_ref = item[COURSE_ITEM_IMAGE] {
-//                        
-//                        let courseItem = ImageItem(ref: snapshot.ref, courseImage: im_ref as! String,order: item[COURSE_ITEM_ORDER] as! Int)
-//                        self.currentCourse.addCourseItem(courseItem)
-//                        
-//                    }
-//                    else if let text_ref = item[COURSE_ITEM_TEXT]  {
-//                        let courseItem = ATItem(ref: snapshot.ref,courseText: text_ref as! String, courseAudio: item[COURSE_ITEM_AUDIO] as! String, order: item[COURSE_ITEM_ORDER] as! Int)
-//                        self.currentCourse.addCourseItem(courseItem)
-//                    }
-//                    
-//                    self.courseTableView.reloadData()
-//                }
-//                else{
-//                    //course without content
-//                    
-//                }
-//            })
-//        }
+
+        self.initialized = false
+        
         
         ProgressHUD.show("Loading Course")
         self.currentCourse.contentRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
@@ -316,7 +287,9 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
                     let indexPath = NSIndexPath(forRow: self.currentCourse.contents.count-1, inSection: 0)
                     self.courseTableView.scrollToRowAtIndexPath(indexPath,
                         atScrollPosition: UITableViewScrollPosition.Middle, animated: true)
+                    
                 }
+                
             }
             else{
                 //course without content

@@ -14,14 +14,15 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     //Temporary Value for Testing. Safe to remove once Table Model is implemented
     
-    var draftCourses = [BBCourse]()
-    var publishedCourses = [BBCourse]()
+    var courseLists = [[BBCourse](),[BBCourse]()]
     var allCourseTitles = [String]()
     var filtered = [String]()
     var searchActive : Bool = false
+    let sections = ["Published", "Drafts"]
     
     @IBOutlet weak var searchResult: UITableView!
     @IBOutlet weak var table: UITableView!
+    
     
     @IBOutlet weak var searchBar: UISearchBar!
     override func viewWillAppear(animated: Bool) {
@@ -31,11 +32,10 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         
         table.delegate = self
         table.dataSource = self
-        table.rowHeight = 90
         
         searchResult.dataSource = self
+        searchResult.delegate = self
         searchBar.delegate = self
-        
         
         self.searchResult.hidden = true
         table.reloadData()
@@ -87,49 +87,105 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     @IBAction func createNewCourse(sender: UIBarButtonItem) {
             //initiate courseview
         let storyboard = UIStoryboard.init(name: "CourseView", bundle: nil)
-        
         let rootController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView")
-        print("button pressed")
-        
         self.presentViewController(rootController, animated: true, completion: nil)
     }
     
     //Setting up tables
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return false
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if tableView==self.searchResult {
+            return 1
+        }
         return 2
     }
     
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if tableView==self.table {
+            return sections[section]
+        }
+        return nil
+        
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if tableView==self.table {
+            if indexPath.section==0{
+                return 60
+            }
+            else{
+                return 35
+            }
+        }
+        else {
+            return 35
+        }
+    }
+
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if tableView.numberOfSections>1 {
+            return 30
+        }
+        return 1
+    }
+    
+//    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return 10
+//    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(self.searchResult==tableView) {
+ 
+        if (self.searchResult==tableView) {
             return filtered.count
         }
-        return self.publishedCourses.count
+        
+        return min(self.courseLists[section].count,5)
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let storyboard = UIStoryboard.init(name: "CourseView", bundle: nil)
+        let bbCourseController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView") as! BBCourseNavController
+
+        if tableView==self.searchResult {
+            let courseId = filtered[indexPath.row].componentsSeparatedByString("|")[0]
+            
+            bbCourseController.currentCourse = BBCourse(ref: DataService.dataService.COURSE_REF.childByAppendingPath(courseId))
+
+        }
+        else {
+            bbCourseController.currentCourse = self.courseLists[indexPath.section][indexPath.row]
+        }
+        self.presentViewController(bbCourseController, animated: true, completion: nil)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if tableView==self.searchResult {
             let searchcell = tableView.dequeueReusableCellWithIdentifier("SearchCell", forIndexPath: indexPath) as! SearchCell
-            searchcell.courseTitle.text = filtered[indexPath.row]
+            searchcell.courseTitle.text = filtered[indexPath.row].componentsSeparatedByString("|")[1]
             return searchcell
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell", forIndexPath: indexPath) as! CourseCell
+     
+        if let t = self.courseLists[indexPath.section][indexPath.row].title{
+            cell.courseTitle.text = t
+        }
         
-        let course = self.publishedCourses[indexPath.row];
-            //Create a unit test for these values
-        if let _ = course.title {
-            cell.courseTitle.text = course.title
+        if let t = self.courseLists[indexPath.section][indexPath.row].title{
+            cell.courseTitle.text = t
         }
         else {
             cell.courseTitle.text="null"
         }
-            //Will probably have to convert some value here to a view count
-        cell.courseViewCount.text = "55"
+
+        
+        //Will probably have to convert some value here to a view count
+        cell.courseViewCount.text = "55 views"
         cell.profitAmount.text = "$500"
         
         return cell
@@ -154,10 +210,17 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
                         let c = BBCourse(ref: cref)
                         if let t = cData[COURSE_TITLE]{
                             c.setTitle(t as! String)
-                            self.allCourseTitles.append(c.title!)
+                            self.allCourseTitles.append(cId+"|"+c.title!)
+                        }
+                        if let st = cData[COURSE_STATUS] {
+                            if st as! String==COURSE_STATUS_ONSHELF {
+                                self.courseLists[0].append(c)
+                            }
+                            else{
+                                self.courseLists[1].append(c)
+                            }
                         }
                         
-                        self.publishedCourses.append(c)
                     }
                     self.table.reloadData()
                 }

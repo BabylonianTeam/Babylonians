@@ -19,20 +19,18 @@ class CourseCell : UITableViewCell{
         super.awakeFromNib()
         // Initialization code
         let bigFont = UIFont(name: FONT_BIG, size: CGFloat(FONT_SIZE))
-        
         let smallFont = UIFont(name: FONT_SMALL, size: CGFloat(FONT_SIZE))
         
         let primaryColor = UIColor.blackColor()
-        
         let secondaryColor = UIColor.lightGrayColor()
     
         courseTitle.font = bigFont
         courseTitle.textColor = primaryColor
         
         
-        profitAmount.font = bigFont
+        profitAmount.font = smallFont
         profitAmount.textColor = secondaryColor
-        courseViewCount.font = bigFont
+        courseViewCount.font = smallFont
         courseViewCount.textColor = secondaryColor
         
         

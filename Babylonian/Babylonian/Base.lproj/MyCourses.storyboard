@@ -22,8 +22,8 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uS0-2s-COl">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="LNO-c6-vSJ">
-                                        <barButtonItem key="rightBarButtonItem" title="+New Course" id="dPq-kV-tQv">
+                                    <navigationItem title="My Courses" id="LNO-c6-vSJ">
+                                        <barButtonItem key="rightBarButtonItem" title="+New" id="dPq-kV-tQv">
                                             <connections>
                                                 <action selector="createNewCourse:" destination="Ddc-S3-Pd7" id="DJW-Yu-rYh"/>
                                             </connections>
@@ -31,62 +31,56 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="90" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="g4b-SA-ypm">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="g4b-SA-ypm">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="459" id="Q7W-v6-CIb"/>
-                                </constraints>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseCell" id="TQY-aw-qT1" userLabel="CourseCell" customClass="CourseCell" customModule="Babylonian" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="49.5" width="600" height="90"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TQY-aw-qT1" id="1GK-4n-Qvd">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profit:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Vm-Il-iPB">
-                                                    <rect key="frame" x="17" y="51" width="46" height="21"/>
+                                                    <rect key="frame" x="10" y="29" width="46" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="QyB-tk-OtJ"/>
+                                                        <constraint firstAttribute="height" constant="20" id="QyB-tk-OtJ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUd-xj-3Yo">
-                                                    <rect key="frame" x="65" y="51" width="60" height="21"/>
+                                                    <rect key="frame" x="58" y="29" width="60" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Views" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gml-78-XrN">
-                                                    <rect key="frame" x="203" y="29" width="46" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="46" id="UE8-2r-KRP"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="536" y="6" width="46" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CourseTitle: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idm-Qi-v2j">
-                                                    <rect key="frame" x="17" y="8" width="96" height="21"/>
+                                                    <rect key="frame" x="10" y="6" width="96" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="AUd-xj-3Yo" secondAttribute="bottom" constant="9.5" id="6jk-wq-oXJ"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="gml-78-XrN" secondAttribute="bottom" constant="31.5" id="8bK-22-gXS"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="AUd-xj-3Yo" secondAttribute="bottom" constant="2" id="6jk-wq-oXJ"/>
                                                 <constraint firstItem="9Vm-Il-iPB" firstAttribute="leading" secondItem="idm-Qi-v2j" secondAttribute="leading" id="BWT-OS-aei"/>
-                                                <constraint firstItem="gml-78-XrN" firstAttribute="leading" secondItem="1GK-4n-Qvd" secondAttribute="leading" constant="203" id="Ck2-hy-4ZE"/>
-                                                <constraint firstAttribute="topMargin" secondItem="idm-Qi-v2j" secondAttribute="top" id="FEs-dn-cdl"/>
+                                                <constraint firstAttribute="topMargin" secondItem="idm-Qi-v2j" secondAttribute="top" constant="2" id="FEs-dn-cdl"/>
+                                                <constraint firstItem="gml-78-XrN" firstAttribute="bottom" secondItem="idm-Qi-v2j" secondAttribute="bottom" id="TIn-rB-pR1"/>
                                                 <constraint firstItem="AUd-xj-3Yo" firstAttribute="leading" secondItem="9Vm-Il-iPB" secondAttribute="trailing" constant="2" id="TVv-ni-ee2"/>
-                                                <constraint firstItem="gml-78-XrN" firstAttribute="top" secondItem="1GK-4n-Qvd" secondAttribute="topMargin" constant="21" id="bx1-d4-l3q"/>
-                                                <constraint firstItem="idm-Qi-v2j" firstAttribute="leading" secondItem="1GK-4n-Qvd" secondAttribute="leadingMargin" constant="9" id="fVh-5T-feO"/>
+                                                <constraint firstItem="gml-78-XrN" firstAttribute="top" secondItem="idm-Qi-v2j" secondAttribute="top" id="aT2-dj-dR0"/>
+                                                <constraint firstItem="idm-Qi-v2j" firstAttribute="leading" secondItem="1GK-4n-Qvd" secondAttribute="leadingMargin" constant="2" id="fVh-5T-feO"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="gml-78-XrN" secondAttribute="trailing" constant="10" id="g0R-XT-NCR"/>
                                                 <constraint firstItem="9Vm-Il-iPB" firstAttribute="baseline" secondItem="AUd-xj-3Yo" secondAttribute="baseline" id="qps-xi-6ir"/>
-                                                <constraint firstItem="AUd-xj-3Yo" firstAttribute="top" secondItem="idm-Qi-v2j" secondAttribute="bottom" constant="22" id="s7v-dN-MdR"/>
+                                                <constraint firstItem="AUd-xj-3Yo" firstAttribute="top" secondItem="idm-Qi-v2j" secondAttribute="bottom" constant="2" id="s7v-dN-MdR"/>
                                                 <constraint firstItem="9Vm-Il-iPB" firstAttribute="firstBaseline" secondItem="AUd-xj-3Yo" secondAttribute="firstBaseline" id="xot-co-rfi"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -97,11 +91,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Q7W-v6-CIb"/>
-                                    </mask>
-                                </variation>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Ua-kQ-S4g">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
@@ -115,15 +104,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ht3-aG-vMU">
-                                                    <rect key="frame" x="279" y="12" width="42" height="21"/>
+                                                    <rect key="frame" x="18" y="11.5" width="564" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ht3-aG-vMU" firstAttribute="centerY" secondItem="eaY-Ih-lue" secondAttribute="centerY" id="3ob-WG-jdR"/>
-                                                <constraint firstItem="ht3-aG-vMU" firstAttribute="centerX" secondItem="eaY-Ih-lue" secondAttribute="centerX" id="Rv9-i2-6Vh"/>
+                                                <constraint firstItem="ht3-aG-vMU" firstAttribute="leading" secondItem="eaY-Ih-lue" secondAttribute="leadingMargin" constant="10" id="dbx-TR-muh"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ht3-aG-vMU" secondAttribute="trailing" constant="10" id="gfw-qc-cg4"/>
+                                                <constraint firstItem="ht3-aG-vMU" firstAttribute="centerY" secondItem="eaY-Ih-lue" secondAttribute="centerY" id="j9x-7F-lzE"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -154,15 +144,9 @@
                             <constraint firstItem="xcN-rl-fHm" firstAttribute="top" secondItem="H1i-lo-nNw" secondAttribute="top" constant="64" id="Lr8-tF-Gw4"/>
                             <constraint firstItem="4Ua-kQ-S4g" firstAttribute="leading" secondItem="H1i-lo-nNw" secondAttribute="leadingMargin" constant="-20" id="UBc-UF-ydx"/>
                             <constraint firstItem="xcN-rl-fHm" firstAttribute="top" secondItem="uS0-2s-COl" secondAttribute="bottom" id="UOT-Li-KKj"/>
-                            <constraint firstItem="xcN-rl-fHm" firstAttribute="top" secondItem="iJV-gs-aqe" secondAttribute="bottom" constant="1" id="egC-q7-Vqa"/>
                             <constraint firstItem="g4b-SA-ypm" firstAttribute="top" secondItem="xcN-rl-fHm" secondAttribute="bottom" id="hiC-ND-aDJ"/>
                             <constraint firstItem="g4b-SA-ypm" firstAttribute="leading" secondItem="xcN-rl-fHm" secondAttribute="leading" id="roP-H7-xAQ"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="egC-q7-Vqa"/>
-                            </mask>
-                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Courses" id="seM-Gr-B7J"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

@@ -6,6 +6,7 @@
 //  Copyright © 2016 Eric Smith. All rights reserved.
 //
 
+
 import XCTest
 
 class BabylonianUITests: XCTestCase {
@@ -33,84 +34,77 @@ class BabylonianUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
+        
         let app = XCUIApplication()
         let tabBarsQuery = app.tabBars
         tabBarsQuery.buttons["My Courses"].tap()
-        app.buttons["+Add New Course"].tap()
         
-        let toolbarsQuery = app.toolbars
-        let pressAndHoldToRecordButton = toolbarsQuery.buttons["Press and Hold to Record"]
-        pressAndHoldToRecordButton.tap()
+        let clearTextButton = app.searchFields.buttons["Clear text"]
+        clearTextButton.tap()
         
-        let imageButton = toolbarsQuery.buttons["+image"]
-        imageButton.tap()
-        
-        let photoLandscapeAugust082012152PmCell = app.collectionViews["PhotosGridView"].cells["Photo, Landscape, August 08, 2012, 1:52 PM"]
-        photoLandscapeAugust082012152PmCell.tap()
-        
-        let window = app.childrenMatchingType(.Window).elementBoundByIndex(0)
-        let element = window.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element
-        element.tap()
+        let element = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element
+        let searchField = element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.SearchField).element
+        searchField.tap()
+        app.searchFields.containingType(.Button, identifier:"Clear text").element
+        app.typeText("\r")
+        clearTextButton.tap()
+        searchField.tap()
+        app.buttons["Cancel"].tap()
+        searchField.tap()
+        app.searchFields.containingType(.Button, identifier:"Clear text").element
+        app.typeText("\r")
+        element.childrenMatchingType(.Table).elementBoundByIndex(0).childrenMatchingType(.Cell).elementBoundByIndex(1).staticTexts["A fake course"].tap()
         
         let tablesQuery = app.tables
-        tablesQuery.cells.childrenMatchingType(.TextView).element.tap()
+        let button = tablesQuery.childrenMatchingType(.Cell).elementBoundByIndex(1).childrenMatchingType(.Button).element
+        button.tap()
+        button.tap()
         
-        let cell = tablesQuery.childrenMatchingType(.Cell).elementBoundByIndex(0)
-        cell.childrenMatchingType(.TextView).element.tap()
-        cell.childrenMatchingType(.TextView).element
-        app.typeText("\r")
-        pressAndHoldToRecordButton.tap()
-        
-        let cell2 = tablesQuery.childrenMatchingType(.Cell).elementBoundByIndex(2)
-        let textView = cell2.childrenMatchingType(.TextView).element
-        textView.tap()
-        textView.tap()
-        cell2.childrenMatchingType(.TextView).element
-        app.typeText("\r")
+        let button2 = tablesQuery.childrenMatchingType(.Cell).elementBoundByIndex(2).childrenMatchingType(.Button).element
+        button2.tap()
+        button2.tap()
         
         let babylonianCourseviewNavigationBar = app.navigationBars["Babylonian.CourseView"]
         let editButton = babylonianCourseviewNavigationBar.buttons["Edit"]
         editButton.tap()
-        window.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Table).element.swipeUp()
+        editButton.tap()
+        babylonianCourseviewNavigationBar.buttons["Next"].tap()
         
-        let doneButton = babylonianCourseviewNavigationBar.buttons["Done"]
-        doneButton.tap()
-        imageButton.tap()
-        photoLandscapeAugust082012152PmCell.tap()
-        element.tap()
-        editButton.pressForDuration(2.4);
-        tablesQuery.childrenMatchingType(.Cell).elementBoundByIndex(1).buttons["Delete Label"].tap()
+        let element2 = element.childrenMatchingType(.Other).element
+        let textField = element2.childrenMatchingType(.TextField).elementBoundByIndex(0)
+        textField.tap()
+        textField.tap()
+        app.textFields.containingType(.Button, identifier:"Clear text").element
         
-        let tablesQuery2 = tablesQuery
-        tablesQuery2.buttons["Delete"].tap()
-        doneButton.tap()
-        pressAndHoldToRecordButton.tap()
+        let textField2 = element2.childrenMatchingType(.TextField).elementBoundByIndex(1)
+        textField2.tap()
+        textField2.tap()
+        app.textFields.containingType(.Button, identifier:"Clear text").element
+        
+        let textField3 = element2.childrenMatchingType(.TextField).elementBoundByIndex(2)
+        textField3.tap()
+        textField3.tap()
+        app.textFields.containingType(.Button, identifier:"Clear text").element
+        app.navigationBars["Babylonian.CourseSettingView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
+        
+        let toolbarsQuery = app.toolbars
+        toolbarsQuery.buttons["Press and Hold to Record"].pressForDuration(3.4);
+        toolbarsQuery.buttons["+image"].tap()
+        app.collectionViews["PhotosGridView"].cells["Photo, Portrait, August 08, 2012, 4:29 PM"].tap()
+        app.images["Photo, Portrait, August 08, 2012, 4:29 PM"].tap()
+        
+        let cell = tablesQuery.childrenMatchingType(.Cell).elementBoundByIndex(5)
+        cell.childrenMatchingType(.TextView).element.tap()
+        cell.childrenMatchingType(.TextView).element
+        app.typeText("lkjfda\r")
         babylonianCourseviewNavigationBar.childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
-        tabBarsQuery.buttons["Discussions"].tap()
         tabBarsQuery.buttons["More..."].tap()
         
-        let showLocationSwitch = tablesQuery2.switches["Show Location"]
-        showLocationSwitch.tap()
-        showLocationSwitch.tap()
-        
-        let connectedToFbSwitch = tablesQuery2.switches["Connected to FB"]
-        connectedToFbSwitch.tap()
-        connectedToFbSwitch.tap()
-        
-        let connectedToTwitterSwitch = tablesQuery2.switches["Connected to Twitter"]
-        connectedToTwitterSwitch.tap()
-        connectedToTwitterSwitch.tap()
-        app.buttons["Logout"].tap()
-        app.buttons["Login"].tap()
-        tablesQuery2.textFields["Email"].tap()
-        
-        let tablesQuery3 = app.otherElements.containingType(.NavigationBar, identifier:"Login").tables
-        tablesQuery3.childrenMatchingType(.Cell).elementBoundByIndex(0).childrenMatchingType(.TextField).element
-        tablesQuery2.secureTextFields["Password"].tap()
-        tablesQuery3.childrenMatchingType(.Cell).elementBoundByIndex(1).childrenMatchingType(.SecureTextField).element
-        tablesQuery2.staticTexts["ENTER"].tap()
-      
         //////////////
+    }
+    
+    func testExample2() {
+        
     }
     
 }

@@ -29,7 +29,16 @@ class ATItemCell: UITableViewCell, UITextViewDelegate {
         self.playButton.layer.cornerRadius = self.playButton.frame.size.height/2
         self.playButton.layer.borderColor = self.playButton.tintColor.CGColor
         self.playButton.layer.borderWidth = 1.0
-        self.playButton.duration = 0.3
+        if let _ = self.item {
+            if let contents = self.item.content {
+                self.playButton.duration = contents[COURSE_ITEM_AUDIO_DURATION] as! Double
+            }
+        }
+        else{
+            print("item has no value, it's nil")
+        }
+        
+        
         self.playButton.adjustMargin = 1
 
     }
