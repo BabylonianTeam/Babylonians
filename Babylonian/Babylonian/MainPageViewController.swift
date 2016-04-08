@@ -35,6 +35,11 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         loadTopCourses()
     }
     
+    
+    deinit {
+        DataService.dataService.COURSE_REF.removeAllObservers()
+    }
+    
     //seting search bar
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         searchActive = true;
@@ -191,7 +196,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
     func loadTopCourses(){
         //TODO Create a test with/ a for loop that hooks in to the database model
         ProgressHUD.show("Loading Courses")
-        DataService.dataService.COURSE_REF.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        DataService.dataService.COURSE_REF.observeEventType(.Value, withBlock: { snapshot in
             
             ProgressHUD.dismiss()
             if let content = snapshot.value {
@@ -232,5 +237,5 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
 
-
+    
 }

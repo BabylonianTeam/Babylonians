@@ -88,7 +88,7 @@ class BBCourse: NSObject {
     
     func setTag(tagArray: [String]) -> Void {
         self.tag_ = tagArray
-        self.courseRef.setValue([COURSE_TAG:tagArray.joinWithSeparator("|")])
+        self.courseRef.updateChildValues([COURSE_TAG:tagArray.joinWithSeparator("|")])
     }
     
     func deleteAllTag() -> Void {
@@ -157,7 +157,7 @@ class BBCourse: NSObject {
         var i = 0
         for item in courseItems_ {
             item.order = i
-            item.itemRef.setValue(item.order, forKeyPath: COURSE_ITEM_ORDER)
+            item.itemRef.updateChildValues([COURSE_ITEM_ORDER:item.order])
             i = i+1
         }
     }

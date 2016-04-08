@@ -11,7 +11,7 @@ import Firebase
 import TagListView
 
 
-class CourseSettingViewController: UIViewController, TagListViewDelegate{
+class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagListViewDelegate{
 
     var currentCourse: BBCourse!
     var addTagTransfer: String!
@@ -30,8 +30,6 @@ class CourseSettingViewController: UIViewController, TagListViewDelegate{
 
     @IBOutlet weak var tagListView: TagListView!
   
-    @IBOutlet weak var bbtitle: UITextView!
-    @IBOutlet weak var price: UITextView!
   
     
     override func viewDidLoad() {
@@ -43,11 +41,11 @@ class CourseSettingViewController: UIViewController, TagListViewDelegate{
         self.currentCourse.courseRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
            
             if let pricestr = snapshot.value.objectForKey("price"){
-                self.price.text = (pricestr as? NSNumber)?.stringValue
+                self.coursePrice.text = (pricestr as? NSNumber)?.stringValue
             }
             
             if let bbtitlestr = snapshot.value.objectForKey("title"){
-                self.bbtitle.text = bbtitlestr as? String
+                self.courseTitle.text = bbtitlestr as? String
             }
             
             
@@ -58,7 +56,7 @@ class CourseSettingViewController: UIViewController, TagListViewDelegate{
                 self.tagListView.textFont = UIFont.systemFontOfSize(24)
                 self.tagListView.alignment = .Center // possible values are .Left, .Center, and .Right
                 self.tagListView.removeAllTags()
-                for var i = 0; i <= self.fullTagArr.count-1; i++ {
+                for var i = 0; i <= self.fullTagArr.count-1; i += 1 {
                     let tagstring = self.fullTagArr[i] as? String
                    
                     if let tagview = self.tagListView.addTag(tagstring!) as? TagView{
@@ -106,40 +104,70 @@ class CourseSettingViewController: UIViewController, TagListViewDelegate{
         })
     }
     
+    
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        switch textField {
+        case self.courseTitle:
+            currentCourse.setTitle(courseTitle.text!)
+            return true
+        case self.coursePrice:
+            let price = (coursePrice.text! as NSString).floatValue
+            currentCourse.setPrice(price)
+            return true
+        case self.courseTag:
+            addTag()
+            return true
+        default:
+            return true
+        }
+    }
 
-    @IBAction func addCourseTitle(sender: UIButton) {
-        
-       currentCourse.setTitle(courseTitle.text!)
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        switch textField {
+        case self.courseTitle:
+            currentCourse.setTitle(courseTitle.text!)
+            return true
+        case self.coursePrice:
+            let price = (coursePrice.text! as NSString).floatValue
+            currentCourse.setPrice(price)
+            return true
+        case self.courseTag:
+            addTag()
+            return true
+        default:
+            return true
+        }
     }
-    
-    
-    
-    @IBAction func addCoursePrice(sender: UIButton) {
-        let price = (coursePrice.text! as NSString).floatValue
-        currentCourse.setPrice(price)
-    }
-    
     
  
     @IBAction func addCourseTag(sender: UIButton) {
-        if self.addTagTransfer == nil{
-            self.addTagTransfer = courseTag.text! + "|"
-        }
-        else {
-             self.addTagTransfer = self.addTagTransfer + courseTag.text! + "|"
-        }
-       
-            self.addTagArray.append(courseTag.text!)
-       
-        currentCourse.setTag(self.addTagArray)
+       addTag()
     }
     
+    @IBAction func Publish(sender: UIButton) {
+        self.currentCourse.setStatus(COURSE_STATUS_ONSHELF)
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     @IBAction func clearAllTag(sender: UIButton) {
         self.addTagTransfer.removeAll()
         self.addTagArray.removeAll()
         currentCourse.deleteAllTag()
         tagListView.removeAllTags()
+        
+    }
+    
+    func addTag() -> Void {
+        if self.addTagTransfer == nil{
+            self.addTagTransfer = courseTag.text! + "|"
+        }
+        else {
+            self.addTagTransfer = self.addTagTransfer + courseTag.text! + "|"
+        }
+        
+        self.addTagArray.append(courseTag.text!)
+        
+        currentCourse.setTag(self.addTagArray)
         
     }
     

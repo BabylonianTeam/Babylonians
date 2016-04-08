@@ -41,6 +41,10 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         table.reloadData()
         loadMyCourses()
     }
+ 
+    deinit {
+        DataService.dataService.COURSE_REF.removeAllObservers()
+    }
     
     //seting search bar
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
