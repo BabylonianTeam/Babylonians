@@ -93,6 +93,7 @@
 		9F66D6121C9ADE9900EB9C93 /* CellDescriptor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F66D6111C9ADE9900EB9C93 /* CellDescriptor.plist */; };
 		9F66D6141C9AE05F00EB9C93 /* MoreUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F66D6131C9AE05F00EB9C93 /* MoreUIViewController.swift */; };
 		9F9619AC1CB110A6007D5FA3 /* LabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F9619AB1CB110A6007D5FA3 /* LabelCell.xib */; };
+		9FA0EDAB1CB5D3CA00250F91 /* MorePasswdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0EDAA1CB5D3CA00250F91 /* MorePasswdViewController.swift */; };
 		9FBDE5681C9B8E9D003A45BA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDE5651C9B8E9D003A45BA /* Constant.swift */; };
 		9FBDE5691C9B8E9D003A45BA /* Minicourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */; };
 		9FCA548F1CB2DE690052917B /* MoreEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCA548E1CB2DE690052917B /* MoreEmailViewController.swift */; };
@@ -245,6 +246,7 @@
 		9F66D6111C9ADE9900EB9C93 /* CellDescriptor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CellDescriptor.plist; sourceTree = "<group>"; };
 		9F66D6131C9AE05F00EB9C93 /* MoreUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreUIViewController.swift; sourceTree = "<group>"; };
 		9F9619AB1CB110A6007D5FA3 /* LabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelCell.xib; sourceTree = "<group>"; };
+		9FA0EDAA1CB5D3CA00250F91 /* MorePasswdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorePasswdViewController.swift; sourceTree = "<group>"; };
 		9FBDE5651C9B8E9D003A45BA /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Minicourse.swift; sourceTree = "<group>"; };
 		9FCA548E1CB2DE690052917B /* MoreEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreEmailViewController.swift; sourceTree = "<group>"; };
@@ -348,15 +350,10 @@
 				30E6DB391CB19D5100F604E6 /* Main */,
 				3075D8841CB56CCE00B5262F /* MyCourseTab */,
 				30F20AB81CA0F98300A484E9 /* LearnerDiscussion.storyboard */,
+				9FA0EDA91CB5CD4700250F91 /* MorePage */,
 				30F20AB61CA0F95700A484E9 /* LearnerMore.storyboard */,
 				305E47211C8D182D004EEACE /* Discussions.storyboard */,
-				305E471E1C8D1817004EEACE /* More.storyboard */,
 				0705D5051C8CEF270065467D /* LaunchScreen.storyboard */,
-				9F66D60F1C9ADE6B00EB9C93 /* CustomCell.swift */,
-				9F66D6131C9AE05F00EB9C93 /* MoreUIViewController.swift */,
-				9FCA548E1CB2DE690052917B /* MoreEmailViewController.swift */,
-				9F371F741CB35557006E925A /* MoreNameViewController.swift */,
-				9F66D6111C9ADE9900EB9C93 /* CellDescriptor.plist */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -564,6 +561,7 @@
 		9F66D6021C9ADCA200EB9C93 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
+				9F66D60F1C9ADE6B00EB9C93 /* CustomCell.swift */,
 				9F66D6051C9ADE1500EB9C93 /* NormalCell.xib */,
 				9F9619AB1CB110A6007D5FA3 /* LabelCell.xib */,
 				9F66D6061C9ADE1500EB9C93 /* SliderCell.xib */,
@@ -573,6 +571,19 @@
 				9F66D6031C9ADE0500EB9C93 /* DatePickerCell.xib */,
 			);
 			name = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		9FA0EDA91CB5CD4700250F91 /* MorePage */ = {
+			isa = PBXGroup;
+			children = (
+				305E471E1C8D1817004EEACE /* More.storyboard */,
+				9F66D6131C9AE05F00EB9C93 /* MoreUIViewController.swift */,
+				9FA0EDAA1CB5D3CA00250F91 /* MorePasswdViewController.swift */,
+				9FCA548E1CB2DE690052917B /* MoreEmailViewController.swift */,
+				9F371F741CB35557006E925A /* MoreNameViewController.swift */,
+				9F66D6111C9ADE9900EB9C93 /* CellDescriptor.plist */,
+			);
+			name = MorePage;
 			sourceTree = "<group>";
 		};
 		BEAC1E2330F91A8D52F04911 /* Frameworks */ = {
@@ -811,6 +822,7 @@
 				30DBCE0D1C9E4174000CD59D /* UIImageView+WebCache.m in Sources */,
 				3098187F1CB36ECB0026D19A /* STKDataSource.m in Sources */,
 				3057A6C91C9DED2400C9C1A4 /* Utilities.swift in Sources */,
+				9FA0EDAB1CB5D3CA00250F91 /* MorePasswdViewController.swift in Sources */,
 				07EFFB621C97B128006F8ECB /* CourseCell.swift in Sources */,
 				309818831CB36ECB0026D19A /* STKQueueEntry.m in Sources */,
 				3098187C1CB36ECB0026D19A /* STKAudioPlayer.m in Sources */,
