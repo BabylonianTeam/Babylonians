@@ -51,8 +51,10 @@ class BBCourse: NSObject {
         self.courseRef.updateChildValues([COURSE_STATUS:status])
     }
     
-    func addCourseItem(item:CourseItem) -> Void {
-        self.courseItems_.append(item)
+    func addCourseItem(item:CourseItem?) -> Void {
+        self.courseItems_.append(item!)
+        let ref = self.courseRef.childByAppendingPath("content").childByAutoId()
+        ref.setValue(item)
     }
     
     func increasePurchasedNum() -> Void {

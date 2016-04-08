@@ -12,6 +12,8 @@ import XCTest
 class BabylonianTests: XCTestCase {
     var testBBCourse : BBCourse! = nil
     var testBBCourse2 : BBCourse! = nil
+    weak var expectation:XCTestExpectation?
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -70,7 +72,7 @@ class BabylonianTests: XCTestCase {
         
     }
     
-    func testExample2()  {
+    func testChangeStatus()  {
         //change status test
         let expectation = self.expectationWithDescription("data read")
         let ref = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEiG16h2M4KCVitV9y3")
@@ -85,6 +87,107 @@ class BabylonianTests: XCTestCase {
         })
         waitForExpectationsWithTimeout(50, handler: nil)
     }
+    
+    
+    func testSetTitle()  {
+        
+        expectation = self.expectationWithDescription("asynchronous request")
+        let ref = DataService.dataService.COURSE_REF.childByAppendingPath("-KEcvUWthBmKalnyep3y")
+        let testBBCourse4 = BBCourse(ref: ref)
+        var title: String?
+        title = "test for add title"
+        testBBCourse4.setTitle(title!)
+        testBBCourse4.courseRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
+            
+            if let value = snapshot.value {
+                print(value)
+                assert(value[COURSE_TITLE]==title)
+                self.expectation?.fulfill()
+            }
+        })
+        self.waitForExpectationsWithTimeout(10.0, handler:nil)
+    }
+    
+    
+    func testSetAuthor()  {
+        
+        expectation = self.expectationWithDescription("asynchronous request")
+        let ref = DataService.dataService.COURSE_REF.childByAppendingPath("-KEcvUWthBmKalnyep3y")
+        let testBBCourse4 = BBCourse(ref: ref)
+        var author: String?
+         author = "author"
+        testBBCourse4.setAuthor(author!)
+        testBBCourse4.courseRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
+            
+            if let value = snapshot.value {
+                print(value)
+                assert(value[COURSE_AUTHOR]==author)
+                self.expectation?.fulfill()
+            }
+        })
+        self.waitForExpectationsWithTimeout(10.0, handler:nil)
+    }
+    
+    
+    
+    func testSetStatus()  {
+        
+        expectation = self.expectationWithDescription("asynchronous request")
+        let ref = DataService.dataService.COURSE_REF.childByAppendingPath("-KEcvUWthBmKalnyep3y")
+        let testBBCourse4 = BBCourse(ref: ref)
+        var status: String?
+        status = "author"
+        testBBCourse4.setStatus(status!)
+        testBBCourse4.courseRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
+            
+            if let value = snapshot.value {
+                print(value)
+                assert(value[COURSE_STATUS]==status)
+                self.expectation?.fulfill()
+            }
+        })
+        self.waitForExpectationsWithTimeout(10.0, handler:nil)
+    }
+
+    
+    func testaddImageItem()  {
+        expectation = self.expectationWithDescription("asynchronous request")
+        let ref = DataService.dataService.COURSE_REF.childByAppendingPath("-KEcvUWthBmKalnyep3y")
+        let testBBCourse4 = BBCourse(ref: ref)
+        //let newAt = ATItem(ref: ref, courseText: "newText", courseAudio: "newAudio",order: 1, duration: 1)
+        testBBCourse4.addNewATItem("newText", courseAudio: "newAudio", duration: 1)
+        
+        testBBCourse4.courseRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
+            
+            if let data = snapshot.value {
+                print(data)
+                 for (key,value) in data as! [String:AnyObject]{
+                    print(value)
+                    if key == "content" {
+                        for (key,valuee) in value as! [String:AnyObject]{
+                            //if key == n
+                         print(valuee)
+                    
+                           // assert(valuee[COURSE_ITEM_ORDER]==1)
+                           //assert(valuee[COURSE_ITEM_AUDIO]=="newAudio")
+                           // assert(valuee[COURSE_ITEM_TEXT]=="newText")
+                           // assert(valuee[COURSE_ITEM_AUDIO_DURATION]==1)
+                            self.expectation?.fulfill()
+                            self.expectation = nil
+                            
+                        }
+        
+                    }else{
+                        print("not go through")
+                    }
+                }
+            }
+        
+            })
+        self.waitForExpectationsWithTimeout(10.0, handler:nil)
+    }
+
+    
     
     func testReadAllCourse(){
         let ref = DataService.dataService.COURSE_REF
