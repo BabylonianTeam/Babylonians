@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     override init() {
         super.init()
-        Firebase.defaultConfig().persistenceEnabled = true
+        //Firebase.defaultConfig().persistenceEnabled = true
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -31,13 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.server = PARSE_SERVER
         }
         Parse.initializeWithConfiguration(configuration)
-//        
-//        let courseref = DataService.dataService.COURSE_REF.childByAutoId()
-//        let courseC = BBCourse(ref: courseref, author: "test for delete")
-//        Minicourse.addBBCourse(courseC.toAnyObject())
-//        courseC.deleteBBCourse()
-//        
-        
+
         
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)

@@ -21,7 +21,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     var audioRecorder: AVAudioRecorder!
     var audioURL = NSURL()
     var imagePicker = UIImagePickerController()
-    var initialized: Bool!
+    var initialized: Bool = false
     var audioTimer = CACurrentMediaTime()
     
     
@@ -40,11 +40,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         self.courseTableView.dataSource = self
         self.courseTableView.longPressReorderEnabled = false
         
-        //For developing, remove when connected 
-        //let ref = DataService.dataService.COURSE_REF.childByAppendingPath("/-KEPJobHpCZ1z_4xOI6C")
-        //(self.navigationController as! BBCourseNavController).currentCourse = BBCourse(ref: ref, author: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
-        
-        
+
         if let cur_course=(self.navigationController as! BBCourseNavController).currentCourse {
             //has a value already
             print("currentCourse has a value already")
@@ -57,18 +53,21 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             self.currentCourse.setTitle("")
         }
         
-        self.loadCourse()
+        if !self.initialized {
+            self.loadCourse()
+        }
+        
         self.prepareRecording()
         
     }
     
     override func viewWillDisappear(animated: Bool) {
         self.currentCourse.contentRef.removeAllObservers()
+        //self.currentCourse = nil
     }
     
-    @IBAction func editButton(sender: UIButton) {
+    @IBAction func editButton(sender: UIBarButtonItem) {
          //TODO: change tableview status
-        
         if self.courseTableView.editing {
             self.courseTableView.setEditing(false, animated: true)
             self.tableEditButton.title="Edit"
@@ -189,7 +188,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row<self.currentCourse.contents.count && self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_AUDIOTEXT {
             
-            return 40
+            return 50
             
         }
         if indexPath.row<self.currentCourse.contents.count && self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_IMAGE {
@@ -259,6 +258,8 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     
     func loadCourse() -> Void {
 
+        self.initialized = false
+        
         
         ProgressHUD.show("Loading Course")
         self.currentCourse.contentRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
@@ -286,7 +287,9 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
                     let indexPath = NSIndexPath(forRow: self.currentCourse.contents.count-1, inSection: 0)
                     self.courseTableView.scrollToRowAtIndexPath(indexPath,
                         atScrollPosition: UITableViewScrollPosition.Middle, animated: true)
+                    
                 }
+                
             }
             else{
                 //course without content
