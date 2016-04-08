@@ -193,7 +193,7 @@ class BabylonianTests: XCTestCase {
     }
 
     
-    func testaddImageItem()  {
+    func testaddATItem()  {
         expectation = self.expectationWithDescription("asynchronous request")
         let ref = DataService.dataService.COURSE_REF.childByAppendingPath("-KEcvUWthBmKalnyep3y")
         let testBBCourse4 = BBCourse(ref: ref)
@@ -208,16 +208,16 @@ class BabylonianTests: XCTestCase {
                     print(value)
                     if key == "content" {
                         for (key,valuee) in value as! [String:AnyObject]{
-                            //if key == n
+                            if key == "-KEnaMNpmI-Z7WIxzokD"{
                          print(valuee)
                     
-                           // assert(valuee[COURSE_ITEM_ORDER]==1)
-                           //assert(valuee[COURSE_ITEM_AUDIO]=="newAudio")
-                           // assert(valuee[COURSE_ITEM_TEXT]=="newText")
-                           // assert(valuee[COURSE_ITEM_AUDIO_DURATION]==1)
+                            assert(valuee[COURSE_ITEM_ORDER]==1)
+                           assert(valuee[COURSE_ITEM_AUDIO]=="newAudio")
+                            assert(valuee[COURSE_ITEM_TEXT]=="newText")
+                            assert(valuee[COURSE_ITEM_AUDIO_DURATION]==1)
                             self.expectation?.fulfill()
                             self.expectation = nil
-                            
+                            }
                         }
         
                     }else{
