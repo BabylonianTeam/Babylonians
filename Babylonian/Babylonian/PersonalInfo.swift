@@ -12,6 +12,7 @@ import Firebase
 class PersonalInfo: NSObject{
     var displayName_: String!
     var email_: String!
+    var profilePhoto_: String!
     var balance_: Float!
     var ref_: Firebase!
     
@@ -29,6 +30,11 @@ class PersonalInfo: NSObject{
     func updateEmail(email: String) -> Void {
         self.email_ = email
         self.ref_.updateChildValues([USER_EMAIL:email])
+    }
+    
+    func updateProfilePhoto(url: String) -> Void {
+        self.profilePhoto_ = url
+        self.ref_.updateChildValues([USER_PROFILEPHOTO:url])
     }
     
     func updateBalance(balance: Float) -> Void {
