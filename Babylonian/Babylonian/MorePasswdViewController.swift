@@ -34,7 +34,7 @@ class MorePasswdViewController: UIViewController, UITableViewDelegate, UITableVi
     
     let secondaryColor = UIColor.lightGrayColor()
     
-    var userInfo = PersonalInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
+    var userInfo = PersonalInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String)
     var _USER_REF = Firebase(url: "\(BASE_URL)/users")
     var _BASE_REF = Firebase(url: "\(BASE_URL)")
     

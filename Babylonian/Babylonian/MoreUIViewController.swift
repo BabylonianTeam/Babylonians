@@ -43,7 +43,7 @@ class MoreUIViewController: UIViewController, UIImagePickerControllerDelegate, U
     var imagePicker = UIImagePickerController()
     
 
-    var userInfo = PersonalInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
+    var userInfo = PersonalInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String)
     var _USER_REF = Firebase(url: "\(BASE_URL)/users")
     
     
