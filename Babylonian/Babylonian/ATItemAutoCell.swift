@@ -1,25 +1,23 @@
 //
-//  ATItemCell.swift
+//  ATItemAutoCell.swift
 //  Babylonian
 //
-//  Created by Dongning Wang on 4/2/16.
+//  Created by Dongning Wang on 4/9/16.
 //  Copyright © 2016 Eric Smith. All rights reserved.
 //
 
 import UIKit
-import AVFoundation
 
-class ATItemCell: UITableViewCell, UITextViewDelegate {
-
-    //var audioUrl : NSURL!
+class ATItemAutoCell: UITableViewCell, UITextViewDelegate {
+    
     var item : ATItem!
     var timer = NSTimer()
     
-    @IBOutlet weak var playButton: PlaybackButton!
-    @IBOutlet weak var transcript: UITextView!
     
-
-
+    
+    @IBOutlet weak var transcript: UITextView!
+    @IBOutlet weak var playButton: PlaybackButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -43,14 +41,9 @@ class ATItemCell: UITableViewCell, UITextViewDelegate {
         
         
         self.playButton.adjustMargin = 1
+        
+    }
 
-    }
- 
-    
-    @IBAction func throughAudio(sender: PlaybackButton) {
-        //TODO remove audio
-    }
-    
     
     @IBAction func playButtonPressed(sender: UIButton) {
         let audioPlayer = STKAudioPlayer()
@@ -69,7 +62,7 @@ class ATItemCell: UITableViewCell, UITextViewDelegate {
             }
         }
         timer = NSTimer.scheduledTimerWithTimeInterval(Double(dur), target: self, selector: #selector(ATItemCell.stopPlay), userInfo: nil, repeats: false)
-
+        
     }
     
     func stopPlay() -> Void {
@@ -85,7 +78,7 @@ class ATItemCell: UITableViewCell, UITextViewDelegate {
             transcript.text = contents[COURSE_ITEM_TEXT] as! String
         }
     }
-
+    
     //TODO: tap and drag//tap and hold to record
     
     
@@ -111,8 +104,9 @@ class ATItemCell: UITableViewCell, UITextViewDelegate {
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
 
+    
 }

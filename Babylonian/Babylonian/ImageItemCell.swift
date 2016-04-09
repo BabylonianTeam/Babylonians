@@ -15,9 +15,6 @@ class ImageItemCell: UITableViewCell {
         // Initialization code
     }
     
-    @IBOutlet weak var testlabel: UILabel!
-    //TODO: adjust size
-
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

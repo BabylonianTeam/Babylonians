@@ -139,10 +139,6 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         return 1
     }
     
-//    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return 10
-//    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
  
         if (self.searchResult==tableView) {

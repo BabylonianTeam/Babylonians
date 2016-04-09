@@ -142,7 +142,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="Search My Courses" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xcN-rl-fHm">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search My Courses" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xcN-rl-fHm">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>

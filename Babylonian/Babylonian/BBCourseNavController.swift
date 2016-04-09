@@ -10,6 +10,7 @@ import UIKit
 
 class BBCourseNavController: UINavigationController {
     var currentCourse: BBCourse!
+    var viewOnly = false
 
     override func viewDidLoad() {
         super.viewDidLoad()

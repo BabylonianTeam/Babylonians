@@ -41,7 +41,7 @@
                                                         <action selector="throughAudio:" destination="Jms-fq-3kc" eventType="touchDragOutside" id="hdz-mA-5tk"/>
                                                     </connections>
                                                 </button>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tap and hold to edit transcripts" translatesAutoresizingMaskIntoConstraints="NO" id="TOh-oZ-vIX">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Tap and hold to edit transcripts" translatesAutoresizingMaskIntoConstraints="NO" id="TOh-oZ-vIX">
                                                     <rect key="frame" x="48" y="8" width="494" height="50"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -77,13 +77,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wZu-ZS-5Kj">
-                                                    <rect key="frame" x="50" y="10" width="100" height="100"/>
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wZu-ZS-5Kj">
+                                                    <rect key="frame" x="58" y="10" width="92" height="100"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="wZu-ZS-5Kj" secondAttribute="trailing" constant="402" id="BND-kb-r5b"/>
-                                                <constraint firstItem="wZu-ZS-5Kj" firstAttribute="leading" secondItem="6ZH-Nv-BL0" secondAttribute="leadingMargin" constant="42" id="X8u-W3-M4A"/>
+                                                <constraint firstItem="wZu-ZS-5Kj" firstAttribute="leading" secondItem="6ZH-Nv-BL0" secondAttribute="leadingMargin" constant="50" id="X8u-W3-M4A"/>
                                                 <constraint firstItem="wZu-ZS-5Kj" firstAttribute="top" secondItem="6ZH-Nv-BL0" secondAttribute="topMargin" constant="2" id="YNr-hN-IW5"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="wZu-ZS-5Kj" secondAttribute="bottom" constant="82" id="nPE-bv-gFm"/>
                                             </constraints>
@@ -136,23 +136,24 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uJ8-X4-H5F">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem width="80" style="plain" id="gew-Y4-We3">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="grw-dj-BoF">
-                                            <rect key="frame" x="20" y="7" width="80" height="30"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sIt-wt-A8O"/>
+                                    <barButtonItem title="Item" style="plain" id="gew-Y4-We3">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="grw-dj-BoF">
+                                            <rect key="frame" x="123" y="-2" width="44" height="48"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="+image"/>
+                                            <state key="normal" image="camwhite.png"/>
                                             <connections>
                                                 <action selector="addImageItem:" destination="45I-xC-lAC" eventType="touchUpInside" id="NYw-hx-8Hu"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" id="lzQ-Ax-OYQ">
+                                    <barButtonItem width="300" style="plain" id="lzQ-Ax-OYQ">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kdL-h8-Jm3">
-                                            <rect key="frame" x="110" y="7" width="175" height="30"/>
+                                            <rect key="frame" x="177" y="2" width="300" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.18823529411764706" green="0.51372549019607838" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="1AJ-lY-xjq"/>
+                                                <constraint firstAttribute="height" constant="40" id="1AJ-lY-xjq"/>
                                             </constraints>
                                             <state key="normal" title="Press and Hold to Record">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -163,6 +164,7 @@
                                             </connections>
                                         </button>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="oAS-0M-hdS"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -190,6 +192,7 @@
                         <rightBarButtonItems>
                             <barButtonItem title="Next" id="tcM-7P-8CC">
                                 <connections>
+                                    <action selector="nextButton:" destination="45I-xC-lAC" id="z31-Pj-DJc"/>
                                     <segue destination="Kv9-3G-TY8" kind="show" id="tlj-ti-TaE"/>
                                 </connections>
                             </barButtonItem>
@@ -202,6 +205,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="courseTableView" destination="7dH-ch-bSx" id="of6-Us-kgV"/>
+                        <outlet property="editButton" destination="qJ7-Xo-GGI" id="lt8-1h-0zB"/>
+                        <outlet property="inputBar" destination="uJ8-X4-H5F" id="a5t-oN-Rlf"/>
+                        <outlet property="nextButton" destination="tcM-7P-8CC" id="zZa-LV-JwG"/>
+                        <outlet property="recordBarItem" destination="lzQ-Ax-OYQ" id="Isk-Fc-zkh"/>
                         <outlet property="tableEditButton" destination="qJ7-Xo-GGI" id="m2o-Jf-m34"/>
                     </connections>
                 </viewController>
@@ -234,4 +241,7 @@
             <point key="canvasLocation" x="678" y="105"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camwhite.png" width="128" height="128"/>
+    </resources>
 </document>

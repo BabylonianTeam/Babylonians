@@ -90,9 +90,7 @@ class MoreUIViewController: UIViewController, UIImagePickerControllerDelegate, U
                 if let url = (content as! [String:String])[USER_PROFILEPHOTO] {
                     
                     if let nsURL = NSURL(string: url) {
-                        if let data = NSData(contentsOfURL: nsURL) {
-                            self.profilePhoto.image = UIImage(data: data)
-                        }
+                        self.profilePhoto.sd_setImageWithURL(nsURL, placeholderImage: UIImage(named: "person-placeholder.png"))
                     }
                 }
             }
@@ -275,7 +273,7 @@ class MoreUIViewController: UIViewController, UIImagePickerControllerDelegate, U
             
         })
         
-        let data = UIImageJPEGRepresentation(image!, 1)
+        let data = UIImageJPEGRepresentation(image!, 0.5)
         let imageFile = PFFile(name: "image.jpg", data: data!)
         
         print(imageFile?.url)
@@ -291,10 +289,8 @@ class MoreUIViewController: UIViewController, UIImagePickerControllerDelegate, U
                     //ProgressHUD.show("Loading...")
 
                     if let url = NSURL(string: stringUrl ) {
-                        if let data = NSData(contentsOfURL: url) {
-                            self.profilePhoto.image = UIImage(data: data)
-                            self.userInfo.updateProfilePhoto(stringUrl);
-                        }
+                        self.profilePhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "person-placeholder.png"))
+                        self.userInfo.updateProfilePhoto(stringUrl)
                     }
                     //ProgressHUD.dismiss()
                 }

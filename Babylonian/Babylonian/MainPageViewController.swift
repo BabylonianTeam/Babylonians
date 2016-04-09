@@ -138,10 +138,6 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         return 1
     }
     
-    //    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-    //        return 10
-    //    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if (self.searchResult==tableView) {
@@ -154,6 +150,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard.init(name: "CourseView", bundle: nil)
         let bbCourseController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView") as! BBCourseNavController
+        bbCourseController.viewOnly = true
         
         if tableView==self.searchResult {
             let courseId = filtered[indexPath.row].componentsSeparatedByString("|")[0]
