@@ -12,6 +12,7 @@ class ATItemAutoCell: UITableViewCell, UITextViewDelegate {
     
     var item : ATItem!
     var timer = NSTimer()
+    var textLineNum = 1
     
     
     
@@ -23,8 +24,8 @@ class ATItemAutoCell: UITableViewCell, UITextViewDelegate {
         // Initialization code
         transcript.delegate = self
         
-        transcript.textContainer.maximumNumberOfLines = 3;
-        transcript.textContainer.lineBreakMode = NSLineBreakMode.ByTruncatingTail;
+        transcript.textContainer.maximumNumberOfLines = 5;
+        transcript.textContainer.lineBreakMode = NSLineBreakMode.ByWordWrapping;
         
         self.playButton.contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         self.playButton.layer.cornerRadius = self.playButton.frame.size.height/2
@@ -61,7 +62,7 @@ class ATItemAutoCell: UITableViewCell, UITextViewDelegate {
                 dur = d+1
             }
         }
-        timer = NSTimer.scheduledTimerWithTimeInterval(Double(dur), target: self, selector: #selector(ATItemCell.stopPlay), userInfo: nil, repeats: false)
+        timer = NSTimer.scheduledTimerWithTimeInterval(Double(dur), target: self, selector: #selector(ATItemAutoCell.stopPlay), userInfo: nil, repeats: false)
         
     }
     
@@ -88,11 +89,6 @@ class ATItemAutoCell: UITableViewCell, UITextViewDelegate {
             textView.resignFirstResponder()
             return false
         }
-        return true
-    }
-    
-    func textViewDidChange(textView: UITextView) {
-        print("did change")
         let fixedWidth = textView.frame.size.width
         textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
         textView.layoutIfNeeded()
@@ -100,7 +96,26 @@ class ATItemAutoCell: UITableViewCell, UITextViewDelegate {
         var newFrame = textView.frame
         newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
         textView.frame = newFrame;
+        
+        let newLineNum = Int(textView.contentSize.height/(textView.font?.lineHeight)!)
+        if newLineNum != textLineNum {
+            textLineNum = newLineNum
+            self.item.setText(self.transcript.text)
+            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "RefreshCourseViewTable", object: nil))
+        }
+        return true
     }
+    
+//    func textViewDidChange(textView: UITextView) {
+//        print("did change")
+//        let fixedWidth = textView.frame.size.width
+//        textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+//        textView.layoutIfNeeded()
+//        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+//        var newFrame = textView.frame
+//        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+//        textView.frame = newFrame;
+//    }
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

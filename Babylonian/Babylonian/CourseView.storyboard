@@ -23,55 +23,8 @@
                                 <rect key="frame" x="20" y="64" width="560" height="482"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ATItemCell" rowHeight="50" id="Jms-fq-3kc" customClass="ATItemCell" customModule="Babylonian" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="2" width="560" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jms-fq-3kc" id="fnp-UJ-H0e">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyg-6b-Yti" customClass="PlaybackButton" customModule="Babylonian" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="18" width="24" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="24" id="1vS-GH-3va" userLabel="height = 30"/>
-                                                        <constraint firstAttribute="width" constant="24" id="Wgx-6G-5bj" userLabel="width = 30"/>
-                                                    </constraints>
-                                                    <connections>
-                                                        <action selector="playButtonPressed:" destination="Jms-fq-3kc" eventType="touchUpInside" id="62y-yO-b2W"/>
-                                                        <action selector="throughAudio:" destination="Jms-fq-3kc" eventType="touchDragOutside" id="hdz-mA-5tk"/>
-                                                    </connections>
-                                                </button>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Tap and hold to edit transcripts" translatesAutoresizingMaskIntoConstraints="NO" id="TOh-oZ-vIX">
-                                                    <rect key="frame" x="48" y="8" width="494" height="50"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="ACs-Ze-mfR"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="TOh-oZ-vIX" firstAttribute="top" secondItem="eyg-6b-Yti" secondAttribute="top" constant="-10" id="2yq-QE-QfX"/>
-                                                <constraint firstItem="eyg-6b-Yti" firstAttribute="leading" secondItem="fnp-UJ-H0e" secondAttribute="leadingMargin" id="OKH-IB-dfm"/>
-                                                <constraint firstItem="TOh-oZ-vIX" firstAttribute="leading" secondItem="eyg-6b-Yti" secondAttribute="trailing" constant="16" id="bUN-L7-Tak"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="TOh-oZ-vIX" secondAttribute="trailing" constant="10" id="gmA-eY-uPc"/>
-                                                <constraint firstItem="TOh-oZ-vIX" firstAttribute="top" secondItem="fnp-UJ-H0e" secondAttribute="topMargin" constant="1" id="jUR-zR-MrW"/>
-                                                <constraint firstItem="eyg-6b-Yti" firstAttribute="top" secondItem="fnp-UJ-H0e" secondAttribute="topMargin" constant="10" id="qHK-bO-1zp"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="jUR-zR-MrW"/>
-                                                </mask>
-                                            </variation>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="playButton" destination="eyg-6b-Yti" id="lzF-ke-cBJ"/>
-                                            <outlet property="transcript" destination="TOh-oZ-vIX" id="tNt-j2-vlA"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ImageItemCell" rowHeight="200" id="n8s-X3-ehg" customClass="ImageItemCell" customModule="Babylonian" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="52" width="560" height="200"/>
+                                        <rect key="frame" x="0.0" y="2" width="560" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n8s-X3-ehg" id="6ZH-Nv-BL0">
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="200"/>
@@ -90,7 +43,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CreateCourseItemCell" id="rid-vB-xh4" customClass="CreateCourseItemCell" customModule="Babylonian" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="252" width="560" height="44"/>
+                                        <rect key="frame" x="0.0" y="202" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rid-vB-xh4" id="adY-Je-hhk">
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>

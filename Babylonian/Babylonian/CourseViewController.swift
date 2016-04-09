@@ -47,8 +47,12 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         self.courseTableView.delegate = self
         self.courseTableView.dataSource = self
         self.courseTableView.longPressReorderEnabled = false
-        self.courseTableView.estimatedRowHeight = 100.0;
+        
         self.courseTableView.rowHeight = UITableViewAutomaticDimension;
+        self.courseTableView.estimatedRowHeight = 60.0;
+        courseTableView.registerNib(UINib(nibName: "ATItemAutoCell", bundle: nil), forCellReuseIdentifier: "ATItemAutoCell")
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshTable), name: "RefreshCourseViewTable", object: nil)
         
         self.recordBarItem.width = UIScreen.mainScreen().bounds.width*0.7
 
@@ -188,6 +192,10 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
+    func refreshTable() -> Void {
+        self.courseTableView.beginUpdates()
+        self.courseTableView.endUpdates()
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.currentCourse.contents.count
@@ -196,28 +204,16 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //
     }
-    
-//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        if indexPath.row<self.currentCourse.contents.count && self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_AUDIOTEXT {
-//            
-//            return 50
-//            
-//        }
-//        if indexPath.row<self.currentCourse.contents.count && self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_IMAGE {
-//            
-//            return 100
-//        }
-//        return 30
-//    }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         
         if indexPath.row<self.currentCourse.contents.count && self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_AUDIOTEXT {
-            let cell = tableView.dequeueReusableCellWithIdentifier("ATItemCell", forIndexPath: indexPath) as! ATItemCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("ATItemAutoCell", forIndexPath: indexPath) as! ATItemAutoCell
             cell.item = self.currentCourse.contents[indexPath.row] as! ATItem
             cell.refreshText()
-            cell.transcript.sizeToFit()
+            cell.setNeedsUpdateConstraints()
+            cell.updateConstraintsIfNeeded()
             return cell
 
         }
