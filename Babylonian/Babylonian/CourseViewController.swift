@@ -216,9 +216,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             
             if let stringUrl = dic[COURSE_ITEM_IMAGE] {
                 if let url = NSURL(string: stringUrl as! String) {
-                    if let data = NSData(contentsOfURL: url) {
-                        cell.imageView?.image = UIImage(data: data)
-                    }
+                    cell.imageView?.sd_setImageWithURL(url, placeholderImage: UIImage(named: "default-placeholder.png"))
                 }
             }
             return cell

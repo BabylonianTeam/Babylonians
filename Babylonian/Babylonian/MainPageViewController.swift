@@ -9,7 +9,7 @@
 import UIKit
 
 class MainPageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate{
-    var courseLists = [[BBCourse](),[BBCourse]()]
+    var courseLists = [[GeneralCourseInfo](),[GeneralCourseInfo]()]
     var allCourseTitles = [String]()
     var filtered = [String]()
     var searchActive : Bool = false
@@ -37,6 +37,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         loadTopCourses()
         
     }
+    
     override func viewWillDisappear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
 
@@ -161,7 +162,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
             
         }
         else {
-            bbCourseController.currentCourse = self.courseLists[indexPath.section][indexPath.row]
+            bbCourseController.currentCourse = BBCourse(ref: self.courseLists[indexPath.section][indexPath.row].ref)
         }
         self.presentViewController(bbCourseController, animated: true, completion: nil)
     }
@@ -175,20 +176,10 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         
         let cell = tableView.dequeueReusableCellWithIdentifier("MainCourseCell", forIndexPath: indexPath) as! MainCourseCell
         
-        if let t = self.courseLists[indexPath.section][indexPath.row].title{
-            cell.title.text = t
-        }
+
+        cell.title.text = self.courseLists[indexPath.section][indexPath.row].title
         
-        if let t = self.courseLists[indexPath.section][indexPath.row].title{
-            cell.title.text = t
-        }
-        else {
-            cell.title.text="null"
-        }
-        
-        
-        //Will probably have to convert some value here to a view count
-        cell.numOfView.text = "55 views"
+        cell.numOfView.text = String(self.courseLists[indexPath.section][indexPath.row].NoV)
         
         return cell
     }
@@ -205,68 +196,33 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         ProgressHUD.show("Loading Courses")
         
         
-        DataService.dataService.COURSE_REF.observeEventType(.ChildAdded, withBlock: { snapshot in
-            if self.initialized {
-                
-                let c = BBCourse(ref: snapshot.ref)
-                if let t = snapshot.value.objectForKey(COURSE_TITLE) {
-                    c.setTitle(t as! String)
-                    self.allCourseTitles.append(snapshot.key+"|"+c.title!)
-                }
-                if let st = snapshot.value.objectForKey(COURSE_STATUS) {
-                    if  st as! String == COURSE_STATUS_ONSHELF{
-                        self.courseLists[0].append(c)
-                    }
-                    else{
-                        self.courseLists[1].append(c)
-                    }
-                }
-                else {
-                    c.setStatus(COURSE_STATUS_DRAFT)
-                    self.courseLists[1].append(c)
-                }
-                
-            }
-        })
-        
-        DataService.dataService.COURSE_REF.observeEventType(.ChildAdded, withBlock: { snapshot in
-            if self.initialized {
-                
-                let c = BBCourse(ref: snapshot.ref)
-                if let t = snapshot.value.objectForKey(COURSE_TITLE) {
-                    c.setTitle(t as! String)
-                    self.allCourseTitles.append(snapshot.key+"|"+c.title!)
-                }
-                if snapshot.value.objectForKey(COURSE_STATUS) as! String == COURSE_STATUS_ONSHELF{
-                    self.courseLists[0].append(c)
-                }
-                else{
-                    self.courseLists[1].append(c)
-                }
-                
-            }
-        })
-        
-        DataService.dataService.COURSE_REF.observeEventType(.Value, withBlock: { snapshot in
+        DataService.dataService.COURSE_REF.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             ProgressHUD.dismiss()
             if let content = snapshot.value {
                 if !(content is NSNull) {
                     for (cId,cData) in (content as! [String:NSDictionary]) {
                         let cref = DataService.dataService.COURSE_REF.childByAppendingPath(cId)
-                        let c = BBCourse(ref: cref)
+                        //let c = BBCourse(ref: cref)
+                        var title: String!
                         if let t = cData[COURSE_TITLE]{
-                            c.setTitle(t as! String)
-                            self.allCourseTitles.append(cId+"|"+c.title!)
+                            title = t as! String
+                        }else{
+                            title = "(no title)"
                         }
+                        let cInfo = GeneralCourseInfo(ref: cref, title: title)
+                        self.allCourseTitles.append(cId+"|"+title)
+                        
                         if let st = cData[COURSE_STATUS] {
                             if st as! String==COURSE_STATUS_ONSHELF {
-                                self.courseLists[0].append(c)
+                                self.courseLists[0].append(cInfo)
                             }
                             else{
-                                self.courseLists[1].append(c)
+                                self.courseLists[1].append(cInfo)
                             }
                         }
+                        
+                        
 //                        if let prev = cData[COURSE_PREVIEW] {
 //                            if st as! String==COURSE_STATUS_ONSHELF {
 //                                self.courseLists[0].append(c)

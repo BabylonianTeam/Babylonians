@@ -78,30 +78,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wZu-ZS-5Kj">
-                                                    <rect key="frame" x="159" y="15" width="344" height="169"/>
+                                                    <rect key="frame" x="50" y="10" width="100" height="100"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Fa-I1-2ct">
-                                                    <rect key="frame" x="27" y="83" width="124" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="124" id="QnH-E3-oja"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="wZu-ZS-5Kj" secondAttribute="trailing" constant="49" id="BND-kb-r5b"/>
-                                                <constraint firstItem="wZu-ZS-5Kj" firstAttribute="leading" secondItem="3Fa-I1-2ct" secondAttribute="trailing" constant="8" symbolic="YES" id="T5h-e3-68i"/>
-                                                <constraint firstItem="wZu-ZS-5Kj" firstAttribute="top" secondItem="6ZH-Nv-BL0" secondAttribute="topMargin" constant="7" id="YNr-hN-IW5"/>
-                                                <constraint firstItem="3Fa-I1-2ct" firstAttribute="leading" secondItem="6ZH-Nv-BL0" secondAttribute="leadingMargin" constant="19" id="mTM-hk-2xx"/>
-                                                <constraint firstItem="3Fa-I1-2ct" firstAttribute="top" secondItem="6ZH-Nv-BL0" secondAttribute="topMargin" constant="75" id="mfz-xG-GLE"/>
-                                                <constraint firstItem="wZu-ZS-5Kj" firstAttribute="centerY" secondItem="6ZH-Nv-BL0" secondAttribute="centerY" id="w40-FE-8Yf"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="wZu-ZS-5Kj" secondAttribute="trailing" constant="402" id="BND-kb-r5b"/>
+                                                <constraint firstItem="wZu-ZS-5Kj" firstAttribute="leading" secondItem="6ZH-Nv-BL0" secondAttribute="leadingMargin" constant="42" id="X8u-W3-M4A"/>
+                                                <constraint firstItem="wZu-ZS-5Kj" firstAttribute="top" secondItem="6ZH-Nv-BL0" secondAttribute="topMargin" constant="2" id="YNr-hN-IW5"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="wZu-ZS-5Kj" secondAttribute="bottom" constant="82" id="nPE-bv-gFm"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="testlabel" destination="3Fa-I1-2ct" id="ZKi-R2-3cH"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CreateCourseItemCell" id="rid-vB-xh4" customClass="CreateCourseItemCell" customModule="Babylonian" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="252" width="560" height="44"/>

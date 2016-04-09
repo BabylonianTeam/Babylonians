@@ -33,7 +33,7 @@
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="g4b-SA-ypm">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseCell" id="TQY-aw-qT1" userLabel="CourseCell" customClass="CourseCell" customModule="Babylonian" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="49.5" width="600" height="60"/>
@@ -44,9 +44,6 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profit:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Vm-Il-iPB">
                                                     <rect key="frame" x="10" y="29" width="46" height="20"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="QyB-tk-OtJ"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -88,6 +85,29 @@
                                             <outlet property="courseTitle" destination="idm-Qi-v2j" id="edG-qh-2Gg"/>
                                             <outlet property="courseViewCount" destination="gml-78-XrN" id="spl-xL-pJ1"/>
                                             <outlet property="profitAmount" destination="AUd-xj-3Yo" id="Qjs-Dh-7MG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DraftCell" id="Icj-5Z-XUp" userLabel="CourseCell" customClass="DraftCell" customModule="Babylonian" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="109.5" width="600" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Icj-5Z-XUp" id="ird-WZ-j7i">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CourseTitle: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBv-oJ-X7S">
+                                                    <rect key="frame" x="10" y="6" width="96" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="GBv-oJ-X7S" firstAttribute="leading" secondItem="ird-WZ-j7i" secondAttribute="leadingMargin" constant="2" id="JXv-ln-XSt"/>
+                                                <constraint firstAttribute="topMargin" secondItem="GBv-oJ-X7S" secondAttribute="top" constant="2" id="bh9-oO-KN8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="courseTitle" destination="GBv-oJ-X7S" id="s58-po-wJ9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

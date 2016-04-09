@@ -14,7 +14,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     //Temporary Value for Testing. Safe to remove once Table Model is implemented
     
-    var courseLists = [[BBCourse](),[BBCourse]()]
+    var courseLists = [[MyCourseInfo](),[MyCourseInfo]()]
     var allCourseTitles = [String]()
     var filtered = [String]()
     var searchActive : Bool = false
@@ -163,7 +163,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
 
         }
         else {
-            bbCourseController.currentCourse = self.courseLists[indexPath.section][indexPath.row]
+            bbCourseController.currentCourse = BBCourse(ref: self.courseLists[indexPath.section][indexPath.row].ref)
         }
         self.presentViewController(bbCourseController, animated: true, completion: nil)
     }
@@ -174,26 +174,20 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
             searchcell.courseTitle.text = filtered[indexPath.row].componentsSeparatedByString("|")[1]
             return searchcell
         }
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell", forIndexPath: indexPath) as! CourseCell
-     
-        if let t = self.courseLists[indexPath.section][indexPath.row].title{
-            cell.courseTitle.text = t
+        if indexPath.section==0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell", forIndexPath: indexPath) as! CourseCell
+            cell.courseTitle.text = self.courseLists[indexPath.section][indexPath.row].title
+            
+            cell.courseViewCount.text = String(self.courseLists[indexPath.section][indexPath.row].NoV)
+            cell.profitAmount.text = String(self.courseLists[indexPath.section][indexPath.row].income)
+            
+            return cell
         }
         
-        if let t = self.courseLists[indexPath.section][indexPath.row].title{
-            cell.courseTitle.text = t
-        }
-        else {
-            cell.courseTitle.text="null"
-        }
-
-        
-        //Will probably have to convert some value here to a view count
-        cell.courseViewCount.text = "55 views"
-        cell.profitAmount.text = "$500"
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("DraftCell", forIndexPath: indexPath) as! DraftCell
+        cell.courseTitle.text = self.courseLists[indexPath.section][indexPath.row].title
         return cell
+        
     }
     
     /*
@@ -207,26 +201,29 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         self.initialized = false
         ProgressHUD.show("Loading Courses")
         
-        
         DataService.dataService.COURSE_REF.observeEventType(.ChildAdded, withBlock: { snapshot in
             if self.initialized {
-
-                let c = BBCourse(ref: snapshot.ref)
+                
+                //let c = BBCourse(ref: snapshot.ref)
+                var title:String!
                 if let t = snapshot.value.objectForKey(COURSE_TITLE) {
-                    c.setTitle(t as! String)
-                    self.allCourseTitles.append(snapshot.key+"|"+c.title!)
+                    title = t as! String
+                }else {
+                    title = "(no title)"
                 }
+                self.allCourseTitles.append(snapshot.key+"|"+title)
+                let cInfo = MyCourseInfo(ref: snapshot.ref, title:title)
                 if let st = snapshot.value.objectForKey(COURSE_STATUS) {
                     if  st as! String == COURSE_STATUS_ONSHELF{
-                        self.courseLists[0].append(c)
+                        self.courseLists[0].append(cInfo)
                     }
                     else{
-                        self.courseLists[1].append(c)
+                        self.courseLists[1].append(cInfo)
                     }
                 }
                 else {
-                    c.setStatus(COURSE_STATUS_DRAFT)
-                    self.courseLists[1].append(c)
+                    //Added New Course, AutoId triggered event
+                    self.courseLists[1].append(cInfo)
                 }
                 
             }
@@ -240,17 +237,22 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
                 if !(content is NSNull) {
                     for (cId,cData) in (content as! [String:NSDictionary]) {
                         let cref = DataService.dataService.COURSE_REF.childByAppendingPath(cId)
-                        let c = BBCourse(ref: cref)
-                        if let t = cData[COURSE_TITLE]{
-                            c.setTitle(t as! String)
-                            self.allCourseTitles.append(cId+"|"+c.title!)
+                        
+                        var title:String!
+                        if let t = cData.objectForKey(COURSE_TITLE) {
+                            title = t as! String
+                        }else {
+                            title = "(no title)"
                         }
+                        self.allCourseTitles.append(snapshot.key+"|"+title)
+                        let cInfo = MyCourseInfo(ref: cref, title:title)
+                        
                         if let st = cData[COURSE_STATUS] {
                             if st as! String==COURSE_STATUS_ONSHELF {
-                                self.courseLists[0].append(c)
+                                self.courseLists[0].append(cInfo)
                             }
                             else{
-                                self.courseLists[1].append(c)
+                                self.courseLists[1].append(cInfo)
                             }
                         }
                         

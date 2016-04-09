@@ -11,3 +11,4 @@
 #import "StreamingKit/STKAudioPlayer.h"
 #import "Welcome/WelcomeView.h"
 #import "ProgressHUD.h"
+#import "SDWebImage/UIImageView+WebCache.h"
