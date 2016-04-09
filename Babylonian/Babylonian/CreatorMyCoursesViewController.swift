@@ -26,6 +26,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     
     @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewWillAppear(animated: Bool) {
         table.reloadData()
     }
@@ -38,6 +39,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         searchResult.delegate = self
         searchBar.delegate = self
         
+        searchResult.registerNib(UINib(nibName: "SearchTableCell", bundle: nil), forCellReuseIdentifier: "SearchTableCell")
         self.searchResult.hidden = true
         table.reloadData()
         loadMyCourses()
@@ -70,6 +72,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
             self.table.hidden = true
             self.searchResult.hidden = false
             self.searchBar.resignFirstResponder()
+            print(filtered)
         }
     }
     
@@ -166,7 +169,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if tableView==self.searchResult {
-            let searchcell = tableView.dequeueReusableCellWithIdentifier("SearchCell", forIndexPath: indexPath) as! SearchCell
+            let searchcell = tableView.dequeueReusableCellWithIdentifier("SearchTableCell", forIndexPath: indexPath) as! SearchTableCell
             searchcell.courseTitle.text = filtered[indexPath.row].componentsSeparatedByString("|")[1]
             return searchcell
         }

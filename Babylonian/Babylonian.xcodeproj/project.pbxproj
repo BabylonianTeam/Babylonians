@@ -41,6 +41,8 @@
 		30852AA51CB8EAEC00C4D100 /* camblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 30852AA41CB8EAEC00C4D100 /* camblack.png */; };
 		30852AAA1CB8FCFD00C4D100 /* ATItemAutoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30852AA81CB8FCFD00C4D100 /* ATItemAutoCell.swift */; };
 		30852AAB1CB8FCFD00C4D100 /* ATItemAutoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30852AA91CB8FCFD00C4D100 /* ATItemAutoCell.xib */; };
+		30852AAE1CB954D400C4D100 /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30852AAC1CB954D400C4D100 /* SearchTableCell.swift */; };
+		30852AAF1CB954D400C4D100 /* SearchTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30852AAD1CB954D400C4D100 /* SearchTableCell.xib */; };
 		3098187B1CB36ECB0026D19A /* NSMutableArray+STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 309818691CB36ECB0026D19A /* NSMutableArray+STKAudioPlayer.m */; };
 		3098187C1CB36ECB0026D19A /* STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3098186B1CB36ECB0026D19A /* STKAudioPlayer.m */; };
 		3098187D1CB36ECB0026D19A /* STKAutoRecoveringHTTPDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3098186D1CB36ECB0026D19A /* STKAutoRecoveringHTTPDataSource.m */; };
@@ -166,6 +168,8 @@
 		30852AA41CB8EAEC00C4D100 /* camblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camblack.png; sourceTree = "<group>"; };
 		30852AA81CB8FCFD00C4D100 /* ATItemAutoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATItemAutoCell.swift; sourceTree = "<group>"; };
 		30852AA91CB8FCFD00C4D100 /* ATItemAutoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATItemAutoCell.xib; sourceTree = "<group>"; };
+		30852AAC1CB954D400C4D100 /* SearchTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableCell.swift; sourceTree = "<group>"; };
+		30852AAD1CB954D400C4D100 /* SearchTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchTableCell.xib; sourceTree = "<group>"; };
 		309818681CB36ECB0026D19A /* NSMutableArray+STKAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+STKAudioPlayer.h"; sourceTree = "<group>"; };
 		309818691CB36ECB0026D19A /* NSMutableArray+STKAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+STKAudioPlayer.m"; sourceTree = "<group>"; };
 		3098186A1CB36ECB0026D19A /* STKAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKAudioPlayer.h; sourceTree = "<group>"; };
@@ -593,6 +597,8 @@
 				9F66D6081C9ADE1500EB9C93 /* TextfieldCell.xib */,
 				9F66D6091C9ADE1500EB9C93 /* ValuePickerCell.xib */,
 				9F66D6031C9ADE0500EB9C93 /* DatePickerCell.xib */,
+				30852AAC1CB954D400C4D100 /* SearchTableCell.swift */,
+				30852AAD1CB954D400C4D100 /* SearchTableCell.xib */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -732,6 +738,7 @@
 			files = (
 				30F20AB91CA0F98300A484E9 /* LearnerDiscussion.storyboard in Resources */,
 				30F20AB51CA0F7E800A484E9 /* LearnerMain.storyboard in Resources */,
+				30852AAF1CB954D400C4D100 /* SearchTableCell.xib in Resources */,
 				30F20AB71CA0F95700A484E9 /* LearnerMore.storyboard in Resources */,
 				30F20AC11CA124C600A484E9 /* CourseView.storyboard in Resources */,
 				9F66D6121C9ADE9900EB9C93 /* CellDescriptor.plist in Resources */,
@@ -871,6 +878,7 @@
 				3037A4AA1CB09F6600C52232 /* ATItem.swift in Sources */,
 				30DBCE001C9E4174000CD59D /* NSData+ImageContentType.m in Sources */,
 				30E6DB411CB2193200F604E6 /* LPRTableView.swift in Sources */,
+				30852AAE1CB954D400C4D100 /* SearchTableCell.swift in Sources */,
 				9F66D6101C9ADE6B00EB9C93 /* CustomCell.swift in Sources */,
 				30852A971CB8C0F100C4D100 /* GeneralCourseInfo.swift in Sources */,
 				306C32391C9B912C0035608E /* MainPageViewController.swift in Sources */,

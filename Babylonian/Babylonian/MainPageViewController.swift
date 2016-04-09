@@ -19,18 +19,21 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var searchResult: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var table: UITableView!
+    
     override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
         table.reloadData()
     }
     override func viewDidLoad() {
         
-        self.navigationController?.navigationBarHidden = true
         table.delegate = self
         table.dataSource = self
         
         searchResult.dataSource = self
         searchResult.delegate = self
         searchBar.delegate = self
+        
+        searchResult.registerNib(UINib(nibName: "SearchTableCell", bundle: nil), forCellReuseIdentifier: "SearchTableCell")
         
         self.searchResult.hidden = true
         table.reloadData()
@@ -70,6 +73,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
             self.table.hidden = true
             self.searchResult.hidden = false
             self.searchBar.resignFirstResponder()
+            print(filtered)
         }
     }
     
@@ -118,12 +122,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if tableView==self.table {
-            if indexPath.section==0{
-                return 60
-            }
-            else{
-                return 35
-            }
+            return 40
         }
         else {
             return 35
@@ -166,7 +165,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if tableView==self.searchResult {
-            let searchcell = tableView.dequeueReusableCellWithIdentifier("SearchCell", forIndexPath: indexPath) as! SearchCell
+            let searchcell = tableView.dequeueReusableCellWithIdentifier("SearchTableCell", forIndexPath: indexPath) as! SearchTableCell
             searchcell.courseTitle.text = filtered[indexPath.row].componentsSeparatedByString("|")[1]
             return searchcell
         }

@@ -38,9 +38,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .Plain, target: self, action: #selector(CourseViewController.backTapped))
         
-        if (self.navigationController as! BBCourseNavController).viewOnly {
-            self.makeViewOnly()
-        }
+
         
         self.imagePicker.delegate = self
 
@@ -52,8 +50,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         self.courseTableView.estimatedRowHeight = 60.0;
         courseTableView.registerNib(UINib(nibName: "ATItemAutoCell", bundle: nil), forCellReuseIdentifier: "ATItemAutoCell")
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshTable), name: "RefreshCourseViewTable", object: nil)
-        
+
         self.recordBarItem.width = UIScreen.mainScreen().bounds.width*0.7
 
         if let cur_course=(self.navigationController as! BBCourseNavController).currentCourse {
@@ -73,6 +70,13 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             self.loadCourse()
         }
         
+        if self.isViewOnly {
+            self.makeViewOnly()
+        }
+        else
+        {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshTable), name: "RefreshCourseViewTable", object: nil)
+        }
         self.prepareRecording()
         
     }
@@ -201,9 +205,6 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         return self.currentCourse.contents.count
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //
-    }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -214,6 +215,9 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             cell.refreshText()
             cell.setNeedsUpdateConstraints()
             cell.updateConstraintsIfNeeded()
+            if self.isViewOnly{
+                cell.transcript.editable = false
+            }
             return cell
 
         }
@@ -371,6 +375,10 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         self.nextButton.enabled = true
         self.nextButton.tintColor = nil
         self.inputBar.hidden = false
+    }
+    
+    var isViewOnly : Bool{
+        return (self.navigationController as! BBCourseNavController).viewOnly
     }
     
     // MARK: - Navigation
