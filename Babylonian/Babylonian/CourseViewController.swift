@@ -55,7 +55,6 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
 
         if let cur_course=(self.navigationController as! BBCourseNavController).currentCourse {
             //has a value already
-            print("currentCourse has a value already")
             self.currentCourse = cur_course
         }
         else{

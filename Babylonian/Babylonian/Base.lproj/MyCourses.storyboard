@@ -85,6 +85,7 @@
                                             <outlet property="courseTitle" destination="idm-Qi-v2j" id="edG-qh-2Gg"/>
                                             <outlet property="courseViewCount" destination="gml-78-XrN" id="spl-xL-pJ1"/>
                                             <outlet property="profitAmount" destination="AUd-xj-3Yo" id="Qjs-Dh-7MG"/>
+                                            <outlet property="profitLabel" destination="9Vm-Il-iPB" id="Ecb-Yt-21O"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DraftCell" id="Icj-5Z-XUp" userLabel="CourseCell" customClass="DraftCell" customModule="Babylonian" customModuleProvider="target">

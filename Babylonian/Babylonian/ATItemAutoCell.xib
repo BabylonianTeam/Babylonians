@@ -21,7 +21,6 @@
                             <constraint firstAttribute="height" constant="24" id="7QC-lU-GrM"/>
                             <constraint firstAttribute="width" constant="24" id="jgF-de-goQ"/>
                         </constraints>
-                        <state key="normal" title="Play"/>
                         <connections>
                             <action selector="playButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="e3L-Ql-Jov"/>
                         </connections>
