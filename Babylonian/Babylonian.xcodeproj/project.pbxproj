@@ -43,6 +43,8 @@
 		30852AAB1CB8FCFD00C4D100 /* ATItemAutoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30852AA91CB8FCFD00C4D100 /* ATItemAutoCell.xib */; };
 		30852AAE1CB954D400C4D100 /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30852AAC1CB954D400C4D100 /* SearchTableCell.swift */; };
 		30852AAF1CB954D400C4D100 /* SearchTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30852AAD1CB954D400C4D100 /* SearchTableCell.xib */; };
+		30852AB31CB96D4B00C4D100 /* BBicon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 30852AB21CB96D4B00C4D100 /* BBicon120.png */; };
+		30852AB51CB96EC000C4D100 /* AppsIcon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 30852AB41CB96EC000C4D100 /* AppsIcon80.png */; };
 		3098187B1CB36ECB0026D19A /* NSMutableArray+STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 309818691CB36ECB0026D19A /* NSMutableArray+STKAudioPlayer.m */; };
 		3098187C1CB36ECB0026D19A /* STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3098186B1CB36ECB0026D19A /* STKAudioPlayer.m */; };
 		3098187D1CB36ECB0026D19A /* STKAutoRecoveringHTTPDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3098186D1CB36ECB0026D19A /* STKAutoRecoveringHTTPDataSource.m */; };
@@ -170,6 +172,8 @@
 		30852AA91CB8FCFD00C4D100 /* ATItemAutoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATItemAutoCell.xib; sourceTree = "<group>"; };
 		30852AAC1CB954D400C4D100 /* SearchTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableCell.swift; sourceTree = "<group>"; };
 		30852AAD1CB954D400C4D100 /* SearchTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchTableCell.xib; sourceTree = "<group>"; };
+		30852AB21CB96D4B00C4D100 /* BBicon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BBicon120.png; sourceTree = "<group>"; };
+		30852AB41CB96EC000C4D100 /* AppsIcon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppsIcon80.png; sourceTree = "<group>"; };
 		309818681CB36ECB0026D19A /* NSMutableArray+STKAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+STKAudioPlayer.h"; sourceTree = "<group>"; };
 		309818691CB36ECB0026D19A /* NSMutableArray+STKAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+STKAudioPlayer.m"; sourceTree = "<group>"; };
 		3098186A1CB36ECB0026D19A /* STKAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKAudioPlayer.h; sourceTree = "<group>"; };
@@ -432,7 +436,9 @@
 			children = (
 				3068A0F41CA2477000AE6CB4 /* aa0f3d544a573d3-1.jpg */,
 				30852AA21CB8EAE400C4D100 /* camwhite.png */,
+				30852AB21CB96D4B00C4D100 /* BBicon120.png */,
 				30852AA41CB8EAEC00C4D100 /* camblack.png */,
+				30852AB41CB96EC000C4D100 /* AppsIcon80.png */,
 				30852A921CB8BA1300C4D100 /* default-placeholder.png */,
 				30852AA01CB8D34400C4D100 /* person-placeholder.png */,
 			);
@@ -693,7 +699,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = "Eric Smith";
+				ORGANIZATIONNAME = BabylonianTeam;
 				TargetAttributes = {
 					0705D4F51C8CEF270065467D = {
 						CreatedOnToolsVersion = 7.2;
@@ -743,6 +749,7 @@
 				30F20AC11CA124C600A484E9 /* CourseView.storyboard in Resources */,
 				9F66D6121C9ADE9900EB9C93 /* CellDescriptor.plist in Resources */,
 				3068A0F51CA2477000AE6CB4 /* aa0f3d544a573d3-1.jpg in Resources */,
+				30852AB31CB96D4B00C4D100 /* BBicon120.png in Resources */,
 				30852AA11CB8D34400C4D100 /* person-placeholder.png in Resources */,
 				30E6DB3B1CB1C43B00F604E6 /* CourseSettingsView.storyboard in Resources */,
 				30DBCDD31C9E3BC5000CD59D /* LoginView.xib in Resources */,
@@ -761,6 +768,7 @@
 				30DBCDD51C9E3BC5000CD59D /* RegisterView.xib in Resources */,
 				0705D4FF1C8CEF270065467D /* Main.storyboard in Resources */,
 				30DBCDDB1C9E3C3A000CD59D /* ProgressHUD.bundle in Resources */,
+				30852AB51CB96EC000C4D100 /* AppsIcon80.png in Resources */,
 				30852AA31CB8EAE400C4D100 /* camwhite.png in Resources */,
 				9F66D60D1C9ADE1500EB9C93 /* TextfieldCell.xib in Resources */,
 				30F20ABB1CA0F99D00A484E9 /* LearnerMyCourses.storyboard in Resources */,

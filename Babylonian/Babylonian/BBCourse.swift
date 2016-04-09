@@ -4,7 +4,7 @@
 //
 //  Modified by Dongning Wang
 //  Created by Jiqing Xu on 3/15/16.
-//  Copyright © 2016 Eric Smith. All rights reserved.
+//  Copyright © 2016 BabylonianTeam. All rights reserved.
 //
 
 
