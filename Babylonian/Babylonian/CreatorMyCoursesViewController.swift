@@ -4,7 +4,7 @@
 
 //  Modified by Dongning
 //  Created by Eric Smith on 3/16/16.
-//  Copyright © 2016 Eric Smith. All rights reserved.
+//  Copyright © 2016 BabylonianTeam. All rights reserved.
 //
 
 import UIKit
@@ -14,17 +14,19 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     //Temporary Value for Testing. Safe to remove once Table Model is implemented
     
-    var courseLists = [[BBCourse](),[BBCourse]()]
+    var courseLists = [[MyCourseInfo](),[MyCourseInfo]()]
     var allCourseTitles = [String]()
     var filtered = [String]()
     var searchActive : Bool = false
     let sections = ["Published", "Drafts"]
+    var initialized = false
     
     @IBOutlet weak var searchResult: UITableView!
     @IBOutlet weak var table: UITableView!
     
     
     @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewWillAppear(animated: Bool) {
         table.reloadData()
     }
@@ -37,9 +39,15 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         searchResult.delegate = self
         searchBar.delegate = self
         
+        searchResult.registerNib(UINib(nibName: "SearchTableCell", bundle: nil), forCellReuseIdentifier: "SearchTableCell")
         self.searchResult.hidden = true
         table.reloadData()
         loadMyCourses()
+        
+    }
+ 
+    deinit {
+        DataService.dataService.COURSE_REF.removeAllObservers()
     }
     
     //seting search bar
@@ -49,7 +57,6 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
         searchActive = false;
-
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
@@ -65,6 +72,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
             self.table.hidden = true
             self.searchResult.hidden = false
             self.searchBar.resignFirstResponder()
+            print(filtered)
         }
     }
     
@@ -134,10 +142,6 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         return 1
     }
     
-//    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return 10
-//    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
  
         if (self.searchResult==tableView) {
@@ -158,37 +162,31 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
 
         }
         else {
-            bbCourseController.currentCourse = self.courseLists[indexPath.section][indexPath.row]
+            bbCourseController.currentCourse = BBCourse(ref: self.courseLists[indexPath.section][indexPath.row].ref)
         }
         self.presentViewController(bbCourseController, animated: true, completion: nil)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if tableView==self.searchResult {
-            let searchcell = tableView.dequeueReusableCellWithIdentifier("SearchCell", forIndexPath: indexPath) as! SearchCell
+            let searchcell = tableView.dequeueReusableCellWithIdentifier("SearchTableCell", forIndexPath: indexPath) as! SearchTableCell
             searchcell.courseTitle.text = filtered[indexPath.row].componentsSeparatedByString("|")[1]
             return searchcell
         }
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell", forIndexPath: indexPath) as! CourseCell
-     
-        if let t = self.courseLists[indexPath.section][indexPath.row].title{
-            cell.courseTitle.text = t
+        if indexPath.section==0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell", forIndexPath: indexPath) as! CourseCell
+            cell.courseTitle.text = self.courseLists[indexPath.section][indexPath.row].title
+            
+            cell.courseViewCount.text = String(self.courseLists[indexPath.section][indexPath.row].NoV)
+            cell.profitAmount.text = String(self.courseLists[indexPath.section][indexPath.row].income)
+            
+            return cell
         }
         
-        if let t = self.courseLists[indexPath.section][indexPath.row].title{
-            cell.courseTitle.text = t
-        }
-        else {
-            cell.courseTitle.text="null"
-        }
-
-        
-        //Will probably have to convert some value here to a view count
-        cell.courseViewCount.text = "55 views"
-        cell.profitAmount.text = "$500"
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("DraftCell", forIndexPath: indexPath) as! DraftCell
+        cell.courseTitle.text = self.courseLists[indexPath.section][indexPath.row].title
         return cell
+        
     }
     
     /*
@@ -199,25 +197,61 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     func loadMyCourses(){
         //TODO Create a test with/ a for loop that hooks in to the database model
+        self.initialized = false
         ProgressHUD.show("Loading Courses")
+        
+        DataService.dataService.COURSE_REF.observeEventType(.ChildAdded, withBlock: { snapshot in
+            if self.initialized {
+                
+                //let c = BBCourse(ref: snapshot.ref)
+                var title:String!
+                if let t = snapshot.value.objectForKey(COURSE_TITLE) {
+                    title = t as! String
+                }else {
+                    title = "(no title)"
+                }
+                self.allCourseTitles.append(snapshot.key+"|"+title)
+                let cInfo = MyCourseInfo(ref: snapshot.ref, title:title)
+                if let st = snapshot.value.objectForKey(COURSE_STATUS) {
+                    if  st as! String == COURSE_STATUS_ONSHELF{
+                        self.courseLists[0].append(cInfo)
+                    }
+                    else{
+                        self.courseLists[1].append(cInfo)
+                    }
+                }
+                else {
+                    //Added New Course, AutoId triggered event
+                    self.courseLists[1].append(cInfo)
+                }
+                
+            }
+        })
+    
         DataService.dataService.COURSE_REF.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             ProgressHUD.dismiss()
+            
             if let content = snapshot.value {
                 if !(content is NSNull) {
                     for (cId,cData) in (content as! [String:NSDictionary]) {
                         let cref = DataService.dataService.COURSE_REF.childByAppendingPath(cId)
-                        let c = BBCourse(ref: cref)
-                        if let t = cData[COURSE_TITLE]{
-                            c.setTitle(t as! String)
-                            self.allCourseTitles.append(cId+"|"+c.title!)
+                        
+                        var title:String!
+                        if let t = cData.objectForKey(COURSE_TITLE) {
+                            title = t as! String
+                        }else {
+                            title = "(no title)"
                         }
+                        self.allCourseTitles.append(snapshot.key+"|"+title)
+                        let cInfo = MyCourseInfo(ref: cref, title:title)
+                        
                         if let st = cData[COURSE_STATUS] {
                             if st as! String==COURSE_STATUS_ONSHELF {
-                                self.courseLists[0].append(c)
+                                self.courseLists[0].append(cInfo)
                             }
                             else{
-                                self.courseLists[1].append(c)
+                                self.courseLists[1].append(cInfo)
                             }
                         }
                         
@@ -228,7 +262,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
             else{
                 //course without content
             }
-            
+            self.initialized = true
         })
         
     }

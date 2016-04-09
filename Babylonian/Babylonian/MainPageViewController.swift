@@ -3,22 +3,25 @@
 //  Babylonian
 //
 //  Created by Dongning Wang on 3/17/16.
-//  Copyright © 2016 Eric Smith. All rights reserved.
+//  Copyright © 2016 BabylonianTeam. All rights reserved.
 //
 
 import UIKit
 
 class MainPageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate{
-    var courseLists = [[BBCourse](),[BBCourse]()]
+    var courseLists = [[GeneralCourseInfo](),[GeneralCourseInfo]()]
     var allCourseTitles = [String]()
     var filtered = [String]()
     var searchActive : Bool = false
     let sections = ["Popular", "Trending"]
+    var initialized = false
     
     @IBOutlet weak var searchResult: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var table: UITableView!
+    
     override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
         table.reloadData()
     }
     override func viewDidLoad() {
@@ -30,9 +33,21 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         searchResult.delegate = self
         searchBar.delegate = self
         
+        searchResult.registerNib(UINib(nibName: "SearchTableCell", bundle: nil), forCellReuseIdentifier: "SearchTableCell")
+        
         self.searchResult.hidden = true
         table.reloadData()
         loadTopCourses()
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false
+
+    }
+    
+    deinit {
+        DataService.dataService.COURSE_REF.removeAllObservers()
     }
     
     //seting search bar
@@ -58,6 +73,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
             self.table.hidden = true
             self.searchResult.hidden = false
             self.searchBar.resignFirstResponder()
+            print(filtered)
         }
     }
     
@@ -106,12 +122,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if tableView==self.table {
-            if indexPath.section==0{
-                return 60
-            }
-            else{
-                return 35
-            }
+            return 40
         }
         else {
             return 35
@@ -126,10 +137,6 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         return 1
     }
     
-    //    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-    //        return 10
-    //    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if (self.searchResult==tableView) {
@@ -142,6 +149,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard.init(name: "CourseView", bundle: nil)
         let bbCourseController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView") as! BBCourseNavController
+        bbCourseController.viewOnly = true
         
         if tableView==self.searchResult {
             let courseId = filtered[indexPath.row].componentsSeparatedByString("|")[0]
@@ -150,34 +158,24 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
             
         }
         else {
-            bbCourseController.currentCourse = self.courseLists[indexPath.section][indexPath.row]
+            bbCourseController.currentCourse = BBCourse(ref: self.courseLists[indexPath.section][indexPath.row].ref)
         }
         self.presentViewController(bbCourseController, animated: true, completion: nil)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if tableView==self.searchResult {
-            let searchcell = tableView.dequeueReusableCellWithIdentifier("SearchCell", forIndexPath: indexPath) as! SearchCell
+            let searchcell = tableView.dequeueReusableCellWithIdentifier("SearchTableCell", forIndexPath: indexPath) as! SearchTableCell
             searchcell.courseTitle.text = filtered[indexPath.row].componentsSeparatedByString("|")[1]
             return searchcell
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier("MainCourseCell", forIndexPath: indexPath) as! MainCourseCell
         
-        if let t = self.courseLists[indexPath.section][indexPath.row].title{
-            cell.title.text = t
-        }
+
+        cell.title.text = self.courseLists[indexPath.section][indexPath.row].title
         
-        if let t = self.courseLists[indexPath.section][indexPath.row].title{
-            cell.title.text = t
-        }
-        else {
-            cell.title.text="null"
-        }
-        
-        
-        //Will probably have to convert some value here to a view count
-        cell.numOfView.text = "55 views"
+        cell.numOfView.text = String(self.courseLists[indexPath.section][indexPath.row].NoV)
         
         return cell
     }
@@ -190,7 +188,10 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
     
     func loadTopCourses(){
         //TODO Create a test with/ a for loop that hooks in to the database model
+        self.initialized = false
         ProgressHUD.show("Loading Courses")
+        
+        
         DataService.dataService.COURSE_REF.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             ProgressHUD.dismiss()
@@ -198,19 +199,26 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
                 if !(content is NSNull) {
                     for (cId,cData) in (content as! [String:NSDictionary]) {
                         let cref = DataService.dataService.COURSE_REF.childByAppendingPath(cId)
-                        let c = BBCourse(ref: cref)
+                        //let c = BBCourse(ref: cref)
+                        var title: String!
                         if let t = cData[COURSE_TITLE]{
-                            c.setTitle(t as! String)
-                            self.allCourseTitles.append(cId+"|"+c.title!)
+                            title = t as! String
+                        }else{
+                            title = "(no title)"
                         }
+                        let cInfo = GeneralCourseInfo(ref: cref, title: title)
+                        self.allCourseTitles.append(cId+"|"+title)
+                        
                         if let st = cData[COURSE_STATUS] {
                             if st as! String==COURSE_STATUS_ONSHELF {
-                                self.courseLists[0].append(c)
+                                self.courseLists[0].append(cInfo)
                             }
                             else{
-                                self.courseLists[1].append(c)
+                                self.courseLists[1].append(cInfo)
                             }
                         }
+                        
+                        
 //                        if let prev = cData[COURSE_PREVIEW] {
 //                            if st as! String==COURSE_STATUS_ONSHELF {
 //                                self.courseLists[0].append(c)
@@ -227,10 +235,10 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
             else{
                 //course without content
             }
-            
+            self.initialized = true
         })
         
     }
 
-
+    
 }

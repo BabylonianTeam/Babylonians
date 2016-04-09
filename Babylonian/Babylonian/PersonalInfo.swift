@@ -3,7 +3,7 @@
 //  Babylonian
 //
 //  Created by Sheng Gan on 4/3/16.
-//  Copyright © 2016 Eric Smith. All rights reserved.
+//  Copyright © 2016 BabylonianTeam. All rights reserved.
 //
 
 import Foundation

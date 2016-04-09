@@ -3,13 +3,14 @@
 //  Babylonian
 //
 //  Created by Dongning Wang on 4/3/16.
-//  Copyright © 2016 Eric Smith. All rights reserved.
+//  Copyright © 2016 BabylonianTeam. All rights reserved.
 //
 
 import UIKit
 
 class BBCourseNavController: UINavigationController {
     var currentCourse: BBCourse!
+    var viewOnly = false
 
     override func viewDidLoad() {
         super.viewDidLoad()

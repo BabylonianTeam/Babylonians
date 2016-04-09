@@ -3,7 +3,7 @@
 //  Babylonian
 //
 //  Created by Dongning Wang on 3/20/16.
-//  Copyright © 2016 Eric Smith. All rights reserved.
+//  Copyright © 2016 BabylonianTeam. All rights reserved.
 //
 
 import Foundation

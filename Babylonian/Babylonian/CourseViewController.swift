@@ -3,7 +3,7 @@
 //  Babylonian
 //
 //  Created by Dongning Wang on 4/2/16.
-//  Copyright © 2016 Eric Smith. All rights reserved.
+//  Copyright © 2016 BabylonianTeam. All rights reserved.
 //
 
 import UIKit
@@ -24,6 +24,10 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     var initialized: Bool = false
     var audioTimer = CACurrentMediaTime()
     
+    @IBOutlet weak var inputBar: UIToolbar!
+    @IBOutlet weak var recordBarItem: UIBarButtonItem!
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     
     @IBOutlet weak var courseTableView: LPRTableView!
     
@@ -34,12 +38,20 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .Plain, target: self, action: #selector(CourseViewController.backTapped))
         
+
+        
         self.imagePicker.delegate = self
 
         self.courseTableView.delegate = self
         self.courseTableView.dataSource = self
         self.courseTableView.longPressReorderEnabled = false
         
+        self.courseTableView.rowHeight = UITableViewAutomaticDimension;
+        self.courseTableView.estimatedRowHeight = 60.0;
+        courseTableView.registerNib(UINib(nibName: "ATItemAutoCell", bundle: nil), forCellReuseIdentifier: "ATItemAutoCell")
+        
+
+        self.recordBarItem.width = UIScreen.mainScreen().bounds.width*0.7
 
         if let cur_course=(self.navigationController as! BBCourseNavController).currentCourse {
             //has a value already
@@ -50,6 +62,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             let ref = DataService.dataService.COURSE_REF.childByAutoId()
             (self.navigationController as! BBCourseNavController).currentCourse = BBCourse(ref: ref, author: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
             self.currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
+            self.currentCourse.setStatus(COURSE_STATUS_DRAFT)
             self.currentCourse.setTitle("")
         }
         
@@ -57,13 +70,20 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             self.loadCourse()
         }
         
+        if self.isViewOnly {
+            self.makeViewOnly()
+        }
+        else
+        {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshTable), name: "RefreshCourseViewTable", object: nil)
+        }
         self.prepareRecording()
         
     }
     
     override func viewWillDisappear(animated: Bool) {
         self.currentCourse.contentRef.removeAllObservers()
-        //self.currentCourse = nil
+        self.cancelViewOnly()
     }
     
     @IBAction func editButton(sender: UIBarButtonItem) {
@@ -114,7 +134,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
-    @IBAction func nextButton(sender: UIButton) {
+    @IBAction func nextButton(sender: UIBarButtonItem) {
         
         if self.currentCourse.contents.count<(Int(COURSE_MIN_ITEMS)){
             ProgressHUD.showError("Course should have at least "+String(COURSE_MIN_ITEMS)+" items")
@@ -176,35 +196,28 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
+    func refreshTable() -> Void {
+        self.courseTableView.beginUpdates()
+        self.courseTableView.endUpdates()
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.currentCourse.contents.count
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //
-    }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row<self.currentCourse.contents.count && self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_AUDIOTEXT {
-            
-            return 50
-            
-        }
-        if indexPath.row<self.currentCourse.contents.count && self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_IMAGE {
-            
-            return 100
-        }
-        return 30
-    }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         
         if indexPath.row<self.currentCourse.contents.count && self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_AUDIOTEXT {
-            let cell = tableView.dequeueReusableCellWithIdentifier("ATItemCell", forIndexPath: indexPath) as! ATItemCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("ATItemAutoCell", forIndexPath: indexPath) as! ATItemAutoCell
             cell.item = self.currentCourse.contents[indexPath.row] as! ATItem
             cell.refreshText()
+            cell.setNeedsUpdateConstraints()
+            cell.updateConstraintsIfNeeded()
+            if self.isViewOnly{
+                cell.transcript.editable = false
+            }
             return cell
 
         }
@@ -215,11 +228,17 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             
             if let stringUrl = dic[COURSE_ITEM_IMAGE] {
                 if let url = NSURL(string: stringUrl as! String) {
-                    if let data = NSData(contentsOfURL: url) {
-                        cell.imageView?.image = UIImage(data: data)
-                    }
+                    cell.imageView?.sd_setImageWithURL(url, placeholderImage: UIImage(named: "default-placeholder.png"))
                 }
             }
+            cell.imageView?.userInteractionEnabled = true
+            cell.imageView?.multipleTouchEnabled = true
+            let tapgesture = UITapGestureRecognizer(target: self, action: #selector(CourseViewController.imageTapped(_:)))
+            tapgesture.delegate = self as? UIGestureRecognizerDelegate
+            tapgesture.numberOfTapsRequired = 1
+           
+            cell.addGestureRecognizer(tapgesture)
+
             return cell
         }
         
@@ -255,6 +274,8 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     func backTapped() -> Void {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+
     
     func loadCourse() -> Void {
 
@@ -302,6 +323,24 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
+
+    func imageTapped(sender: UITapGestureRecognizer) {
+        // handling image tapped
+        let imageView = (sender.view as! ImageItemCell).imageView
+        let newImageView = UIImageView(image: imageView!.image)
+        newImageView.frame = self.view.frame
+        newImageView.backgroundColor = .blackColor()
+        newImageView.contentMode = .ScaleAspectFit
+        newImageView.userInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(CourseViewController.dismissFullscreenImage(_:)))
+        newImageView.addGestureRecognizer(tap)
+        self.view.addSubview(newImageView)
+    }
+    
+    func dismissFullscreenImage(sender: UITapGestureRecognizer) {
+        sender.view?.removeFromSuperview()
+    }
+    
     func prepareRecording() -> Void{
         recordingSession = AVAudioSession.sharedInstance()
         
@@ -322,6 +361,25 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    func makeViewOnly() -> Void {
+        self.editButton.enabled = false
+        self.editButton.tintColor = UIColor.clearColor()
+        self.nextButton.enabled = false
+        self.nextButton.tintColor = UIColor.clearColor()
+        self.inputBar.hidden = true
+    }
+    
+    func cancelViewOnly() -> Void {
+        self.editButton.enabled = true
+        self.editButton.tintColor = nil
+        self.nextButton.enabled = true
+        self.nextButton.tintColor = nil
+        self.inputBar.hidden = false
+    }
+    
+    var isViewOnly : Bool{
+        return (self.navigationController as! BBCourseNavController).viewOnly
+    }
     
     // MARK: - Navigation
 

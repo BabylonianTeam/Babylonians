@@ -1,15 +1,16 @@
 //
-//  tagTableViewCell.swift
+//  DraftCell.swift
 //  Babylonian
 //
-//  Created by Jiqing Xu on 4/5/16.
+//  Created by Dongning Wang on 4/9/16.
 //  Copyright © 2016 BabylonianTeam. All rights reserved.
 //
 
 import UIKit
 
-class tagTableViewCell: UITableViewCell {
+class DraftCell: UITableViewCell {
 
+    @IBOutlet weak var courseTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -1,32 +1,31 @@
 //
-//  ATItemCell.swift
+//  ATItemAutoCell.swift
 //  Babylonian
 //
-//  Created by Dongning Wang on 4/2/16.
-//  Copyright © 2016 Eric Smith. All rights reserved.
+//  Created by Dongning Wang on 4/9/16.
+//  Copyright © 2016 BabylonianTeam. All rights reserved.
 //
 
 import UIKit
-import AVFoundation
 
-class ATItemCell: UITableViewCell, UITextViewDelegate {
-
-    //var audioUrl : NSURL!
+class ATItemAutoCell: UITableViewCell, UITextViewDelegate {
+    
     var item : ATItem!
     var timer = NSTimer()
+    var textLineNum = 1
     
-    @IBOutlet weak var playButton: PlaybackButton!
+    
+    
     @IBOutlet weak var transcript: UITextView!
+    @IBOutlet weak var playButton: PlaybackButton!
     
-
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         transcript.delegate = self
         
-        transcript.textContainer.maximumNumberOfLines = 3;
-        transcript.textContainer.lineBreakMode = NSLineBreakMode.ByTruncatingTail;
+        transcript.textContainer.maximumNumberOfLines = 5;
+        transcript.textContainer.lineBreakMode = NSLineBreakMode.ByWordWrapping;
         
         self.playButton.contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         self.playButton.layer.cornerRadius = self.playButton.frame.size.height/2
@@ -43,14 +42,9 @@ class ATItemCell: UITableViewCell, UITextViewDelegate {
         
         
         self.playButton.adjustMargin = 1
+        
+    }
 
-    }
- 
-    
-    @IBAction func throughAudio(sender: PlaybackButton) {
-        //TODO remove audio
-    }
-    
     
     @IBAction func playButtonPressed(sender: UIButton) {
         let audioPlayer = STKAudioPlayer()
@@ -68,8 +62,8 @@ class ATItemCell: UITableViewCell, UITextViewDelegate {
                 dur = d+1
             }
         }
-        timer = NSTimer.scheduledTimerWithTimeInterval(Double(dur), target: self, selector: #selector(ATItemCell.stopPlay), userInfo: nil, repeats: false)
-
+        timer = NSTimer.scheduledTimerWithTimeInterval(Double(dur), target: self, selector: #selector(ATItemAutoCell.stopPlay), userInfo: nil, repeats: false)
+        
     }
     
     func stopPlay() -> Void {
@@ -85,7 +79,7 @@ class ATItemCell: UITableViewCell, UITextViewDelegate {
             transcript.text = contents[COURSE_ITEM_TEXT] as! String
         }
     }
-
+    
     //TODO: tap and drag//tap and hold to record
     
     
@@ -95,11 +89,6 @@ class ATItemCell: UITableViewCell, UITextViewDelegate {
             textView.resignFirstResponder()
             return false
         }
-        return true
-    }
-    
-    func textViewDidChange(textView: UITextView) {
-        print("did change")
         let fixedWidth = textView.frame.size.width
         textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
         textView.layoutIfNeeded()
@@ -107,12 +96,32 @@ class ATItemCell: UITableViewCell, UITextViewDelegate {
         var newFrame = textView.frame
         newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
         textView.frame = newFrame;
+        
+        let newLineNum = Int(textView.contentSize.height/(textView.font?.lineHeight)!)
+        if newLineNum != textLineNum {
+            textLineNum = newLineNum
+            self.item.setText(self.transcript.text)
+            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "RefreshCourseViewTable", object: nil))
+        }
+        return true
     }
+    
+//    func textViewDidChange(textView: UITextView) {
+//        print("did change")
+//        let fixedWidth = textView.frame.size.width
+//        textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+//        textView.layoutIfNeeded()
+//        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+//        var newFrame = textView.frame
+//        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+//        textView.frame = newFrame;
+//    }
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
 
+    
 }

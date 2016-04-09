@@ -3,7 +3,7 @@
 //  Babylonian
 //
 //  Created by Jiqing Xu on 4/2/16.
-//  Copyright © 2016 Eric Smith. All rights reserved.
+//  Copyright © 2016 BabylonianTeam. All rights reserved.
 //
 
 import Foundation
@@ -32,6 +32,9 @@ class ATItem: CourseItem {
     func setAudioDuration(duration:Float!) {
         self.content.setValue(duration, forKey: COURSE_ITEM_AUDIO_DURATION)
         self.itemRef.updateChildValues([COURSE_ITEM_AUDIO_DURATION:duration])
+    }
+    var duration: Float? {
+        return self.content.valueForKey(COURSE_ITEM_AUDIO_DURATION) as? Float
     }
     
     override func toAnyObject() -> AnyObject {
