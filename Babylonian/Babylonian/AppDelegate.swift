@@ -35,10 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        
         // Authentication
         if let _ = NSUserDefaults.standardUserDefaults().valueForKey("uid") {
-            
             if let role = NSUserDefaults.standardUserDefaults().valueForKey(USER_ROLE) {
                 if role as! String == USER_ROLE_CREATOR {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)

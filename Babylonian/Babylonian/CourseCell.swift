@@ -14,6 +14,7 @@ class CourseCell : UITableViewCell{
     @IBOutlet weak var courseTitle: UILabel!
     @IBOutlet weak var profitAmount: UILabel!
     @IBOutlet weak var courseViewCount: UILabel!
+    @IBOutlet weak var profitLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +31,8 @@ class CourseCell : UITableViewCell{
         
         profitAmount.font = smallFont
         profitAmount.textColor = secondaryColor
+        profitLabel.font = smallFont
+        profitLabel.textColor = secondaryColor
         courseViewCount.font = smallFont
         courseViewCount.textColor = secondaryColor
         
