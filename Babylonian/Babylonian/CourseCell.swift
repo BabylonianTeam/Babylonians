@@ -2,6 +2,7 @@
 //  CourseCell.swift
 //  Babylonian
 //
+//  Modified by Dongning Wang
 //  Created by Eric Smith on 3/14/16.
 //  Copyright © 2016 BabylonianTeam. All rights reserved.
 //
