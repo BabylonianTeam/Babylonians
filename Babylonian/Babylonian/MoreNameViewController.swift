@@ -34,7 +34,8 @@ class MoreNameViewController: UIViewController, UITableViewDelegate, UITableView
     
     let secondaryColor = UIColor.lightGrayColor()
     
-    var userInfo = PersonalInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String)
+    var userInfo : PersonalInfo!
+    
     var _USER_REF = Firebase(url: "\(BASE_URL)/users")
     
     
@@ -50,6 +51,8 @@ class MoreNameViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<Back", style: .Plain, target: self, action: #selector(MoreNameViewController.backTapped))
+        
+        userInfo = PersonalInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String)
         
         configureTableView()
     }

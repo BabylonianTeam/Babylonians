@@ -24,6 +24,12 @@ class PersonalInfo: NSObject{
         }
     }
     
+    func setRef(id: String?){
+        if (id != nil){
+            self.ref_ = _USER_REF.childByAppendingPath(id)
+        }
+    }
+    
     func updateDisplayName(displayName: String) -> Void {
         self.displayName_ = displayName
         self.ref_.updateChildValues([USER_DISPLAYNAME:displayName])
