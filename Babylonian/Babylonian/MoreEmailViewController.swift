@@ -34,7 +34,8 @@ class MoreEmailViewController: UIViewController, UITableViewDelegate, UITableVie
         
     let secondaryColor = UIColor.lightGrayColor()
     
-    var userInfo = PersonalInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String)
+    var userInfo : PersonalInfo!
+    
     var _USER_REF = Firebase(url: "\(BASE_URL)/users")
     var _BASE_REF = Firebase(url: "\(BASE_URL)")
     
@@ -49,6 +50,8 @@ class MoreEmailViewController: UIViewController, UITableViewDelegate, UITableVie
         override func viewDidLoad() {
             super.viewDidLoad()
             // Do any additional setup after loading the view, typically from a nib.
+            
+            userInfo = PersonalInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String)
             
             configureTableView()
         }
