@@ -18,8 +18,10 @@ class PersonalInfo: NSObject{
     
     var _USER_REF = Firebase(url: "\(BASE_URL)/users")
     
-    init(id: String){
-        self.ref_ = _USER_REF.childByAppendingPath(id)
+    init(id: String?){
+        if (id != nil){
+            self.ref_ = _USER_REF.childByAppendingPath(id)
+        }
     }
     
     func updateDisplayName(displayName: String) -> Void {
