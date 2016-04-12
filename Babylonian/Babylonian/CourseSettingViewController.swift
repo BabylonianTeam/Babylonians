@@ -17,6 +17,8 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
     var tagStr: String?
     var tagArray = [String]()
     var tagView = [TagView]()
+    var newData = [String]()
+    var buttonData = [String]()
     
     
    
@@ -32,13 +34,17 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        newData = ["Course Title:", "Course Price:", "Course Tag:"]
+        buttonData = ["add", "add", "add"]
         self.title = "Setings"
         currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
         tagListView.delegate = self
         courseTitle.delegate = self
         coursePrice.delegate = self
         courseTag.delegate = self
+       
+        
+        
         
         self.currentCourse.courseRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
            
@@ -105,6 +111,9 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
             }, withCancelBlock: { error in
                 print(error.description)
         })
+        
+        
+        
     }
     
 //    
@@ -195,51 +204,78 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
         
     }
     
-    // MARK: UITableView Delegate methods
-
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("tagCell", forIndexPath: indexPath) as! UITableViewCell
-//        
-//        if(self.fullTagArr == nil){
-//            print("full tag is empty!")
-//        }
-//        cell.textLabel?.text = self.fullTagArr[indexPath.row] as! String
-//        return cell
-//    }
-//
-//    func tableViewScrollToBottom(animated: Bool) {
-//        
-//        let delay = 0.1 * Double(NSEC_PER_SEC)
-//        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-//        
-//        dispatch_after(time, dispatch_get_main_queue(), {
-//            
-//            let numberOfSections = self.tableView.numberOfSections
-//            let numberOfRows = self.tableView.numberOfRowsInSection(numberOfSections-1)
-//            
-//            if numberOfRows > 0 {
-//                let indexPath = NSIndexPath(forRow: numberOfRows-1, inSection: (numberOfSections-1))
-//                self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: animated)
-//            }
-//            
-//        })
-//    }
-    
-    
-    
-    
-    
-//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("tagCell") as! UITableViewCell
-//        let tagItem = fullTagArr[indexPath.row]
-//        
-//        
-//        return cell
-//    }
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 50
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3 //This function returns number of rows in table view
+    }
+    
+    
+    
+    
+    func tableView(tableView: UITableView!,
+                   cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
+    {
+        let cell:UITableViewCell = UITableViewCell(style:UITableViewCellStyle.Default, reuseIdentifier:"TextfieldCell")
+       
+        cell.textLabel?.text = newData[indexPath.row]
+        
+        
+        var input = UITextField(frame: CGRectMake(130.0, 14.0, 150.0, 30.0))
+        
+        input.tag = indexPath.row
+        cell.contentView.addSubview(input)
+        
+//        let btn = UIButton(type: UIButtonType.Custom) as UIButton
+//        btn.backgroundColor = UIColor.lightGrayColor()
+//        btn.setTitle(buttonData[indexPath.row], forState: UIControlState.Normal)
+//        btn.frame = CGRectMake(0, 5, 80, 40)
+//        btn.addTarget(self, action: "buttonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+//        btn.tag = indexPath.row
+//        cell.contentView.addSubview(btn)
+        
+        return cell
+    }
+    
+    
+    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+//    {
+//        
+//        var cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+//        
+//        var label = UILabel(frame: CGRectMake(280.0, 14.0, 100.0, 30.0))
+//        label.text = newData[indexPath.row]
+//        label.tag = indexPath.row
+//        cell.contentView.addSubview(label)
+//        
+//        
+//        let btn = UIButton(type: UIButtonType.Custom) as UIButton
+//        btn.backgroundColor = UIColor.greenColor()
+//        btn.setTitle(newData[indexPath.row], forState: UIControlState.Normal)
+//        btn.frame = CGRectMake(0, 5, 80, 40)
+//        btn.addTarget(self, action: "buttonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+//        btn.tag = indexPath.row
+//        cell.contentView.addSubview(btn)
+//        
+//        return cell
+//    }
+//    
+//    //Button Action is
+//    func buttonPressed(sender:UIButton!)
+//    {
+//        let buttonRow = sender.tag
+//        print("button is Pressed")
+//        print("Clicked Button Row is",buttonRow)
+//    }
+
+    
+    
+    
+
+    
 //
 //    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 //        if editingStyle == .Delete {
