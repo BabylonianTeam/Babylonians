@@ -11,6 +11,7 @@ import UIKit
 class MainPageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate{
     var courseLists = [[GeneralCourseInfo](),[GeneralCourseInfo]()]
     var allCourseTitles = [String]()
+    var popularCourseTitles = [String]()
     var filtered = [String]()
     var searchActive : Bool = false
     let sections = ["Popular", "Trending"]
@@ -43,7 +44,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewWillDisappear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
-
+        
     }
     
     deinit {
@@ -92,14 +93,14 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         self.searchResult.reloadData()
     }
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return false
@@ -172,7 +173,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         
         let cell = tableView.dequeueReusableCellWithIdentifier("MainCourseCell", forIndexPath: indexPath) as! MainCourseCell
         
-
+        
         cell.title.text = self.courseLists[indexPath.section][indexPath.row].title
         
         cell.numOfView.text = String(self.courseLists[indexPath.section][indexPath.row].NoV)
@@ -192,44 +193,91 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         ProgressHUD.show("Loading Courses")
         
         
-        DataService.dataService.COURSE_REF.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        DataService.dataService.POPULAR_REF.observeSingleEventOfType(.Value, withBlock: { pop_snapshot in
             
             ProgressHUD.dismiss()
-            if let content = snapshot.value {
+            if let content = pop_snapshot.value {
+                
                 if !(content is NSNull) {
-                    for (cId,cData) in (content as! [String:NSDictionary]) {
-                        let cref = DataService.dataService.COURSE_REF.childByAppendingPath(cId)
-                        //let c = BBCourse(ref: cref)
-                        var title: String!
-                        if let t = cData[COURSE_TITLE]{
-                            title = t as! String
-                        }else{
-                            title = "(no title)"
-                        }
-                        let cInfo = GeneralCourseInfo(ref: cref, title: title)
-                        self.allCourseTitles.append(cId+"|"+title)
-                        
-                        if let st = cData[COURSE_STATUS] {
-                            if st as! String==COURSE_STATUS_ONSHELF {
-                                self.courseLists[0].append(cInfo)
+                    for cId in (content as! [String]) {
+                        let cRef = DataService.dataService.COURSE_REF.childByAppendingPath(cId)
+                        cRef.observeSingleEventOfType(.Value, withBlock: { course_snapshot in
+                            
+                            let cData = course_snapshot.value
+                            
+                            //let c = BBCourse(ref: cref)
+                            var title: String!
+                            if let t = cData[COURSE_TITLE]{
+                                title = t as! String
+                            }else{
+                                title = "(no title)"
                             }
-                            else{
-                                self.courseLists[1].append(cInfo)
-                            }
-                        }
-                        
-                        
-//                        if let prev = cData[COURSE_PREVIEW] {
-//                            if st as! String==COURSE_STATUS_ONSHELF {
-//                                self.courseLists[0].append(c)
+                            let cInfo = GeneralCourseInfo(ref: cRef, title: title)
+                            self.allCourseTitles.append(cId+"|"+title)
+                            self.courseLists[0].append(cInfo)
+//                            if let st = cData[COURSE_STATUS] {
+//                                if st as! String==COURSE_STATUS_ONSHELF {
+//                                    self.courseLists[0].append(cInfo)
+//                                }
+//                                else{
+//                                    self.courseLists[1].append(cInfo)
+//                                }
 //                            }
-//                            else{
-//                                self.courseLists[1].append(c)
-//                            }
-//                        }
+                            
+                            self.table.reloadData()
+                            
+                        })
                         
                     }
-                    self.table.reloadData()
+                    
+                }
+            }
+            else{
+                //course without content
+            }
+            self.initialized = true
+        })
+        
+        
+        
+        DataService.dataService.TRENDING_REF.observeSingleEventOfType(.Value, withBlock: { trend_snapshot in
+            
+            ProgressHUD.dismiss()
+            if let content = trend_snapshot.value {
+                
+                if !(content is NSNull) {
+                    for cId in (content as! [String]) {
+                        let cRef = DataService.dataService.COURSE_REF.childByAppendingPath(cId)
+                        cRef.observeSingleEventOfType(.Value, withBlock: { course_snapshot in
+                            
+                            let cData = course_snapshot.value
+                            
+                            //let c = BBCourse(ref: cref)
+                            var title: String!
+                            if let t = cData[COURSE_TITLE]{
+                                title = t as! String
+                            }else{
+                                title = "(no title)"
+                            }
+                            let cInfo = GeneralCourseInfo(ref: cRef, title: title)
+                            self.allCourseTitles.append(cId+"|"+title)
+                            self.courseLists[1].append(cInfo)
+                            
+//                            if let st = cData[COURSE_STATUS] {
+//                                if st as! String==COURSE_STATUS_ONSHELF {
+//                                    self.courseLists[0].append(cInfo)
+//                                }
+//                                else{
+//                                    self.courseLists[1].append(cInfo)
+//                                }
+//                            }
+                            
+                            self.table.reloadData()
+                            
+                        })
+                        
+                    }
+                    
                 }
             }
             else{
@@ -239,6 +287,6 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         })
         
     }
-
-    
 }
+
+
