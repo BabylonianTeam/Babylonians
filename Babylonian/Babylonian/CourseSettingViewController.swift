@@ -55,6 +55,7 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
                 //self.tagTransfer = (tagstr as? NSArray)!
                 self.tagStr = tagstr as? String
                 self.tagArray = self.tagStr!.componentsSeparatedByString("|")
+                self.currentCourse.tag_ = self.tagArray
                 self.tagListView.textFont = UIFont.systemFontOfSize(24)
                 self.tagListView.alignment = .Center // possible values are .Left, .Center, and .Right
                 self.tagListView.removeAllTags()
