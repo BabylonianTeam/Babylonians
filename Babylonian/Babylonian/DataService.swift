@@ -16,6 +16,8 @@ import Firebase
     private var _USER_REF = Firebase(url: "\(BASE_URL)/users")
     private var _COURSE_REF = Firebase(url: "\(BASE_URL)/courses")
     private var _LOCAL_DIR = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+    private var _POPULAR_REF = Firebase(url: "\(BASE_URL)/popular_courses")
+    private var _TRENDING_REF = Firebase(url: "\(BASE_URL)/trending_courses")
     
     var LOCAL_DIR: String {
         return _LOCAL_DIR
@@ -39,5 +41,13 @@ import Firebase
     
     var COURSE_REF: Firebase {
         return _COURSE_REF
+    }
+    
+    var POPULAR_REF : Firebase {
+        return _POPULAR_REF
+    }
+    
+    var TRENDING_REF : Firebase {
+        return _TRENDING_REF
     }
 }
