@@ -75,6 +75,13 @@ class MoreUIViewController: UIViewController, UIImagePickerControllerDelegate, U
         labelDisplayName?.font = bigFont
         labelMoney?.font = bigFont
         
+        //TODO: remove this test
+        //var userInfo : PersonalInfo!
+        //userInfo = PersonalInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String)
+        //userInfo.addPurchasedCourse("-KEqdJjPXu3NKt95OdlC")
+        
+        
+        
         //retrieve displayName from firebase, and display it on More page
         _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
             if let content = snapshot.value {

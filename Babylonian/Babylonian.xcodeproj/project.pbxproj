@@ -92,6 +92,9 @@
 		30F20ABB1CA0F99D00A484E9 /* LearnerMyCourses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20ABA1CA0F99D00A484E9 /* LearnerMyCourses.storyboard */; };
 		30F20ABE1CA121E700A484E9 /* RNCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F20ABD1CA121E700A484E9 /* RNCryptor.swift */; };
 		30F20AC11CA124C600A484E9 /* CourseView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20AC01CA124C600A484E9 /* CourseView.storyboard */; };
+		92AAAEE11CC2D92D00CD37E7 /* OwnedCourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AAAEE01CC2D92D00CD37E7 /* OwnedCourseItem.swift */; };
+		92AAAEE31CC2DFF100CD37E7 /* CreatorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AAAEE21CC2DFF100CD37E7 /* CreatorInfo.swift */; };
+		92AAAEE51CC2DFFD00CD37E7 /* LearnerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AAAEE41CC2DFFD00CD37E7 /* LearnerInfo.swift */; };
 		92C42CE81CB211BD003091FC /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C42CE71CB211BD003091FC /* PersonalInfo.swift */; };
 		9F17DC7F1CBC85DE00442D14 /* LeanerMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F17DC7E1CBC85DE00442D14 /* LeanerMoreViewController.swift */; };
 		9F17DC831CBC89BD00442D14 /* LearnerMorePasswdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F17DC801CBC89BD00442D14 /* LearnerMorePasswdViewController.swift */; };
@@ -261,6 +264,9 @@
 		76CDD2D8D01CE5CB4C1FFBBD /* Pods-Babylonian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.debug.xcconfig"; sourceTree = "<group>"; };
 		903F44B61CB433340023E412 /* CourseSettingViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSettingViewControllerTests.swift; sourceTree = "<group>"; };
 		903F44B81CB446460023E412 /* tagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tagTableViewCell.swift; sourceTree = "<group>"; };
+		92AAAEE01CC2D92D00CD37E7 /* OwnedCourseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnedCourseItem.swift; sourceTree = "<group>"; };
+		92AAAEE21CC2DFF100CD37E7 /* CreatorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorInfo.swift; sourceTree = "<group>"; };
+		92AAAEE41CC2DFFD00CD37E7 /* LearnerInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnerInfo.swift; sourceTree = "<group>"; };
 		92C42CE71CB211BD003091FC /* PersonalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
 		9F17DC7E1CBC85DE00442D14 /* LeanerMoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeanerMoreViewController.swift; sourceTree = "<group>"; };
 		9F17DC801CBC89BD00442D14 /* LearnerMorePasswdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnerMorePasswdViewController.swift; sourceTree = "<group>"; };
@@ -401,10 +407,10 @@
 			isa = PBXGroup;
 			children = (
 				3075D8851CB5936D00B5262F /* CourseModel */,
-				92C42CE71CB211BD003091FC /* PersonalInfo.swift */,
-				9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */,
+				92AAAEE71CC2E1BC00CD37E7 /* UserModel */,
 				9FBDE5651C9B8E9D003A45BA /* Constant.swift */,
 				30DBCE141C9E6D0C000CD59D /* DataService.swift */,
+				9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -598,6 +604,17 @@
 				115FA039AF3895E52FC1599D /* Pods-Babylonian.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		92AAAEE71CC2E1BC00CD37E7 /* UserModel */ = {
+			isa = PBXGroup;
+			children = (
+				92C42CE71CB211BD003091FC /* PersonalInfo.swift */,
+				92AAAEE01CC2D92D00CD37E7 /* OwnedCourseItem.swift */,
+				92AAAEE21CC2DFF100CD37E7 /* CreatorInfo.swift */,
+				92AAAEE41CC2DFFD00CD37E7 /* LearnerInfo.swift */,
+			);
+			name = UserModel;
 			sourceTree = "<group>";
 		};
 		9F17DC7D1CBC828700442D14 /* MorePage-Learner */ = {
@@ -891,6 +908,7 @@
 				9FA0EDAB1CB5D3CA00250F91 /* MorePasswdViewController.swift in Sources */,
 				07EFFB621C97B128006F8ECB /* CourseCell.swift in Sources */,
 				309818831CB36ECB0026D19A /* STKQueueEntry.m in Sources */,
+				92AAAEE11CC2D92D00CD37E7 /* OwnedCourseItem.swift in Sources */,
 				3098187C1CB36ECB0026D19A /* STKAudioPlayer.m in Sources */,
 				3037A4A31CB0513400C52232 /* CourseSettingViewController.swift in Sources */,
 				3037A4AB1CB09F6600C52232 /* CourseItem.swift in Sources */,
@@ -907,6 +925,7 @@
 				30852AAA1CB8FCFD00C4D100 /* ATItemAutoCell.swift in Sources */,
 				3037A4AA1CB09F6600C52232 /* ATItem.swift in Sources */,
 				30DBCE001C9E4174000CD59D /* NSData+ImageContentType.m in Sources */,
+				92AAAEE31CC2DFF100CD37E7 /* CreatorInfo.swift in Sources */,
 				30E6DB411CB2193200F604E6 /* LPRTableView.swift in Sources */,
 				30852AAE1CB954D400C4D100 /* SearchTableCell.swift in Sources */,
 				9F66D6101C9ADE6B00EB9C93 /* CustomCell.swift in Sources */,
@@ -925,6 +944,7 @@
 				3037A4A11CB03A9B00C52232 /* CourseViewController.swift in Sources */,
 				9F17DC841CBC89BD00442D14 /* LearnerMoreNameViewController.swift in Sources */,
 				309818811CB36ECB0026D19A /* STKHTTPDataSource.m in Sources */,
+				92AAAEE51CC2DFFD00CD37E7 /* LearnerInfo.swift in Sources */,
 				30E6DB431CB22C7E00F604E6 /* CreateCourseItemCell.swift in Sources */,
 				92C42CE81CB211BD003091FC /* PersonalInfo.swift in Sources */,
 				30DBCE151C9E6D0C000CD59D /* DataService.swift in Sources */,

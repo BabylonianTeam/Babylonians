@@ -31,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.server = PARSE_SERVER
         }
         Parse.initializeWithConfiguration(configuration)
-
         
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
