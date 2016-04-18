@@ -23,6 +23,8 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     var imagePicker = UIImagePickerController()
     var initialized: Bool = false
     var audioTimer = CACurrentMediaTime()
+    var editingIndex : NSIndexPath?
+    
     
     @IBOutlet weak var inputBar: UIToolbar!
     @IBOutlet weak var recordBarItem: UIBarButtonItem!
@@ -72,18 +74,29 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         if self.isViewOnly {
             self.makeViewOnly()
         }
-        else
-        {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshTable), name: "RefreshCourseViewTable", object: nil)
-        }
+
         self.prepareRecording()
         
     }
-    
+    override func viewWillAppear(animated: Bool) {
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardShow), name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardHide), name: UIKeyboardDidHideNotification, object: nil)
+        
+        if !self.isViewOnly {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshTable), name: "RefreshCourseViewTable", object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(scrollToCell), name: "EditingATItem", object: nil)
+        }
+    }
     override func viewWillDisappear(animated: Bool) {
         self.currentCourse.contentRef.removeAllObservers()
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil)
         self.cancelViewOnly()
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "RefreshCourseViewTable", object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "EditingATItem", object: nil)
     }
+
     
     @IBAction func editButton(sender: UIBarButtonItem) {
          //TODO: change tableview status
@@ -195,10 +208,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
-    func refreshTable() -> Void {
-        self.courseTableView.beginUpdates()
-        self.courseTableView.endUpdates()
-    }
+
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.currentCourse.contents.count
@@ -212,8 +222,8 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             let cell = tableView.dequeueReusableCellWithIdentifier("ATItemAutoCell", forIndexPath: indexPath) as! ATItemAutoCell
             cell.item = self.currentCourse.contents[indexPath.row] as! ATItem
             cell.refreshText()
-            cell.setNeedsUpdateConstraints()
-            cell.updateConstraintsIfNeeded()
+            //cell.setNeedsUpdateConstraints()
+            //cell.updateConstraintsIfNeeded()
             if self.isViewOnly{
                 cell.transcript.editable = false
             }
@@ -265,19 +275,113 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         self.currentCourse.moveItemTo(sourceIndexPath.row+1,to: destinationIndexPath.row+1)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func backTapped() -> Void {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func refreshTable() -> Void {
+        self.courseTableView.beginUpdates()
+        self.courseTableView.endUpdates()
+        if let path = self.editingIndex {
+            self.courseTableView.scrollToRowAtIndexPath(path, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+        }
+    }
+    
+    func keyboardShow(notification:NSNotification) -> Void {
+        //scroll table
+        let keyboardSize = notification.userInfo![UIKeyboardFrameBeginUserInfoKey]?.CGRectValue().size
+        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize!.height), 0.0)
+        let rate = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey]
+        UIView.animateWithDuration(Double(rate!.floatValue), animations: {
+            self.courseTableView.contentInset = contentInsets
+            self.courseTableView.scrollIndicatorInsets = contentInsets
+        })
+        if let path = self.editingIndex {
+            self.courseTableView.scrollToRowAtIndexPath(path, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+        }
+        
+    }
+    
+    func keyboardHide(notification:NSNotification) -> Void {
+        //scroll table
+        let rate = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey]
+        UIView.animateWithDuration(Double(rate!.floatValue), animations: {
+            self.courseTableView.contentInset = UIEdgeInsetsZero
+            self.courseTableView.scrollIndicatorInsets = UIEdgeInsetsZero
+        })
+        
+        
+    }
+    
+    
+    func scrollToCell(notification:NSNotification){
+        self.editingIndex = self.courseTableView.indexPathForCell((notification.userInfo?["Cell"])! as! UITableViewCell)
+    }
+
+    func imageTapped(sender: UITapGestureRecognizer) {
+        // handling image tapped
+        let imageView = (sender.view as! ImageItemCell).imageView
+        let newImageView = UIImageView(image: imageView!.image)
+        newImageView.frame = self.view.frame
+        newImageView.backgroundColor = .blackColor()
+        newImageView.contentMode = .ScaleAspectFit
+        newImageView.userInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(CourseViewController.dismissFullscreenImage(_:)))
+        newImageView.addGestureRecognizer(tap)
+        self.view.addSubview(newImageView)
+        self.view.endEditing(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    func dismissFullscreenImage(sender: UITapGestureRecognizer) {
+        sender.view?.removeFromSuperview()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    func prepareRecording() -> Void{
+        recordingSession = AVAudioSession.sharedInstance()
+        
+        do {
+            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try recordingSession.setActive(true)
+            recordingSession.requestRecordPermission() { [unowned self] (allowed: Bool) -> Void in
+                dispatch_async(dispatch_get_main_queue()) {
+                    if allowed {
+                        //self.loadRecordingUI()
+                    } else {
+                        // failed to record!
+                    }
+                }
+            }
+        } catch {
+            print("failed to record!")
+        }
+    }
 
     
+    func makeViewOnly() -> Void {
+        self.editButton.enabled = false
+        self.editButton.tintColor = UIColor.clearColor()
+        self.nextButton.enabled = false
+        self.nextButton.tintColor = UIColor.clearColor()
+        self.inputBar.hidden = true
+    }
+    
+    func cancelViewOnly() -> Void {
+        self.editButton.enabled = true
+        self.editButton.tintColor = nil
+        self.nextButton.enabled = true
+        self.nextButton.tintColor = nil
+        self.inputBar.hidden = false
+    }
+    
+    var isViewOnly : Bool{
+        return (self.navigationController as! BBCourseNavController).viewOnly
+    }
+    
+    //content
     func loadCourse() -> Void {
-
+        
         self.initialized = false
         
         
@@ -318,70 +422,14 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             ProgressHUD.dismiss()
             self.initialized = true
         })
-        
-        
     }
-    
 
-    func imageTapped(sender: UITapGestureRecognizer) {
-        // handling image tapped
-        let imageView = (sender.view as! ImageItemCell).imageView
-        let newImageView = UIImageView(image: imageView!.image)
-        newImageView.frame = self.view.frame
-        newImageView.backgroundColor = .blackColor()
-        newImageView.contentMode = .ScaleAspectFit
-        newImageView.userInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(CourseViewController.dismissFullscreenImage(_:)))
-        newImageView.addGestureRecognizer(tap)
-        self.view.addSubview(newImageView)
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
-    func dismissFullscreenImage(sender: UITapGestureRecognizer) {
-        sender.view?.removeFromSuperview()
-    }
-    
-    func prepareRecording() -> Void{
-        recordingSession = AVAudioSession.sharedInstance()
-        
-        do {
-            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try recordingSession.setActive(true)
-            recordingSession.requestRecordPermission() { [unowned self] (allowed: Bool) -> Void in
-                dispatch_async(dispatch_get_main_queue()) {
-                    if allowed {
-                        //self.loadRecordingUI()
-                    } else {
-                        // failed to record!
-                    }
-                }
-            }
-        } catch {
-            print("failed to record!")
-        }
-    }
-    
-    func makeViewOnly() -> Void {
-        self.editButton.enabled = false
-        self.editButton.tintColor = UIColor.clearColor()
-        self.nextButton.enabled = false
-        self.nextButton.tintColor = UIColor.clearColor()
-        self.inputBar.hidden = true
-    }
-    
-    func cancelViewOnly() -> Void {
-        self.editButton.enabled = true
-        self.editButton.tintColor = nil
-        self.nextButton.enabled = true
-        self.nextButton.tintColor = nil
-        self.inputBar.hidden = false
-    }
-    
-    var isViewOnly : Bool{
-        return (self.navigationController as! BBCourseNavController).viewOnly
-    }
-    
-    // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.

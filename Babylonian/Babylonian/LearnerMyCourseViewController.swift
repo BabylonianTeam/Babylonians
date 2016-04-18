@@ -1,32 +1,37 @@
 //
-//  MainPageViewController.swift
+//  CreatorMyCoursesViewController.swift
 //  Babylonian
-//
-//  Created by Dongning Wang on 3/17/16.
+
+//  Modified by Dongning
+//  Created by Eric Smith on 3/16/16.
 //  Copyright © 2016 BabylonianTeam. All rights reserved.
 //
 
 import UIKit
 
-class MainPageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate{
-    var courseLists = [[GeneralCourseInfo](),[GeneralCourseInfo]()]
+class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate{
+    //Need to hold a fake db for "Title, Text, and Profit"
+    
+    //Temporary Value for Testing. Safe to remove once Table Model is implemented
+    
+    var courseLists = [[MyCourseInfo](),[MyCourseInfo]()]
     var allCourseTitles = [String]()
-    var popularCourseTitles = [String]()
     var filtered = [String]()
     var searchActive : Bool = false
-    let sections = ["Popular", "Trending"]
+    let sections = ["Published", "Drafts"]
     var initialized = false
     
     @IBOutlet weak var searchResult: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var table: UITableView!
     
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = true
         table.reloadData()
     }
+    
     override func viewDidLoad() {
-        
         table.delegate = self
         table.dataSource = self
         
@@ -35,16 +40,9 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         searchBar.delegate = self
         
         searchResult.registerNib(UINib(nibName: "SearchTableCell", bundle: nil), forCellReuseIdentifier: "SearchTableCell")
-        
         self.searchResult.hidden = true
         table.reloadData()
-        loadTopCourses()
-        
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = false
-        
+        loadMyCourses()
     }
     
     deinit {
@@ -58,7 +56,6 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
         searchActive = false;
-        
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
@@ -92,25 +89,17 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         }
         self.searchResult.reloadData()
     }
+ 
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - Table view data source
-    
+    //Setting up tables
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return false
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if tableView==self.searchResult {
-            return 1
-        }
-        return 2
+   
+        return 1
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -123,7 +112,12 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if tableView==self.table {
-            return 40
+            if indexPath.section==0{
+                return 60
+            }
+            else{
+                return 35
+            }
         }
         else {
             return 35
@@ -150,7 +144,6 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard.init(name: "CourseView", bundle: nil)
         let bbCourseController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView") as! BBCourseNavController
-        bbCourseController.viewOnly = true
         
         if tableView==self.searchResult {
             let courseId = filtered[indexPath.row].componentsSeparatedByString("|")[0]
@@ -170,15 +163,10 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
             searchcell.courseTitle.text = filtered[indexPath.row].componentsSeparatedByString("|")[1]
             return searchcell
         }
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("MainCourseCell", forIndexPath: indexPath) as! MainCourseCell
-        
-        
-        cell.title.text = self.courseLists[indexPath.section][indexPath.row].title
-        
-        cell.numOfView.text = String(self.courseLists[indexPath.section][indexPath.row].NoV)
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("DraftCell", forIndexPath: indexPath) as! DraftCell
+        cell.courseTitle.text = self.courseLists[indexPath.section][indexPath.row].title
         return cell
+        
     }
     
     /*
@@ -187,97 +175,68 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
      * record!
      */
     
-    func loadTopCourses(){
+    func loadMyCourses(){
         //TODO Create a test with/ a for loop that hooks in to the database model
         self.initialized = false
         ProgressHUD.show("Loading Courses")
         
-        
-        DataService.dataService.POPULAR_REF.observeSingleEventOfType(.Value, withBlock: { pop_snapshot in
-            
-            ProgressHUD.dismiss()
-            if let content = pop_snapshot.value {
+        DataService.dataService.COURSE_REF.observeEventType(.ChildAdded, withBlock: { snapshot in
+            if self.initialized {
                 
-                if !(content is NSNull) {
-                    for cId in (content as! [String]) {
-                        let cRef = DataService.dataService.COURSE_REF.childByAppendingPath(cId)
-                        cRef.observeSingleEventOfType(.Value, withBlock: { course_snapshot in
-                            
-                            let cData = course_snapshot.value
-                            
-                            //let c = BBCourse(ref: cref)
-                            var title: String!
-                            if let t = cData[COURSE_TITLE]{
-                                title = t as! String
-                            }else{
-                                title = "(no title)"
-                            }
-                            let cInfo = GeneralCourseInfo(ref: cRef, title: title)
-                            self.allCourseTitles.append(cId+"|"+title)
-                            self.courseLists[0].append(cInfo)
-//                            if let st = cData[COURSE_STATUS] {
-//                                if st as! String==COURSE_STATUS_ONSHELF {
-//                                    self.courseLists[0].append(cInfo)
-//                                }
-//                                else{
-//                                    self.courseLists[1].append(cInfo)
-//                                }
-//                            }
-                            
-                            self.table.reloadData()
-                            
-                        })
-                        
-                    }
-                    
+                //let c = BBCourse(ref: snapshot.ref)
+                var title:String!
+                if let t = snapshot.value.objectForKey(COURSE_TITLE) {
+                    title = t as! String
+                }else {
+                    title = "(no title)"
                 }
+                self.allCourseTitles.append(snapshot.key+"|"+title)
+                let cInfo = MyCourseInfo(ref: snapshot.ref, title:title)
+                if let st = snapshot.value.objectForKey(COURSE_STATUS) {
+                    if  st as! String == COURSE_STATUS_ONSHELF{
+                        self.courseLists[0].append(cInfo)
+                    }
+                    else{
+                        self.courseLists[1].append(cInfo)
+                    }
+                }
+                else {
+                    //Added New Course, AutoId triggered event
+                    self.courseLists[1].append(cInfo)
+                }
+                
             }
-            else{
-                //course without content
-            }
-            self.initialized = true
         })
         
-        
-        
-        DataService.dataService.TRENDING_REF.observeSingleEventOfType(.Value, withBlock: { trend_snapshot in
+        DataService.dataService.COURSE_REF.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             ProgressHUD.dismiss()
-            if let content = trend_snapshot.value {
-                
+            
+            if let content = snapshot.value {
                 if !(content is NSNull) {
-                    for cId in (content as! [String]) {
-                        let cRef = DataService.dataService.COURSE_REF.childByAppendingPath(cId)
-                        cRef.observeSingleEventOfType(.Value, withBlock: { course_snapshot in
-                            
-                            let cData = course_snapshot.value
-                            
-                            //let c = BBCourse(ref: cref)
-                            var title: String!
-                            if let t = cData[COURSE_TITLE]{
-                                title = t as! String
-                            }else{
-                                title = "(no title)"
+                    for (cId,cData) in (content as! [String:NSDictionary]) {
+                        let cref = DataService.dataService.COURSE_REF.childByAppendingPath(cId)
+                        
+                        var title:String!
+                        if let t = cData.objectForKey(COURSE_TITLE) {
+                            title = t as! String
+                        }else {
+                            title = "(no title)"
+                        }
+                        self.allCourseTitles.append(snapshot.key+"|"+title)
+                        let cInfo = MyCourseInfo(ref: cref, title:title)
+                        
+                        if let st = cData[COURSE_STATUS] {
+                            if st as! String==COURSE_STATUS_ONSHELF {
+                                self.courseLists[0].append(cInfo)
                             }
-                            let cInfo = GeneralCourseInfo(ref: cRef, title: title)
-                            self.allCourseTitles.append(cId+"|"+title)
-                            self.courseLists[1].append(cInfo)
-                            
-//                            if let st = cData[COURSE_STATUS] {
-//                                if st as! String==COURSE_STATUS_ONSHELF {
-//                                    self.courseLists[0].append(cInfo)
-//                                }
-//                                else{
-//                                    self.courseLists[1].append(cInfo)
-//                                }
-//                            }
-                            
-                            self.table.reloadData()
-                            
-                        })
+                            else{
+                                self.courseLists[1].append(cInfo)
+                            }
+                        }
                         
                     }
-                    
+                    self.table.reloadData()
                 }
             }
             else{
@@ -288,5 +247,3 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
 }
-
-

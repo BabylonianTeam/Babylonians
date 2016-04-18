@@ -30,8 +30,8 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     override func viewWillAppear(animated: Bool) {
         table.reloadData()
     }
+    
     override func viewDidLoad() {
-        
         table.delegate = self
         table.dataSource = self
         
@@ -43,7 +43,6 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         self.searchResult.hidden = true
         table.reloadData()
         loadMyCourses()
-        
     }
  
     deinit {
@@ -90,7 +89,6 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         }
         self.searchResult.reloadData()
     }
-    
     
     @IBAction func createNewCourse(sender: UIBarButtonItem) {
             //initiate courseview
