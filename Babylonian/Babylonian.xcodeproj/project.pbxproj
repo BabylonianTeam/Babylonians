@@ -16,6 +16,7 @@
 		0705D51D1C8CEF270065467D /* BabylonianUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705D51C1C8CEF270065467D /* BabylonianUITests.swift */; };
 		07EFFB621C97B128006F8ECB /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EFFB611C97B128006F8ECB /* CourseCell.swift */; };
 		184F78979A3F5E7914753379 /* Pods_Babylonian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */; };
+		302F4AAD1CC4B83B006248EC /* LearnerMyCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302F4AAC1CC4B83B006248EC /* LearnerMyCourseViewController.swift */; };
 		3037A4A11CB03A9B00C52232 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3037A4A01CB03A9B00C52232 /* CourseViewController.swift */; };
 		3037A4A31CB0513400C52232 /* CourseSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3037A4A21CB0513400C52232 /* CourseSettingViewController.swift */; };
 		3037A4A91CB09F6600C52232 /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3037A4A61CB09F6600C52232 /* ImageItem.swift */; };
@@ -144,6 +145,7 @@
 		0705D51E1C8CEF270065467D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07EFFB611C97B128006F8ECB /* CourseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
 		115FA039AF3895E52FC1599D /* Pods-Babylonian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.release.xcconfig"; sourceTree = "<group>"; };
+		302F4AAC1CC4B83B006248EC /* LearnerMyCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnerMyCourseViewController.swift; sourceTree = "<group>"; };
 		3037A4A01CB03A9B00C52232 /* CourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		3037A4A21CB0513400C52232 /* CourseSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSettingViewController.swift; sourceTree = "<group>"; };
 		3037A4A61CB09F6600C52232 /* ImageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 				30852A981CB8C72A00C4D100 /* MyCourseInfo.swift */,
 				07EFFB611C97B128006F8ECB /* CourseCell.swift */,
 				9F638F681C9B8A7500154A13 /* CreatorMyCoursesViewController.swift */,
+				302F4AAC1CC4B83B006248EC /* LearnerMyCourseViewController.swift */,
 			);
 			name = MyCourseTab;
 			sourceTree = "<group>";
@@ -885,6 +888,7 @@
 				30852AAA1CB8FCFD00C4D100 /* ATItemAutoCell.swift in Sources */,
 				3037A4AA1CB09F6600C52232 /* ATItem.swift in Sources */,
 				30DBCE001C9E4174000CD59D /* NSData+ImageContentType.m in Sources */,
+				302F4AAD1CC4B83B006248EC /* LearnerMyCourseViewController.swift in Sources */,
 				30E6DB411CB2193200F604E6 /* LPRTableView.swift in Sources */,
 				30852AAE1CB954D400C4D100 /* SearchTableCell.swift in Sources */,
 				9F66D6101C9ADE6B00EB9C93 /* CustomCell.swift in Sources */,

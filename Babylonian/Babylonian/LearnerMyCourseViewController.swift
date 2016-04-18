@@ -9,7 +9,7 @@
 
 import UIKit
 
-class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate{
+class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate{
     //Need to hold a fake db for "Title, Text, and Profit"
     
     //Temporary Value for Testing. Safe to remove once Table Model is implemented
@@ -44,7 +44,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         table.reloadData()
         loadMyCourses()
     }
- 
+    
     deinit {
         DataService.dataService.COURSE_REF.removeAllObservers()
     }
@@ -89,13 +89,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         }
         self.searchResult.reloadData()
     }
-    
-    @IBAction func createNewCourse(sender: UIBarButtonItem) {
-            //initiate courseview
-        let storyboard = UIStoryboard.init(name: "CourseView", bundle: nil)
-        let rootController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView")
-        self.presentViewController(rootController, animated: true, completion: nil)
-    }
+ 
     
     //Setting up tables
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -104,10 +98,8 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if tableView==self.searchResult {
-            return 1
-        }
-        return 2
+   
+        return 1
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -131,7 +123,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
             return 35
         }
     }
-
+    
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if tableView.numberOfSections>1 {
@@ -141,7 +133,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
- 
+        
         if (self.searchResult==tableView) {
             return filtered.count
         }
@@ -152,12 +144,12 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard.init(name: "CourseView", bundle: nil)
         let bbCourseController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView") as! BBCourseNavController
-
+        
         if tableView==self.searchResult {
             let courseId = filtered[indexPath.row].componentsSeparatedByString("|")[0]
             
             bbCourseController.currentCourse = BBCourse(ref: DataService.dataService.COURSE_REF.childByAppendingPath(courseId))
-
+            
         }
         else {
             bbCourseController.currentCourse = BBCourse(ref: self.courseLists[indexPath.section][indexPath.row].ref)
@@ -171,16 +163,6 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
             searchcell.courseTitle.text = filtered[indexPath.row].componentsSeparatedByString("|")[1]
             return searchcell
         }
-        if indexPath.section==0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell", forIndexPath: indexPath) as! CourseCell
-            cell.courseTitle.text = self.courseLists[indexPath.section][indexPath.row].title
-            
-            cell.courseViewCount.text = String(self.courseLists[indexPath.section][indexPath.row].NoV)
-            cell.profitAmount.text = String(self.courseLists[indexPath.section][indexPath.row].income)
-            
-            return cell
-        }
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("DraftCell", forIndexPath: indexPath) as! DraftCell
         cell.courseTitle.text = self.courseLists[indexPath.section][indexPath.row].title
         return cell
@@ -225,7 +207,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
                 
             }
         })
-    
+        
         DataService.dataService.COURSE_REF.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             ProgressHUD.dismiss()

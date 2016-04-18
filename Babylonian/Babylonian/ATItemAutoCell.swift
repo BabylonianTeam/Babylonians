@@ -81,7 +81,10 @@ class ATItemAutoCell: UITableViewCell, UITextViewDelegate {
     }
     
     //TODO: tap and drag//tap and hold to record
-    
+    func textViewDidBeginEditing(textView: UITextView) {
+        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "EditingATItem", object: nil, userInfo: ["Cell":self]))
+        
+    }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n") {
@@ -90,8 +93,8 @@ class ATItemAutoCell: UITableViewCell, UITextViewDelegate {
             return false
         }
         let fixedWidth = textView.frame.size.width
-        textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-        textView.layoutIfNeeded()
+        //textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        //textView.layoutIfNeeded()
         let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
         var newFrame = textView.frame
         newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
@@ -105,17 +108,6 @@ class ATItemAutoCell: UITableViewCell, UITextViewDelegate {
         }
         return true
     }
-    
-//    func textViewDidChange(textView: UITextView) {
-//        print("did change")
-//        let fixedWidth = textView.frame.size.width
-//        textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-//        textView.layoutIfNeeded()
-//        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-//        var newFrame = textView.frame
-//        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
-//        textView.frame = newFrame;
-//    }
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

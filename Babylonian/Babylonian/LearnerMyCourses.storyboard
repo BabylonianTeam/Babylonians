@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--My Courses-->
         <scene sceneID="b3s-Qx-VXo">
             <objects>
-                <viewController id="rWK-Fc-vxA" sceneMemberID="viewController">
+                <viewController id="rWK-Fc-vxA" customClass="LearnerMyCoursesViewController" customModule="Babylonian" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z8s-nl-CfO"/>
                         <viewControllerLayoutGuide type="bottom" id="F61-rb-FRD"/>
@@ -16,10 +17,79 @@
                     <view key="view" contentMode="scaleToFill" id="a9Y-zS-2Og">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search My Courses" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Cx-19-KDC">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Srp-XD-Djx" id="KX5-hV-H4D"/>
+                                </connections>
+                            </searchBar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZ5-7J-zxL">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="My Courses" id="eT6-xC-sOd"/>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="xSs-Dd-zuS">
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DraftCell" id="PQE-cG-sui" userLabel="CourseCell" customClass="DraftCell" customModule="Babylonian" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PQE-cG-sui" id="fK5-P8-jqV">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CourseTitle: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fd3-RI-QlN">
+                                                    <rect key="frame" x="10" y="6" width="96" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="topMargin" secondItem="fd3-RI-QlN" secondAttribute="top" constant="2" id="haD-T7-lRZ"/>
+                                                <constraint firstItem="fd3-RI-QlN" firstAttribute="leading" secondItem="fK5-P8-jqV" secondAttribute="leadingMargin" constant="2" id="jg2-eW-4j9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="courseTitle" destination="fd3-RI-QlN" id="tsU-la-r0y"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Srp-XD-Djx">
+                                <rect key="frame" x="0.0" y="110" width="600" height="441"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Srp-XD-Djx" firstAttribute="leading" secondItem="a9Y-zS-2Og" secondAttribute="leading" id="1jt-w3-PJ9"/>
+                            <constraint firstItem="Srp-XD-Djx" firstAttribute="trailing" secondItem="xSs-Dd-zuS" secondAttribute="trailing" id="87j-KB-xle"/>
+                            <constraint firstItem="xSs-Dd-zuS" firstAttribute="top" secondItem="3Cx-19-KDC" secondAttribute="bottom" id="EF7-1C-etB"/>
+                            <constraint firstItem="3Cx-19-KDC" firstAttribute="trailing" secondItem="qZ5-7J-zxL" secondAttribute="trailing" id="Fm3-qx-Ii7"/>
+                            <constraint firstItem="3Cx-19-KDC" firstAttribute="leading" secondItem="qZ5-7J-zxL" secondAttribute="leading" id="Mf2-a2-ziy"/>
+                            <constraint firstItem="Srp-XD-Djx" firstAttribute="leading" secondItem="xSs-Dd-zuS" secondAttribute="leading" id="Mfc-7s-Zrd"/>
+                            <constraint firstItem="Srp-XD-Djx" firstAttribute="top" secondItem="3Cx-19-KDC" secondAttribute="bottom" constant="2" id="PvO-hg-bCO"/>
+                            <constraint firstItem="xSs-Dd-zuS" firstAttribute="leading" secondItem="3Cx-19-KDC" secondAttribute="leading" id="QlO-Fy-r54"/>
+                            <constraint firstItem="Srp-XD-Djx" firstAttribute="bottom" secondItem="F61-rb-FRD" secondAttribute="top" id="co0-IZ-LlD"/>
+                            <constraint firstItem="qZ5-7J-zxL" firstAttribute="top" secondItem="z8s-nl-CfO" secondAttribute="bottom" id="dFA-wk-qSR"/>
+                            <constraint firstItem="Srp-XD-Djx" firstAttribute="bottom" secondItem="xSs-Dd-zuS" secondAttribute="bottom" id="gNy-Yb-acJ"/>
+                            <constraint firstItem="3Cx-19-KDC" firstAttribute="top" secondItem="qZ5-7J-zxL" secondAttribute="bottom" id="moI-X0-Yrh"/>
+                            <constraint firstItem="xSs-Dd-zuS" firstAttribute="trailing" secondItem="3Cx-19-KDC" secondAttribute="trailing" id="oeh-aR-ObA"/>
+                            <constraint firstAttribute="trailing" secondItem="Srp-XD-Djx" secondAttribute="trailing" id="syI-MO-ZD1"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Courses" id="XUk-co-nDv"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchBar" destination="3Cx-19-KDC" id="JaM-Hv-Wuf"/>
+                        <outlet property="searchResult" destination="Srp-XD-Djx" id="dJw-PU-MHk"/>
+                        <outlet property="table" destination="xSs-Dd-zuS" id="7xe-OX-45t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ax6-Hg-acv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
