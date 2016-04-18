@@ -2,6 +2,9 @@
 A great app we are making for CS506
 
 # Tutorial
+Open the workspace file with the newest version of XCode. Then you should be able to run it.
+In case of any error. Go to the terminal and run ```pod install''' under the root folder of the project.
+
 The app runs as the creator side by default. Change 
 ```c
 #define		RUNTIME_USER_ROLE                   @"creator"
