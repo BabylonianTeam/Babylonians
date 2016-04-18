@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MSe-G4-xrH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MSe-G4-xrH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Course Setting View Controller-->
@@ -17,22 +18,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZmX-Bi-hWL">
-                                <rect key="frame" x="185" y="550" width="51" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZmX-Bi-hWL">
+                                <rect key="frame" x="429" y="531" width="51" height="30"/>
                                 <state key="normal" title="Publish"/>
                                 <connections>
                                     <action selector="Publish:" destination="MSe-G4-xrH" eventType="touchUpInside" id="kqC-WE-hNI"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4oT-FT-Djh" userLabel="mytableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4oT-FT-Djh" userLabel="mytableView">
                                 <rect key="frame" x="0.0" y="64" width="600" height="322"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="322" id="Rhh-1C-hN2"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="9X0-0z-Gev">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9X0-0z-Gev" id="wlt-jQ-ZC1">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -43,19 +47,26 @@
                                     <outlet property="delegate" destination="MSe-G4-xrH" id="R5L-aR-748"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zwl-MN-tbb" customClass="TagListView" customModule="TagListView">
-                                <rect key="frame" x="53" y="437" width="266" height="102"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zwl-MN-tbb" customClass="TagListView" customModule="TagListView">
+                                <rect key="frame" x="50" y="426" width="500" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="02f-gD-vgf"/>
+                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufK-77-qJq">
-                                <rect key="frame" x="53" y="399" width="54" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufK-77-qJq">
+                                <rect key="frame" x="50" y="391" width="54" height="30"/>
                                 <state key="normal" title="Add tag"/>
                                 <connections>
                                     <action selector="addCourseTag:" destination="MSe-G4-xrH" eventType="touchUpInside" id="eHZ-7m-Lqf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGw-9g-DLm">
-                                <rect key="frame" x="218" y="394" width="86" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xe-QK-xV0">
+                                <rect key="frame" x="120" y="531" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGw-9g-DLm">
+                                <rect key="frame" x="204" y="391" width="86" height="30"/>
                                 <state key="normal" title="Clear All Tag"/>
                                 <connections>
                                     <action selector="clearAllTag:" destination="MSe-G4-xrH" eventType="touchUpInside" id="D2O-Iw-Scv"/>
@@ -63,6 +74,22 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZmX-Bi-hWL" firstAttribute="top" secondItem="4xe-QK-xV0" secondAttribute="top" id="2eT-sK-fgX"/>
+                            <constraint firstItem="4oT-FT-Djh" firstAttribute="leading" secondItem="PeH-Wo-4UE" secondAttribute="leadingMargin" constant="-20" id="3yn-LB-1Oe"/>
+                            <constraint firstItem="Zwl-MN-tbb" firstAttribute="leading" secondItem="PeH-Wo-4UE" secondAttribute="leadingMargin" constant="30" id="5HO-rj-0fK"/>
+                            <constraint firstItem="vGw-9g-DLm" firstAttribute="top" secondItem="ufK-77-qJq" secondAttribute="top" id="8Sm-Wg-ZjR"/>
+                            <constraint firstItem="4oT-FT-Djh" firstAttribute="top" secondItem="BT6-xL-Brf" secondAttribute="bottom" id="H6Y-ph-TCz"/>
+                            <constraint firstItem="ZmX-Bi-hWL" firstAttribute="top" secondItem="Zwl-MN-tbb" secondAttribute="bottom" constant="5" id="M6h-rZ-aWU"/>
+                            <constraint firstItem="ufK-77-qJq" firstAttribute="leading" secondItem="PeH-Wo-4UE" secondAttribute="leadingMargin" constant="30" id="Nu3-I0-yCY"/>
+                            <constraint firstItem="Zwl-MN-tbb" firstAttribute="top" secondItem="ufK-77-qJq" secondAttribute="bottom" constant="5" id="PFh-8n-aD6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZmX-Bi-hWL" secondAttribute="trailing" constant="100" id="YsE-HR-3wO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zwl-MN-tbb" secondAttribute="trailing" constant="30" id="ZFt-qB-htz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4oT-FT-Djh" secondAttribute="trailing" constant="-20" id="aSv-Gc-kRA"/>
+                            <constraint firstItem="ufK-77-qJq" firstAttribute="top" secondItem="4oT-FT-Djh" secondAttribute="bottom" constant="5" id="m07-dj-cyI"/>
+                            <constraint firstItem="vGw-9g-DLm" firstAttribute="leading" secondItem="ufK-77-qJq" secondAttribute="trailing" constant="100" id="o9Q-1E-E9L"/>
+                            <constraint firstItem="4xe-QK-xV0" firstAttribute="leading" secondItem="PeH-Wo-4UE" secondAttribute="leadingMargin" constant="100" id="onZ-GO-Or3"/>
+                        </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>

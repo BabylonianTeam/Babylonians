@@ -25,7 +25,7 @@
                                     <navigationItem title="My Courses" id="LNO-c6-vSJ">
                                         <barButtonItem key="rightBarButtonItem" title="+New" id="dPq-kV-tQv">
                                             <connections>
-                                                <action selector="createNewCourse:" destination="Ddc-S3-Pd7" id="DJW-Yu-rYh"/>
+                                                <action selector="createNewCourse:" destination="Ddc-S3-Pd7" id="SxM-gp-Nle"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
