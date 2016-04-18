@@ -202,23 +202,23 @@ class LearnerMoreViewController: UIViewController, UIImagePickerControllerDelega
      }*/
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let storyboard = UIStoryboard.init(name: "More", bundle: nil)
+        let storyboard = UIStoryboard.init(name: "LearnerMore", bundle: nil)
         
         if((indexPath.section == 0) && (indexPath.row == 2)){
             //performSegueWithIdentifier("emailSegue", sender: self)
-            let changeController = storyboard.instantiateViewControllerWithIdentifier("MoreEmailView") as! LearnerMoreEmailViewController
+            let changeController = storyboard.instantiateViewControllerWithIdentifier("LearnerMoreEmailView") as! LearnerMoreEmailViewController
             self.presentViewController(changeController, animated: true, completion: nil)
         }
             
         else if((indexPath.section == 0) && (indexPath.row == 0)){
             //performSegueWithIdentifier("nameSegue", sender: self)
-            let changeController = storyboard.instantiateViewControllerWithIdentifier("MoreNameView") as! LearnerMoreNameViewController
+            let changeController = storyboard.instantiateViewControllerWithIdentifier("LearnerMoreNameView") as! LearnerMoreNameViewController
             self.presentViewController(changeController, animated: true, completion: nil)
         }
             
         else if((indexPath.section == 0) && (indexPath.row == 3)){
             //performSegueWithIdentifier("passwdSegue", sender: self)
-            let changeController = storyboard.instantiateViewControllerWithIdentifier("MorePasswdView") as! LearnerMorePasswdViewController
+            let changeController = storyboard.instantiateViewControllerWithIdentifier("LearnerMorePasswdView") as! LearnerMorePasswdViewController
             self.presentViewController(changeController, animated: true, completion: nil)
         }
             
