@@ -35,6 +35,8 @@
 	UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
 	[self.tableView addGestureRecognizer:gestureRecognizer];
 	gestureRecognizer.cancelsTouchesInView = NO;
+    self.fieldName.placeholder = @"5 or more characters";
+
 }
 
 - (void)viewDidAppear:(BOOL)animated

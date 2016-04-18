@@ -215,14 +215,6 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
                             let cInfo = GeneralCourseInfo(ref: cRef, title: title)
                             self.allCourseTitles.append(cId+"|"+title)
                             self.courseLists[0].append(cInfo)
-//                            if let st = cData[COURSE_STATUS] {
-//                                if st as! String==COURSE_STATUS_ONSHELF {
-//                                    self.courseLists[0].append(cInfo)
-//                                }
-//                                else{
-//                                    self.courseLists[1].append(cInfo)
-//                                }
-//                            }
                             
                             self.table.reloadData()
                             
@@ -262,15 +254,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
                             let cInfo = GeneralCourseInfo(ref: cRef, title: title)
                             self.allCourseTitles.append(cId+"|"+title)
                             self.courseLists[1].append(cInfo)
-                            
-//                            if let st = cData[COURSE_STATUS] {
-//                                if st as! String==COURSE_STATUS_ONSHELF {
-//                                    self.courseLists[0].append(cInfo)
-//                                }
-//                                else{
-//                                    self.courseLists[1].append(cInfo)
-//                                }
-//                            }
+
                             
                             self.table.reloadData()
                             
