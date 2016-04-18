@@ -14,7 +14,7 @@ into
 #define		RUNTIME_USER_ROLE                   @"learner"
 ```
 to run the learner side.
-This will only impact the user role when you create a new user. If you login with existing account, it will load the right side correspondingly.
+This will only impact the user role when you create a new user. If you login with existing account, it will load the right side according to the user rolf of that account.
 
 We provide the following two testing account for convenience:
 ```
