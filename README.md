@@ -2,7 +2,9 @@
 A great app we are making for CS506
 
 # Tutorial
-Open the workspace file with the newest version of XCode. Then you should be able to run it.
+Open the workspace file with the newest version of XCode. Then you should be able to build it. If it builds successfully but doesn't launch the app, make sure you select "Babylonian" next to the "Stop" button, instead of "Bolts".
+![alt tag](https://github.com/BabylonianTeam/Babylonians/blob/master/Screen%20Shot%202016-04-18%20at%2011.18.14%20PM.png?raw=true)
+
 In case of any error. Go to the terminal and run ```pod install''' under the root folder of the project.
 
 The app runs as the creator side by default. Change 
