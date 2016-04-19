@@ -25,13 +25,13 @@
                                     <navigationItem title="My Courses" id="LNO-c6-vSJ">
                                         <barButtonItem key="rightBarButtonItem" title="+New" id="dPq-kV-tQv">
                                             <connections>
-                                                <action selector="createNewCourse:" destination="Ddc-S3-Pd7" id="DJW-Yu-rYh"/>
+                                                <action selector="createNewCourse:" destination="Ddc-S3-Pd7" id="SxM-gp-Nle"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="g4b-SA-ypm">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="g4b-SA-ypm" customClass="LPRTableView" customModule="Babylonian" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -143,7 +143,7 @@
                             <constraint firstItem="g4b-SA-ypm" firstAttribute="leading" secondItem="xcN-rl-fHm" secondAttribute="leading" id="roP-H7-xAQ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Courses" id="seM-Gr-B7J"/>
+                    <tabBarItem key="tabBarItem" title="My Courses" image="mycourses.png" id="seM-Gr-B7J"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="xcN-rl-fHm" id="47L-CE-Ay5"/>
@@ -156,4 +156,7 @@
             <point key="canvasLocation" x="611" y="1155"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mycourses.png" width="32" height="32"/>
+    </resources>
 </document>

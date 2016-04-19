@@ -20,7 +20,7 @@ class BBCourse: NSObject {
     var courseItems_ = [CourseItem]()
     var ref_: Firebase!
     var price_: Float!
-    var tag_: [String]!
+    var tag_ = [String]()
     
     var purchased_counter_: Int!
 
@@ -126,6 +126,17 @@ class BBCourse: NSObject {
         }
     }
     
+    func addTag(tag:String) -> Bool {
+        if !self.tag.contains(tag) {
+            self.tag_.append(tag)
+            return true
+        }
+        return false
+    }
+    func removeAllTags() -> Void {
+        self.tag_.removeAll()
+    }
+
     func deleteCourseItem(ord: Int!) -> Bool {
         var success = false
         var i = 0

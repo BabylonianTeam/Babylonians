@@ -14,6 +14,8 @@ class MyCourseInfo: NSObject {
     var ref: Firebase!
     var income: Float = 0
     var NoV: Int = 0
+    var tags: String?
+    var price: Float?
     
     init(ref: Firebase, title: String) {
         self.ref = ref
