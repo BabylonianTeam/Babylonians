@@ -51,30 +51,6 @@ class PersonalInfo: NSObject{
         self.ref_.updateChildValues([USER_BALANCE: balance])
     }
     
-    //function when do purchase
-    func addPurchasedCourse(purchasedCourseId: String) -> Void {
-   
-        let currDate = getCurrentDate()
-        
-        let newCourse_ref = self.ref_.childByAppendingPath(USER_PURCHASED_COURSE).childByAppendingPath(purchasedCourseId)
-        
-
-        newCourse_ref.setValue([USER_PURCHASED_COURSE_DATE: currDate])
-        self.ownedCourses_.append(OwnedCourseItem(ref: newCourse_ref, ownedDate: currDate))
-        
-    }
-    
-    /*
-    func addCreatedCourse(createdCourseId: String) -> Void{
-        let currDate = getCurrentDate()
-        
-        let newCourse_ref = self.ref_.childByAppendingPath(USER_CREATED_COURSE).childByAppendingPath(createdCourseId)
-        newCourse_ref.setValue([USER_CREATED_COURSE_DATE: currDate])
-        
-        self.ownedCourses_.append(OwnedCourseItem(ref: newCourse_ref, ownedDate: currDate))
-    }
-    */
-    
     //get purchased date
     func getCurrentDate() -> String{
         let date = NSDate()
@@ -87,72 +63,40 @@ class PersonalInfo: NSObject{
         return currDate
     }
     
+    //TODO: add userRole class?  role.ownedCourse = USER_PURCHASED_COURSE
+    /*
+    func ownedCourse(purchasedCourseId: String) -> Void{
+        let currDate = getCurrentDate()
+        
+        let newCourse_ref = self.ref_.childByAppendingPath(USER_PURCHASED_COURSE).childByAppendingPath(purchasedCourseId)
+        
+        
+        newCourse_ref.setValue([USER_PURCHASED_COURSE_DATE: currDate])
+        self.ownedCourses_.append(OwnedCourseItem(ref: newCourse_ref, ownedDate: currDate))
+    }
+    
     //get purchased courses count
-    func getPurchasedCoursesCount() -> Int{
+    func getOwnedCoursesCount() -> Int{
         return self.ownedCourses_.count
     }
-    
-    
-    
+    */
     
     /*
-     private var _BASE_REF = Firebase(url: "\(BASE_URL)")
-     private var _USER_REF = Firebase(url: "\(BASE_URL)/users")
+    //function when do purchase
+    func addPurchasedCourse(purchasedCourseId: String) -> Void {
+        let currDate = getCurrentDate()
+        let newCourse_ref = self.ref_.childByAppendingPath(USER_PURCHASED_COURSE).childByAppendingPath(purchasedCourseId)
+        newCourse_ref.setValue([USER_PURCHASED_COURSE_DATE: currDate])
+        self.ownedCourses_.append(OwnedCourseItem(ref: newCourse_ref, ownedDate: currDate))
+        
+    }
 
-    //update displayName
-    func updateDisplayName(id: String, newDisplayName: String){
-        let displayNameWrapper = ["displayName": newDisplayName]
-        _USER_REF.childByAppendingPath(id)?.updateChildValues(displayNameWrapper)
-    }
-    
-    //update email
-    func updateEmail(id: String, newEmail: String){
-        let emailWrapper = ["email": newEmail]
-        _USER_REF.childByAppendingPath(id)?.updateChildValues(emailWrapper)
-    }
-    
-    //update balance
-    func updateBalance(id: String, newBalance: Double){
-        let balanceWrapper = ["balance": newBalance]
-        _USER_REF.childByAppendingPath(id)?.updateChildValues(balanceWrapper)
-    }
-    
-    //update password, copy following code
-    func updatePassword(email: String, oldPassword: String, newPassword: String){
-        _BASE_REF.changePasswordForUser(email, fromOld: oldPassword, toNew: newPassword, withCompletionBlock: { error in
-            if (error != nil){
-                print("error message")
-            }
-            else {
-                print("Change password successfully")
-            }
-            
-        })
-    }
-    
-    //get displayName
-    func getDisplayName(id: String){
-        _USER_REF.childByAppendingPath(id)?.observeEventType(.Value, withBlock: { snapshot in
-            if let displayName = snapshot.value["displayName"] as? String {
-                print("display name is \(displayName)")
-            }
-        })
-    }
-    //get email
-    func getEmail(id: String){
-        _USER_REF.childByAppendingPath(id)?.observeEventType(.Value, withBlock: { snapshot in
-            if let email = snapshot.value["email"] as? String {
-                print("email is \(email)")
-            }
-        })
-    }
-    //get balance
-    func getBalance(id: String){
-        _USER_REF.childByAppendingPath(id)?.observeEventType(.Value, withBlock: { snapshot in
-            if let balance = snapshot.value["balance"] as? String {
-                print("balance is \(balance)")
-            }
-        })
+    func addCreatedCourse(createdCourseId: String) -> Void{
+        let currDate = getCurrentDate()
+        let newCourse_ref = self.ref_.childByAppendingPath(USER_CREATED_COURSE).childByAppendingPath(createdCourseId)
+        newCourse_ref.setValue([USER_CREATED_COURSE_DATE: currDate])
+        self.ownedCourses_.append(OwnedCourseItem(ref: newCourse_ref, ownedDate: currDate))
     }
     */
+    
 }
