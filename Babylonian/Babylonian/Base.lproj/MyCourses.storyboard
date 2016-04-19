@@ -143,7 +143,7 @@
                             <constraint firstItem="g4b-SA-ypm" firstAttribute="leading" secondItem="xcN-rl-fHm" secondAttribute="leading" id="roP-H7-xAQ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Courses" id="seM-Gr-B7J"/>
+                    <tabBarItem key="tabBarItem" title="My Courses" image="mycourses.png" id="seM-Gr-B7J"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="xcN-rl-fHm" id="47L-CE-Ay5"/>
@@ -156,4 +156,7 @@
             <point key="canvasLocation" x="611" y="1155"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mycourses.png" width="32" height="32"/>
+    </resources>
 </document>

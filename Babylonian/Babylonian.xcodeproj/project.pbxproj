@@ -22,6 +22,9 @@
 		302F4AB31CC5FF0E006248EC /* SetCourseTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302F4AB11CC5FF0E006248EC /* SetCourseTitle.xib */; };
 		302F4AB61CC61FA1006248EC /* TagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302F4AB41CC61FA1006248EC /* TagViewCell.swift */; };
 		302F4AB71CC61FA1006248EC /* TagViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302F4AB51CC61FA1006248EC /* TagViewCell.xib */; };
+		302F4AB91CC6CC7C006248EC /* star32.png in Resources */ = {isa = PBXBuildFile; fileRef = 302F4AB81CC6CC7C006248EC /* star32.png */; };
+		302F4ABB1CC6CD42006248EC /* mycourses.png in Resources */ = {isa = PBXBuildFile; fileRef = 302F4ABA1CC6CD42006248EC /* mycourses.png */; };
+		302F4ABD1CC6D120006248EC /* more32.png in Resources */ = {isa = PBXBuildFile; fileRef = 302F4ABC1CC6D120006248EC /* more32.png */; };
 		3037A4A11CB03A9B00C52232 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3037A4A01CB03A9B00C52232 /* CourseViewController.swift */; };
 		3037A4A31CB0513400C52232 /* CourseSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3037A4A21CB0513400C52232 /* CourseSettingViewController.swift */; };
 		3037A4A91CB09F6600C52232 /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3037A4A61CB09F6600C52232 /* ImageItem.swift */; };
@@ -160,6 +163,9 @@
 		302F4AB11CC5FF0E006248EC /* SetCourseTitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetCourseTitle.xib; sourceTree = "<group>"; };
 		302F4AB41CC61FA1006248EC /* TagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewCell.swift; sourceTree = "<group>"; };
 		302F4AB51CC61FA1006248EC /* TagViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagViewCell.xib; sourceTree = "<group>"; };
+		302F4AB81CC6CC7C006248EC /* star32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star32.png; sourceTree = "<group>"; };
+		302F4ABA1CC6CD42006248EC /* mycourses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mycourses.png; sourceTree = "<group>"; };
+		302F4ABC1CC6D120006248EC /* more32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more32.png; sourceTree = "<group>"; };
 		3037A4A01CB03A9B00C52232 /* CourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		3037A4A21CB0513400C52232 /* CourseSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSettingViewController.swift; sourceTree = "<group>"; };
 		3037A4A61CB09F6600C52232 /* ImageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
@@ -447,6 +453,9 @@
 			children = (
 				3068A0F41CA2477000AE6CB4 /* aa0f3d544a573d3-1.jpg */,
 				30852AA21CB8EAE400C4D100 /* camwhite.png */,
+				302F4ABA1CC6CD42006248EC /* mycourses.png */,
+				302F4AB81CC6CC7C006248EC /* star32.png */,
+				302F4ABC1CC6D120006248EC /* more32.png */,
 				30852AB21CB96D4B00C4D100 /* BBicon120.png */,
 				30852AA41CB8EAEC00C4D100 /* camblack.png */,
 				30852AB41CB96EC000C4D100 /* AppsIcon80.png */,
@@ -793,6 +802,8 @@
 				305E47201C8D1817004EEACE /* More.storyboard in Resources */,
 				305E471D1C8D169F004EEACE /* MyCourses.storyboard in Resources */,
 				30852A931CB8BA1300C4D100 /* default-placeholder.png in Resources */,
+				302F4ABD1CC6D120006248EC /* more32.png in Resources */,
+				302F4ABB1CC6CD42006248EC /* mycourses.png in Resources */,
 				9F66D6041C9ADE0500EB9C93 /* DatePickerCell.xib in Resources */,
 				0705D5041C8CEF270065467D /* Assets.xcassets in Resources */,
 				305E47231C8D182D004EEACE /* Discussions.storyboard in Resources */,
@@ -808,6 +819,7 @@
 				9F9619AC1CB110A6007D5FA3 /* LabelCell.xib in Resources */,
 				302F4AAF1CC4C95D006248EC /* CoursePreview.storyboard in Resources */,
 				302F4AB31CC5FF0E006248EC /* SetCourseTitle.xib in Resources */,
+				302F4AB91CC6CC7C006248EC /* star32.png in Resources */,
 				9F66D60C1C9ADE1500EB9C93 /* SwitchCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
