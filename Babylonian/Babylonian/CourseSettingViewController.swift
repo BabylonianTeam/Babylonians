@@ -29,12 +29,12 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
   
     
     let sections = ["Course Title", "Course Price", "Course Tag"]
-    let items = [["Please type Course Title", ""],
-                 ["Please type Course Price", ""],
+    let items = [["Please type Course Title"],
+                 ["Please type Course Price"],
                  ["Please type Course Tag"]
     ]
-    let cellTypes = [ ["idLabelCell", "idCellTextfield"],
-                      ["idLabelCell","idCellTextfield"],
+    let cellTypes = [ ["setCoursetTitle"],
+                      ["idCellTextfield"],
                       ["idCellTextfield"]
     ]
   
@@ -163,9 +163,6 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
     }
     
     
-    
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -178,19 +175,12 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
         mytableView.dataSource = self
         mytableView.tableFooterView = UIView(frame: CGRectZero)
         
-        mytableView.registerNib(UINib(nibName: "LabelCell", bundle: nil), forCellReuseIdentifier: "idLabelCell")
         mytableView.registerNib(UINib(nibName: "NormalCell", bundle: nil), forCellReuseIdentifier: "idCellNormal")
         mytableView.registerNib(UINib(nibName: "TextfieldCell", bundle: nil), forCellReuseIdentifier: "idCellTextfield")
-        mytableView.registerNib(UINib(nibName: "DatePickerCell", bundle: nil), forCellReuseIdentifier: "idCellDatePicker")
         mytableView.registerNib(UINib(nibName: "SwitchCell", bundle: nil), forCellReuseIdentifier: "idCellSwitch")
-        mytableView.registerNib(UINib(nibName: "ValuePickerCell", bundle: nil), forCellReuseIdentifier: "idCellValuePicker")
-        mytableView.registerNib(UINib(nibName: "SliderCell", bundle: nil), forCellReuseIdentifier: "idCellSlider")
+        mytableView.registerNib(UINib(nibName: "SetCourseTitle", bundle: nil), forCellReuseIdentifier: "setCoursetTitle")
     }
 
-    
-    
-    
-    
     
     // Number of sections
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -211,57 +201,46 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
     // Generate a cell for each row
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        
-        //let cell = tableView.dequeueReusableCellWithIdentifier("idLabelCell", forIndexPath: indexPath)
         let cellType = self.cellTypes[indexPath.section][indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellType, forIndexPath: indexPath) as! CustomCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellType, forIndexPath: indexPath)
         
         
         // Configure the cell...
         
         if(indexPath.section == 0 && indexPath.row == 0){
+            let tcell = cell as! SetCourseTitle
+            tcell.currentCourse = self.currentCourse
            self.currentCourse.courseRef.observeEventType(.Value, withBlock: { snapshot in
             
             if let bbtitlestr = snapshot.value.objectForKey("title"){
-                cell.textLabel?.text = bbtitlestr as? String
+                tcell.title.text = bbtitlestr as? String
             }
-            
-            
+            if (tcell.title.text ?? "").isEmpty {
+                tcell.title.placeholder = "Please type Course Title"
+            }
             
             }, withCancelBlock: { error in
                 print(error.description)
            })
+            return cell
 
-        }
-        else if(indexPath.section == 0 && indexPath.row == 1){
-            
-                
-                cell.textField.placeholder = "Please type Course Title"
-            
-           
-            
-            
         }
             
         else if(indexPath.section == 1 && indexPath.row == 0){
             self.currentCourse.courseRef.observeEventType(.Value, withBlock: { snapshot in
-                
+                let ccell = cell as! CustomCell
                 
                 if let pricestr = snapshot.value.objectForKey(COURSE_PRICE){
-                    cell.textLabel?.text = (pricestr as? NSNumber)?.stringValue
+                    ccell.textLabel?.text = (pricestr as? NSNumber)?.stringValue
                 }
-                
+                if (ccell.textLabel?.text ?? "").isEmpty {
+                    ccell.textField.placeholder = "Please type Course Price"
+                }
                 
                 
                 }, withCancelBlock: { error in
                     print(error.description)
             })
-            
-        }
-            
-        else if(indexPath.section == 1 && indexPath.row == 1){
-            
-               cell.textField.placeholder = "Please type Course Price"
             
             
             
@@ -269,10 +248,7 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
         
         else if(indexPath.section == 2 && indexPath.row == 0){
             
-            
-            
-            cell.textField.placeholder = "Please type Course Tag here"
-            
+            (cell as! CustomCell).textField.placeholder = "Please type Course Tag here"
             
         }
 

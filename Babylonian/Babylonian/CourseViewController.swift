@@ -384,7 +384,6 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.initialized = false
         
-        
         ProgressHUD.show("Loading Course")
         self.currentCourse.contentRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             if let content = snapshot.value {
@@ -392,10 +391,8 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
                     for item in content as! [String:NSDictionary]{
                         let item_ref = self.currentCourse.contentRef.childByAppendingPath(item.0)
                         if let im_ref = item.1[COURSE_ITEM_IMAGE] {
-                            
                             let courseItem = ImageItem(ref: item_ref, courseImage: im_ref as! String,order: item.1[COURSE_ITEM_ORDER] as! Int)
                             self.currentCourse.addCourseItem(courseItem)
-                            
                         }
                         else if let text_ref = item.1[COURSE_ITEM_TEXT]  {
                             var duration: Float = 1.0

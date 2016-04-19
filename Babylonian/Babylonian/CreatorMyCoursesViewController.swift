@@ -22,7 +22,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     var initialized = false
     
     @IBOutlet weak var searchResult: UITableView!
-    @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var table: LPRTableView!
     
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -34,6 +34,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         table.delegate = self
         table.dataSource = self
+        table.longPressReorderEnabled = false
         
         searchResult.dataSource = self
         searchResult.delegate = self
@@ -41,9 +42,9 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         
         searchResult.registerNib(UINib(nibName: "SearchTableCell", bundle: nil), forCellReuseIdentifier: "SearchTableCell")
         self.searchResult.hidden = true
-        table.reloadData()
         loadMyCourses()
     }
+    
  
     deinit {
         DataService.dataService.COURSE_REF.removeAllObservers()
@@ -100,7 +101,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     //Setting up tables
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return false
+        return true
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -147,6 +148,27 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         }
         
         return self.courseLists[section].count
+    }
+    
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let ref = self.courseLists[indexPath.section][indexPath.row].ref
+            let course = BBCourse(ref: ref)
+            course.setStatus(COURSE_STATUS_ARCHIVED)
+            self.courseLists[indexPath.section].removeAtIndex(indexPath.row)
+            var ind:Int?
+            if indexPath.section == 0 {
+                ind = indexPath.row
+            }
+            else {
+                ind = indexPath.row+self.courseLists[0].count
+            }
+            self.allCourseTitles.removeAtIndex(ind!)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -221,6 +243,95 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
                 else {
                     //Added New Course, AutoId triggered event
                     self.courseLists[1].append(cInfo)
+                }
+                
+            }
+        })
+        
+        DataService.dataService.COURSE_REF.observeEventType(.ChildChanged, withBlock: { snapshot in
+            if self.initialized {
+                //print(snapshot)
+                var title:String!
+                if let t = snapshot.value.objectForKey(COURSE_TITLE) {
+                    title = t as! String
+                }else {
+                    title = "(no title)"
+                }
+                var published = false
+                for course in self.courseLists[0] {
+                    //print(course.ref)
+                    //print(snapshot.ref)
+                    if course.ref.key == snapshot.ref.key {
+                        print(course.title)
+                        print(title)
+                        published = true
+                        if course.title != title {
+                            course.title = title
+                            self.allCourseTitles = self.allCourseTitles.filter({ (text) -> Bool in
+                                let tmp: NSString = text
+                                let range = tmp.rangeOfString(snapshot.key, options: NSStringCompareOptions.AnchoredSearch)
+                                return range.location == NSNotFound
+                            })
+                            self.allCourseTitles.append(snapshot.key+"|"+title)
+                        }
+                        break
+                    }
+                }
+                if published == false {
+                    for course in self.courseLists[1] {
+                        if course.ref.key == snapshot.ref.key {
+                            published = true
+                            if course.title != title {
+                                course.title = title
+                                self.allCourseTitles = self.allCourseTitles.filter({ (text) -> Bool in
+                                    let tmp: NSString = text
+                                    let range = tmp.rangeOfString(snapshot.key, options: NSStringCompareOptions.AnchoredSearch)
+                                    return range.location == NSNotFound
+                                })
+                                self.allCourseTitles.append(snapshot.key+"|"+title)
+
+                            }
+                            break
+                        }
+                    }
+                }
+                
+            }
+        })
+
+        DataService.dataService.COURSE_REF.observeEventType(.ChildRemoved, withBlock: { snapshot in
+            if self.initialized {
+                var published = false
+                var ind = 0
+                for course in self.courseLists[0] {
+                    if course.ref.key == snapshot.ref.key {
+                        published = true
+                        self.allCourseTitles = self.allCourseTitles.filter({ (text) -> Bool in
+                            let tmp: NSString = text
+                            let range = tmp.rangeOfString(snapshot.key, options: NSStringCompareOptions.AnchoredSearch)
+                            return range.location == NSNotFound
+                        })
+                        self.courseLists.removeAtIndex(ind)
+                        break
+                        
+                    }
+                    ind += 1
+                }
+                if published == false {
+                    for course in self.courseLists[1] {
+                        if course.ref.key == snapshot.ref.key {
+                            published = true
+                            self.allCourseTitles = self.allCourseTitles.filter({ (text) -> Bool in
+                                let tmp: NSString = text
+                                let range = tmp.rangeOfString(snapshot.key, options: NSStringCompareOptions.AnchoredSearch)
+                                return range.location == NSNotFound
+                            })
+                            self.courseLists.removeAtIndex(ind)
+                            break
+                            
+                        }
+                        ind += 1
+                    }
                 }
                 
             }

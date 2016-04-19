@@ -26,7 +26,7 @@ class ATItemAutoCell: UITableViewCell, UITextViewDelegate {
         
         transcript.textContainer.maximumNumberOfLines = 5;
         transcript.textContainer.lineBreakMode = NSLineBreakMode.ByWordWrapping;
-        
+
         self.playButton.contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         self.playButton.layer.cornerRadius = self.playButton.frame.size.height/2
         self.playButton.layer.borderColor = self.playButton.tintColor.CGColor
@@ -78,12 +78,26 @@ class ATItemAutoCell: UITableViewCell, UITextViewDelegate {
         if let contents = self.item.content {
             transcript.text = contents[COURSE_ITEM_TEXT] as! String
         }
+        if (transcript.text ?? "").isEmpty && transcript.editable {
+            transcript.text = "Tap here to edit transcript"
+            transcript.textColor = UIColor.lightGrayColor()
+        }
     }
     
     //TODO: tap and drag//tap and hold to record
     func textViewDidBeginEditing(textView: UITextView) {
         NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "EditingATItem", object: nil, userInfo: ["Cell":self]))
-        
+        if transcript.textColor == UIColor.lightGrayColor() {
+            transcript.text = ""
+            transcript.textColor = UIColor.blackColor()
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if transcript.text.isEmpty {
+            transcript.text = "Tap here to edit transcript"
+            transcript.textColor = UIColor.lightGrayColor()
+        }
     }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
