@@ -165,21 +165,26 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         finishRecording(success: true)
         
         let duration = Float(CACurrentMediaTime() - self.audioTimer)
-        
-        let data = NSData(contentsOfURL: self.audioURL)
-        let audioFile = PFFile(name: "audio.m4a", data: data!)
-        
-        let pObject = PFObject(className: "Audio")
-        pObject[PARSE_AUDIO_FILENAME]  = audioFile
-        
-        pObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            if success {
-                self.currentCourse.addNewATItem("", courseAudio: (audioFile?.url)!, duration:duration)
-                self.courseTableView.reloadData()
-            }else {
-                print(error)
+        if duration<2 {
+            ProgressHUD.showError("Audio too short")
+        }
+        else {
+            let data = NSData(contentsOfURL: self.audioURL)
+            let audioFile = PFFile(name: "audio.m4a", data: data!)
+            
+            let pObject = PFObject(className: "Audio")
+            pObject[PARSE_AUDIO_FILENAME]  = audioFile
+            
+            pObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                if success {
+                    self.currentCourse.addNewATItem("", courseAudio: (audioFile?.url)!, duration:duration)
+                    self.courseTableView.reloadData()
+                }else {
+                    print(error)
+                }
             }
         }
+        
         
     }
     
