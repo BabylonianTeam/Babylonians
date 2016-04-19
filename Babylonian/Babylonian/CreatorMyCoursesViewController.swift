@@ -146,7 +146,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
             return filtered.count
         }
         
-        return min(self.courseLists[section].count,5)
+        return self.courseLists[section].count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
