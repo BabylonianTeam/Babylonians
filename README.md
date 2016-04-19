@@ -32,6 +32,9 @@ https://github.com/relatedcode/ProgressHUD
 ###For reordering table
 https://github.com/nicolasgomollon/LPRTableView
 
+###For tag list
+https://github.com/xhacker/TagListView
+
 ##Reference Projects:
 https://github.com/relatedcode/EncryptedChat
 
