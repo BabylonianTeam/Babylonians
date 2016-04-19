@@ -76,6 +76,7 @@ class ATItemAutoCell: UITableViewCell, UITextViewDelegate {
     
     func refreshText() -> Void {
         if let contents = self.item.content {
+            transcript.textColor = UIColor.blackColor()
             transcript.text = contents[COURSE_ITEM_TEXT] as! String
         }
         if (transcript.text ?? "").isEmpty && transcript.editable {
