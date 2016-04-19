@@ -127,7 +127,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             
         })
         
-        let data = UIImageJPEGRepresentation(image!, 1)
+        let data = UIImageJPEGRepresentation(image!, 0.5)
         let imageFile = PFFile(name: "image.jpg", data: data!)
         
         let pObject = PFObject(className: "Image")
@@ -136,6 +136,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         //TODO: create a local storage for BBCourse, distinguish from addToLocal and addToRemote
         pObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if success {
+                SDImageCache.sharedImageCache().storeImage(image, forKey: imageFile?.url)
                 self.currentCourse.addNewImageItem((imageFile?.url)!)
                 self.courseTableView.reloadData()
                 
