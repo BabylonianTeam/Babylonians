@@ -2,8 +2,11 @@
 A great app we are making for CS506
 
 # Tutorial
-Open the workspace file with the newest version of XCode. Then you should be able to run it.
-In case of any error. Go to the terminal and run ```pod install''' under the root folder of the project.
+Open the workspace file ```Babylonian.xcworkspace``` with the newest version of XCode. Then you should be able to build it. If it builds successfully but doesn't launch the app, make sure you select "Babylonian" next to the "Stop" button, instead of "Bolts".
+
+![alt tag](https://github.com/BabylonianTeam/Babylonians/blob/master/Screen%20Shot%202016-04-18%20at%2011.18.14%20PM.png?raw=true)
+
+In case of any error. Go to the terminal and run ```pod install``` under the root folder of the project. If you don't have pod, then run ```gem install cocoapods```. This is very likely needed for OS X El Capitan.
 
 The app runs as the creator side by default. Change 
 ```c
@@ -31,6 +34,9 @@ https://github.com/relatedcode/ProgressHUD
 
 ###For reordering table
 https://github.com/nicolasgomollon/LPRTableView
+
+###For tag list
+https://github.com/xhacker/TagListView
 
 ##Reference Projects:
 https://github.com/relatedcode/EncryptedChat
