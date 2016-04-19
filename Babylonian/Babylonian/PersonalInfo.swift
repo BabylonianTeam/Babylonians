@@ -57,8 +57,9 @@ class PersonalInfo: NSObject{
         let currDate = getCurrentDate()
         
         let newCourse_ref = self.ref_.childByAppendingPath(USER_PURCHASED_COURSE).childByAppendingPath(purchasedCourseId)
-        newCourse_ref.setValue([USER_PURCHASED_COURSE_DATE: currDate])
         
+
+        newCourse_ref.setValue([USER_PURCHASED_COURSE_DATE: currDate])
         self.ownedCourses_.append(OwnedCourseItem(ref: newCourse_ref, ownedDate: currDate))
         
     }
