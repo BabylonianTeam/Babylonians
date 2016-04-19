@@ -20,6 +20,8 @@
 		302F4AAF1CC4C95D006248EC /* CoursePreview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302F4AAE1CC4C95D006248EC /* CoursePreview.storyboard */; };
 		302F4AB21CC5FF0E006248EC /* SetCourseTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302F4AB01CC5FF0E006248EC /* SetCourseTitle.swift */; };
 		302F4AB31CC5FF0E006248EC /* SetCourseTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302F4AB11CC5FF0E006248EC /* SetCourseTitle.xib */; };
+		302F4AB61CC61FA1006248EC /* TagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302F4AB41CC61FA1006248EC /* TagViewCell.swift */; };
+		302F4AB71CC61FA1006248EC /* TagViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302F4AB51CC61FA1006248EC /* TagViewCell.xib */; };
 		3037A4A11CB03A9B00C52232 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3037A4A01CB03A9B00C52232 /* CourseViewController.swift */; };
 		3037A4A31CB0513400C52232 /* CourseSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3037A4A21CB0513400C52232 /* CourseSettingViewController.swift */; };
 		3037A4A91CB09F6600C52232 /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3037A4A61CB09F6600C52232 /* ImageItem.swift */; };
@@ -156,6 +158,8 @@
 		302F4AAE1CC4C95D006248EC /* CoursePreview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CoursePreview.storyboard; sourceTree = "<group>"; };
 		302F4AB01CC5FF0E006248EC /* SetCourseTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCourseTitle.swift; sourceTree = "<group>"; };
 		302F4AB11CC5FF0E006248EC /* SetCourseTitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetCourseTitle.xib; sourceTree = "<group>"; };
+		302F4AB41CC61FA1006248EC /* TagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewCell.swift; sourceTree = "<group>"; };
+		302F4AB51CC61FA1006248EC /* TagViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagViewCell.xib; sourceTree = "<group>"; };
 		3037A4A01CB03A9B00C52232 /* CourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		3037A4A21CB0513400C52232 /* CourseSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSettingViewController.swift; sourceTree = "<group>"; };
 		3037A4A61CB09F6600C52232 /* ImageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
@@ -616,6 +620,8 @@
 			isa = PBXGroup;
 			children = (
 				9F66D60F1C9ADE6B00EB9C93 /* CustomCell.swift */,
+				302F4AB41CC61FA1006248EC /* TagViewCell.swift */,
+				302F4AB51CC61FA1006248EC /* TagViewCell.xib */,
 				302F4AB01CC5FF0E006248EC /* SetCourseTitle.swift */,
 				302F4AB11CC5FF0E006248EC /* SetCourseTitle.xib */,
 				9F66D6051C9ADE1500EB9C93 /* NormalCell.xib */,
@@ -772,6 +778,7 @@
 				30F20AB71CA0F95700A484E9 /* LearnerMore.storyboard in Resources */,
 				30F20AC11CA124C600A484E9 /* CourseView.storyboard in Resources */,
 				9F66D6121C9ADE9900EB9C93 /* CellDescriptor.plist in Resources */,
+				302F4AB71CC61FA1006248EC /* TagViewCell.xib in Resources */,
 				3068A0F51CA2477000AE6CB4 /* aa0f3d544a573d3-1.jpg in Resources */,
 				30852AB31CB96D4B00C4D100 /* BBicon120.png in Resources */,
 				30852AA11CB8D34400C4D100 /* person-placeholder.png in Resources */,
@@ -881,6 +888,7 @@
 				9F17DC831CBC89BD00442D14 /* LearnerMorePasswdViewController.swift in Sources */,
 				3037A4A91CB09F6600C52232 /* ImageItem.swift in Sources */,
 				9F638F691C9B8A7500154A13 /* CreatorMyCoursesViewController.swift in Sources */,
+				302F4AB61CC61FA1006248EC /* TagViewCell.swift in Sources */,
 				306C323B1C9B9E830035608E /* MainCourseCell.swift in Sources */,
 				30DBCE071C9E4174000CD59D /* SDWebImagePrefetcher.m in Sources */,
 				30DBCE0E1C9E4174000CD59D /* UIView+WebCacheOperation.m in Sources */,

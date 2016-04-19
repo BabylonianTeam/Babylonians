@@ -25,7 +25,6 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
     
     
     @IBOutlet weak var mytableView: UITableView!
-    @IBOutlet weak var tagListView: TagListView!
   
     
     let sections = ["Course Title", "Course Price", "Course Tag"]
@@ -35,7 +34,7 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
     ]
     let cellTypes = [ ["setCoursetTitle"],
                       ["idCellTextfield"],
-                      ["idCellTextfield"]
+                      ["tagViewCell"]
     ]
   
     
@@ -44,22 +43,20 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
         
         self.title = "Setings"
         currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
-        tagListView.delegate = self
         
         configureTableView()
         
         self.currentCourse.courseRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            
-            
             
             if let tagstr = snapshot.value.objectForKey("tag") {
                 //self.tagTransfer = (tagstr as? NSArray)!
                 self.tagStr = tagstr as? String
                 self.tagArray = self.tagStr!.characters.split{$0 == "|"}.map(String.init)
                 self.currentCourse.tag_ = self.tagArray
-                self.tagListView.textFont = UIFont.systemFontOfSize(24)
-                self.tagListView.alignment = .Center // possible values are .Left, .Center, and .Right
-                self.tagListView.removeAllTags()
+                self.mytableView.reloadData()
+//                self.tagListView.textFont = UIFont.systemFontOfSize(24)
+//                self.tagListView.alignment = .Center // possible values are .Left, .Center, and .Right
+//                self.tagListView.removeAllTags()
 //                for i in 0...(self.tagArray.count-1) {
 //                    let tagstring = self.tagArray[i]
 //                   
@@ -113,20 +110,31 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
         
     }
     
-
-    
- 
-    @IBAction func addCourseTag(sender: UIButton) {
-       addTag()
+    @IBAction func saveToDraft(sender: UIButton) {
+        let cell1 = self.mytableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! SetCourseTitle
+        
+        self.newtitle = cell1.title.text!
+        
+        let cell2 = self.mytableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! CustomCell
+        
+        self.newprice = cell2.textField.text!
+        
+        
+        currentCourse.setPrice(self.newprice!.floatValue)
+        currentCourse.setTitle(self.newtitle!)
+        self.currentCourse.setStatus(COURSE_STATUS_DRAFT)
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
+
+
     
     @IBAction func Publish(sender: UIButton) {
         
-        let cell1 = self.mytableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)) as! CustomCell
+        let cell1 = self.mytableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! SetCourseTitle
         
-        self.newtitle = cell1.textField.text!
+        self.newtitle = cell1.title.text!
        
-        let cell2 = self.mytableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 1)) as! CustomCell
+        let cell2 = self.mytableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! CustomCell
         
         self.newprice = cell2.textField.text!
         
@@ -137,30 +145,6 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
 
-    @IBAction func clearAllTag(sender: UIButton) {
-        self.tagArray.removeAll()
-        currentCourse.deleteAllTag()
-        tagListView.removeAllTags()
-        
-    }
-    
-    func addTag() -> Void {
-        
-        let cell3 = self.mytableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 2)) as! CustomCell
-        self.newtag = cell3.textField.text!
-        
-        if let t = self.newtag{
-            
-            if t.trim().characters.count>0 {
-                self.tagArray.append(t)
-                
-                self.tagStr=self.tagArray.joinWithSeparator("|")
-                currentCourse.setTag(self.tagArray)
-                self.tagListView.addTag(t)
-            }
-        }
-        
-    }
     
     
     override func didReceiveMemoryWarning() {
@@ -177,7 +161,7 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
         
         mytableView.registerNib(UINib(nibName: "NormalCell", bundle: nil), forCellReuseIdentifier: "idCellNormal")
         mytableView.registerNib(UINib(nibName: "TextfieldCell", bundle: nil), forCellReuseIdentifier: "idCellTextfield")
-        mytableView.registerNib(UINib(nibName: "SwitchCell", bundle: nil), forCellReuseIdentifier: "idCellSwitch")
+        mytableView.registerNib(UINib(nibName: "TagViewCell", bundle: nil), forCellReuseIdentifier: "tagViewCell")
         mytableView.registerNib(UINib(nibName: "SetCourseTitle", bundle: nil), forCellReuseIdentifier: "setCoursetTitle")
     }
 
@@ -222,13 +206,14 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
             }, withCancelBlock: { error in
                 print(error.description)
            })
-            return cell
+            return tcell
 
         }
             
         else if(indexPath.section == 1 && indexPath.row == 0){
+            let ccell = cell as! CustomCell
+
             self.currentCourse.courseRef.observeEventType(.Value, withBlock: { snapshot in
-                let ccell = cell as! CustomCell
                 
                 if let pricestr = snapshot.value.objectForKey(COURSE_PRICE){
                     ccell.textLabel?.text = (pricestr as? NSNumber)?.stringValue
@@ -242,83 +227,19 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
                     print(error.description)
             })
             
-            
-            
+            return ccell
         }
         
-        else if(indexPath.section == 2 && indexPath.row == 0){
-            
-            (cell as! CustomCell).textField.placeholder = "Please type Course Tag here"
-            
-        }
-
-        
-       
-        return cell
-        
+        let tcell = cell as! TagViewCell
+        tcell.textField.placeholder = "Please type Course Tag here"
+        tcell.currentCourse = self.currentCourse
+        tcell.refreshTags()
+        return tcell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50.0
     }
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//    func tableView(tableView: UITableView!,
-//                   
-//                   cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
-//    {
-//        let cell:UITableViewCell = UITableViewCell(style:UITableViewCellStyle.Default, reuseIdentifier:"TextfieldCell")
-//        
-//        cell.textLabel?.text = newData[indexPath.row]
-//        
-//        
-//        var input = UITextField(frame: CGRectMake(130.0, 14.0, 150.0, 30.0))
-//        
-//        input.tag = indexPath.row
-//        cell.contentView.addSubview(input)
-//        
-//        //        let btn = UIButton(type: UIButtonType.Custom) as UIButton
-//        //        btn.backgroundColor = UIColor.lightGrayColor()
-//        //        btn.setTitle(buttonData[indexPath.row], forState: UIControlState.Normal)
-//        //        btn.frame = CGRectMake(0, 5, 80, 40)
-//        //        btn.addTarget(self, action: "buttonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-//        //        btn.tag = indexPath.row
-//        //        cell.contentView.addSubview(btn)
-//        
-//        return cell
-//    }
-    
 
     
     
