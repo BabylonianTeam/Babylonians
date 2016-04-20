@@ -33,6 +33,10 @@
 #define     USER_DATE_FORMAT                    @"yyyy-d-M"
 #define     USER_PROFILEPHOTO                   @"profilePhoto"
 
+#define     USER_CREATED_COURSE                 @"createdCourse"
+#define     USER_CREATED_COURSE_DATE            @"date"
+#define     USER_PURCHASED_COURSE               @"purchasedCourse"
+#define     USER_PURCHASED_COURSE_DATE          @"date"
 
 #define		COURSE_AUTHOR                       @"author"
 #define		COURSE_TITLE                        @"title"

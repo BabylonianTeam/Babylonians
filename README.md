@@ -8,7 +8,7 @@ Open the workspace file ```Babylonian.xcworkspace``` with the newest version of 
 
 In case of any error. Go to the terminal and run ```pod install``` under the root folder of the project. If you don't have pod, then run ```gem install cocoapods```. This is very likely needed for OS X El Capitan.
 
-The app runs as the creator side by default. Change 
+The app runs as the creator side by default. Inside ```AppConstant.h```, change 
 ```c
 #define		RUNTIME_USER_ROLE                   @"creator"
 ```
