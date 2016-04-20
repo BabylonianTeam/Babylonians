@@ -169,11 +169,11 @@
             </objects>
             <point key="canvasLocation" x="-207" y="1677"/>
         </scene>
-        <!--Main-->
+        <!--Trends-->
         <scene sceneID="fZl-5z-g7r">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DmR-nJ-70i" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Main" image="star32.png" id="HN4-Yj-vq2"/>
+                    <tabBarItem key="tabBarItem" title="Trends" image="star32.png" id="HN4-Yj-vq2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wSc-w7-9Vm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
