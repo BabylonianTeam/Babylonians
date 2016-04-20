@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Course View Controller-->
@@ -55,25 +54,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="ieS-Co-FmT">
                         <nil key="title"/>
-                        <rightBarButtonItems>
-                            <barButtonItem title="Next" id="tcM-7P-8CC">
-                                <connections>
-                                    <action selector="nextButton:" destination="45I-xC-lAC" id="z31-Pj-DJc"/>
-                                    <segue destination="Kv9-3G-TY8" kind="show" id="tlj-ti-TaE"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Edit" id="qJ7-Xo-GGI">
-                                <connections>
-                                    <action selector="editButton:" destination="45I-xC-lAC" id="vVn-hz-IKD"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="courseTableView" destination="7dH-ch-bSx" id="of6-Us-kgV"/>
-                        <outlet property="editButton" destination="qJ7-Xo-GGI" id="lt8-1h-0zB"/>
-                        <outlet property="nextButton" destination="tcM-7P-8CC" id="zZa-LV-JwG"/>
-                        <outlet property="tableEditButton" destination="qJ7-Xo-GGI" id="m2o-Jf-m34"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s5d-vD-rVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -95,14 +78,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QcC-Ib-cwG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-956" y="105"/>
-        </scene>
-        <!--CourseSettingsView-->
-        <scene sceneID="4hE-W6-3HW">
-            <objects>
-                <viewControllerPlaceholder storyboardName="CourseSettingsView" id="Kv9-3G-TY8" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bO2-WL-HXa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="678" y="105"/>
         </scene>
     </scenes>
 </document>

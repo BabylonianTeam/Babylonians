@@ -129,8 +129,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="DmR-nJ-70i" kind="relationship" relationship="viewControllers" id="szw-FE-CgO"/>
                         <segue destination="KdM-aK-1NF" kind="relationship" relationship="viewControllers" id="ocL-Cy-eDf"/>
+                        <segue destination="DmR-nJ-70i" kind="relationship" relationship="viewControllers" id="szw-FE-CgO"/>
                         <segue destination="zZ5-Q9-6ev" kind="relationship" relationship="viewControllers" id="HXr-le-PEK"/>
                         <segue destination="cfm-QQ-tbR" kind="relationship" relationship="viewControllers" id="Xh8-7C-V4W"/>
                     </connections>
