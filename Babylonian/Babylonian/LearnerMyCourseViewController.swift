@@ -154,6 +154,7 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         else {
             bbCourseController.currentCourse = BBCourse(ref: self.courseLists[indexPath.section][indexPath.row].ref)
         }
+        bbCourseController.viewOnly = true
         self.presentViewController(bbCourseController, animated: true, completion: nil)
     }
     
