@@ -83,7 +83,7 @@
                             <constraint firstAttribute="trailing" secondItem="Srp-XD-Djx" secondAttribute="trailing" id="syI-MO-ZD1"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Courses" image="mycourses.png" id="XUk-co-nDv"/>
+                    <tabBarItem key="tabBarItem" title="My Courses" image="course.png" id="XUk-co-nDv"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="3Cx-19-KDC" id="JaM-Hv-Wuf"/>
@@ -97,6 +97,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="mycourses.png" width="32" height="32"/>
+        <image name="course.png" width="32" height="32"/>
     </resources>
 </document>

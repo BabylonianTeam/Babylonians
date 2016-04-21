@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate{
     //Need to hold a fake db for "Title, Text, and Profit"
@@ -20,6 +21,8 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     var searchActive : Bool = false
     let sections = ["Published", "Drafts"]
     var initialized = false
+    var myCourseRef = DataService.dataService.COURSE_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).childByAppendingPath(USER_CREATED_COURSE)
+    //TODO: replace DataService with this ref.
     
     @IBOutlet weak var searchResult: UITableView!
     @IBOutlet weak var table: LPRTableView!

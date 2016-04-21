@@ -173,7 +173,7 @@
         <scene sceneID="73F-eT-p3O">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zez-qL-Zzg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Main" id="vhc-q9-KTh"/>
+                    <tabBarItem key="tabBarItem" title="Main" image="star30.png" id="vhc-q9-KTh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QpJ-sJ-VYs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -191,5 +191,6 @@
     </scenes>
     <resources>
         <image name="mycourses.png" width="32" height="32"/>
+        <image name="star30.png" width="30" height="30"/>
     </resources>
 </document>

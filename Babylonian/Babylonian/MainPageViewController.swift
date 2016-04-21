@@ -14,7 +14,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
     var popularCourseTitles = [String]()
     var filtered = [String]()
     var searchActive : Bool = false
-    let sections = ["Popular", "Trending"]
+    let sections = ["Popular", "New"]
     var initialized = false
     
     @IBOutlet weak var searchResult: UITableView!

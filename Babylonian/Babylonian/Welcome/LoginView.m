@@ -15,7 +15,7 @@
 #import "Firebase.h"
 #import "LoginView.h"
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
 @interface LoginView()
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *cellEmail;
@@ -93,7 +93,6 @@ withCompletionBlock:^(NSError *error, FAuthData *authData) {
                 UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
                 [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
             }
-            
             
         }];
         
