@@ -129,11 +129,6 @@ FBSDK_EXTERN NSString *const FBSDKAppEventNameFBSDKLoginButtonImpression;
 FBSDK_EXTERN NSString *const FBSDKAppEventNameFBSDKSendButtonImpression;
 FBSDK_EXTERN NSString *const FBSDKAppEventNameFBSDKShareButtonImpression;
 
-FBSDK_EXTERN NSString *const FBSDKAppEventNameFBSDKLikeButtonDidTap;
-FBSDK_EXTERN NSString *const FBSDKAppEventNameFBSDKLoginButtonDidTap;
-FBSDK_EXTERN NSString *const FBSDKAppEventNameFBSDKSendButtonDidTap;
-FBSDK_EXTERN NSString *const FBSDKAppEventNameFBSDKShareButtonDidTap;
-
 FBSDK_EXTERN NSString *const FBSDKAppEventNameFBSDKLikeControlDidDisable;
 FBSDK_EXTERN NSString *const FBSDKAppEventNameFBSDKLikeControlDidLike;
 FBSDK_EXTERN NSString *const FBSDKAppEventNameFBSDKLikeControlDidPresentDialog;
@@ -144,7 +139,6 @@ FBSDK_EXTERN NSString *const FBSDKAppEventNameFBSDKLikeControlImpression;
 FBSDK_EXTERN NSString *const FBSDKAppEventNameFBSDKLikeControlNetworkUnavailable;
 
 FBSDK_EXTERN NSString *const FBSDKAppEventParameterDialogErrorMessage;
-FBSDK_EXTERN NSString *const FBSDKAppEventParameterLogTime;
 
 @interface FBSDKAppEvents (Internal)
 

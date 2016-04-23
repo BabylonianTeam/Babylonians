@@ -28,6 +28,10 @@
 
 + (FBSDKGraphRequest *)requestToLoadServerConfiguration:(NSString *)appID;
 
-+ (void)clearCache;
+// for testing only
++ (void)_didLoadServerConfiguration:(FBSDKServerConfiguration *)serverConfiguration
+                              appID:(NSString *)appID
+                              error:(NSError *)error
+            didLoadFromUserDefaults:(BOOL)didLoadFromUserDefaults;
 
 @end

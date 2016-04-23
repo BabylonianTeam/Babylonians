@@ -120,11 +120,6 @@ NSString *const FBSDKAppEventNameFBSDKLoginButtonImpression       = @"fb_login_b
 NSString *const FBSDKAppEventNameFBSDKSendButtonImpression        = @"fb_send_button_impression";
 NSString *const FBSDKAppEventNameFBSDKShareButtonImpression       = @"fb_share_button_impression";
 
-NSString *const FBSDKAppEventNameFBSDKLikeButtonDidTap  = @"fb_like_button_did_tap";
-NSString *const FBSDKAppEventNameFBSDKLoginButtonDidTap  = @"fb_login_button_did_tap";
-NSString *const FBSDKAppEventNameFBSDKSendButtonDidTap  = @"fb_send_button_did_tap";
-NSString *const FBSDKAppEventNameFBSDKShareButtonDidTap  = @"fb_share_button_did_tap";
-
 NSString *const FBSDKAppEventNameFBSDKLikeControlDidDisable          = @"fb_like_control_did_disable";
 NSString *const FBSDKAppEventNameFBSDKLikeControlDidLike             = @"fb_like_control_did_like";
 NSString *const FBSDKAppEventNameFBSDKLikeControlDidPresentDialog    = @"fb_like_control_did_present_dialog";
@@ -147,9 +142,6 @@ NSString *const FBSDKAppEventParameterDialogOutcome               = @"fb_dialog_
 NSString *const FBSDKAppEventParameterDialogErrorMessage          = @"fb_dialog_outcome_error_message";
 NSString *const FBSDKAppEventParameterDialogMode                  = @"fb_dialog_mode";
 NSString *const FBSDKAppEventParameterDialogShareContentType      = @"fb_dialog_share_content_type";
-NSString *const FBSDKAppEventParameterLogTime = @"_logTime";
-NSString *const FBSDKAppEventParameterEventName = @"_eventName";
-NSString *const FBSDKAppEventParameterImplicitlyLogged = @"_implicitlyLogged";
 
 // Event parameter values internal to this file
 NSString *const FBSDKAppEventsDialogOutcomeValue_Completed = @"Completed";
@@ -171,22 +163,10 @@ NSString *const FBSDKAppEventsDialogShareContentTypePhoto           = @"Photo";
 NSString *const FBSDKAppEventsDialogShareContentTypeVideo           = @"Video";
 NSString *const FBSDKAppEventsDialogShareContentTypeUnknown         = @"Unknown";
 
+
 NSString *const FBSDKAppEventsLoggingResultNotification = @"com.facebook.sdk:FBSDKAppEventsLoggingResultNotification";
 
 NSString *const FBSDKAppEventsOverrideAppIDBundleKey = @"FacebookLoggingOverrideAppID";
-
-//
-// Push Notifications
-// Activities Endpoint Parameter
-static NSString *const FBSDKActivitesParameterPushDeviceToken = @"device_token";
-// Event Name
-static NSString *const FBSDKAppEventNamePushOpened = @"fb_mobile_push_opened";
-// Event Parameter
-static NSString *const FBSDKAppEventParameterPushCampaign = @"fb_push_campaign";
-static NSString *const FBSDKAppEventParameterPushAction = @"fb_push_action";
-// Payload Keys
-static NSString *const FBSDKAppEventsPushPayloadKey = @"fb_push_payload";
-static NSString *const FBSDKAppEventsPushPayloadCampaignKey = @"campaign";
 
 #define NUM_LOG_EVENTS_TO_TRY_TO_FLUSH_AFTER 100
 #define FLUSH_PERIOD_IN_SECONDS 15
@@ -199,9 +179,6 @@ static NSString *g_overrideAppID = nil;
 @property (nonatomic, readwrite) FBSDKAppEventsFlushBehavior flushBehavior;
 //for testing only.
 @property (nonatomic, assign) BOOL disableTimer;
-
-@property (nonatomic, copy) NSString *pushNotificationsDeviceTokenString;
-
 @end
 
 @implementation FBSDKAppEvents
@@ -227,18 +204,17 @@ static NSString *g_overrideAppID = nil;
   self = [super init];
   if (self) {
     _flushBehavior = FBSDKAppEventsFlushBehaviorAuto;
-    _flushTimer = [NSTimer timerWithTimeInterval:FLUSH_PERIOD_IN_SECONDS
-                                          target:self
-                                        selector:@selector(flushTimerFired:)
-                                        userInfo:nil
-                                         repeats:YES];
-    _attributionIDRecheckTimer = [NSTimer timerWithTimeInterval:APP_SUPPORTS_ATTRIBUTION_ID_RECHECK_PERIOD
-                                                         target:self
-                                                       selector:@selector(appSettingsFetchStateResetTimerFired:)
-                                                       userInfo:nil
-                                                        repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:_flushTimer forMode:NSDefaultRunLoopMode];
-    [[NSRunLoop mainRunLoop] addTimer:_attributionIDRecheckTimer forMode:NSDefaultRunLoopMode];
+    _flushTimer = [NSTimer scheduledTimerWithTimeInterval:FLUSH_PERIOD_IN_SECONDS
+                                                   target:self
+                                                 selector:@selector(flushTimerFired:)
+                                                 userInfo:nil
+                                                  repeats:YES];
+
+    _attributionIDRecheckTimer = [NSTimer scheduledTimerWithTimeInterval:APP_SUPPORTS_ATTRIBUTION_ID_RECHECK_PERIOD
+                                                                  target:self
+                                                                selector:@selector(appSettingsFetchStateResetTimerFired:)
+                                                                userInfo:nil
+                                                                 repeats:YES];
     [[NSNotificationCenter defaultCenter]
      addObserver:self
      selector:@selector(applicationMovingFromActiveStateOrTerminating)
@@ -363,38 +339,9 @@ static NSString *g_overrideAppID = nil;
   }
 }
 
-/*
- * Push Notifications Logging
- */
-
-+ (void)logPushNotificationOpen:(NSDictionary *)payload
-{
-  [self logPushNotificationOpen:payload action:nil];
-}
-
-+ (void)logPushNotificationOpen:(NSDictionary *)payload action:(NSString *)action
-{
-  NSDictionary *facebookPayload = payload[FBSDKAppEventsPushPayloadKey];
-  if (!facebookPayload) {
-    return;
-  }
-  NSString *campaign = facebookPayload[FBSDKAppEventsPushPayloadCampaignKey];
-  if (campaign.length == 0) {
-    [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorDeveloperErrors
-                           logEntry:@"Malformed payload specified for logging a push notification open."];
-    return;
-  }
-
-  NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithObject:campaign forKey:FBSDKAppEventParameterPushCampaign];
-  if (action) {
-    parameters[FBSDKAppEventParameterPushAction] = action;
-  }
-  [self logEvent:FBSDKAppEventNamePushOpened parameters:parameters];
-}
-
 + (void)activateApp
 {
-  [FBSDKAppEventsUtility ensureOnMainThread:NSStringFromSelector(_cmd) className:NSStringFromClass(self)];
+  [FBSDKAppEventsUtility ensureOnMainThread];
 
   // Fetch app settings and register for transaction notifications only if app supports implicit purchase
   // events
@@ -406,11 +353,6 @@ static NSString *g_overrideAppID = nil;
   // when appropriate, result in logging an "activated app" and "deactivated app" (for the
   // previous session) App Event.
   [FBSDKTimeSpentData restore:YES];
-}
-
-+ (void)setPushNotificationsDeviceToken:(NSData *)deviceToken
-{
-  [FBSDKAppEvents singleton].pushNotificationsDeviceTokenString = [FBSDKInternalUtility hexadecimalStringFromData:deviceToken];
 }
 
 + (FBSDKAppEventsFlushBehavior)flushBehavior
@@ -463,8 +405,8 @@ static NSString *g_overrideAppID = nil;
   static FBSDKAppEvents *shared = nil;
 
   dispatch_once(&pred, ^{
-      shared = [[FBSDKAppEvents alloc] init];
-    });
+    shared = [[FBSDKAppEvents alloc] init];
+  });
   return shared;
 }
 
@@ -585,13 +527,11 @@ static NSString *g_overrideAppID = nil;
   }
 
   NSMutableDictionary *eventDictionary = [NSMutableDictionary dictionaryWithDictionary:parameters];
-  eventDictionary[FBSDKAppEventParameterEventName] = eventName;
-  if (!eventDictionary[FBSDKAppEventParameterLogTime]) {
-    eventDictionary[FBSDKAppEventParameterLogTime] = @([FBSDKAppEventsUtility unixTimeNow]);
-  }
+  eventDictionary[@"_eventName"] = eventName;
+  eventDictionary[@"_logTime"] = @([FBSDKAppEventsUtility unixTimeNow]);
   [FBSDKInternalUtility dictionary:eventDictionary setObject:valueToSum forKey:@"_valueToSum"];
   if (isImplicitlyLogged) {
-    eventDictionary[FBSDKAppEventParameterImplicitlyLogged] = @"1";
+    eventDictionary[@"_implicitlyLogged"] = @"1";
   }
 
   NSString *currentViewControllerName;
@@ -687,7 +627,7 @@ static NSString *g_overrideAppID = nil;
   if (appEventsState.events.count == 0) {
     return;
   }
-  [FBSDKAppEventsUtility ensureOnMainThread:NSStringFromSelector(_cmd) className:NSStringFromClass([self class])];
+  [FBSDKAppEventsUtility ensureOnMainThread];
 
   [self fetchServerConfiguration:^(void) {
     NSString *JSONString = [appEventsState JSONStringForEvents:_serverConfiguration.implicitLoggingEnabled];
@@ -704,9 +644,6 @@ static NSString *g_overrideAppID = nil;
     postParameters[@"custom_events_file"] = encodedEvents;
     if (appEventsState.numSkipped > 0) {
       postParameters[@"num_skipped_events"] = [NSString stringWithFormat:@"%lu", (unsigned long)appEventsState.numSkipped];
-    }
-    if (self.pushNotificationsDeviceTokenString) {
-      postParameters[FBSDKActivitesParameterPushDeviceToken] = self.pushNotificationsDeviceTokenString;
     }
 
     NSString *loggingEntry = nil;
@@ -753,7 +690,7 @@ static NSString *g_overrideAppID = nil;
     FlushResultNoConnectivity
   };
 
-  [FBSDKAppEventsUtility ensureOnMainThread:NSStringFromSelector(_cmd) className:NSStringFromClass([self class])];
+  [FBSDKAppEventsUtility ensureOnMainThread];
 
   FBSDKAppEventsFlushResult flushResult = FlushResultSuccess;
   if (error) {
@@ -803,7 +740,7 @@ static NSString *g_overrideAppID = nil;
 
 - (void)flushTimerFired:(id)arg
 {
-  [FBSDKAppEventsUtility ensureOnMainThread:NSStringFromSelector(_cmd) className:NSStringFromClass([self class])];
+  [FBSDKAppEventsUtility ensureOnMainThread];
   if (self.flushBehavior != FBSDKAppEventsFlushBehaviorExplicitOnly && !self.disableTimer) {
     [self flushForReason:FBSDKAppEventsFlushReasonTimer];
   }
@@ -816,7 +753,7 @@ static NSString *g_overrideAppID = nil;
 
 - (void)applicationDidBecomeActive
 {
-  [FBSDKAppEventsUtility ensureOnMainThread:NSStringFromSelector(_cmd) className:NSStringFromClass([self class])];
+  [FBSDKAppEventsUtility ensureOnMainThread];
 
   [self checkPersistedEvents];
 
