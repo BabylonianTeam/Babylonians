@@ -4,6 +4,8 @@
 use_frameworks!
 
 target 'Babylonian' do
+pod 'Google/SignIn', '~> 1.0.7'
+pod 'FBSDKLoginKit', '~> 4.1'
 pod 'Firebase', '>= 2.5.0'
 pod 'Stripe'
 pod 'Parse'
