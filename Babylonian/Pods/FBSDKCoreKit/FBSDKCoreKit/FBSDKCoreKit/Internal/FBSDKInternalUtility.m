@@ -227,13 +227,40 @@ setJSONStringForObject:(id)object
 
 + (BOOL)isOSRunTimeVersionAtLeast:(NSOperatingSystemVersion)version
 {
-  return ([self _compareOperatingSystemVersion:[self operatingSystemVersion] toVersion:version] != NSOrderedAscending);
+  static NSOperatingSystemVersion operatingSystemVersion = {
+    .majorVersion = 0,
+    .minorVersion = 0,
+    .patchVersion = 0,
+  };
+  static dispatch_once_t getVersionOnce;
+  dispatch_once(&getVersionOnce, ^{
+    if ([NSProcessInfo instancesRespondToSelector:@selector(operatingSystemVersion)]) {
+      operatingSystemVersion = [NSProcessInfo processInfo].operatingSystemVersion;
+    } else {
+      NSArray *components = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
+      switch (components.count) {
+        default:
+        case 3:
+          operatingSystemVersion.patchVersion = [components[2] integerValue];
+          // fall through
+        case 2:
+          operatingSystemVersion.minorVersion = [components[1] integerValue];
+          // fall through
+        case 1:
+          operatingSystemVersion.majorVersion = [components[0] integerValue];
+          break;
+        case 0:
+          operatingSystemVersion.majorVersion = ([self isUIKitLinkTimeVersionAtLeast:FBSDKUIKitVersion_7_0] ? 7 : 6);
+          break;
+      }
+    }
+  });
+  return ([self _compareOperatingSystemVersion:operatingSystemVersion toVersion:version] != NSOrderedDescending);
 }
 
 + (BOOL)isSafariBundleIdentifier:(NSString *)bundleIdentifier
 {
-  return ([bundleIdentifier isEqualToString:@"com.apple.mobilesafari"] ||
-          [bundleIdentifier isEqualToString:@"com.apple.SafariViewService"]);
+  return [bundleIdentifier isEqualToString:@"com.apple.mobilesafari"];
 }
 
 + (BOOL)isUIKitLinkTimeVersionAtLeast:(FBSDKUIKitVersion)version
@@ -301,39 +328,6 @@ setJSONStringForObject:(id)object
     return nil;
   }
   return [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:errorRef];
-}
-
-+ (NSOperatingSystemVersion)operatingSystemVersion
-{
-  static NSOperatingSystemVersion operatingSystemVersion = {
-    .majorVersion = 0,
-    .minorVersion = 0,
-    .patchVersion = 0,
-  };
-  static dispatch_once_t getVersionOnce;
-  dispatch_once(&getVersionOnce, ^{
-    if ([NSProcessInfo instancesRespondToSelector:@selector(operatingSystemVersion)]) {
-      operatingSystemVersion = [NSProcessInfo processInfo].operatingSystemVersion;
-    } else {
-      NSArray *components = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
-      switch (components.count) {
-        default:
-        case 3:
-          operatingSystemVersion.patchVersion = [components[2] integerValue];
-          // fall through
-        case 2:
-          operatingSystemVersion.minorVersion = [components[1] integerValue];
-          // fall through
-        case 1:
-          operatingSystemVersion.majorVersion = [components[0] integerValue];
-          break;
-        case 0:
-          operatingSystemVersion.majorVersion = ([self isUIKitLinkTimeVersionAtLeast:FBSDKUIKitVersion_7_0] ? 7 : 6);
-          break;
-      }
-    }
-  });
-  return operatingSystemVersion;
 }
 
 + (NSString *)queryStringWithDictionary:(NSDictionary *)dictionary
@@ -450,63 +444,15 @@ static NSMapTable *_transientObjects;
   [_transientObjects setObject:@(count + 1) forKey:object];
 }
 
-+ (void)unregisterTransientObject:(__weak id)object
++ (void)unregisterTransientObject:(id)object
 {
-  if (!object) {
-    return;
-  }
   NSAssert([NSThread isMainThread], @"Must be called from the main thread!");
   NSUInteger count = [(NSNumber *)[_transientObjects objectForKey:object] unsignedIntegerValue];
   if (count == 1) {
     [_transientObjects removeObjectForKey:object];
   } else if (count != 0) {
     [_transientObjects setObject:@(count - 1) forKey:object];
-  } else {
-    [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorDeveloperErrors
-                       formatString:@"unregisterTransientObject:%@ count is 0. This may indicate a bug in the FBSDK. Please"
-     " file a report to developers.facebook.com/bugs if you encounter any problems. Thanks!", [object class]];
   }
-}
-
-+ (UIViewController *)viewControllerforView:(UIView*)view
-{
-  UIResponder *responder = view.nextResponder;
-  while (responder) {
-    if ([responder isKindOfClass:[UIViewController class]]) {
-      return (UIViewController *)responder;
-    }
-    responder = responder.nextResponder;
-  }
-  return nil;
-}
-
-#pragma mark - FB Apps Installed
-
-+ (BOOL)isFacebookAppInstalled
-{
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    [FBSDKInternalUtility checkRegisteredCanOpenURLScheme:FBSDK_CANOPENURL_FACEBOOK];
-  });
-  NSURLComponents *components = [[NSURLComponents alloc] init];
-  components.scheme = FBSDK_CANOPENURL_FACEBOOK;
-  components.path = @"/";
-  return [[UIApplication sharedApplication]
-          canOpenURL:components.URL];
-}
-
-+ (BOOL)isMessengerAppInstalled
-{
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    [FBSDKInternalUtility checkRegisteredCanOpenURLScheme:FBSDK_CANOPENURL_MESSENGER];
-  });
-  NSURLComponents *components = [[NSURLComponents alloc] init];
-  components.scheme = FBSDK_CANOPENURL_MESSENGER;
-  components.path = @"/";
-  return [[UIApplication sharedApplication]
-          canOpenURL:components.URL];
-
 }
 
 #pragma mark - Object Lifecycle
@@ -526,13 +472,13 @@ static NSMapTable *_transientObjects;
     return NSOrderedAscending;
   } else if (version1.majorVersion > version2.majorVersion) {
     return NSOrderedDescending;
-  } else if (version1.minorVersion < version2.minorVersion) {
-    return NSOrderedAscending;
   } else if (version1.minorVersion > version2.minorVersion) {
-    return NSOrderedDescending;
-  } else if (version1.patchVersion < version2.patchVersion) {
     return NSOrderedAscending;
+  } else if (version1.minorVersion < version2.minorVersion) {
+    return NSOrderedDescending;
   } else if (version1.patchVersion > version2.patchVersion) {
+    return NSOrderedAscending;
+  } else if (version1.patchVersion < version2.patchVersion) {
     return NSOrderedDescending;
   } else {
     return NSOrderedSame;
@@ -587,16 +533,6 @@ static NSMapTable *_transientObjects;
   }
 }
 
-+ (NSString *)validateRequiredClientAccessToken {
-  if (![FBSDKSettings clientToken]) {
-    NSString *reason = @"ClientToken is required to be set for this operation. "
-    @"Set the FacebookClientToken in the Info.plist or call [FBSDKSettings setClientToken:]. "
-    @"You can find your client token in your App Settings -> Advanced.";
-    @throw [NSException exceptionWithName:@"InvalidOperationException" reason:reason userInfo:nil];
-  }
-  return [NSString stringWithFormat:@"%@|%@", [FBSDKSettings appID], [FBSDKSettings clientToken]];
-}
-
 + (void)validateURLSchemes
 {
   [self validateAppID];
@@ -607,40 +543,6 @@ static NSMapTable *_transientObjects;
   }
 }
 
-+ (void)validateFacebookReservedURLSchemes
-{
-  for (NSString * fbUrlScheme in @[FBSDK_CANOPENURL_FACEBOOK, FBSDK_CANOPENURL_MESSENGER, FBSDK_CANOPENURL_FBAPI, FBSDK_CANOPENURL_SHARE_EXTENSION]) {
-    if ([self isRegisteredURLScheme:fbUrlScheme]) {
-      NSString *reason = [NSString stringWithFormat:@"%@ is registered as a URL scheme. Please move the entry from CFBundleURLSchemes in your Info.plist to LSApplicationQueriesSchemes. If you are trying to resolve \"canOpenURL: failed\" warnings, those only indicate that the Facebook app is not installed on your device or simulator and can be ignored.", fbUrlScheme];
-      @throw [NSException exceptionWithName:@"InvalidOperationException" reason:reason userInfo:nil];
-    }
-  }
-}
-
-
-+ (UIViewController *)topMostViewController
-{
-  UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
-  while (topController.presentedViewController) {
-    topController = topController.presentedViewController;
-  }
-  return topController;
-}
-
-+ (NSString *)hexadecimalStringFromData:(NSData *)data
-{
-  NSUInteger dataLength = data.length;
-  if (dataLength == 0) {
-    return nil;
-  }
-
-  const unsigned char *dataBuffer = data.bytes;
-  NSMutableString *hexString  = [NSMutableString stringWithCapacity:(dataLength * 2)];
-  for (int i = 0; i < dataLength; ++i) {
-    [hexString appendFormat:@"%02x", dataBuffer[i]];
-  }
-  return [hexString copy];
-}
 
 + (BOOL)isRegisteredURLScheme:(NSString *)urlScheme {
   static dispatch_once_t fetchBundleOnce;
@@ -656,87 +558,6 @@ static NSMapTable *_transientObjects;
     }
   }
   return NO;
-}
-
-+ (void)checkRegisteredCanOpenURLScheme:(NSString *)urlScheme
-{
-  static dispatch_once_t initCheckedSchemesOnce;
-  static NSMutableSet *checkedSchemes = nil;
-
-  dispatch_once(&initCheckedSchemesOnce, ^{
-    checkedSchemes = [NSMutableSet set];
-  });
-
-  @synchronized(self) {
-    if ([checkedSchemes containsObject:urlScheme]) {
-      return;
-    } else {
-      [checkedSchemes addObject:urlScheme];
-    }
-  }
-
-  if (![self isRegisteredCanOpenURLScheme:urlScheme]){
-    NSString *reason = [NSString stringWithFormat:@"%@ is missing from your Info.plist under LSApplicationQueriesSchemes and is required for iOS 9.0", urlScheme];
-#ifdef __IPHONE_9_0
-    @throw [NSException exceptionWithName:@"InvalidOperationException" reason:reason userInfo:nil];
-#else
-    [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorDeveloperErrors logEntry:reason];
-#endif
-  }
-}
-
-+ (BOOL)isRegisteredCanOpenURLScheme:(NSString *)urlScheme
-{
-  static dispatch_once_t fetchBundleOnce;
-  static NSArray *schemes = nil;
-
-  dispatch_once(&fetchBundleOnce, ^{
-    schemes = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"LSApplicationQueriesSchemes"];
-  });
-
-  return [schemes containsObject:urlScheme];
-}
-
-+ (BOOL)isPublishPermission:(NSString *)permission
-{
-  return [permission hasPrefix:@"publish"] ||
-  [permission hasPrefix:@"manage"] ||
-  [permission isEqualToString:@"ads_management"] ||
-  [permission isEqualToString:@"create_event"] ||
-  [permission isEqualToString:@"rsvp_event"];
-}
-
-+ (BOOL)areAllPermissionsReadPermissions:(NSSet *)permissions
-{
-  for (NSString *permission in permissions) {
-    if ([[self class] isPublishPermission:permission]) {
-      return NO;
-    }
-  }
-  return YES;
-}
-
-+ (BOOL)areAllPermissionsPublishPermissions:(NSSet *)permissions
-{
-  for (NSString *permission in permissions) {
-    if (![[self class] isPublishPermission:permission]) {
-      return NO;
-    }
-  }
-  return YES;
-}
-
-+ (Class)resolveBoltsClassWithName:(NSString *)className;
-{
-  Class clazz = NSClassFromString(className);
-  if (clazz == nil) {
-    NSString *message = [NSString stringWithFormat:@"Unable to load class %@. Did you link Bolts.framework?", className];
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:message
-                                 userInfo:nil];
-  }
-
-  return clazz;
 }
 
 @end
