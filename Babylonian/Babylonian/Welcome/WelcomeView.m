@@ -19,7 +19,34 @@
 #import "LoginView.h"
 #import "RegisterView.h"
 
+#import <UIKit/UIKit.h>
+#import <Google/SignIn.h>
+#import <Accounts/Accounts.h>
+#import <Firebase/Firebase.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "TwitterAuthHelper.h"
+
+static NSString * const kFirebaseURL = @"https://babylonian.firebaseio.com";
+
+
+// The twitter API key you setup in the Twitter developer console
+static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
+
+
+@interface WelcomeView ()
+// A dialog that is displayed while logging in
+@property (nonatomic, strong) UIAlertView *loginProgressAlert;
+
+// The Firebase object. We use this to authenticate.
+@property (nonatomic, strong) Firebase *ref;
+
+@end
+
+
+
 @implementation WelcomeView
+
 
 - (void)viewDidLoad
 {
@@ -98,6 +125,13 @@
 - (IBAction)actionFacebook:(id)sender
 {
 	[ProgressHUD show:@"Signing in..." Interaction:NO];
+    
+    /*
+    if ([self facebookIsSetup]) {
+        [self facebookLogin];
+    }
+    */
+    
 //	NSArray *permissions = @[@"public_profile", @"email", @"user_friends"];
 //	[PFFacebookUtils logInInBackgroundWithReadPermissions:permissions block:^(PFUser *user, NSError *error)
 //	{
@@ -112,6 +146,84 @@
 //		else [ProgressHUD showError:@"Facebook login error."];
 //	}];
 }
+
+- (BOOL)facebookIsSetup
+{
+    NSString *facebookAppId = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"FacebookAppID"];
+    NSString *facebookDisplayName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"FacebookDisplayName"];
+    BOOL canOpenFacebook =[[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"fb%@://", facebookAppId]]];
+    
+    if ([@"<YOUR FACEBOOK APP ID>" isEqualToString:facebookAppId] ||
+        [@"<YOUR FACEBOOK APP DISPLAY NAME>" isEqualToString:facebookDisplayName] || !canOpenFacebook) {
+        [self showErrorAlertWithMessage:@"Please set FacebookAppID, FacebookDisplayName, and\nURL types > Url Schemes in `Supporting Files/Info.plist`"];
+        //return NO;
+        return YES;
+    } else {
+        return YES;
+    }
+}
+
+- (void)facebookLogin {
+    
+    [self showProgressAlert];
+    
+    // Open a session showing the user the login UI
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    
+    [login logInWithReadPermissions:@[@"email"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+        if (error) {
+            NSLog(@"Facebook login failed. Error: %@", error);
+        } else if (result.isCancelled) {
+            NSLog(@"Facebook login got cancelled.");
+        } else if ([FBSDKAccessToken currentAccessToken]) {
+            [self.ref authWithOAuthProvider:@"facebook" token:[[FBSDKAccessToken currentAccessToken] tokenString] withCompletionBlock:[self loginBlockForProviderName:@"Facebook"]];
+        }
+    }];
+}
+
+
+- (void)showErrorAlertWithMessage:(NSString *)message
+{
+    // display an alert with the error message
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+
+- (void)showProgressAlert
+{
+    // show an alert notifying the user about logging in
+    self.loginProgressAlert = [[UIAlertView alloc] initWithTitle:nil
+                                                         message:@"Logging in..." delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+    [self.loginProgressAlert show];
+}
+
+- (void(^)(NSError *, FAuthData *))loginBlockForProviderName:(NSString *)providerName
+{
+    // this callback block can be used for every login method
+    return ^(NSError *error, FAuthData *authData) {
+        // hide the login progress dialog
+        [self.loginProgressAlert dismissWithClickedButtonIndex:0 animated:YES];
+        self.loginProgressAlert = nil;
+        if (error != nil) {
+            // there was an error authenticating with Firebase
+            NSLog(@"Error logging in to Firebase: %@", error);
+            // display an alert showing the error message
+            NSString *message = [NSString stringWithFormat:@"There was an error logging into Firebase using %@: %@",
+                                 providerName,
+                                 [error localizedDescription]];
+            [self showErrorAlertWithMessage:message];
+        } else {
+            // all is fine, set the current user and update UI
+            //[self updateUIAndSetCurrentUser:authData];
+        }
+    };
+}
+
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 //- (void)requestFacebookUser:(User *)user
