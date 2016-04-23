@@ -69,13 +69,85 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 	[self.navigationController pushViewController:loginView animated:YES];
 }
 
+
+- (void)showErrorAlertWithMessage:(NSString *)message
+{
+    // display an alert with the error message
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
 #pragma mark - Twitter login methods
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------
 - (IBAction)actionTwitter:(id)sender
-//-------------------------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------
 {
-	[ProgressHUD show:@"Signing in..." Interaction:NO];
+    Firebase *ref = [[Firebase alloc] initWithUrl:kFirebaseURL];
+    TwitterAuthHelper *twitterAuthHelper = [[TwitterAuthHelper alloc] initWithFirebaseRef:ref apiKey:kTwitterAPIKey];
+    [twitterAuthHelper selectTwitterAccountWithCallback:^(NSError *error, NSArray *accounts) {
+        if (error) {
+            // Error retrieving Twitter accounts
+            [self handleTwitterLoginError];
+            
+        } else if ([accounts count] == 0) {
+            // No Twitter accounts found on device
+            [self loginFailed:@"No Twitter accounts found on device"];
+        } else {
+            // Select an account. Here we pick the first one for simplicity
+            ACAccount *account = [accounts firstObject];
+            [twitterAuthHelper authenticateAccount:account withCallback:^(NSError *error, FAuthData *authData) {
+                if (error) {
+                    // Error authenticating account
+                    [self loginFailed:@"Failed to login with Twitter"];
+                } else {
+                    // User logged in!
+                    [self loginFailed:@"Twitter logged in"];
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                    UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+                    [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
+                }
+            }];
+        }
+    }];
+    
+}
+
+- (void)handleTwitterLoginError{
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Twitter Login Error"
+                                  message:@"No Twitter accounts detected on phone. Please add one in the settings"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* setting = [UIAlertAction
+                         actionWithTitle:@"Settings"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+                             
+                         }];
+    UIAlertAction* cancel = [UIAlertAction
+                             actionWithTitle:@"Cancel"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    
+    [alert addAction:setting];
+    [alert addAction:cancel];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+//- (IBAction)actionTwitter:(id)sender
+//	[ProgressHUD show:@"Signing in..." Interaction:NO];
 //	[PFTwitterUtils logInWithBlock:^(PFUser *user, NSError *error)
 //	{
 //		if (user != nil)
@@ -88,7 +160,7 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 //		}
 //		else [ProgressHUD showError:@"Twitter login error."];
 //	}];
-}
+//}
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 //- (void)processTwitter:(User *)user
@@ -122,7 +194,7 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 {
 	//[ProgressHUD show:@"Signing in..." Interaction:NO];
     
-    Firebase *ref = [[Firebase alloc] initWithUrl:@"https://babylonian.firebaseio.com"];
+    Firebase *ref = [[Firebase alloc] initWithUrl:kFirebaseURL];
     FBSDKLoginManager *facebookLogin = [[FBSDKLoginManager alloc] init];
     
     [facebookLogin logInWithReadPermissions:@[@"email"]handler:^(FBSDKLoginManagerLoginResult *facebookResult, NSError *facebookError) {
@@ -136,6 +208,7 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
                    withCompletionBlock:^(NSError *error, FAuthData *authData) {
                        if (error) {
                            NSLog(@"Facebook Login failed. %@", error);
+                           [self loginFailed:@"Failed to login with Facebook"];
                        } else {
                            NSLog(@"Facebook Logged in! %@", authData);
                            //[self switchToMainPage];
