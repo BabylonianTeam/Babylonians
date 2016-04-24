@@ -26,6 +26,13 @@
 @interface FBSDKAppInviteContent : NSObject <FBSDKCopying, NSSecureCoding>
 
 /*!
+ @abstract A URL to a preview image that will be displayed with the app invite
+
+ @discussion This is optional.  If you don't include it a fallback image will be used.
+*/
+@property (nonatomic, copy) NSURL *appInvitePreviewImageURL;
+
+/*!
  @abstract An app link target that will be used as a target when the user accept the invite.
 
  @discussion This is a requirement.
@@ -33,11 +40,25 @@
 @property (nonatomic, copy) NSURL *appLinkURL;
 
 /*!
- @abstract A URL to a preview image that will be displayed with the app invite
-
- @discussion This is optional.  If you don't include it a fallback image will be used.
+ @deprecated Use `appInvitePreviewImageURL` instead.
  */
-@property (nonatomic, copy) NSURL *previewImageURL;
+@property (nonatomic, copy) NSURL *previewImageURL __attribute__ ((deprecated("use appInvitePreviewImageURL instead")));
+
+/*!
+ @abstract Promotional code to be displayed while sending and receiving the invite.
+
+ @discussion This is optional. This can be between 0 and 10 characters long and can contain
+ alphanumeric characters only. To set a promo code, you need to set promo text.
+ */
+@property (nonatomic, copy) NSString *promotionCode;
+
+/*!
+ @abstract Promotional text to be displayed while sending and receiving the invite.
+
+ @discussion This is optional. This can be between 0 and 80 characters long and can contain
+ alphanumeric and spaces only.
+ */
+@property (nonatomic, copy) NSString *promotionText;
 
 /*!
  @abstract Compares the receiver to another app invite content.

@@ -39,6 +39,11 @@ static FBSDKProfile *g_currentProfile;
 
 @implementation FBSDKProfile
 
+- (instancetype)init NS_UNAVAILABLE
+{
+  assert(0);
+}
+
 - (instancetype)initWithUserID:(NSString *)userID
                      firstName:(NSString *)firstName
                     middleName:(NSString *)middleName
@@ -79,6 +84,18 @@ static FBSDKProfile *g_currentProfile;
   }
 }
 
+- (NSURL *)imageURLForPictureMode:(FBSDKProfilePictureMode)mode size:(CGSize)size
+{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+  NSString *path = [self imagePathForPictureMode:FBSDKProfilePictureModeNormal size:size];
+#pragma clang diagnostic pop
+  return [FBSDKInternalUtility facebookURLWithHostPrefix:@"graph"
+                                                    path:path
+                                         queryParameters:nil
+                                                   error:NULL];
+}
+
 - (NSString *)imagePathForPictureMode:(FBSDKProfilePictureMode)mode size:(CGSize)size
 {
   NSString *type;
@@ -103,6 +120,11 @@ static FBSDKProfile *g_currentProfile;
   } else {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
   }
+}
+
++ (void)loadCurrentProfileWithCompletion:(void (^)(FBSDKProfile *, NSError *))completion
+{
+  [self loadProfileWithToken:[FBSDKAccessToken currentAccessToken] completion:completion];
 }
 
 #pragma mark - NSCopying
@@ -188,9 +210,8 @@ static FBSDKProfile *g_currentProfile;
 
 #pragma mark - Private
 
-+ (void)observeChangeAccessTokenChange:(NSNotification *)notification
++ (void)loadProfileWithToken:(FBSDKAccessToken *)token completion:(void (^)(FBSDKProfile *, NSError *))completion
 {
-  FBSDKAccessToken *token = notification.userInfo[FBSDKAccessTokenChangeNewKey];
   static FBSDKGraphRequestConnection *executingRequestConnection = nil;
 
   BOOL isStale = [[NSDate date] timeIntervalSinceDate:g_currentProfile.refreshDate] > FBSDKPROFILE_STALE_IN_SECONDS;
@@ -206,6 +227,9 @@ static FBSDKProfile *g_currentProfile;
     executingRequestConnection = [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
       if (expectedCurrentProfile != g_currentProfile) {
         // current profile has already changed since request was started. Let's not overwrite.
+        if (completion != NULL) {
+          completion(nil, nil);
+        }
         return;
       }
       FBSDKProfile *profile = nil;
@@ -219,8 +243,19 @@ static FBSDKProfile *g_currentProfile;
                                            refreshDate:[NSDate date]];
       }
       [[self class] setCurrentProfile:profile];
+      if (completion != NULL) {
+        completion(profile, error);
+      }
     }];
+  } else if (completion != NULL) {
+    completion(g_currentProfile, nil);
   }
+}
+
++ (void)observeChangeAccessTokenChange:(NSNotification *)notification
+{
+  FBSDKAccessToken *token = notification.userInfo[FBSDKAccessTokenChangeNewKey];
+  [self loadProfileWithToken:token completion:NULL];
 }
 
 @end
