@@ -13,6 +13,8 @@ import Parse
 import Bolts
 import Firebase
 
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,6 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.server = PARSE_SERVER
         }
         Parse.initializeWithConfiguration(configuration)
+        
+        // Configure Sign-In
+        var configureError: NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
 
         
         // Override point for customization after application launch.
@@ -64,7 +71,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window!.rootViewController = navigationController
         }
         window!.makeKeyAndVisible()
-        return true
+        
+        return FBSDKApplicationDelegate.sharedInstance()
+            .application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        //return true
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -83,6 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -151,6 +163,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
                 abort()
             }
+        }
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL,
+                     sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        
+        if (url.scheme.hasPrefix("fb")){
+            return FBSDKApplicationDelegate.sharedInstance()
+                .application(application, openURL: url,
+                             sourceApplication: sourceApplication, annotation: annotation)
+        }
+        else{
+            return GIDSignIn.sharedInstance().handleURL(url,
+                                                        sourceApplication: sourceApplication,
+                                                        annotation: annotation)
         }
     }
 

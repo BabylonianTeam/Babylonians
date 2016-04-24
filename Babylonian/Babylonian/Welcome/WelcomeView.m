@@ -19,7 +19,29 @@
 #import "LoginView.h"
 #import "RegisterView.h"
 
+#import <UIKit/UIKit.h>
+#import <Google/SignIn.h>
+#import <Accounts/Accounts.h>
+#import <Firebase/Firebase.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "TwitterAuthHelper.h"
+
+static NSString * const kFirebaseURL = @"https://babylonian.firebaseio.com";
+
+
+// The twitter API key you setup in the Twitter developer console
+static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
+
+
+@interface WelcomeView ()
+
+@end
+
+
+
 @implementation WelcomeView
+
 
 - (void)viewDidLoad
 {
@@ -46,13 +68,112 @@
 	[self.navigationController pushViewController:loginView animated:YES];
 }
 
+- (void)showErrorAlertWithMessage:(NSString *)message
+{
+    // display an alert with the error message
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+/*****************************
+ *          GOOGLE           *
+ *****************************/
+#pragma mark - Google login methods
+
+- (IBAction)actionGoogle:(id)sender {
+    GIDSignIn *googleSignIn = [GIDSignIn sharedInstance];
+    googleSignIn.delegate = self;
+    googleSignIn.uiDelegate = self;
+    [googleSignIn signIn];
+}
+
+
+- (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
+    Firebase *ref = [[Firebase alloc] initWithUrl:kFirebaseURL];
+    
+    NSLog(@"Received Google authentication response! Error: %@", error);
+    if (error != nil) {
+        // There was an error obtaining the Google OAuth token, display a dialog
+        NSString *message = [NSString stringWithFormat:@"There was an error logging into Google: %@",
+                             [error localizedDescription]];
+        [self showErrorAlertWithMessage:message];
+    } else {
+        // We successfully obtained an OAuth token, authenticate on Firebase with it
+        [self switchToMainPage];
+    }
+    
+}
+
+
+/*****************************
+ *          TWITTER          *
+ *****************************/
 #pragma mark - Twitter login methods
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (IBAction)actionTwitter:(id)sender
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
-	[ProgressHUD show:@"Signing in..." Interaction:NO];
+    Firebase *ref = [[Firebase alloc] initWithUrl:kFirebaseURL];
+    TwitterAuthHelper *twitterAuthHelper = [[TwitterAuthHelper alloc] initWithFirebaseRef:ref apiKey:kTwitterAPIKey];
+    [twitterAuthHelper selectTwitterAccountWithCallback:^(NSError *error, NSArray *accounts) {
+        if (error) {
+            // Error retrieving Twitter accounts
+            [self handleTwitterLoginError];
+            
+        } else if ([accounts count] == 0) {
+            // No Twitter accounts found on device
+            [self loginFailed:@"No Twitter accounts found on device"];
+        } else {
+            // Select an account. Here we pick the first one for simplicity
+            ACAccount *account = [accounts firstObject];
+            [twitterAuthHelper authenticateAccount:account withCallback:^(NSError *error, FAuthData *authData) {
+                if (error) {
+                    // Error authenticating account
+                    [self loginFailed:@"Failed to login with Twitter"];
+                } else {
+                    // User logged in!
+                    [self switchToMainPage];
+                }
+            }];
+        }
+    }];
+    
+}
+
+- (void)handleTwitterLoginError{
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Twitter Login Error"
+                                  message:@"No Twitter accounts detected on phone. Please add one in the settings"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* setting = [UIAlertAction
+                         actionWithTitle:@"Settings"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+                             
+                         }];
+    UIAlertAction* cancel = [UIAlertAction
+                             actionWithTitle:@"Cancel"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    
+    [alert addAction:setting];
+    [alert addAction:cancel];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+//- (IBAction)actionTwitter:(id)sender
+//	[ProgressHUD show:@"Signing in..." Interaction:NO];
 //	[PFTwitterUtils logInWithBlock:^(PFUser *user, NSError *error)
 //	{
 //		if (user != nil)
@@ -65,7 +186,7 @@
 //		}
 //		else [ProgressHUD showError:@"Twitter login error."];
 //	}];
-}
+//}
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 //- (void)processTwitter:(User *)user
@@ -92,12 +213,40 @@
 //	}];
 //}
 
+/*****************************
+ *          FACEBOOK         *
+ *****************************/
 #pragma mark - Facebook login methods
-
 
 - (IBAction)actionFacebook:(id)sender
 {
-	[ProgressHUD show:@"Signing in..." Interaction:NO];
+	//[ProgressHUD show:@"Signing in..." Interaction:NO];
+    
+    Firebase *ref = [[Firebase alloc] initWithUrl:kFirebaseURL];
+    FBSDKLoginManager *facebookLogin = [[FBSDKLoginManager alloc] init];
+    
+    [facebookLogin logInWithReadPermissions:@[@"email"]handler:^(FBSDKLoginManagerLoginResult *facebookResult, NSError *facebookError) {
+        if (facebookError) {
+            NSLog(@"Facebook login failed. Error: %@", facebookError);
+        } else if (facebookResult.isCancelled) {
+            NSLog(@"Facebook login got cancelled.");
+        } else {
+            NSString *accessToken = [[FBSDKAccessToken currentAccessToken] tokenString];
+            [ref authWithOAuthProvider:@"facebook" token:accessToken
+                   withCompletionBlock:^(NSError *error, FAuthData *authData) {
+                       if (error) {
+                           NSLog(@"Facebook Login failed. %@", error);
+                           [self loginFailed:@"Failed to login with Facebook"];
+                       } else {
+                           NSLog(@"Facebook Logged in! %@", authData);
+                           [self switchToMainPage];
+                       }
+                   }];
+        }
+    }];
+
+    
+    
 //	NSArray *permissions = @[@"public_profile", @"email", @"user_friends"];
 //	[PFFacebookUtils logInInBackgroundWithReadPermissions:permissions block:^(PFUser *user, NSError *error)
 //	{
@@ -111,7 +260,16 @@
 //		}
 //		else [ProgressHUD showError:@"Facebook login error."];
 //	}];
+    
 }
+
+- (void)switchToMainPage
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+    [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
+}
+
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 //- (void)requestFacebookUser:(User *)user

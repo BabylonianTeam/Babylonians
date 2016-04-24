@@ -110,6 +110,12 @@
 		9F17DC841CBC89BD00442D14 /* LearnerMoreNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F17DC811CBC89BD00442D14 /* LearnerMoreNameViewController.swift */; };
 		9F17DC851CBC89BD00442D14 /* LearnerMoreEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F17DC821CBC89BD00442D14 /* LearnerMoreEmailViewController.swift */; };
 		9F371F751CB35557006E925A /* MoreNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F371F741CB35557006E925A /* MoreNameViewController.swift */; };
+		9F3EE2181CCB250A007DFF69 /* TwitterAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3EE2171CCB250A007DFF69 /* TwitterAuthHelper.m */; };
+		9F3EE21C1CCB2F58007DFF69 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3EE21B1CCB2F58007DFF69 /* FBSDKCoreKit.framework */; };
+		9F3EE21E1CCB2F7B007DFF69 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3EE21D1CCB2F7B007DFF69 /* FBSDKLoginKit.framework */; };
+		9F3EE2211CCB2F92007DFF69 /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3EE21F1CCB2F92007DFF69 /* FBAudienceNetwork.framework */; };
+		9F3EE2251CCB2FA9007DFF69 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3EE2231CCB2FA9007DFF69 /* FBSDKMessengerShareKit.framework */; };
+		9F3EE2261CCB2FA9007DFF69 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3EE2241CCB2FA9007DFF69 /* FBSDKShareKit.framework */; };
 		9F638F691C9B8A7500154A13 /* CreatorMyCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F638F681C9B8A7500154A13 /* CreatorMyCoursesViewController.swift */; };
 		9F66D6041C9ADE0500EB9C93 /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F66D6031C9ADE0500EB9C93 /* DatePickerCell.xib */; };
 		9F66D60A1C9ADE1500EB9C93 /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F66D6051C9ADE1500EB9C93 /* NormalCell.xib */; };
@@ -125,6 +131,7 @@
 		9FBDE5681C9B8E9D003A45BA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDE5651C9B8E9D003A45BA /* Constant.swift */; };
 		9FBDE5691C9B8E9D003A45BA /* Minicourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */; };
 		9FCA548F1CB2DE690052917B /* MoreEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCA548E1CB2DE690052917B /* MoreEmailViewController.swift */; };
+		9FDB5DED1CCCADBE000F134C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FDB5DEC1CCCADBE000F134C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -291,6 +298,13 @@
 		9F17DC811CBC89BD00442D14 /* LearnerMoreNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnerMoreNameViewController.swift; sourceTree = "<group>"; };
 		9F17DC821CBC89BD00442D14 /* LearnerMoreEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnerMoreEmailViewController.swift; sourceTree = "<group>"; };
 		9F371F741CB35557006E925A /* MoreNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreNameViewController.swift; sourceTree = "<group>"; };
+		9F3EE2161CCB24A7007DFF69 /* TwitterAuthHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwitterAuthHelper.h; sourceTree = "<group>"; };
+		9F3EE2171CCB250A007DFF69 /* TwitterAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterAuthHelper.m; sourceTree = "<group>"; };
+		9F3EE21B1CCB2F58007DFF69 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		9F3EE21D1CCB2F7B007DFF69 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		9F3EE21F1CCB2F92007DFF69 /* FBAudienceNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBAudienceNetwork.framework; sourceTree = "<group>"; };
+		9F3EE2231CCB2FA9007DFF69 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
+		9F3EE2241CCB2FA9007DFF69 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		9F638F681C9B8A7500154A13 /* CreatorMyCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorMyCoursesViewController.swift; sourceTree = "<group>"; };
 		9F66D6031C9ADE0500EB9C93 /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
 		9F66D6051C9ADE1500EB9C93 /* NormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
@@ -306,6 +320,7 @@
 		9FBDE5651C9B8E9D003A45BA /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Minicourse.swift; sourceTree = "<group>"; };
 		9FCA548E1CB2DE690052917B /* MoreEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreEmailViewController.swift; sourceTree = "<group>"; };
+		9FDB5DEC1CCCADBE000F134C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babylonian.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -315,6 +330,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				309818871CB4BDCB0026D19A /* QuartzCore.framework in Frameworks */,
+				9F3EE21C1CCB2F58007DFF69 /* FBSDKCoreKit.framework in Frameworks */,
+				9F3EE21E1CCB2F7B007DFF69 /* FBSDKLoginKit.framework in Frameworks */,
+				9F3EE2211CCB2F92007DFF69 /* FBAudienceNetwork.framework in Frameworks */,
+				9F3EE2251CCB2FA9007DFF69 /* FBSDKMessengerShareKit.framework in Frameworks */,
+				9F3EE2261CCB2FA9007DFF69 /* FBSDKShareKit.framework in Frameworks */,
 				30DBCE101C9E41F6000CD59D /* ImageIO.framework in Frameworks */,
 				184F78979A3F5E7914753379 /* Pods_Babylonian.framework in Frameworks */,
 			);
@@ -370,6 +390,7 @@
 				3057A6C81C9DED2400C9C1A4 /* Utilities.swift */,
 				0705D5031C8CEF270065467D /* Assets.xcassets */,
 				0705D5081C8CEF270065467D /* Info.plist */,
+				9FDB5DEC1CCCADBE000F134C /* GoogleService-Info.plist */,
 				0705D5001C8CEF270065467D /* Babylonian.xcdatamodeld */,
 				3057A6CA1C9E30FF00C9C1A4 /* app-Bridging-Header.h */,
 				30DBCE131C9E5432000CD59D /* AppConstants.h */,
@@ -535,6 +556,8 @@
 				30DBCDCA1C9E3BC5000CD59D /* LoginView.xib */,
 				30DBCDCB1C9E3BC5000CD59D /* WelcomeView.xib */,
 				30DBCDCC1C9E3BC5000CD59D /* RegisterView.xib */,
+				9F3EE2161CCB24A7007DFF69 /* TwitterAuthHelper.h */,
+				9F3EE2171CCB250A007DFF69 /* TwitterAuthHelper.m */,
 			);
 			name = Welcome;
 			sourceTree = "<group>";
@@ -681,6 +704,11 @@
 		BEAC1E2330F91A8D52F04911 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9F3EE2231CCB2FA9007DFF69 /* FBSDKMessengerShareKit.framework */,
+				9F3EE2241CCB2FA9007DFF69 /* FBSDKShareKit.framework */,
+				9F3EE21F1CCB2F92007DFF69 /* FBAudienceNetwork.framework */,
+				9F3EE21D1CCB2F7B007DFF69 /* FBSDKLoginKit.framework */,
+				9F3EE21B1CCB2F58007DFF69 /* FBSDKCoreKit.framework */,
 				309818861CB4BDCA0026D19A /* QuartzCore.framework */,
 				30DBCE0F1C9E41F6000CD59D /* ImageIO.framework */,
 				E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */,
@@ -965,6 +993,7 @@
 				30DBCE031C9E4174000CD59D /* SDWebImageDecoder.m in Sources */,
 				30DBCE051C9E4174000CD59D /* SDWebImageDownloaderOperation.m in Sources */,
 				0705D4FA1C8CEF270065467D /* AppDelegate.swift in Sources */,
+				9F3EE2181CCB250A007DFF69 /* TwitterAuthHelper.m in Sources */,
 				0705D5021C8CEF270065467D /* Babylonian.xcdatamodeld in Sources */,
 				30DBCDFF1C9E4174000CD59D /* MKAnnotationView+WebCache.m in Sources */,
 				3037A4B11CB0B2E100C52232 /* ImageItemCell.swift in Sources */,
@@ -1151,6 +1180,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				FRAMEWORK_VERSION = "";
 				INFOPLIST_FILE = Babylonian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Flow.Babylonian;
@@ -1168,6 +1202,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				FRAMEWORK_VERSION = "";
 				INFOPLIST_FILE = Babylonian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Flow.Babylonian;
