@@ -69,7 +69,6 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 	[self.navigationController pushViewController:loginView animated:YES];
 }
 
-
 - (void)showErrorAlertWithMessage:(NSString *)message
 {
     // display an alert with the error message
@@ -81,9 +80,15 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
     [alert show];
 }
 
-#pragma mark - Twitter login methods
+//------------------------------------------------------------------------------------------------------------------------------
+#pragma mark - Google login methods
+
+- (IBAction)actionGoogle:(id)sender {
+}
+
 
 //------------------------------------------------------------------------------------------------------------------------------
+#pragma mark - Twitter login methods
 - (IBAction)actionTwitter:(id)sender
 //-------------------------------------------------------------------------------------------------------------------------------
 {
