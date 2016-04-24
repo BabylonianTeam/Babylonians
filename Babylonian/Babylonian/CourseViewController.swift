@@ -25,6 +25,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     var audioTimer = CACurrentMediaTime()
     var editingIndex : NSIndexPath?
     
+    @IBOutlet weak var purchaseButton: UIBarButtonItem!
     
     @IBOutlet weak var inputBar: UIToolbar!
     @IBOutlet weak var recordBarItem: UIBarButtonItem!
@@ -146,6 +147,11 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
     }
+    @IBAction func purchaseButtonPressed(sender: UIBarButtonItem) {
+        self.purchaseButton.enabled = false
+        (self.navigationController as! BBCourseNavController).previewOnly = false
+        self.courseTableView.reloadData()
+    }
     
     @IBAction func nextButton(sender: UIBarButtonItem) {
         
@@ -217,6 +223,9 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.isPreviewOnly {
+            return 2
+        }
         return self.currentCourse.contents.count
     }
     
@@ -383,6 +392,10 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     
     var isViewOnly : Bool{
         return (self.navigationController as! BBCourseNavController).viewOnly
+    }
+    
+    var isPreviewOnly : Bool{
+        return (self.navigationController as! BBCourseNavController).previewOnly
     }
     
     //content
