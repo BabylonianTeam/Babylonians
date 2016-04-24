@@ -33,6 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.server = PARSE_SERVER
         }
         Parse.initializeWithConfiguration(configuration)
+        
+        // Configure Sign-In
+        var configureError: NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
 
         
         // Override point for customization after application launch.
@@ -163,9 +168,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, openURL url: NSURL,
                      sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance()
-            .application(application, openURL: url,
-                         sourceApplication: sourceApplication, annotation: annotation)
+        
+        if (url.scheme.hasPrefix("fb")){
+            return FBSDKApplicationDelegate.sharedInstance()
+                .application(application, openURL: url,
+                             sourceApplication: sourceApplication, annotation: annotation)
+        }
+        else{
+            return GIDSignIn.sharedInstance().handleURL(url,
+                                                        sourceApplication: sourceApplication,
+                                                        annotation: annotation)
+        }
     }
 
 }

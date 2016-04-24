@@ -36,7 +36,6 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 
 @interface WelcomeView ()
 
-
 @end
 
 
@@ -80,17 +79,42 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
     [alert show];
 }
 
-//------------------------------------------------------------------------------------------------------------------------------
+/*****************************
+ *          GOOGLE           *
+ *****************************/
 #pragma mark - Google login methods
 
 - (IBAction)actionGoogle:(id)sender {
+    GIDSignIn *googleSignIn = [GIDSignIn sharedInstance];
+    googleSignIn.delegate = self;
+    googleSignIn.uiDelegate = self;
+    [googleSignIn signIn];
 }
 
 
-//------------------------------------------------------------------------------------------------------------------------------
+- (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
+    Firebase *ref = [[Firebase alloc] initWithUrl:kFirebaseURL];
+    
+    NSLog(@"Received Google authentication response! Error: %@", error);
+    if (error != nil) {
+        // There was an error obtaining the Google OAuth token, display a dialog
+        NSString *message = [NSString stringWithFormat:@"There was an error logging into Google: %@",
+                             [error localizedDescription]];
+        [self showErrorAlertWithMessage:message];
+    } else {
+        // We successfully obtained an OAuth token, authenticate on Firebase with it
+        [self switchToMainPage];
+    }
+    
+}
+
+
+/*****************************
+ *          TWITTER          *
+ *****************************/
 #pragma mark - Twitter login methods
+
 - (IBAction)actionTwitter:(id)sender
-//-------------------------------------------------------------------------------------------------------------------------------
 {
     Firebase *ref = [[Firebase alloc] initWithUrl:kFirebaseURL];
     TwitterAuthHelper *twitterAuthHelper = [[TwitterAuthHelper alloc] initWithFirebaseRef:ref apiKey:kTwitterAPIKey];
@@ -111,10 +135,7 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
                     [self loginFailed:@"Failed to login with Twitter"];
                 } else {
                     // User logged in!
-                    [self loginFailed:@"Twitter logged in"];
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                    UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-                    [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
+                    [self switchToMainPage];
                 }
             }];
         }
@@ -192,8 +213,10 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 //	}];
 //}
 
+/*****************************
+ *          FACEBOOK         *
+ *****************************/
 #pragma mark - Facebook login methods
-
 
 - (IBAction)actionFacebook:(id)sender
 {
@@ -216,10 +239,7 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
                            [self loginFailed:@"Failed to login with Facebook"];
                        } else {
                            NSLog(@"Facebook Logged in! %@", authData);
-                           //[self switchToMainPage];
-                           UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                           UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-                           [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
+                           [self switchToMainPage];
                        }
                    }];
         }
@@ -245,28 +265,9 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 
 - (void)switchToMainPage
 {
-    // user found, log them in and store user data in userDefaults
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    //[userDefaults setValue:authData.uid forKey:@"uid"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_LOGGED_IN object:nil];
-    
-    //retrieve displayName
-    [DataService.dataService.CURRENT_USER_REF observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-        [userDefaults setValue:snapshot.value[USER_DISPLAYNAME] forKey:USER_DISPLAYNAME];
-        [userDefaults setValue:snapshot.value[USER_ROLE] forKey:USER_ROLE];
-        [ProgressHUD showSuccess:[NSString stringWithFormat:@"Welcome back %@!", snapshot.value[USER_DISPLAYNAME]]];
-        if ([snapshot.value[USER_ROLE] isEqual:USER_ROLE_CREATOR]) {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-            [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
-        } else {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"LearnerMain" bundle:nil];
-            UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-            [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
-        }
-        
-        
-    }];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+    [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
 }
 
 

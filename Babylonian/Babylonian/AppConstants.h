@@ -5,6 +5,8 @@
 //  Created by Dongning Wang on 3/19/16.
 //  Copyright © 2016 BabylonianTeam. All rights reserved.
 //
+#import <Google/SignIn.h>
+
 
 #define		FIREBASE							@"https://babylonian.firebaseio.com"
 #define     PARSE_SERVER                        @"http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/"
