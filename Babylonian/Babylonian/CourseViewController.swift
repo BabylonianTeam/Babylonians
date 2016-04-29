@@ -127,7 +127,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             
         })
         
-        let data = UIImageJPEGRepresentation(image!, 1)
+        let data = UIImageJPEGRepresentation(image!, 0.5)
         let imageFile = PFFile(name: "image.jpg", data: data!)
         
         let pObject = PFObject(className: "Image")
@@ -136,6 +136,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         //TODO: create a local storage for BBCourse, distinguish from addToLocal and addToRemote
         pObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if success {
+                SDImageCache.sharedImageCache().storeImage(image, forKey: imageFile?.url)
                 self.currentCourse.addNewImageItem((imageFile?.url)!)
                 self.courseTableView.reloadData()
                 
@@ -164,21 +165,26 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         finishRecording(success: true)
         
         let duration = Float(CACurrentMediaTime() - self.audioTimer)
-        
-        let data = NSData(contentsOfURL: self.audioURL)
-        let audioFile = PFFile(name: "audio.m4a", data: data!)
-        
-        let pObject = PFObject(className: "Audio")
-        pObject[PARSE_AUDIO_FILENAME]  = audioFile
-        
-        pObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            if success {
-                self.currentCourse.addNewATItem("", courseAudio: (audioFile?.url)!, duration:duration)
-                self.courseTableView.reloadData()
-            }else {
-                print(error)
+        if duration<2 {
+            ProgressHUD.showError("Audio too short")
+        }
+        else {
+            let data = NSData(contentsOfURL: self.audioURL)
+            let audioFile = PFFile(name: "audio.m4a", data: data!)
+            
+            let pObject = PFObject(className: "Audio")
+            pObject[PARSE_AUDIO_FILENAME]  = audioFile
+            
+            pObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                if success {
+                    self.currentCourse.addNewATItem("", courseAudio: (audioFile?.url)!, duration:duration)
+                    self.courseTableView.reloadData()
+                }else {
+                    print(error)
+                }
             }
         }
+        
         
     }
     
@@ -384,7 +390,6 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.initialized = false
         
-        
         ProgressHUD.show("Loading Course")
         self.currentCourse.contentRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             if let content = snapshot.value {
@@ -392,10 +397,8 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
                     for item in content as! [String:NSDictionary]{
                         let item_ref = self.currentCourse.contentRef.childByAppendingPath(item.0)
                         if let im_ref = item.1[COURSE_ITEM_IMAGE] {
-                            
                             let courseItem = ImageItem(ref: item_ref, courseImage: im_ref as! String,order: item.1[COURSE_ITEM_ORDER] as! Int)
                             self.currentCourse.addCourseItem(courseItem)
-                            
                         }
                         else if let text_ref = item.1[COURSE_ITEM_TEXT]  {
                             var duration: Float = 1.0

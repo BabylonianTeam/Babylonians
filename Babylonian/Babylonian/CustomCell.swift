@@ -66,6 +66,7 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
         if textField != nil {
             textField.font = bigFont
             textField.delegate = self
+            textField.autocorrectionType = .No
         }
         
         if lblSwitchLabel != nil {

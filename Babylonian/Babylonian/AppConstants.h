@@ -5,6 +5,8 @@
 //  Created by Dongning Wang on 3/19/16.
 //  Copyright © 2016 BabylonianTeam. All rights reserved.
 //
+#import <Google/SignIn.h>
+
 
 #define		FIREBASE							@"https://babylonian.firebaseio.com"
 #define     PARSE_SERVER                        @"http://parseserver-2nwux-env.us-west-2.elasticbeanstalk.com/parse/"
@@ -33,6 +35,10 @@
 #define     USER_DATE_FORMAT                    @"yyyy-d-M"
 #define     USER_PROFILEPHOTO                   @"profilePhoto"
 
+#define     USER_CREATED_COURSE                 @"createdCourse"
+#define     USER_CREATED_COURSE_DATE            @"date"
+#define     USER_PURCHASED_COURSE               @"purchasedCourse"
+#define     USER_PURCHASED_COURSE_DATE          @"date"
 
 #define		COURSE_AUTHOR                       @"author"
 #define		COURSE_TITLE                        @"title"

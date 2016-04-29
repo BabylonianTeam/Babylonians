@@ -78,8 +78,8 @@ class MoreUIViewController: UIViewController, UIImagePickerControllerDelegate, U
         //retrieve displayName from firebase, and display it on More page
         _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
             if let content = snapshot.value {
-                if let displayName = (content as! [String:String])[USER_DISPLAYNAME] {
-                    self.labelDisplayName?.text = displayName
+                if let displayName = (content as! [String:AnyObject])[USER_DISPLAYNAME] {
+                    self.labelDisplayName?.text = displayName as? String
                 }
             }
             
@@ -89,9 +89,9 @@ class MoreUIViewController: UIViewController, UIImagePickerControllerDelegate, U
         // retriebe profile photo
         _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
             if let content = snapshot.value {
-                if let url = (content as! [String:String])[USER_PROFILEPHOTO] {
+                if let url = (content as! [String:AnyObject])[USER_PROFILEPHOTO] {
                     
-                    if let nsURL = NSURL(string: url) {
+                    if let nsURL = NSURL(string: url as! String) {
                         self.profilePhoto.sd_setImageWithURL(nsURL, placeholderImage: UIImage(named: "person-placeholder.png"))
                     }
                 }
@@ -162,8 +162,8 @@ class MoreUIViewController: UIViewController, UIImagePickerControllerDelegate, U
                 cell.detailTextLabel?.text = " "
                 _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
                     if let content = snapshot.value {
-                        if let displayName = (content as! [String:String])[USER_DISPLAYNAME] {
-                            cell.detailTextLabel?.text = displayName
+                        if let displayName = (content as! [String:AnyObject])[USER_DISPLAYNAME] {
+                            cell.detailTextLabel?.text = displayName as? String
                         }
                     }
                     
@@ -173,8 +173,8 @@ class MoreUIViewController: UIViewController, UIImagePickerControllerDelegate, U
                 cell.detailTextLabel?.text = " "
                 _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
                     if let content = snapshot.value {
-                        if let email = (content as! [String:String])[USER_EMAIL] {
-                            cell.detailTextLabel?.text = email
+                        if let email = (content as! [String:AnyObject])[USER_EMAIL] {
+                            cell.detailTextLabel?.text = email as? String
                         }
                     }
                     

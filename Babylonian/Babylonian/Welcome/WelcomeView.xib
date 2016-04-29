@@ -19,7 +19,7 @@
                     <rect key="frame" x="20" y="320" width="280" height="50"/>
                     <color key="backgroundColor" red="0.33333333333333331" green="0.67450980392156867" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="PQ4-Fy-oQI"/>
+                        <constraint firstAttribute="height" constant="50" id="Dbx-C4-HoW"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="Twitter Login">
@@ -39,7 +39,7 @@
                     <rect key="frame" x="20" y="380" width="280" height="50"/>
                     <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="EDQ-5v-jX1"/>
+                        <constraint firstAttribute="height" constant="50" id="gxT-dp-kdQ"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="Facebook Login">
@@ -59,7 +59,7 @@
                     <rect key="frame" x="20" y="440" width="280" height="50"/>
                     <color key="backgroundColor" red="0.0" green="0.50196078431372548" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="6ID-e8-ESG"/>
+                        <constraint firstAttribute="height" constant="50" id="nsE-w3-VWk"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="Register">
@@ -78,6 +78,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Wf-8f-ELf">
                     <rect key="frame" x="20" y="500" width="280" height="50"/>
                     <color key="backgroundColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="s8X-kM-lVk"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="Login">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -92,23 +95,45 @@
                         <action selector="actionLogin:" destination="-1" eventType="touchUpInside" id="DaA-Zf-XSa"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iib-Sr-Oo1">
+                    <rect key="frame" x="20" y="258" width="280" height="50"/>
+                    <color key="backgroundColor" red="0.90207787958115182" green="0.16602457843160642" blue="0.1372886607199573" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="9p3-eR-0ZJ"/>
+                    </constraints>
+                    <state key="normal" title="Google Login">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="actionGoogle:" destination="-1" eventType="touchUpInside" id="bvL-on-Vh4"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="tintColor" red="1" green="0.18404683474634598" blue="0.15219158326296889" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="yS3-hd-pfS" firstAttribute="trailing" secondItem="oy6-uy-RRG" secondAttribute="trailing" id="4VM-8H-3zr"/>
-                <constraint firstItem="7Wf-8f-ELf" firstAttribute="top" secondItem="Rka-Wf-v14" secondAttribute="bottom" constant="10" id="8sm-f9-TbS"/>
-                <constraint firstItem="Rka-Wf-v14" firstAttribute="leading" secondItem="oy6-uy-RRG" secondAttribute="leading" id="IC2-ad-bVN"/>
-                <constraint firstItem="oy6-uy-RRG" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="N5T-4Y-mJ1"/>
-                <constraint firstItem="Rka-Wf-v14" firstAttribute="trailing" secondItem="7Wf-8f-ELf" secondAttribute="trailing" id="QX8-9D-Qae"/>
-                <constraint firstAttribute="bottom" secondItem="oy6-uy-RRG" secondAttribute="bottom" constant="138" id="WHz-GH-l4R"/>
-                <constraint firstItem="yS3-hd-pfS" firstAttribute="leading" secondItem="oy6-uy-RRG" secondAttribute="leading" id="XN8-Lp-Pah"/>
-                <constraint firstItem="7Wf-8f-ELf" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="gHS-HE-yy4"/>
-                <constraint firstItem="Rka-Wf-v14" firstAttribute="leading" secondItem="7Wf-8f-ELf" secondAttribute="leading" id="gzu-CM-RpA"/>
-                <constraint firstItem="Rka-Wf-v14" firstAttribute="trailing" secondItem="oy6-uy-RRG" secondAttribute="trailing" id="hHt-6b-iKf"/>
-                <constraint firstAttribute="bottom" secondItem="7Wf-8f-ELf" secondAttribute="bottom" constant="18" id="jXt-zV-Jrj"/>
-                <constraint firstItem="Rka-Wf-v14" firstAttribute="top" secondItem="oy6-uy-RRG" secondAttribute="bottom" constant="10" id="smO-8U-O4T"/>
-                <constraint firstItem="oy6-uy-RRG" firstAttribute="top" secondItem="yS3-hd-pfS" secondAttribute="bottom" constant="10" id="v1j-te-snd"/>
+                <constraint firstItem="iib-Sr-Oo1" firstAttribute="trailing" secondItem="yS3-hd-pfS" secondAttribute="trailing" id="1FS-bS-k3s"/>
+                <constraint firstItem="iib-Sr-Oo1" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="2vH-5R-lvy"/>
+                <constraint firstItem="7Wf-8f-ELf" firstAttribute="top" secondItem="Rka-Wf-v14" secondAttribute="bottom" constant="10" id="5Vu-7h-k7p"/>
+                <constraint firstItem="yS3-hd-pfS" firstAttribute="top" secondItem="iib-Sr-Oo1" secondAttribute="bottom" constant="12" id="9oh-xe-mYa"/>
+                <constraint firstAttribute="bottom" secondItem="7Wf-8f-ELf" secondAttribute="bottom" constant="18" id="Dxl-w2-cGa"/>
+                <constraint firstItem="oy6-uy-RRG" firstAttribute="trailing" secondItem="Rka-Wf-v14" secondAttribute="trailing" id="T3R-lv-lUc"/>
+                <constraint firstItem="yS3-hd-pfS" firstAttribute="trailing" secondItem="oy6-uy-RRG" secondAttribute="trailing" id="Va2-ag-EM5"/>
+                <constraint firstItem="iib-Sr-Oo1" firstAttribute="leading" secondItem="yS3-hd-pfS" secondAttribute="leading" id="VzW-7m-5dU"/>
+                <constraint firstItem="iib-Sr-Oo1" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="WrF-Xz-LCd"/>
+                <constraint firstItem="Rka-Wf-v14" firstAttribute="top" secondItem="oy6-uy-RRG" secondAttribute="bottom" constant="10" id="YGQ-EN-owX"/>
+                <constraint firstItem="yS3-hd-pfS" firstAttribute="leading" secondItem="oy6-uy-RRG" secondAttribute="leading" id="eZ0-6Q-hg3"/>
+                <constraint firstItem="Rka-Wf-v14" firstAttribute="trailing" secondItem="7Wf-8f-ELf" secondAttribute="trailing" id="j8g-g2-8nm"/>
+                <constraint firstItem="oy6-uy-RRG" firstAttribute="leading" secondItem="Rka-Wf-v14" secondAttribute="leading" id="kgv-cg-ydm"/>
+                <constraint firstItem="Rka-Wf-v14" firstAttribute="leading" secondItem="7Wf-8f-ELf" secondAttribute="leading" id="nZM-1a-BW7"/>
+                <constraint firstItem="oy6-uy-RRG" firstAttribute="top" secondItem="yS3-hd-pfS" secondAttribute="bottom" constant="10" id="pe5-JD-9BS"/>
             </constraints>
+            <point key="canvasLocation" x="128" y="279"/>
         </view>
     </objects>
 </document>

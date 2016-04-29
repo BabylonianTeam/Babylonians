@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tagViewCell" rowHeight="119" id="KGk-i7-Jjw" customClass="TagViewCell" customModule="Babylonian" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="118.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tags help learners find your course" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="da3-oQ-D8a">
+                        <rect key="frame" x="24" y="10" width="272" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="DdG-BP-hQq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbc-Qg-Tuj">
+                        <rect key="frame" x="253" y="45" width="57" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="WXQ-dF-P2S"/>
+                            <constraint firstAttribute="width" constant="57" id="weA-ep-W2y"/>
+                        </constraints>
+                        <state key="normal" title="Clear All"/>
+                        <connections>
+                            <action selector="clearAllTags:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pLQ-Pw-yCx"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vzA-A4-YeP" customClass="TagListView" customModule="TagListView">
+                        <rect key="frame" x="24" y="45" width="228" height="63.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="removeButtonIconSize">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="vzA-A4-YeP" firstAttribute="top" secondItem="da3-oQ-D8a" secondAttribute="bottom" constant="5" id="1BJ-kg-5XC"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="da3-oQ-D8a" secondAttribute="trailing" constant="16" id="32w-rM-DTH"/>
+                    <constraint firstItem="kbc-Qg-Tuj" firstAttribute="top" secondItem="da3-oQ-D8a" secondAttribute="bottom" constant="5" id="5sD-Th-GKs"/>
+                    <constraint firstItem="vzA-A4-YeP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="E8d-3r-DEb"/>
+                    <constraint firstItem="kbc-Qg-Tuj" firstAttribute="top" secondItem="vzA-A4-YeP" secondAttribute="top" id="Jzp-JI-31J"/>
+                    <constraint firstItem="da3-oQ-D8a" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="Thf-gf-zBd"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="kbc-Qg-Tuj" secondAttribute="trailing" constant="2" id="gXo-28-3hb"/>
+                    <constraint firstItem="da3-oQ-D8a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="lop-NX-npF"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="vzA-A4-YeP" secondAttribute="trailing" constant="60" id="pm9-Vh-Otk"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="vzA-A4-YeP" secondAttribute="bottom" constant="2" id="rsX-FJ-CVh"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="5sD-Th-GKs"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="tagListView" destination="vzA-A4-YeP" id="TgY-j3-dku"/>
+                <outlet property="textField" destination="da3-oQ-D8a" id="4bd-DW-7Pf"/>
+            </connections>
+            <point key="canvasLocation" x="237" y="392.5"/>
+        </tableViewCell>
+    </objects>
+</document>

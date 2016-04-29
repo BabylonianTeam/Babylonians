@@ -143,7 +143,7 @@
         <scene sceneID="hqX-MR-EYk">
             <objects>
                 <viewControllerPlaceholder storyboardName="MyCourses" id="KdM-aK-1NF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Courses" id="Hjm-1C-fJ9"/>
+                    <tabBarItem key="tabBarItem" title="My Courses" image="mycourses.png" id="Hjm-1C-fJ9"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDM-97-dYs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -173,7 +173,7 @@
         <scene sceneID="fZl-5z-g7r">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DmR-nJ-70i" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Main" id="HN4-Yj-vq2"/>
+                    <tabBarItem key="tabBarItem" title="Main" image="star32.png" id="HN4-Yj-vq2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wSc-w7-9Vm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -189,4 +189,8 @@
             <point key="canvasLocation" x="1180" y="215"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mycourses.png" width="32" height="32"/>
+        <image name="star32.png" width="32" height="32"/>
+    </resources>
 </document>

@@ -50,7 +50,7 @@
         <scene sceneID="umF-QG-NMK">
             <objects>
                 <viewControllerPlaceholder storyboardName="LearnerMyCourses" id="g5Y-Xo-1Jf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Courses" id="Qgy-e3-zqn"/>
+                    <tabBarItem key="tabBarItem" title="My Courses" image="mycourses.png" selectedImage="mycourses.png" id="Qgy-e3-zqn"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x7a-5S-RVk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -189,4 +189,7 @@
             <point key="canvasLocation" x="192" y="-883"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mycourses.png" width="32" height="32"/>
+    </resources>
 </document>

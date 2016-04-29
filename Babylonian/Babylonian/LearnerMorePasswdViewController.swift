@@ -64,8 +64,8 @@ class LearnerMorePasswdViewController: UIViewController, UITableViewDelegate, UI
         //retrieve displayName from firebase, and display it on More page
         _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
             if let content = snapshot.value {
-                if let email = (content as! [String:String])[USER_EMAIL] {
-                    self.account = email
+                if let email = (content as! [String:AnyObject])[USER_EMAIL] {
+                    self.account = email as! String
                 }
             }
             
@@ -125,6 +125,7 @@ class LearnerMorePasswdViewController: UIViewController, UITableViewDelegate, UI
         }
         else if(cellType == "idCellTextfield"){
             cell.textField.placeholder = self.items[indexPath.section][indexPath.row]
+            cell.textField.secureTextEntry = true
         }
         else if(cellType == "idCellValuePicker"){
             cell.textLabel?.text = self.items[indexPath.section][indexPath.row]
