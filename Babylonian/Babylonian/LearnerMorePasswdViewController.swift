@@ -125,6 +125,7 @@ class LearnerMorePasswdViewController: UIViewController, UITableViewDelegate, UI
         }
         else if(cellType == "idCellTextfield"){
             cell.textField.placeholder = self.items[indexPath.section][indexPath.row]
+            cell.textField.secureTextEntry = true
         }
         else if(cellType == "idCellValuePicker"){
             cell.textLabel?.text = self.items[indexPath.section][indexPath.row]
