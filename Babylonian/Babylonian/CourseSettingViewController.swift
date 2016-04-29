@@ -41,7 +41,7 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Setings"
+        self.title = "Settings"
         currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
         
         configureTableView()
