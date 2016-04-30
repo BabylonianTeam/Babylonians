@@ -101,9 +101,12 @@
 		30F20ABB1CA0F99D00A484E9 /* LearnerMyCourses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20ABA1CA0F99D00A484E9 /* LearnerMyCourses.storyboard */; };
 		30F20ABE1CA121E700A484E9 /* RNCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F20ABD1CA121E700A484E9 /* RNCryptor.swift */; };
 		30F20AC11CA124C600A484E9 /* CourseView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20AC01CA124C600A484E9 /* CourseView.storyboard */; };
-		92236CF61CC703DD00069679 /* CreatorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92236CF31CC703DD00069679 /* CreatorInfo.swift */; };
-		92236CF71CC703DD00069679 /* LearnerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92236CF41CC703DD00069679 /* LearnerInfo.swift */; };
-		92236CF81CC703DD00069679 /* OwnedCourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92236CF51CC703DD00069679 /* OwnedCourseItem.swift */; };
+		90EAFA131CD17EDF002AD5E1 /* welcome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90EAFA121CD17EDF002AD5E1 /* welcome.jpg */; };
+		90EAFA151CD18059002AD5E1 /* city.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90EAFA141CD18059002AD5E1 /* city.jpg */; };
+		90EAFA171CD180F4002AD5E1 /* cuba.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90EAFA161CD180F4002AD5E1 /* cuba.jpg */; };
+		90EAFA191CD18170002AD5E1 /* sea.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EAFA181CD18170002AD5E1 /* sea.png */; };
+		90EAFA1B1CD1829A002AD5E1 /* wall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90EAFA1A1CD1829A002AD5E1 /* wall.jpg */; };
+		90EAFA1D1CD182F4002AD5E1 /* i.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90EAFA1C1CD182F4002AD5E1 /* i.jpg */; };
 		92C42CE81CB211BD003091FC /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C42CE71CB211BD003091FC /* PersonalInfo.swift */; };
 		9F17DC7F1CBC85DE00442D14 /* LeanerMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F17DC7E1CBC85DE00442D14 /* LeanerMoreViewController.swift */; };
 		9F17DC831CBC89BD00442D14 /* LearnerMorePasswdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F17DC801CBC89BD00442D14 /* LearnerMorePasswdViewController.swift */; };
@@ -289,9 +292,12 @@
 		76CDD2D8D01CE5CB4C1FFBBD /* Pods-Babylonian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.debug.xcconfig"; sourceTree = "<group>"; };
 		903F44B61CB433340023E412 /* CourseSettingViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSettingViewControllerTests.swift; sourceTree = "<group>"; };
 		903F44B81CB446460023E412 /* tagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tagTableViewCell.swift; sourceTree = "<group>"; };
-		92236CF31CC703DD00069679 /* CreatorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorInfo.swift; sourceTree = "<group>"; };
-		92236CF41CC703DD00069679 /* LearnerInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnerInfo.swift; sourceTree = "<group>"; };
-		92236CF51CC703DD00069679 /* OwnedCourseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnedCourseItem.swift; sourceTree = "<group>"; };
+		90EAFA121CD17EDF002AD5E1 /* welcome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = welcome.jpg; path = ../../welcome.jpg; sourceTree = "<group>"; };
+		90EAFA141CD18059002AD5E1 /* city.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = city.jpg; path = ../../city.jpg; sourceTree = "<group>"; };
+		90EAFA161CD180F4002AD5E1 /* cuba.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cuba.jpg; path = ../../cuba.jpg; sourceTree = "<group>"; };
+		90EAFA181CD18170002AD5E1 /* sea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sea.png; path = ../../sea.png; sourceTree = "<group>"; };
+		90EAFA1A1CD1829A002AD5E1 /* wall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = wall.jpg; path = ../../wall.jpg; sourceTree = "<group>"; };
+		90EAFA1C1CD182F4002AD5E1 /* i.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = i.jpg; path = ../../i.jpg; sourceTree = "<group>"; };
 		92C42CE71CB211BD003091FC /* PersonalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
 		9F17DC7E1CBC85DE00442D14 /* LeanerMoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeanerMoreViewController.swift; sourceTree = "<group>"; };
 		9F17DC801CBC89BD00442D14 /* LearnerMorePasswdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnerMorePasswdViewController.swift; sourceTree = "<group>"; };
@@ -482,6 +488,12 @@
 				30852AA21CB8EAE400C4D100 /* camwhite.png */,
 				302F4ABC1CC6D120006248EC /* more.png */,
 				30852AB21CB96D4B00C4D100 /* BBicon120.png */,
+				90EAFA121CD17EDF002AD5E1 /* welcome.jpg */,
+				90EAFA161CD180F4002AD5E1 /* cuba.jpg */,
+				90EAFA1A1CD1829A002AD5E1 /* wall.jpg */,
+				90EAFA141CD18059002AD5E1 /* city.jpg */,
+				90EAFA1C1CD182F4002AD5E1 /* i.jpg */,
+				90EAFA181CD18170002AD5E1 /* sea.png */,
 				30852AA41CB8EAEC00C4D100 /* camblack.png */,
 				303DDE6A1CC8675A007E9077 /* course.png */,
 				30852AB41CB96EC000C4D100 /* AppsIcon80.png */,
@@ -787,7 +799,7 @@
 				TargetAttributes = {
 					0705D4F51C8CEF270065467D = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 3M6AYFKU5V;
+						DevelopmentTeam = 8825SZP466;
 					};
 					0705D50C1C8CEF270065467D = {
 						CreatedOnToolsVersion = 7.2;
@@ -827,8 +839,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				30F20AB91CA0F98300A484E9 /* LearnerDiscussion.storyboard in Resources */,
+				90EAFA131CD17EDF002AD5E1 /* welcome.jpg in Resources */,
 				30F20AB51CA0F7E800A484E9 /* LearnerMain.storyboard in Resources */,
 				30852AAF1CB954D400C4D100 /* SearchTableCell.xib in Resources */,
+				90EAFA151CD18059002AD5E1 /* city.jpg in Resources */,
 				30F20AB71CA0F95700A484E9 /* LearnerMore.storyboard in Resources */,
 				30F20AC11CA124C600A484E9 /* CourseView.storyboard in Resources */,
 				9F66D6121C9ADE9900EB9C93 /* CellDescriptor.plist in Resources */,
@@ -841,15 +855,18 @@
 				9F66D60B1C9ADE1500EB9C93 /* SliderCell.xib in Resources */,
 				9F66D60A1C9ADE1500EB9C93 /* NormalCell.xib in Resources */,
 				3057A6C51C9D482200C9C1A4 /* Welcome in Resources */,
+				90EAFA1B1CD1829A002AD5E1 /* wall.jpg in Resources */,
 				0705D5071C8CEF270065467D /* LaunchScreen.storyboard in Resources */,
 				30852AAB1CB8FCFD00C4D100 /* ATItemAutoCell.xib in Resources */,
 				303DDE6B1CC8675A007E9077 /* course.png in Resources */,
 				9F66D60E1C9ADE1500EB9C93 /* ValuePickerCell.xib in Resources */,
+				90EAFA191CD18170002AD5E1 /* sea.png in Resources */,
 				305E47201C8D1817004EEACE /* More.storyboard in Resources */,
 				305E471D1C8D169F004EEACE /* MyCourses.storyboard in Resources */,
 				30852A931CB8BA1300C4D100 /* default-placeholder.png in Resources */,
 				302F4ABD1CC6D120006248EC /* more.png in Resources */,
 				9F66D6041C9ADE0500EB9C93 /* DatePickerCell.xib in Resources */,
+				90EAFA171CD180F4002AD5E1 /* cuba.jpg in Resources */,
 				0705D5041C8CEF270065467D /* Assets.xcassets in Resources */,
 				305E47231C8D182D004EEACE /* Discussions.storyboard in Resources */,
 				30DBCDD51C9E3BC5000CD59D /* RegisterView.xib in Resources */,
@@ -861,6 +878,7 @@
 				30F20ABB1CA0F99D00A484E9 /* LearnerMyCourses.storyboard in Resources */,
 				30852AA51CB8EAEC00C4D100 /* camblack.png in Resources */,
 				30DBCDD41C9E3BC5000CD59D /* WelcomeView.xib in Resources */,
+				90EAFA1D1CD182F4002AD5E1 /* i.jpg in Resources */,
 				9F9619AC1CB110A6007D5FA3 /* LabelCell.xib in Resources */,
 				302F4AAF1CC4C95D006248EC /* CoursePreview.storyboard in Resources */,
 				302F4AB31CC5FF0E006248EC /* SetCourseTitle.xib in Resources */,
@@ -1187,7 +1205,7 @@
 				FRAMEWORK_VERSION = "";
 				INFOPLIST_FILE = Babylonian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Flow.Babylonian;
+				PRODUCT_BUNDLE_IDENTIFIER = Flow.o.Babylonian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Babylonian/app-Bridging-Header.h";
@@ -1209,7 +1227,7 @@
 				FRAMEWORK_VERSION = "";
 				INFOPLIST_FILE = Babylonian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Flow.Babylonian;
+				PRODUCT_BUNDLE_IDENTIFIER = Flow.o.Babylonian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Babylonian/app-Bridging-Header.h";

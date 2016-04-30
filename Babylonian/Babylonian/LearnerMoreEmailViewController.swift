@@ -13,18 +13,20 @@ class LearnerMoreEmailViewController: UIViewController, UITableViewDelegate, UIT
     
         // MARK: Variables
         
-    let sections = ["Current E-mail", "New E-mail"]
+    let sections = ["Current E-mail", "New E-mail", "Current Password"]
     
     let items = [["xxx@com"],
-                 ["Please type new address", "Please type new address again"]
+                 ["Please type new address"],
+                 ["Please enter current password"]
     ]
     
     let cellTypes = [ ["idCellValuePicker"],
-                      ["idCellTextfield", "idCellTextfield"]
+                      ["idCellTextfield"],
+                      ["idCellTextfield"]
     ]
     
     
-        // MARK: Constants
+    // MARK: Constants
         
     let bigFont = UIFont(name: FONT_BIG, size: CGFloat(FONT_SIZE))
     
@@ -135,6 +137,10 @@ class LearnerMoreEmailViewController: UIViewController, UITableViewDelegate, UIT
             }
             else if(cellType == "idCellTextfield"){
                 cell.textField.placeholder = self.items[indexPath.section][indexPath.row]
+                
+                if(indexPath.section == 2 && indexPath.row == 0){
+                    cell.textField.secureTextEntry = true
+                }
             }
             else if(cellType == "idCellValuePicker"){
                 cell.textLabel?.text = self.items[indexPath.section][indexPath.row]
@@ -162,35 +168,80 @@ class LearnerMoreEmailViewController: UIViewController, UITableViewDelegate, UIT
         */
 
     @IBAction func changeConfirm(sender: AnyObject) {
+        let cell0 = self.tblExpandable.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! CustomCell
         let cell1 = self.tblExpandable.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! CustomCell
-        let cell2 = self.tblExpandable.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 1)) as! CustomCell
-
-        let addr1 = cell1.textField.text!
-        let addr2 = cell2.textField.text!
+        let cell2 = self.tblExpandable.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 2)) as! CustomCell
         
-        if((addr1 != addr2) || (addr1.characters.count < 1)){
-            handleEmailMismatch()
+        let oldAddr = cell0.textLabel!.text!
+        let newAddr = cell1.textField.text!
+        let passwd  = cell2.textField.text!
+        
+        if((oldAddr == newAddr)){
+            handleEmailSame()
+        }
+        else if(newAddr.containsString("@") == false || newAddr.containsString(".") == false){
+            handleInvalidEmail()
+        }
+        else if(newAddr.containsString(".edu") == false && newAddr.containsString(".com") == false){
+            handleInvalidEmail()
         }
         else{
-            userInfo.updateEmail(addr1)
-            tblExpandable.reloadData()
-            self.dismissViewControllerAnimated(true, completion: nil)
+            _BASE_REF.changeEmailForUser(oldAddr, password: passwd, toNewEmail: newAddr, withCompletionBlock: { error in
+                if (error != nil){
+                    self.handleUpdateError()
+                }
+                else {
+                    print("Change email successfully")
+                    self.userInfo.updateEmail(newAddr)
+                    self.tblExpandable.reloadData()
+                    
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
+                
+            })
         }
     }
     
-    
-    func handleEmailMismatch(){
+
+    func handleUpdateError(){
         //Create the AlertController
-        let actionSheetController: UIAlertController = UIAlertController(title: "Email mismatch!", message: "E-mail address cannot be empty nor mismatch", preferredStyle: .Alert)
+        let actionSheetController: UIAlertController = UIAlertController(title: "Update Fail!", message: "Please check your password", preferredStyle: .Alert)
+        
+        //Create and an option action
+        let retryAction: UIAlertAction = UIAlertAction(title: "Retry", style: .Default) { action -> Void in
+        }
+        actionSheetController.addAction(retryAction)
+        
+        //Present the AlertController
+        self.presentViewController(actionSheetController, animated: true, completion: nil)
+    }
+    
+    func handleInvalidEmail(){
+        //Create the AlertController
+        let actionSheetController: UIAlertController = UIAlertController(title: "Invalid Email Address!", message: "Please check the new address is valid", preferredStyle: .Alert)
+        
+        //Create and an option action
+        let retryAction: UIAlertAction = UIAlertAction(title: "Retry", style: .Default) { action -> Void in
+        }
+        actionSheetController.addAction(retryAction)
+        
+        //Present the AlertController
+        self.presentViewController(actionSheetController, animated: true, completion: nil)
+    }
+    
+    
+    func handleEmailSame(){
+        //Create the AlertController
+        let actionSheetController: UIAlertController = UIAlertController(title: "Email Unchanged!", message: "New E-mail is identical to the old one!", preferredStyle: .Alert)
         
         /*
-        //Create and add the Setting action
-        let settingAction: UIAlertAction = UIAlertAction(title: "Setting", style: .Cancel) { action -> Void in
-            //Do some stuff
-            UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
-        }
-        actionSheetController.addAction(settingAction)
-        */
+         //Create and add the Setting action
+         let settingAction: UIAlertAction = UIAlertAction(title: "Setting", style: .Cancel) { action -> Void in
+         //Do some stuff
+         UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
+         }
+         actionSheetController.addAction(settingAction)
+         */
         
         //Create and an option action
         let retryAction: UIAlertAction = UIAlertAction(title: "Retry", style: .Default) { action -> Void in

@@ -47,6 +47,13 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 {
 	[super viewDidLoad];
 	self.title = @"Welcome";
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"i.jpg"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+   
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
 	[self.navigationItem setBackBarButtonItem:backButton];
