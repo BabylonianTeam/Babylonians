@@ -106,7 +106,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kF-6u-zVo">
-                                                    <rect key="frame" x="47" y="11" width="29" height="21"/>
+                                                    <rect key="frame" x="47" y="11" width="483" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="TcJ-A4-794"/>
                                                     </constraints>
@@ -123,6 +123,7 @@
                                                 <constraint firstItem="BNh-Ad-Dbo" firstAttribute="centerY" secondItem="CiO-cx-iQS" secondAttribute="centerY" id="dLu-Oi-nbM"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Me7-ii-FTB" secondAttribute="trailing" constant="10" id="hRS-qi-edb"/>
                                                 <constraint firstItem="4kF-6u-zVo" firstAttribute="centerY" secondItem="CiO-cx-iQS" secondAttribute="centerY" id="j8x-mA-pgs"/>
+                                                <constraint firstItem="Me7-ii-FTB" firstAttribute="leading" secondItem="4kF-6u-zVo" secondAttribute="trailing" constant="10" id="lRB-AI-1N1"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="4kF-6u-zVo" secondAttribute="trailing" constant="10" id="m4P-Ak-NpP"/>
                                                 <constraint firstItem="4kF-6u-zVo" firstAttribute="leading" secondItem="CiO-cx-iQS" secondAttribute="leadingMargin" constant="5" id="pig-P8-3F9"/>
                                             </constraints>
