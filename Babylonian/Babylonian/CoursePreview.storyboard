@@ -4,13 +4,12 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
-        <!--Course View Controller-->
+        <!--Course Preview Controller-->
         <scene sceneID="fDM-HD-ZnI">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="45I-xC-lAC" customClass="CourseViewController" customModule="Babylonian" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="45I-xC-lAC" customClass="CoursePreviewController" customModule="Babylonian" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CHB-J9-DmZ"/>
                         <viewControllerLayoutGuide type="bottom" id="6BG-Sl-0dx"/>
@@ -19,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="2" sectionFooterHeight="2" translatesAutoresizingMaskIntoConstraints="NO" id="7dH-ch-bSx" customClass="LPRTableView" customModule="Babylonian" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="2" sectionFooterHeight="2" translatesAutoresizingMaskIntoConstraints="NO" id="7dH-ch-bSx">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -55,25 +54,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="ieS-Co-FmT">
                         <nil key="title"/>
-                        <rightBarButtonItems>
-                            <barButtonItem title="Next" id="tcM-7P-8CC">
-                                <connections>
-                                    <action selector="nextButton:" destination="45I-xC-lAC" id="z31-Pj-DJc"/>
-                                    <segue destination="Kv9-3G-TY8" kind="show" id="tlj-ti-TaE"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Edit" id="qJ7-Xo-GGI">
-                                <connections>
-                                    <action selector="editButton:" destination="45I-xC-lAC" id="vVn-hz-IKD"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Purchase" id="Ot3-FJ-5F7">
+                            <connections>
+                                <action selector="purchaseButtonPressed:" destination="45I-xC-lAC" id="XBe-ub-pqA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="courseTableView" destination="7dH-ch-bSx" id="of6-Us-kgV"/>
-                        <outlet property="editButton" destination="qJ7-Xo-GGI" id="lt8-1h-0zB"/>
-                        <outlet property="nextButton" destination="tcM-7P-8CC" id="zZa-LV-JwG"/>
-                        <outlet property="tableEditButton" destination="qJ7-Xo-GGI" id="m2o-Jf-m34"/>
+                        <outlet property="purchaseButton" destination="Ot3-FJ-5F7" id="XAs-Zz-mcY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s5d-vD-rVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -95,14 +84,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QcC-Ib-cwG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-956" y="105"/>
-        </scene>
-        <!--CourseSettingsView-->
-        <scene sceneID="4hE-W6-3HW">
-            <objects>
-                <viewControllerPlaceholder storyboardName="CourseSettingsView" id="Kv9-3G-TY8" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bO2-WL-HXa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="678" y="105"/>
         </scene>
     </scenes>
 </document>

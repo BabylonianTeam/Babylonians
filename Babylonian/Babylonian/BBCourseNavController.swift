@@ -11,6 +11,7 @@ import UIKit
 class BBCourseNavController: UINavigationController {
     var currentCourse: BBCourse!
     var viewOnly = false
+    var previewOnly = false
 
     override func viewDidLoad() {
         super.viewDidLoad()

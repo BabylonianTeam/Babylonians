@@ -56,7 +56,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9S-vt-8Q9">
-                                                    <rect key="frame" x="47" y="11" width="29" height="21"/>
+                                                    <rect key="frame" x="47" y="11" width="483" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="sgv-R3-m1S"/>
                                                     </constraints>
@@ -67,11 +67,11 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="y9S-vt-8Q9" firstAttribute="leading" secondItem="m8B-LW-35e" secondAttribute="trailing" constant="5" id="3kA-Ud-I6L"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vK5-7b-eqN" secondAttribute="trailing" constant="10" id="3wL-Oy-hQj"/>
                                                 <constraint firstItem="y9S-vt-8Q9" firstAttribute="centerY" secondItem="yq9-I7-Hs1" secondAttribute="centerY" id="GVT-GP-6Wo"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="y9S-vt-8Q9" secondAttribute="trailing" constant="10" id="Mvw-Fg-t91"/>
                                                 <constraint firstItem="vK5-7b-eqN" firstAttribute="centerY" secondItem="yq9-I7-Hs1" secondAttribute="centerY" id="Nvr-0o-hmO"/>
-                                                <constraint firstItem="y9S-vt-8Q9" firstAttribute="leading" secondItem="yq9-I7-Hs1" secondAttribute="leadingMargin" constant="5" id="lsl-ZE-2Tq"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="vK5-7b-eqN" secondAttribute="trailing" constant="10" id="px6-NC-eTv"/>
+                                                <constraint firstItem="vK5-7b-eqN" firstAttribute="leading" secondItem="y9S-vt-8Q9" secondAttribute="trailing" constant="10" id="Y3r-oH-e3b"/>
                                                 <constraint firstItem="y9S-vt-8Q9" firstAttribute="leading" secondItem="vK5-7b-eqN" secondAttribute="trailing" constant="5" id="qdY-cY-4sG"/>
                                                 <constraint firstItem="m8B-LW-35e" firstAttribute="leading" secondItem="yq9-I7-Hs1" secondAttribute="leadingMargin" constant="10" id="vfo-8v-haM"/>
                                                 <constraint firstItem="m8B-LW-35e" firstAttribute="centerY" secondItem="yq9-I7-Hs1" secondAttribute="centerY" id="zJO-Ny-kpY"/>
@@ -79,7 +79,6 @@
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="Mvw-Fg-t91"/>
-                                                    <exclude reference="lsl-ZE-2Tq"/>
                                                     <exclude reference="qdY-cY-4sG"/>
                                                 </mask>
                                             </variation>
@@ -129,8 +128,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="DmR-nJ-70i" kind="relationship" relationship="viewControllers" id="szw-FE-CgO"/>
                         <segue destination="KdM-aK-1NF" kind="relationship" relationship="viewControllers" id="ocL-Cy-eDf"/>
+                        <segue destination="DmR-nJ-70i" kind="relationship" relationship="viewControllers" id="szw-FE-CgO"/>
                         <segue destination="zZ5-Q9-6ev" kind="relationship" relationship="viewControllers" id="HXr-le-PEK"/>
                         <segue destination="cfm-QQ-tbR" kind="relationship" relationship="viewControllers" id="Xh8-7C-V4W"/>
                     </connections>
@@ -169,11 +168,11 @@
             </objects>
             <point key="canvasLocation" x="-207" y="1677"/>
         </scene>
-        <!--Main-->
+        <!--Trending Now-->
         <scene sceneID="fZl-5z-g7r">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DmR-nJ-70i" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Main" image="star32.png" id="HN4-Yj-vq2"/>
+                    <tabBarItem key="tabBarItem" title="Trending Now" image="star30.png" id="HN4-Yj-vq2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wSc-w7-9Vm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -191,6 +190,6 @@
     </scenes>
     <resources>
         <image name="mycourses.png" width="32" height="32"/>
-        <image name="star32.png" width="32" height="32"/>
+        <image name="star30.png" width="30" height="30"/>
     </resources>
 </document>

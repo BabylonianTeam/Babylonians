@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -81,10 +81,10 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainCourseCell" id="iq1-fl-gCh" customClass="MainCourseCell" customModule="Babylonian" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="50" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iq1-fl-gCh" id="CiO-cx-iQS">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNh-Ad-Dbo" customClass="PlaybackButton" customModule="Babylonian" customModuleProvider="target">
@@ -106,7 +106,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kF-6u-zVo">
-                                                    <rect key="frame" x="47" y="11" width="29" height="21"/>
+                                                    <rect key="frame" x="47" y="11" width="483" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="TcJ-A4-794"/>
                                                     </constraints>
@@ -123,6 +123,7 @@
                                                 <constraint firstItem="BNh-Ad-Dbo" firstAttribute="centerY" secondItem="CiO-cx-iQS" secondAttribute="centerY" id="dLu-Oi-nbM"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Me7-ii-FTB" secondAttribute="trailing" constant="10" id="hRS-qi-edb"/>
                                                 <constraint firstItem="4kF-6u-zVo" firstAttribute="centerY" secondItem="CiO-cx-iQS" secondAttribute="centerY" id="j8x-mA-pgs"/>
+                                                <constraint firstItem="Me7-ii-FTB" firstAttribute="leading" secondItem="4kF-6u-zVo" secondAttribute="trailing" constant="10" id="lRB-AI-1N1"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="4kF-6u-zVo" secondAttribute="trailing" constant="10" id="m4P-Ak-NpP"/>
                                                 <constraint firstItem="4kF-6u-zVo" firstAttribute="leading" secondItem="CiO-cx-iQS" secondAttribute="leadingMargin" constant="5" id="pig-P8-3F9"/>
                                             </constraints>
@@ -173,7 +174,7 @@
         <scene sceneID="73F-eT-p3O">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zez-qL-Zzg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Main" id="vhc-q9-KTh"/>
+                    <tabBarItem key="tabBarItem" title="Main" image="star30.png" id="vhc-q9-KTh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QpJ-sJ-VYs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -191,5 +192,6 @@
     </scenes>
     <resources>
         <image name="mycourses.png" width="32" height="32"/>
+        <image name="star30.png" width="30" height="30"/>
     </resources>
 </document>
