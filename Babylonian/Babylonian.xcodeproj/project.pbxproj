@@ -1215,7 +1215,7 @@
 				FRAMEWORK_VERSION = "";
 				INFOPLIST_FILE = Babylonian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Flow.Babylonian3;
+				PRODUCT_BUNDLE_IDENTIFIER = Flow.Babylonian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Babylonian/app-Bridging-Header.h";
@@ -1237,7 +1237,7 @@
 				FRAMEWORK_VERSION = "";
 				INFOPLIST_FILE = Babylonian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Flow.Babylonian3;
+				PRODUCT_BUNDLE_IDENTIFIER = Flow.Babylonian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Babylonian/app-Bridging-Header.h";
