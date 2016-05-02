@@ -519,9 +519,6 @@
 				30852A981CB8C72A00C4D100 /* MyCourseInfo.swift */,
 				3037A4AC1CB0A1DF00C52232 /* BBCourse.swift */,
 				3037A4A81CB09F6600C52232 /* CourseItem.swift */,
-				30D77E261CD52CE600E8A6B4 /* CreatorInfo.swift */,
-				30D77E271CD52CE600E8A6B4 /* LearnerInfo.swift */,
-				30D77E281CD52CE600E8A6B4 /* OwnedCourseItem.swift */,
 				3037A4A61CB09F6600C52232 /* ImageItem.swift */,
 				3037A4A71CB09F6600C52232 /* ATItem.swift */,
 			);
@@ -655,7 +652,10 @@
 		92236CF21CC703A600069679 /* UserModel */ = {
 			isa = PBXGroup;
 			children = (
+				30D77E271CD52CE600E8A6B4 /* LearnerInfo.swift */,
+				30D77E261CD52CE600E8A6B4 /* CreatorInfo.swift */,
 				92C42CE71CB211BD003091FC /* PersonalInfo.swift */,
+				30D77E281CD52CE600E8A6B4 /* OwnedCourseItem.swift */,
 			);
 			name = UserModel;
 			sourceTree = "<group>";
@@ -794,7 +794,7 @@
 				TargetAttributes = {
 					0705D4F51C8CEF270065467D = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 8825SZP466;
+						DevelopmentTeam = V7V58JZZ4C;
 					};
 					0705D50C1C8CEF270065467D = {
 						CreatedOnToolsVersion = 7.2;
@@ -1197,7 +1197,7 @@
 				FRAMEWORK_VERSION = "";
 				INFOPLIST_FILE = Babylonian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Flow.o.Babylonian;
+				PRODUCT_BUNDLE_IDENTIFIER = Flow.Babylonian3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Babylonian/app-Bridging-Header.h";
@@ -1219,7 +1219,7 @@
 				FRAMEWORK_VERSION = "";
 				INFOPLIST_FILE = Babylonian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Flow.o.Babylonian;
+				PRODUCT_BUNDLE_IDENTIFIER = Flow.Babylonian3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Babylonian/app-Bridging-Header.h";
