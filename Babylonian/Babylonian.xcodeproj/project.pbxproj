@@ -101,6 +101,7 @@
 		30F20ABB1CA0F99D00A484E9 /* LearnerMyCourses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20ABA1CA0F99D00A484E9 /* LearnerMyCourses.storyboard */; };
 		30F20ABE1CA121E700A484E9 /* RNCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F20ABD1CA121E700A484E9 /* RNCryptor.swift */; };
 		30F20AC11CA124C600A484E9 /* CourseView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20AC01CA124C600A484E9 /* CourseView.storyboard */; };
+		905CB0601CD7CBC500A27FC8 /* 506logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 905CB05F1CD7CBC500A27FC8 /* 506logo.jpg */; };
 		90EAFA1D1CD182F4002AD5E1 /* i.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90EAFA1C1CD182F4002AD5E1 /* i.jpg */; };
 		92C42CE81CB211BD003091FC /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C42CE71CB211BD003091FC /* PersonalInfo.swift */; };
 		9F17DC7F1CBC85DE00442D14 /* LeanerMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F17DC7E1CBC85DE00442D14 /* LeanerMoreViewController.swift */; };
@@ -286,6 +287,7 @@
 		76CDD2D8D01CE5CB4C1FFBBD /* Pods-Babylonian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.debug.xcconfig"; sourceTree = "<group>"; };
 		903F44B61CB433340023E412 /* CourseSettingViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSettingViewControllerTests.swift; sourceTree = "<group>"; };
 		903F44B81CB446460023E412 /* tagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tagTableViewCell.swift; sourceTree = "<group>"; };
+		905CB05F1CD7CBC500A27FC8 /* 506logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 506logo.jpg; path = ../../506logo.jpg; sourceTree = "<group>"; };
 		90EAFA1C1CD182F4002AD5E1 /* i.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = i.jpg; path = ../../i.jpg; sourceTree = "<group>"; };
 		92C42CE71CB211BD003091FC /* PersonalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
 		9F17DC7E1CBC85DE00442D14 /* LeanerMoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeanerMoreViewController.swift; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 				30852AA21CB8EAE400C4D100 /* camwhite.png */,
 				302F4ABC1CC6D120006248EC /* more.png */,
 				30852AB21CB96D4B00C4D100 /* BBicon120.png */,
+				905CB05F1CD7CBC500A27FC8 /* 506logo.jpg */,
 				90EAFA1C1CD182F4002AD5E1 /* i.jpg */,
 				30852AA41CB8EAEC00C4D100 /* camblack.png */,
 				303DDE6A1CC8675A007E9077 /* course.png */,
@@ -852,6 +855,7 @@
 				30852AA31CB8EAE400C4D100 /* camwhite.png in Resources */,
 				9F66D60D1C9ADE1500EB9C93 /* TextfieldCell.xib in Resources */,
 				30F20ABB1CA0F99D00A484E9 /* LearnerMyCourses.storyboard in Resources */,
+				905CB0601CD7CBC500A27FC8 /* 506logo.jpg in Resources */,
 				30852AA51CB8EAEC00C4D100 /* camblack.png in Resources */,
 				30DBCDD41C9E3BC5000CD59D /* WelcomeView.xib in Resources */,
 				90EAFA1D1CD182F4002AD5E1 /* i.jpg in Resources */,

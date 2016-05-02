@@ -48,7 +48,7 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 	[super viewDidLoad];
 	self.title = @"Welcome";
     UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"i.jpg"] drawInRect:self.view.bounds];
+    [[UIImage imageNamed:@"506logo.jpg"] drawInRect:self.view.bounds];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
