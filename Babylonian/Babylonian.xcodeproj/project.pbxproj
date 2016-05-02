@@ -134,6 +134,7 @@
 		9FBDE5681C9B8E9D003A45BA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDE5651C9B8E9D003A45BA /* Constant.swift */; };
 		9FBDE5691C9B8E9D003A45BA /* Minicourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */; };
 		9FCA548F1CB2DE690052917B /* MoreEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCA548E1CB2DE690052917B /* MoreEmailViewController.swift */; };
+		9FF2DC9A1CD80AA400146F18 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FF2DC991CD80AA400146F18 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -325,7 +326,7 @@
 		9FBDE5651C9B8E9D003A45BA /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Minicourse.swift; sourceTree = "<group>"; };
 		9FCA548E1CB2DE690052917B /* MoreEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreEmailViewController.swift; sourceTree = "<group>"; };
-		9FDB5DEC1CCCADBE000F134C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9FF2DC991CD80AA400146F18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babylonian.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -395,7 +396,7 @@
 				3057A6C81C9DED2400C9C1A4 /* Utilities.swift */,
 				0705D5031C8CEF270065467D /* Assets.xcassets */,
 				0705D5081C8CEF270065467D /* Info.plist */,
-				9FDB5DEC1CCCADBE000F134C /* GoogleService-Info.plist */,
+				9FF2DC991CD80AA400146F18 /* GoogleService-Info.plist */,
 				0705D5001C8CEF270065467D /* Babylonian.xcdatamodeld */,
 				3057A6CA1C9E30FF00C9C1A4 /* app-Bridging-Header.h */,
 				30DBCE131C9E5432000CD59D /* AppConstants.h */,
@@ -843,6 +844,7 @@
 				30852AB31CB96D4B00C4D100 /* BBicon120.png in Resources */,
 				30852AA11CB8D34400C4D100 /* person-placeholder.png in Resources */,
 				30E6DB3B1CB1C43B00F604E6 /* CourseSettingsView.storyboard in Resources */,
+				9FF2DC9A1CD80AA400146F18 /* GoogleService-Info.plist in Resources */,
 				303DDE691CC865EC007E9077 /* star30.png in Resources */,
 				30DBCDD31C9E3BC5000CD59D /* LoginView.xib in Resources */,
 				9F66D60B1C9ADE1500EB9C93 /* SliderCell.xib in Resources */,
@@ -1197,7 +1199,7 @@
 				FRAMEWORK_VERSION = "";
 				INFOPLIST_FILE = Babylonian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Flow.o.Babylonian;
+				PRODUCT_BUNDLE_IDENTIFIER = Flow.Babylonian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Babylonian/app-Bridging-Header.h";
@@ -1219,7 +1221,7 @@
 				FRAMEWORK_VERSION = "";
 				INFOPLIST_FILE = Babylonian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Flow.o.Babylonian;
+				PRODUCT_BUNDLE_IDENTIFIER = Flow.Babylonian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Babylonian/app-Bridging-Header.h";
