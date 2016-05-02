@@ -468,6 +468,7 @@
 			children = (
 				30E6DB3E1CB1E97D00F604E6 /* PlaybackButton.swift */,
 				903F44B81CB446460023E412 /* tagTableViewCell.swift */,
+				3037A4A01CB03A9B00C52232 /* CourseViewController.swift */,
 				30F20AC01CA124C600A484E9 /* CourseView.storyboard */,
 				30E6DB401CB2193200F604E6 /* LPRTableView.swift */,
 				30E6DB421CB22C7E00F604E6 /* CreateCourseItemCell.swift */,
@@ -477,7 +478,6 @@
 				3037A4A21CB0513400C52232 /* CourseSettingViewController.swift */,
 				3037A4B01CB0B2E100C52232 /* ImageItemCell.swift */,
 				30E6DB3C1CB1C59E00F604E6 /* BBCourseNavController.swift */,
-				3037A4A01CB03A9B00C52232 /* CourseViewController.swift */,
 			);
 			name = CourseEditor;
 			sourceTree = "<group>";

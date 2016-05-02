@@ -150,8 +150,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard.init(name: "CoursePreview", bundle: nil)
         let bbCourseController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView") as! BBCourseNavController
-        bbCourseController.viewOnly = true
-        bbCourseController.previewOnly = true
+        
         
         if tableView==self.searchResult {
             let courseId = filtered[indexPath.row].componentsSeparatedByString("|")[0]
@@ -162,6 +161,8 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         else {
             bbCourseController.currentCourse = BBCourse(ref: self.courseLists[indexPath.section][indexPath.row].ref)
         }
+        bbCourseController.viewOnly = true
+        bbCourseController.previewOnly = true
         self.presentViewController(bbCourseController, animated: true, completion: nil)
     }
     
