@@ -86,13 +86,13 @@ class CoursePreviewController: UIViewController, UITableViewDataSource, UITableV
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        
         if indexPath.row<self.currentCourse.contents.count && self.currentCourse.contents[indexPath.row].getType()==COURSE_ITEM_TYPE_AUDIOTEXT {
             let cell = tableView.dequeueReusableCellWithIdentifier("ATItemAutoCell", forIndexPath: indexPath) as! ATItemAutoCell
             cell.item = self.currentCourse.contents[indexPath.row] as! ATItem
             cell.refreshText()
-            //cell.setNeedsUpdateConstraints()
-            //cell.updateConstraintsIfNeeded()
+            if self.isPreviewOnly{
+                cell.transcript.editable = false
+            }
            
             return cell
 
