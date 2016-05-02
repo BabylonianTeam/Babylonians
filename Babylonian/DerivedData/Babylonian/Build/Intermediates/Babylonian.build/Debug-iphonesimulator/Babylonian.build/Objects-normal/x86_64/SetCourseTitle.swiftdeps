@@ -6,19 +6,19 @@ provides-nominal:
 provides-member:
 - ["C10Babylonian14SetCourseTitle", ""]
 provides-dynamic-lookup:
-- "setSelected"
-- "title"
-- "textFieldShouldReturn"
 - "awakeFromNib"
+- "textFieldShouldReturn"
+- "title"
+- "setSelected"
 - "currentCourse"
 depends-top-level:
 - "UITextFieldDelegate"
-- "SetCourseTitle"
 - "UITextField"
 - "Bool"
+- "SetCourseTitle"
 - "BBCourse"
-- !private "BooleanLiteralType"
 - "UITableViewCell"
+- !private "BooleanLiteralType"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - ["Ps9AnyObject", "currentCourse"]

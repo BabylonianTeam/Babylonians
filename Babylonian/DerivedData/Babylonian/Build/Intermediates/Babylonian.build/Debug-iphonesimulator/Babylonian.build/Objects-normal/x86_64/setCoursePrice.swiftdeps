@@ -6,17 +6,17 @@ provides-nominal:
 provides-member:
 - ["C10Babylonian14setCoursePrice", ""]
 provides-dynamic-lookup:
-- "setSelected"
 - "price"
-- "currentCourse"
 - "awakeFromNib"
+- "currentCourse"
+- "setSelected"
 depends-top-level:
+- "setCoursePrice"
 - "UITextField"
+- "Bool"
 - "UITableViewCell"
 - "UITextFieldDelegate"
 - "BBCourse"
-- "Bool"
-- "setCoursePrice"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - ["Ps9AnyObject", "currentCourse"]

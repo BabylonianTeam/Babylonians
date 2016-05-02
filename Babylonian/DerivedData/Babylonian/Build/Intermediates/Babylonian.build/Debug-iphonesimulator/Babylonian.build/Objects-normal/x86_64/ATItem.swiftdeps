@@ -6,25 +6,25 @@ provides-nominal:
 provides-member:
 - ["C10Babylonian6ATItem", ""]
 provides-dynamic-lookup:
-- "toAnyObject"
 - "getType"
 - "setText"
 - "setAudio"
+- "toAnyObject"
 depends-top-level:
+- !private "COURSE_ITEM_TYPE_AUDIOTEXT"
 - "Firebase"
-- !private "COURSE_ITEM_AUDIO"
-- !private "COURSE_ITEM_ORDER"
+- !private "Dictionary"
+- "ATItem"
 - !private "StringLiteralType"
+- !private "COURSE_ITEM_AUDIO"
 - "Float"
 - "AnyObject"
-- "CourseItem"
-- !private "COURSE_ITEM_TYPE_AUDIOTEXT"
 - "Int"
 - "String"
-- !private "Dictionary"
-- !private "COURSE_ITEM_AUDIO_DURATION"
+- !private "COURSE_ITEM_ORDER"
 - !private "COURSE_ITEM_TEXT"
-- "ATItem"
+- "CourseItem"
+- !private "COURSE_ITEM_AUDIO_DURATION"
 depends-member:
 - ["C10Babylonian6ATItem", "AnyObject"]
 - !private ["C10Babylonian6ATItem", "COURSE_ITEM_AUDIO"]

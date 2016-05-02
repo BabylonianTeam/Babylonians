@@ -7,21 +7,21 @@ provides-member:
 - ["C11TagListView11CloseButton", ""]
 provides-dynamic-lookup:
 - "iconSize"
-- "lineWidth"
-- "lineColor"
 - "drawRect"
 - "tagView"
+- "lineWidth"
+- "lineColor"
 depends-top-level:
-- "CGFloat"
-- "UIColor"
-- !private "UIBezierPath"
-- "UIButton"
 - "CGRect"
-- !private "/"
-- !private "-"
 - !private "CGPoint"
-- "TagView"
+- "UIColor"
 - "CloseButton"
+- "CGFloat"
+- !private "-"
+- "TagView"
+- "UIButton"
+- !private "/"
+- !private "UIBezierPath"
 depends-member:
 - !private ["Ps9AnyObject", "CGPoint"]
 - !private ["Ps9AnyObject", "CGRect"]

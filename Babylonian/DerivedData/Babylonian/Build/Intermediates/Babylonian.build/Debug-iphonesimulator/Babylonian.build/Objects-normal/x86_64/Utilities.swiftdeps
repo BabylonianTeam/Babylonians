@@ -7,10 +7,10 @@ provides-member:
 - ["SS", "floatValue"]
 provides-dynamic-lookup:
 depends-top-level:
+- "Float"
+- !private "NSCharacterSet"
 - "String"
 - !private "NSString"
-- !private "NSCharacterSet"
-- "Float"
 depends-member:
 - !private ["Ps9AnyObject", "floatValue"]
 - !private ["Ps9AnyObject", "stringByTrimmingCharactersInSet"]

@@ -7,16 +7,16 @@ provides-member:
 - ["C10Babylonian10Minicourse", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "Minicourse"
-- "NSObject"
 - "Int"
-- "BBCourse"
 - "String"
-- "AnyObject"
-- "BASE_URL"
-- "Firebase"
-- "BooleanLiteralType"
 - "NSString"
+- "AnyObject"
+- "Minicourse"
+- "Firebase"
+- "BBCourse"
+- "BASE_URL"
+- "BooleanLiteralType"
+- "NSObject"
 depends-member:
 - ["Ps9AnyObject", "BASE_URL"]
 - !private ["Ps9AnyObject", "COURSE_REF"]

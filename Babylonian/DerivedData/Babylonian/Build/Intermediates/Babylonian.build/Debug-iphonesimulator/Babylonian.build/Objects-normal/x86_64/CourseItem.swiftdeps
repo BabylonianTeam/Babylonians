@@ -7,21 +7,21 @@ provides-member:
 - ["C10Babylonian10CourseItem", ""]
 provides-dynamic-lookup:
 - "itemRef"
-- "ref_"
 - "toAnyObject"
+- "ref_"
+- "courseRef"
 - "content"
 - "getType"
-- "courseRef"
 depends-top-level:
-- "NSMutableDictionary"
-- "String"
-- !private "StringLiteralType"
 - "NSObject"
-- !private "fatalError"
+- !private "StringLiteralType"
+- "NSMutableDictionary"
+- "Firebase"
 - "AnyObject"
+- !private "fatalError"
+- "String"
 - "CourseItem"
 - "Int"
-- "Firebase"
 depends-member:
 - !private ["Ps9AnyObject", "NSMutableDictionary"]
 - ["Ps9AnyObject", "content"]

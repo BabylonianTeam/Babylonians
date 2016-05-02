@@ -6,22 +6,22 @@ provides-nominal:
 provides-member:
 - ["C10Babylonian10CourseCell", ""]
 provides-dynamic-lookup:
-- "courseTitle"
+- "awakeFromNib"
 - "profitAmount"
 - "courseViewCount"
 - "profitLabel"
-- "awakeFromNib"
+- "courseTitle"
 depends-top-level:
-- "UILabel"
 - !private "CGFloat"
 - !private "UIColor"
-- "CourseCell"
-- !private "!="
-- "UITableViewCell"
-- !private "FONT_SIZE"
-- !private "FONT_BIG"
-- !private "UIFont"
 - !private "FONT_SMALL"
+- !private "FONT_BIG"
+- !private "FONT_SIZE"
+- "UITableViewCell"
+- "CourseCell"
+- !private "UIFont"
+- "UILabel"
+- !private "!="
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - !private ["Ps9AnyObject", "CGFloat"]

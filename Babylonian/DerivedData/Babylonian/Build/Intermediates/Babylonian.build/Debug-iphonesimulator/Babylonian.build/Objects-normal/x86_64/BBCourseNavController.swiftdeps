@@ -6,15 +6,15 @@ provides-nominal:
 provides-member:
 - ["C10Babylonian21BBCourseNavController", ""]
 provides-dynamic-lookup:
-- "didReceiveMemoryWarning"
-- "viewOnly"
 - "currentCourse"
+- "viewOnly"
 - "viewDidLoad"
+- "didReceiveMemoryWarning"
 depends-top-level:
-- "BBCourseNavController"
-- "UINavigationController"
-- "BBCourse"
 - "BooleanLiteralType"
+- "UINavigationController"
+- "BBCourseNavController"
+- "BBCourse"
 depends-member:
 - ["Ps9AnyObject", "currentCourse"]
 - ["Ps9AnyObject", "didReceiveMemoryWarning"]
