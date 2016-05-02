@@ -22,6 +22,17 @@ extension String {
     }
 }
 
+func getCurrentDate() -> String{
+    let date = NSDate()
+    let calendar = NSCalendar.currentCalendar()
+    let components = calendar.components([.Day , .Month , .Year], fromDate: date)
+    let year =  components.year
+    let month = components.month
+    let day = components.day
+    let currDate = String(month) + "-" + String(day) + "-" + String(year);
+    return currDate
+}
+
 //test parse
 //        let image = UIImage(named: "aa0f3d544a573d3-1.jpg")
 //        let data = UIImageJPEGRepresentation(image!, 1)

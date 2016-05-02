@@ -14,7 +14,7 @@ class LearnerInfo: NSObject{
     var ref_: Firebase!
     var _USER_REF = Firebase(url: "\(BASE_URL)/users")
     
-    var learner: PersonalInfo!
+    //var learner: PersonalInfo!
     
     init(id: String?){
         if (id != nil){
@@ -23,7 +23,7 @@ class LearnerInfo: NSObject{
     }
     
     func addPurchasedCourse(purchasedCourseId: String) -> Void {
-        let currDate = learner.getCurrentDate()
+        let currDate = getCurrentDate()
         let newCourse_ref = self.ref_.childByAppendingPath(USER_PURCHASED_COURSE).childByAppendingPath(purchasedCourseId)
         newCourse_ref.setValue([USER_PURCHASED_COURSE_DATE: currDate])
         self.purchasedCourses_.append(OwnedCourseItem(ref: newCourse_ref, ownedDate: currDate))
@@ -32,6 +32,7 @@ class LearnerInfo: NSObject{
     func getPurchasedCoursesCount() -> Int{
         return self.purchasedCourses_.count
     }
+    
     
     /*
     func addPurchasedCourse(purchasedCourseId: String){
