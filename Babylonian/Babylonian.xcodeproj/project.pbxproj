@@ -107,6 +107,8 @@
 		30F20ABB1CA0F99D00A484E9 /* LearnerMyCourses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20ABA1CA0F99D00A484E9 /* LearnerMyCourses.storyboard */; };
 		30F20ABE1CA121E700A484E9 /* RNCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F20ABD1CA121E700A484E9 /* RNCryptor.swift */; };
 		30F20AC11CA124C600A484E9 /* CourseView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20AC01CA124C600A484E9 /* CourseView.storyboard */; };
+		905CB06A1CD8115500A27FC8 /* SetCoursePrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905CB0681CD8115500A27FC8 /* SetCoursePrice.swift */; };
+		905CB06B1CD8115500A27FC8 /* SetCoursePrice.xib in Resources */ = {isa = PBXBuildFile; fileRef = 905CB0691CD8115500A27FC8 /* SetCoursePrice.xib */; };
 		929DDC171CD8030A00E0B437 /* LearnerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929DDC161CD8030A00E0B437 /* LearnerTabBarController.swift */; };
 		929DDC191CD803AD00E0B437 /* CreatorTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929DDC181CD803AD00E0B437 /* CreatorTabBarController.swift */; };
 		92C42CE81CB211BD003091FC /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C42CE71CB211BD003091FC /* PersonalInfo.swift */; };
@@ -300,6 +302,8 @@
 		76CDD2D8D01CE5CB4C1FFBBD /* Pods-Babylonian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.debug.xcconfig"; sourceTree = "<group>"; };
 		903F44B61CB433340023E412 /* CourseSettingViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSettingViewControllerTests.swift; sourceTree = "<group>"; };
 		903F44B81CB446460023E412 /* tagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tagTableViewCell.swift; sourceTree = "<group>"; };
+		905CB0681CD8115500A27FC8 /* SetCoursePrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCoursePrice.swift; sourceTree = "<group>"; };
+		905CB0691CD8115500A27FC8 /* SetCoursePrice.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetCoursePrice.xib; sourceTree = "<group>"; };
 		929DDC161CD8030A00E0B437 /* LearnerTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnerTabBarController.swift; sourceTree = "<group>"; };
 		929DDC181CD803AD00E0B437 /* CreatorTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorTabBarController.swift; sourceTree = "<group>"; };
 		92C42CE71CB211BD003091FC /* PersonalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
@@ -698,6 +702,8 @@
 				30852AA91CB8FCFD00C4D100 /* ATItemAutoCell.xib */,
 				30852AAC1CB954D400C4D100 /* SearchTableCell.swift */,
 				30852AAD1CB954D400C4D100 /* SearchTableCell.xib */,
+				905CB0681CD8115500A27FC8 /* SetCoursePrice.swift */,
+				905CB0691CD8115500A27FC8 /* SetCoursePrice.xib */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -875,6 +881,7 @@
 				30852AB51CB96EC000C4D100 /* AppsIcon80.png in Resources */,
 				30852AA31CB8EAE400C4D100 /* camwhite.png in Resources */,
 				9F66D60D1C9ADE1500EB9C93 /* TextfieldCell.xib in Resources */,
+				905CB06B1CD8115500A27FC8 /* SetCoursePrice.xib in Resources */,
 				30F20ABB1CA0F99D00A484E9 /* LearnerMyCourses.storyboard in Resources */,
 				30852AA51CB8EAEC00C4D100 /* camblack.png in Resources */,
 				30DBCDD41C9E3BC5000CD59D /* WelcomeView.xib in Resources */,
@@ -1012,6 +1019,7 @@
 				0705D4FA1C8CEF270065467D /* AppDelegate.swift in Sources */,
 				9F3EE2181CCB250A007DFF69 /* TwitterAuthHelper.m in Sources */,
 				0705D5021C8CEF270065467D /* Babylonian.xcdatamodeld in Sources */,
+				905CB06A1CD8115500A27FC8 /* SetCoursePrice.swift in Sources */,
 				30DBCDFF1C9E4174000CD59D /* MKAnnotationView+WebCache.m in Sources */,
 				929DDC171CD8030A00E0B437 /* LearnerTabBarController.swift in Sources */,
 				3037A4B11CB0B2E100C52232 /* ImageItemCell.swift in Sources */,
