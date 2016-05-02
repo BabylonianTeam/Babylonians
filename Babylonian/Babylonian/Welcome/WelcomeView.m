@@ -103,15 +103,22 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 - (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
     Firebase *ref = [[Firebase alloc] initWithUrl:kFirebaseURL];
     
-    NSLog(@"Received Google authentication response! Error: %@", error);
-    if (error != nil) {
-        // There was an error obtaining the Google OAuth token, display a dialog
-        NSString *message = [NSString stringWithFormat:@"There was an error logging into Google: %@",
-                             [error localizedDescription]];
-        [self showErrorAlertWithMessage:message];
-    } else {
-        // We successfully obtained an OAuth token, authenticate on Firebase with it
-        [self switchToMainPage];
+    NSLog(@"Received Google authentication response!");
+    if (error == nil) {
+        [ref authWithOAuthProvider: @"google" token:user.authentication.accessToken withCompletionBlock:^(NSError *error, FAuthData *authData) {
+            if (error) {
+                // Error authenticating with Firebase with OAuth token
+            } else {
+                // User is now logged in!
+                NSLog(@"Successfully logged in! %@", authData);
+                
+                NSLog(@"Google name %@", authData.providerData[@"displayName"]);
+                NSLog(@"Google email %@", authData.providerData[@"email"]);
+                NSLog(@"Google img %@", authData.providerData[@"profileImageURL"]);
+
+                [self switchToMainPage];
+            }
+        }];
     }
     
 }
