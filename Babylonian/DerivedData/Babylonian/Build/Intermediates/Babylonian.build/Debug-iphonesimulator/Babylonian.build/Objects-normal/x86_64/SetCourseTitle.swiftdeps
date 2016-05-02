@@ -8,17 +8,17 @@ provides-member:
 provides-dynamic-lookup:
 - "awakeFromNib"
 - "textFieldShouldReturn"
-- "title"
 - "setSelected"
+- "title"
 - "currentCourse"
 depends-top-level:
-- "UITextFieldDelegate"
+- "UITableViewCell"
 - "UITextField"
 - "Bool"
 - "SetCourseTitle"
-- "BBCourse"
-- "UITableViewCell"
+- "UITextFieldDelegate"
 - !private "BooleanLiteralType"
+- "BBCourse"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - ["Ps9AnyObject", "currentCourse"]

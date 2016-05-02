@@ -11,12 +11,12 @@ provides-dynamic-lookup:
 - "currentCourse"
 - "setSelected"
 depends-top-level:
-- "setCoursePrice"
-- "UITextField"
 - "Bool"
-- "UITableViewCell"
 - "UITextFieldDelegate"
+- "setCoursePrice"
 - "BBCourse"
+- "UITextField"
+- "UITableViewCell"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - ["Ps9AnyObject", "currentCourse"]

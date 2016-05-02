@@ -8,14 +8,14 @@ provides-nominal:
 provides-member:
 provides-dynamic-lookup:
 depends-top-level:
-- "StringLiteralType"
-- !private "print"
-- !private "=="
-- "USER_REF"
-- "FIREBASE_REF"
 - "Firebase"
-- "BASE_URL"
+- "StringLiteralType"
+- "USER_REF"
+- !private "=="
+- !private "print"
+- "FIREBASE_REF"
 - "CURRENT_USER_REF"
+- "BASE_URL"
 depends-member:
 - !private ["Ps9AnyObject", "authData"]
 - ["Ps9AnyObject", "childByAppendingPath"]

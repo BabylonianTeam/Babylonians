@@ -10,10 +10,10 @@ provides-dynamic-lookup:
 - "setSelected"
 - "awakeFromNib"
 depends-top-level:
-- "Bool"
-- "DraftCell"
-- "UITableViewCell"
 - "UILabel"
+- "UITableViewCell"
+- "DraftCell"
+- "Bool"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - ["Ps9AnyObject", "courseTitle"]

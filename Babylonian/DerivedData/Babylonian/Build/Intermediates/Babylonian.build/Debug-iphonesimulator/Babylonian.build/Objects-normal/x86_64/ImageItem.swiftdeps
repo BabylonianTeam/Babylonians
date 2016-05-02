@@ -6,20 +6,20 @@ provides-nominal:
 provides-member:
 - ["C10Babylonian9ImageItem", ""]
 provides-dynamic-lookup:
-- "getType"
 - "toAnyObject"
+- "getType"
 depends-top-level:
 - "AnyObject"
-- !private "StringLiteralType"
-- !private "COURSE_ITEM_TYPE_IMAGE"
-- "CourseItem"
-- !private "COURSE_ITEM_IMAGE"
-- !private "COURSE_ITEM_ORDER"
-- "Int"
-- "String"
-- "Firebase"
-- !private "Dictionary"
 - "ImageItem"
+- "Firebase"
+- !private "COURSE_ITEM_TYPE_IMAGE"
+- !private "StringLiteralType"
+- !private "COURSE_ITEM_IMAGE"
+- "CourseItem"
+- "String"
+- !private "COURSE_ITEM_ORDER"
+- !private "Dictionary"
+- "Int"
 depends-member:
 - !private ["Ps9AnyObject", "COURSE_ITEM_IMAGE"]
 - !private ["Ps9AnyObject", "COURSE_ITEM_ORDER"]

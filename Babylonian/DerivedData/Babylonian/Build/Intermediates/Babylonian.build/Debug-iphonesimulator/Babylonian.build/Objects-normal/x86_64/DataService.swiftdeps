@@ -6,22 +6,22 @@ provides-nominal:
 provides-member:
 - ["C10Babylonian11DataService", ""]
 provides-dynamic-lookup:
-- "COURSE_REF"
 - "TRENDING_REF"
-- "CURRENT_USER_REF"
-- "dataService"
-- "BASE_REF"
-- "POPULAR_REF"
-- "USER_REF"
+- "COURSE_REF"
 - "LOCAL_DIR"
+- "dataService"
+- "CURRENT_USER_REF"
+- "BASE_REF"
+- "USER_REF"
+- "POPULAR_REF"
 depends-top-level:
-- "NSSearchPathForDirectoriesInDomains"
-- "DataService"
-- "Firebase"
 - "BASE_URL"
+- "Firebase"
+- "NSSearchPathForDirectoriesInDomains"
 - !private "NSUserDefaults"
-- "String"
 - "NSObject"
+- "DataService"
+- "String"
 - "BooleanLiteralType"
 depends-member:
 - ["Ps9AnyObject", "BASE_REF"]

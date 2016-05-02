@@ -6,23 +6,23 @@ provides-nominal:
 provides-member:
 - ["C10Babylonian14MainCourseCell", ""]
 provides-dynamic-lookup:
-- "numOfView"
-- "setSelected"
 - "awakeFromNib"
-- "title"
 - "item"
 - "playButton"
+- "numOfView"
+- "setSelected"
+- "title"
 depends-top-level:
+- "MainCourseCell"
 - "UITableViewCell"
 - !private "Double"
-- !private "UIEdgeInsets"
-- "PlaybackButton"
-- "Bool"
-- !private "/"
-- "MainCourseCell"
 - !private "COURSE_ITEM_AUDIO_DURATION"
 - "ATItem"
+- "Bool"
+- "PlaybackButton"
 - "UILabel"
+- !private "UIEdgeInsets"
+- !private "/"
 depends-member:
 - !private ["C10Babylonian6ATItem", "content"]
 - !private ["Ps9AnyObject", "CGColor"]

@@ -6,28 +6,28 @@ provides-nominal:
 provides-member:
 - ["C10Babylonian11TagViewCell", ""]
 provides-dynamic-lookup:
-- "textFieldShouldReturn"
+- "currentCourse"
+- "tagListView"
 - "textField"
+- "awakeFromNib"
 - "refreshTags"
 - "clearAllTags"
-- "setSelected"
-- "tagListView"
+- "textFieldShouldReturn"
 - "addTag"
-- "awakeFromNib"
-- "currentCourse"
+- "setSelected"
 depends-top-level:
-- "UITextFieldDelegate"
-- !private ">"
-- "UITableViewCell"
-- "String"
-- "TagViewCell"
 - "TagListView"
+- "Void"
+- "UITableViewCell"
 - "UIButton"
 - "Bool"
-- !private "BooleanLiteralType"
 - "BBCourse"
+- "UITextFieldDelegate"
+- !private ">"
 - "UITextField"
-- "Void"
+- "TagViewCell"
+- !private "BooleanLiteralType"
+- "String"
 depends-member:
 - !private ["OC11TagListView11TagListView9Alignment", "Left"]
 - ["Ps9AnyObject", "addTag"]

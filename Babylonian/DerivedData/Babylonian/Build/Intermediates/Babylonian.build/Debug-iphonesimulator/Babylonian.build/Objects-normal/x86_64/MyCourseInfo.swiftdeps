@@ -6,19 +6,19 @@ provides-nominal:
 provides-member:
 - ["C10Babylonian12MyCourseInfo", ""]
 provides-dynamic-lookup:
-- "tags"
+- "income"
 - "ref"
+- "tags"
 - "title"
 - "NoV"
-- "income"
 depends-top-level:
-- "String"
-- "Int"
-- !private "StringLiteralType"
 - "Float"
 - "NSObject"
-- "MyCourseInfo"
 - "Firebase"
+- "MyCourseInfo"
+- !private "StringLiteralType"
+- "Int"
+- "String"
 depends-member:
 - ["Ps9AnyObject", "NoV"]
 - ["Ps9AnyObject", "income"]
