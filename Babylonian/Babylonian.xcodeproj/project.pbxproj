@@ -861,6 +861,7 @@
 				30852AA31CB8EAE400C4D100 /* camwhite.png in Resources */,
 				9F66D60D1C9ADE1500EB9C93 /* TextfieldCell.xib in Resources */,
 				30F20ABB1CA0F99D00A484E9 /* LearnerMyCourses.storyboard in Resources */,
+				905CB0601CD7CBC500A27FC8 /* 506logo.jpg in Resources */,
 				30852AA51CB8EAEC00C4D100 /* camblack.png in Resources */,
 				30DBCDD41C9E3BC5000CD59D /* WelcomeView.xib in Resources */,
 				9F9619AC1CB110A6007D5FA3 /* LabelCell.xib in Resources */,

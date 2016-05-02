@@ -14,7 +14,7 @@ class PersonalInfo: NSObject{
     var email_: String!
     var profilePhoto_: String!
     var balance_: Float!
-    var ownedCourses_ = [OwnedCourseItem]()
+   // var ownedCourses_ = [OwnedCourseItem]()
     var ref_: Firebase!
     
     var _USER_REF = Firebase(url: "\(BASE_URL)/users")
