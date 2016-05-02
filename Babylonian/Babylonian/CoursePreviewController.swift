@@ -17,6 +17,8 @@ class CoursePreviewController: UIViewController, UITableViewDataSource, UITableV
 
     var currentCourse: BBCourse!
     
+    var learner: LearnerInfo!
+    
     var initialized: Bool = false
     
     @IBOutlet weak var purchaseButton: UIBarButtonItem!
@@ -29,6 +31,9 @@ class CoursePreviewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        learner = LearnerInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String)
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .Plain, target: self, action: #selector(CourseViewController.backTapped))
         
 
@@ -71,6 +76,8 @@ class CoursePreviewController: UIViewController, UITableViewDataSource, UITableV
         self.purchaseButton.enabled = false
         (self.navigationController as! BBCourseNavController).previewOnly = false
         self.courseTableView.reloadData()
+        
+        learner.addPurchasedCourse(currentCourse.courseRef.key)
     }
     
     
@@ -183,7 +190,7 @@ class CoursePreviewController: UIViewController, UITableViewDataSource, UITableV
                     }
                     self.currentCourse.sortContentsByOrder()
                     self.courseTableView.reloadData()
-                    
+                    //print(self.currentCourse.ref_.key)
                 }
                 
             }
