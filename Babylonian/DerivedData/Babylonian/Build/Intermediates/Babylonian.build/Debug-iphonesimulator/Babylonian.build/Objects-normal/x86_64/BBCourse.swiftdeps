@@ -1,0 +1,1234 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "BBCourse"
+provides-nominal:
+- "C10Babylonian8BBCourse"
+provides-member:
+- ["C10Babylonian8BBCourse", ""]
+provides-dynamic-lookup:
+- "tag"
+- "setTitle"
+- "author_"
+- "toAnyObject"
+- "addNewATItem"
+- "deleteBBCourse"
+- "setStatus"
+- "updateCourseItem"
+- "status"
+- "title"
+- "tag_"
+- "setAuthor"
+- "ref_"
+- "contentRef"
+- "courseItems_"
+- "deleteAllTag"
+- "author"
+- "addTag"
+- "status_"
+- "setTag"
+- "courseRef"
+- "addNewCourseItem"
+- "setItemOrdersAsInContents"
+- "sortContentsByOrder"
+- "reloadContentsFromRef"
+- "reloadCourseFromRef"
+- "moveItemTo"
+- "increasePurchasedNum"
+- "title_"
+- "removeAllTags"
+- "addCourseItem"
+- "setPrice"
+- "deleteCourseItem"
+- "contents"
+- "addNewImageItem"
+depends-top-level:
+- !private "COURSE_STATUS"
+- !private "ATItem"
+- !private "!"
+- !private "COURSE_AUTHOR"
+- !private "COURSE_ITEM_ORDER"
+- !private "NSDictionary"
+- "Void"
+- !private ">"
+- !private "BooleanLiteralType"
+- !private "-"
+- !private "COURSE_NUM_SOLD"
+- "String"
+- !private ">="
+- !private "Dictionary"
+- !private "<"
+- "AnyObject"
+- "CourseItem"
+- !private "UnicodeScalarType"
+- !private "+"
+- !private "&&"
+- "Float"
+- !private "StringLiteralType"
+- !private "print"
+- !private "COURSE_ITEM_IMAGE"
+- !private "<="
+- "Bool"
+- "Firebase"
+- "NSObject"
+- !private "~="
+- "Int"
+- !private "=="
+- !private "COURSE_ITEM_AUDIO"
+- !private "COURSE_ITEM_AUDIO_DURATION"
+- !private "ImageItem"
+- !private "COURSE_TAG"
+- !private "COURSE_CONTENT"
+- !private "COURSE_ITEM_TEXT"
+- !private "COURSE_PRICE"
+- !private "COURSE_TITLE"
+- "BBCourse"
+depends-member:
+- !private ["C10Babylonian6ATItem", "init"]
+- !private ["Ps9AnyObject", "ATItem"]
+- !private ["Ps9AnyObject", "COURSE_AUTHOR"]
+- !private ["Ps9AnyObject", "COURSE_CONTENT"]
+- !private ["Ps9AnyObject", "COURSE_ITEM_AUDIO"]
+- !private ["Ps9AnyObject", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["Ps9AnyObject", "COURSE_ITEM_IMAGE"]
+- !private ["Ps9AnyObject", "COURSE_ITEM_ORDER"]
+- !private ["Ps9AnyObject", "COURSE_ITEM_TEXT"]
+- !private ["Ps9AnyObject", "COURSE_NUM_SOLD"]
+- !private ["Ps9AnyObject", "COURSE_PRICE"]
+- !private ["Ps9AnyObject", "COURSE_STATUS"]
+- !private ["Ps9AnyObject", "COURSE_TAG"]
+- !private ["Ps9AnyObject", "COURSE_TITLE"]
+- ["Ps9AnyObject", "CourseItem"]
+- !private ["Ps9AnyObject", "ImageItem"]
+- !private ["Ps9AnyObject", "Key"]
+- ["Ps9AnyObject", "String"]
+- !private ["Ps9AnyObject", "Value"]
+- ["Ps9AnyObject", "addCourseItem"]
+- ["Ps9AnyObject", "addNewATItem"]
+- ["Ps9AnyObject", "addNewCourseItem"]
+- ["Ps9AnyObject", "addNewImageItem"]
+- ["Ps9AnyObject", "addTag"]
+- ["Ps9AnyObject", "author"]
+- ["Ps9AnyObject", "author_"]
+- !private ["Ps9AnyObject", "childByAppendingPath"]
+- !private ["Ps9AnyObject", "childByAutoId"]
+- ["Ps9AnyObject", "contentRef"]
+- ["Ps9AnyObject", "contents"]
+- ["Ps9AnyObject", "courseItems_"]
+- ["Ps9AnyObject", "courseRef"]
+- !private ["Ps9AnyObject", "deinit"]
+- ["Ps9AnyObject", "deleteAllTag"]
+- ["Ps9AnyObject", "deleteBBCourse"]
+- ["Ps9AnyObject", "deleteCourseItem"]
+- ["Ps9AnyObject", "increasePurchasedNum"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "itemRef"]
+- ["Ps9AnyObject", "moveItemTo"]
+- ["Ps9AnyObject", "numOfPurchase"]
+- !private ["Ps9AnyObject", "observeSingleEventOfType"]
+- !private ["Ps9AnyObject", "order"]
+- ["Ps9AnyObject", "price"]
+- ["Ps9AnyObject", "price_"]
+- !private ["Ps9AnyObject", "print"]
+- ["Ps9AnyObject", "purchased_counter_"]
+- ["Ps9AnyObject", "ref_"]
+- ["Ps9AnyObject", "reloadContentsFromRef"]
+- ["Ps9AnyObject", "reloadCourseFromRef"]
+- ["Ps9AnyObject", "removeAllTags"]
+- !private ["Ps9AnyObject", "removeValue"]
+- ["Ps9AnyObject", "setAuthor"]
+- ["Ps9AnyObject", "setItemOrdersAsInContents"]
+- ["Ps9AnyObject", "setPrice"]
+- ["Ps9AnyObject", "setStatus"]
+- ["Ps9AnyObject", "setTag"]
+- ["Ps9AnyObject", "setTitle"]
+- !private ["Ps9AnyObject", "setValue"]
+- ["Ps9AnyObject", "sortContentsByOrder"]
+- ["Ps9AnyObject", "status"]
+- ["Ps9AnyObject", "status_"]
+- !private ["Ps9AnyObject", "subscript"]
+- ["Ps9AnyObject", "tag"]
+- ["Ps9AnyObject", "tag_"]
+- ["Ps9AnyObject", "title"]
+- ["Ps9AnyObject", "title_"]
+- ["Ps9AnyObject", "toAnyObject"]
+- !private ["Ps9AnyObject", "updateChildValues"]
+- ["Ps9AnyObject", "updateCourseItem"]
+- !private ["Ps9AnyObject", "value"]
+- ["Ps9AnyObject", ""]
+- ["Sa", "Generator"]
+- ["Sa", "Index"]
+- ["Sa", "SubSequence"]
+- ["Sa", "_Element"]
+- !private ["Sa", "append"]
+- !private ["Sa", "contains"]
+- !private ["Sa", "count"]
+- ["Sa", "init"]
+- !private ["Sa", "joinWithSeparator"]
+- !private ["Sa", "removeAll"]
+- !private ["Sa", "removeAtIndex"]
+- !private ["Sa", "sort"]
+- ["Ps23ArrayLiteralConvertible", "Generator"]
+- ["Ps23ArrayLiteralConvertible", "Index"]
+- ["Ps23ArrayLiteralConvertible", "SubSequence"]
+- ["Ps23ArrayLiteralConvertible", "_Element"]
+- !private ["Ps23ArrayLiteralConvertible", "append"]
+- !private ["Ps23ArrayLiteralConvertible", "contains"]
+- !private ["Ps23ArrayLiteralConvertible", "count"]
+- ["Ps23ArrayLiteralConvertible", "init"]
+- !private ["Ps23ArrayLiteralConvertible", "joinWithSeparator"]
+- !private ["Ps23ArrayLiteralConvertible", "removeAll"]
+- !private ["Ps23ArrayLiteralConvertible", "removeAtIndex"]
+- !private ["Ps23ArrayLiteralConvertible", "sort"]
+- ["Vs10ArraySlice", "Generator"]
+- ["Vs10ArraySlice", "Index"]
+- !private ["Vs10ArraySlice", "SubSequence"]
+- !private ["C10Babylonian8BBCourse", "ATItem"]
+- ["C10Babylonian8BBCourse", "AnyObject"]
+- ["C10Babylonian8BBCourse", "Bool"]
+- !private ["C10Babylonian8BBCourse", "COURSE_AUTHOR"]
+- !private ["C10Babylonian8BBCourse", "COURSE_CONTENT"]
+- !private ["C10Babylonian8BBCourse", "COURSE_ITEM_AUDIO"]
+- !private ["C10Babylonian8BBCourse", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["C10Babylonian8BBCourse", "COURSE_ITEM_IMAGE"]
+- !private ["C10Babylonian8BBCourse", "COURSE_ITEM_ORDER"]
+- !private ["C10Babylonian8BBCourse", "COURSE_ITEM_TEXT"]
+- !private ["C10Babylonian8BBCourse", "COURSE_NUM_SOLD"]
+- !private ["C10Babylonian8BBCourse", "COURSE_PRICE"]
+- !private ["C10Babylonian8BBCourse", "COURSE_STATUS"]
+- !private ["C10Babylonian8BBCourse", "COURSE_TAG"]
+- !private ["C10Babylonian8BBCourse", "COURSE_TITLE"]
+- ["C10Babylonian8BBCourse", "CourseItem"]
+- ["C10Babylonian8BBCourse", "Firebase"]
+- ["C10Babylonian8BBCourse", "Float"]
+- !private ["C10Babylonian8BBCourse", "ImageItem"]
+- ["C10Babylonian8BBCourse", "Int"]
+- !private ["C10Babylonian8BBCourse", "NSDictionary"]
+- !private ["C10Babylonian8BBCourse", "NSObject"]
+- ["C10Babylonian8BBCourse", "String"]
+- ["C10Babylonian8BBCourse", "Void"]
+- ["C10Babylonian8BBCourse", "addCourseItem"]
+- ["C10Babylonian8BBCourse", "addNewATItem"]
+- ["C10Babylonian8BBCourse", "addNewCourseItem"]
+- ["C10Babylonian8BBCourse", "addNewImageItem"]
+- ["C10Babylonian8BBCourse", "addTag"]
+- ["C10Babylonian8BBCourse", "author"]
+- ["C10Babylonian8BBCourse", "author_"]
+- ["C10Babylonian8BBCourse", "contentRef"]
+- ["C10Babylonian8BBCourse", "contents"]
+- ["C10Babylonian8BBCourse", "courseItems_"]
+- ["C10Babylonian8BBCourse", "courseRef"]
+- ["C10Babylonian8BBCourse", "deinit"]
+- ["C10Babylonian8BBCourse", "deleteAllTag"]
+- ["C10Babylonian8BBCourse", "deleteBBCourse"]
+- ["C10Babylonian8BBCourse", "deleteCourseItem"]
+- ["C10Babylonian8BBCourse", "increasePurchasedNum"]
+- ["C10Babylonian8BBCourse", "init"]
+- ["C10Babylonian8BBCourse", "moveItemTo"]
+- ["C10Babylonian8BBCourse", "numOfPurchase"]
+- ["C10Babylonian8BBCourse", "price"]
+- ["C10Babylonian8BBCourse", "price_"]
+- !private ["C10Babylonian8BBCourse", "print"]
+- ["C10Babylonian8BBCourse", "purchased_counter_"]
+- ["C10Babylonian8BBCourse", "ref_"]
+- ["C10Babylonian8BBCourse", "reloadContentsFromRef"]
+- ["C10Babylonian8BBCourse", "reloadCourseFromRef"]
+- ["C10Babylonian8BBCourse", "removeAllTags"]
+- ["C10Babylonian8BBCourse", "setAuthor"]
+- ["C10Babylonian8BBCourse", "setItemOrdersAsInContents"]
+- ["C10Babylonian8BBCourse", "setPrice"]
+- ["C10Babylonian8BBCourse", "setStatus"]
+- ["C10Babylonian8BBCourse", "setTag"]
+- ["C10Babylonian8BBCourse", "setTitle"]
+- ["C10Babylonian8BBCourse", "sortContentsByOrder"]
+- ["C10Babylonian8BBCourse", "status"]
+- ["C10Babylonian8BBCourse", "status_"]
+- ["C10Babylonian8BBCourse", "tag"]
+- ["C10Babylonian8BBCourse", "tag_"]
+- ["C10Babylonian8BBCourse", "title"]
+- ["C10Babylonian8BBCourse", "title_"]
+- ["C10Babylonian8BBCourse", "toAnyObject"]
+- ["C10Babylonian8BBCourse", "updateCourseItem"]
+- ["Ps22BidirectionalIndexType", "Distance"]
+- ["Ps22BidirectionalIndexType", "IntegerLiteralType"]
+- !private ["Ps22BidirectionalIndexType", "Stride"]
+- ["Ps21BitwiseOperationsType", "Distance"]
+- ["Ps21BitwiseOperationsType", "IntegerLiteralType"]
+- !private ["Ps21BitwiseOperationsType", "Stride"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["Ps25BooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps11BooleanType", "_getBuiltinLogicValue"]
+- !private ["Ps11CVarArgType", "ATItem"]
+- !private ["Ps11CVarArgType", "COURSE_AUTHOR"]
+- !private ["Ps11CVarArgType", "COURSE_CONTENT"]
+- !private ["Ps11CVarArgType", "COURSE_ITEM_AUDIO"]
+- !private ["Ps11CVarArgType", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["Ps11CVarArgType", "COURSE_ITEM_IMAGE"]
+- !private ["Ps11CVarArgType", "COURSE_ITEM_ORDER"]
+- !private ["Ps11CVarArgType", "COURSE_ITEM_TEXT"]
+- !private ["Ps11CVarArgType", "COURSE_NUM_SOLD"]
+- !private ["Ps11CVarArgType", "COURSE_PRICE"]
+- !private ["Ps11CVarArgType", "COURSE_STATUS"]
+- !private ["Ps11CVarArgType", "COURSE_TAG"]
+- !private ["Ps11CVarArgType", "COURSE_TITLE"]
+- ["Ps11CVarArgType", "CourseItem"]
+- ["Ps11CVarArgType", "Distance"]
+- !private ["Ps11CVarArgType", "ImageItem"]
+- ["Ps11CVarArgType", "IntegerLiteralType"]
+- !private ["Ps11CVarArgType", "Key"]
+- !private ["Ps11CVarArgType", "Stride"]
+- ["Ps11CVarArgType", "String"]
+- !private ["Ps11CVarArgType", "Value"]
+- ["Ps11CVarArgType", "addCourseItem"]
+- ["Ps11CVarArgType", "addNewATItem"]
+- ["Ps11CVarArgType", "addNewCourseItem"]
+- ["Ps11CVarArgType", "addNewImageItem"]
+- ["Ps11CVarArgType", "addTag"]
+- ["Ps11CVarArgType", "author"]
+- ["Ps11CVarArgType", "author_"]
+- !private ["Ps11CVarArgType", "childByAppendingPath"]
+- !private ["Ps11CVarArgType", "childByAutoId"]
+- ["Ps11CVarArgType", "contentRef"]
+- ["Ps11CVarArgType", "contents"]
+- ["Ps11CVarArgType", "courseItems_"]
+- ["Ps11CVarArgType", "courseRef"]
+- ["Ps11CVarArgType", "deleteAllTag"]
+- ["Ps11CVarArgType", "deleteBBCourse"]
+- ["Ps11CVarArgType", "deleteCourseItem"]
+- ["Ps11CVarArgType", "increasePurchasedNum"]
+- ["Ps11CVarArgType", "init"]
+- !private ["Ps11CVarArgType", "itemRef"]
+- ["Ps11CVarArgType", "moveItemTo"]
+- ["Ps11CVarArgType", "numOfPurchase"]
+- !private ["Ps11CVarArgType", "observeSingleEventOfType"]
+- !private ["Ps11CVarArgType", "order"]
+- ["Ps11CVarArgType", "price"]
+- ["Ps11CVarArgType", "price_"]
+- !private ["Ps11CVarArgType", "print"]
+- ["Ps11CVarArgType", "purchased_counter_"]
+- ["Ps11CVarArgType", "ref_"]
+- ["Ps11CVarArgType", "reloadContentsFromRef"]
+- ["Ps11CVarArgType", "reloadCourseFromRef"]
+- ["Ps11CVarArgType", "removeAllTags"]
+- !private ["Ps11CVarArgType", "removeValue"]
+- ["Ps11CVarArgType", "setAuthor"]
+- ["Ps11CVarArgType", "setItemOrdersAsInContents"]
+- ["Ps11CVarArgType", "setPrice"]
+- ["Ps11CVarArgType", "setStatus"]
+- ["Ps11CVarArgType", "setTag"]
+- ["Ps11CVarArgType", "setTitle"]
+- !private ["Ps11CVarArgType", "setValue"]
+- ["Ps11CVarArgType", "sortContentsByOrder"]
+- ["Ps11CVarArgType", "status"]
+- ["Ps11CVarArgType", "status_"]
+- !private ["Ps11CVarArgType", "subscript"]
+- ["Ps11CVarArgType", "tag"]
+- ["Ps11CVarArgType", "tag_"]
+- ["Ps11CVarArgType", "title"]
+- ["Ps11CVarArgType", "title_"]
+- ["Ps11CVarArgType", "toAnyObject"]
+- !private ["Ps11CVarArgType", "updateChildValues"]
+- ["Ps11CVarArgType", "updateCourseItem"]
+- !private ["Ps11CVarArgType", "value"]
+- ["Ps11CVarArgType", ""]
+- ["Ps14CollectionType", "Generator"]
+- ["Ps14CollectionType", "Index"]
+- !private ["Ps14CollectionType", "Key"]
+- ["Ps14CollectionType", "SubSequence"]
+- !private ["Ps14CollectionType", "Value"]
+- ["Ps14CollectionType", "_Element"]
+- !private ["Ps14CollectionType", "append"]
+- !private ["Ps14CollectionType", "contains"]
+- !private ["Ps14CollectionType", "count"]
+- ["Ps14CollectionType", "init"]
+- !private ["Ps14CollectionType", "joinWithSeparator"]
+- !private ["Ps14CollectionType", "removeAll"]
+- !private ["Ps14CollectionType", "removeAtIndex"]
+- !private ["Ps14CollectionType", "sort"]
+- ["Ps10Comparable", "Distance"]
+- ["Ps10Comparable", "IntegerLiteralType"]
+- !private ["Ps10Comparable", "Stride"]
+- !private ["C10Babylonian10CourseItem", "courseRef"]
+- !private ["C10Babylonian10CourseItem", "init"]
+- !private ["C10Babylonian10CourseItem", "itemRef"]
+- !private ["C10Babylonian10CourseItem", "order"]
+- !private ["C10Babylonian10CourseItem", "toAnyObject"]
+- !private ["Ps28CustomDebugStringConvertible", "ATItem"]
+- !private ["Ps28CustomDebugStringConvertible", "COURSE_AUTHOR"]
+- !private ["Ps28CustomDebugStringConvertible", "COURSE_CONTENT"]
+- !private ["Ps28CustomDebugStringConvertible", "COURSE_ITEM_AUDIO"]
+- !private ["Ps28CustomDebugStringConvertible", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["Ps28CustomDebugStringConvertible", "COURSE_ITEM_IMAGE"]
+- !private ["Ps28CustomDebugStringConvertible", "COURSE_ITEM_ORDER"]
+- !private ["Ps28CustomDebugStringConvertible", "COURSE_ITEM_TEXT"]
+- !private ["Ps28CustomDebugStringConvertible", "COURSE_NUM_SOLD"]
+- !private ["Ps28CustomDebugStringConvertible", "COURSE_PRICE"]
+- !private ["Ps28CustomDebugStringConvertible", "COURSE_STATUS"]
+- !private ["Ps28CustomDebugStringConvertible", "COURSE_TAG"]
+- !private ["Ps28CustomDebugStringConvertible", "COURSE_TITLE"]
+- ["Ps28CustomDebugStringConvertible", "CourseItem"]
+- ["Ps28CustomDebugStringConvertible", "Generator"]
+- !private ["Ps28CustomDebugStringConvertible", "ImageItem"]
+- ["Ps28CustomDebugStringConvertible", "Index"]
+- !private ["Ps28CustomDebugStringConvertible", "Key"]
+- !private ["Ps28CustomDebugStringConvertible", "Some"]
+- ["Ps28CustomDebugStringConvertible", "String"]
+- ["Ps28CustomDebugStringConvertible", "SubSequence"]
+- !private ["Ps28CustomDebugStringConvertible", "Value"]
+- ["Ps28CustomDebugStringConvertible", "_Element"]
+- ["Ps28CustomDebugStringConvertible", "addCourseItem"]
+- ["Ps28CustomDebugStringConvertible", "addNewATItem"]
+- ["Ps28CustomDebugStringConvertible", "addNewCourseItem"]
+- ["Ps28CustomDebugStringConvertible", "addNewImageItem"]
+- ["Ps28CustomDebugStringConvertible", "addTag"]
+- !private ["Ps28CustomDebugStringConvertible", "append"]
+- ["Ps28CustomDebugStringConvertible", "author"]
+- ["Ps28CustomDebugStringConvertible", "author_"]
+- !private ["Ps28CustomDebugStringConvertible", "childByAppendingPath"]
+- !private ["Ps28CustomDebugStringConvertible", "childByAutoId"]
+- !private ["Ps28CustomDebugStringConvertible", "contains"]
+- ["Ps28CustomDebugStringConvertible", "contentRef"]
+- ["Ps28CustomDebugStringConvertible", "contents"]
+- !private ["Ps28CustomDebugStringConvertible", "count"]
+- ["Ps28CustomDebugStringConvertible", "courseItems_"]
+- ["Ps28CustomDebugStringConvertible", "courseRef"]
+- ["Ps28CustomDebugStringConvertible", "deleteAllTag"]
+- ["Ps28CustomDebugStringConvertible", "deleteBBCourse"]
+- ["Ps28CustomDebugStringConvertible", "deleteCourseItem"]
+- ["Ps28CustomDebugStringConvertible", "increasePurchasedNum"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "itemRef"]
+- !private ["Ps28CustomDebugStringConvertible", "joinWithSeparator"]
+- ["Ps28CustomDebugStringConvertible", "moveItemTo"]
+- ["Ps28CustomDebugStringConvertible", "numOfPurchase"]
+- !private ["Ps28CustomDebugStringConvertible", "observeSingleEventOfType"]
+- !private ["Ps28CustomDebugStringConvertible", "order"]
+- ["Ps28CustomDebugStringConvertible", "price"]
+- ["Ps28CustomDebugStringConvertible", "price_"]
+- !private ["Ps28CustomDebugStringConvertible", "print"]
+- ["Ps28CustomDebugStringConvertible", "purchased_counter_"]
+- ["Ps28CustomDebugStringConvertible", "ref_"]
+- ["Ps28CustomDebugStringConvertible", "reloadContentsFromRef"]
+- ["Ps28CustomDebugStringConvertible", "reloadCourseFromRef"]
+- !private ["Ps28CustomDebugStringConvertible", "removeAll"]
+- ["Ps28CustomDebugStringConvertible", "removeAllTags"]
+- !private ["Ps28CustomDebugStringConvertible", "removeAtIndex"]
+- !private ["Ps28CustomDebugStringConvertible", "removeValue"]
+- ["Ps28CustomDebugStringConvertible", "setAuthor"]
+- ["Ps28CustomDebugStringConvertible", "setItemOrdersAsInContents"]
+- ["Ps28CustomDebugStringConvertible", "setPrice"]
+- ["Ps28CustomDebugStringConvertible", "setStatus"]
+- ["Ps28CustomDebugStringConvertible", "setTag"]
+- ["Ps28CustomDebugStringConvertible", "setTitle"]
+- !private ["Ps28CustomDebugStringConvertible", "setValue"]
+- !private ["Ps28CustomDebugStringConvertible", "sort"]
+- ["Ps28CustomDebugStringConvertible", "sortContentsByOrder"]
+- ["Ps28CustomDebugStringConvertible", "status"]
+- ["Ps28CustomDebugStringConvertible", "status_"]
+- !private ["Ps28CustomDebugStringConvertible", "subscript"]
+- ["Ps28CustomDebugStringConvertible", "tag"]
+- ["Ps28CustomDebugStringConvertible", "tag_"]
+- ["Ps28CustomDebugStringConvertible", "title"]
+- ["Ps28CustomDebugStringConvertible", "title_"]
+- ["Ps28CustomDebugStringConvertible", "toAnyObject"]
+- !private ["Ps28CustomDebugStringConvertible", "updateChildValues"]
+- ["Ps28CustomDebugStringConvertible", "updateCourseItem"]
+- !private ["Ps28CustomDebugStringConvertible", "value"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps23CustomStringConvertible", "ATItem"]
+- !private ["Ps23CustomStringConvertible", "COURSE_AUTHOR"]
+- !private ["Ps23CustomStringConvertible", "COURSE_CONTENT"]
+- !private ["Ps23CustomStringConvertible", "COURSE_ITEM_AUDIO"]
+- !private ["Ps23CustomStringConvertible", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["Ps23CustomStringConvertible", "COURSE_ITEM_IMAGE"]
+- !private ["Ps23CustomStringConvertible", "COURSE_ITEM_ORDER"]
+- !private ["Ps23CustomStringConvertible", "COURSE_ITEM_TEXT"]
+- !private ["Ps23CustomStringConvertible", "COURSE_NUM_SOLD"]
+- !private ["Ps23CustomStringConvertible", "COURSE_PRICE"]
+- !private ["Ps23CustomStringConvertible", "COURSE_STATUS"]
+- !private ["Ps23CustomStringConvertible", "COURSE_TAG"]
+- !private ["Ps23CustomStringConvertible", "COURSE_TITLE"]
+- ["Ps23CustomStringConvertible", "CourseItem"]
+- ["Ps23CustomStringConvertible", "Distance"]
+- ["Ps23CustomStringConvertible", "Generator"]
+- !private ["Ps23CustomStringConvertible", "ImageItem"]
+- ["Ps23CustomStringConvertible", "Index"]
+- ["Ps23CustomStringConvertible", "IntegerLiteralType"]
+- !private ["Ps23CustomStringConvertible", "Key"]
+- !private ["Ps23CustomStringConvertible", "Some"]
+- !private ["Ps23CustomStringConvertible", "Stride"]
+- ["Ps23CustomStringConvertible", "String"]
+- ["Ps23CustomStringConvertible", "SubSequence"]
+- !private ["Ps23CustomStringConvertible", "Value"]
+- ["Ps23CustomStringConvertible", "_Element"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- ["Ps23CustomStringConvertible", "addCourseItem"]
+- ["Ps23CustomStringConvertible", "addNewATItem"]
+- ["Ps23CustomStringConvertible", "addNewCourseItem"]
+- ["Ps23CustomStringConvertible", "addNewImageItem"]
+- ["Ps23CustomStringConvertible", "addTag"]
+- !private ["Ps23CustomStringConvertible", "append"]
+- ["Ps23CustomStringConvertible", "author"]
+- ["Ps23CustomStringConvertible", "author_"]
+- !private ["Ps23CustomStringConvertible", "childByAppendingPath"]
+- !private ["Ps23CustomStringConvertible", "childByAutoId"]
+- !private ["Ps23CustomStringConvertible", "contains"]
+- ["Ps23CustomStringConvertible", "contentRef"]
+- ["Ps23CustomStringConvertible", "contents"]
+- !private ["Ps23CustomStringConvertible", "count"]
+- ["Ps23CustomStringConvertible", "courseItems_"]
+- ["Ps23CustomStringConvertible", "courseRef"]
+- ["Ps23CustomStringConvertible", "deleteAllTag"]
+- ["Ps23CustomStringConvertible", "deleteBBCourse"]
+- ["Ps23CustomStringConvertible", "deleteCourseItem"]
+- ["Ps23CustomStringConvertible", "increasePurchasedNum"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "itemRef"]
+- !private ["Ps23CustomStringConvertible", "joinWithSeparator"]
+- ["Ps23CustomStringConvertible", "moveItemTo"]
+- ["Ps23CustomStringConvertible", "numOfPurchase"]
+- !private ["Ps23CustomStringConvertible", "observeSingleEventOfType"]
+- !private ["Ps23CustomStringConvertible", "order"]
+- ["Ps23CustomStringConvertible", "price"]
+- ["Ps23CustomStringConvertible", "price_"]
+- !private ["Ps23CustomStringConvertible", "print"]
+- ["Ps23CustomStringConvertible", "purchased_counter_"]
+- ["Ps23CustomStringConvertible", "ref_"]
+- ["Ps23CustomStringConvertible", "reloadContentsFromRef"]
+- ["Ps23CustomStringConvertible", "reloadCourseFromRef"]
+- !private ["Ps23CustomStringConvertible", "removeAll"]
+- ["Ps23CustomStringConvertible", "removeAllTags"]
+- !private ["Ps23CustomStringConvertible", "removeAtIndex"]
+- !private ["Ps23CustomStringConvertible", "removeValue"]
+- ["Ps23CustomStringConvertible", "setAuthor"]
+- ["Ps23CustomStringConvertible", "setItemOrdersAsInContents"]
+- ["Ps23CustomStringConvertible", "setPrice"]
+- ["Ps23CustomStringConvertible", "setStatus"]
+- ["Ps23CustomStringConvertible", "setTag"]
+- ["Ps23CustomStringConvertible", "setTitle"]
+- !private ["Ps23CustomStringConvertible", "setValue"]
+- !private ["Ps23CustomStringConvertible", "sort"]
+- ["Ps23CustomStringConvertible", "sortContentsByOrder"]
+- ["Ps23CustomStringConvertible", "status"]
+- ["Ps23CustomStringConvertible", "status_"]
+- !private ["Ps23CustomStringConvertible", "subscript"]
+- ["Ps23CustomStringConvertible", "tag"]
+- ["Ps23CustomStringConvertible", "tag_"]
+- ["Ps23CustomStringConvertible", "title"]
+- ["Ps23CustomStringConvertible", "title_"]
+- ["Ps23CustomStringConvertible", "toAnyObject"]
+- !private ["Ps23CustomStringConvertible", "updateChildValues"]
+- ["Ps23CustomStringConvertible", "updateCourseItem"]
+- !private ["Ps23CustomStringConvertible", "value"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Vs10Dictionary", "Generator"]
+- !private ["Vs10Dictionary", "Key"]
+- !private ["Vs10Dictionary", "Value"]
+- !private ["Vs10Dictionary", "deinit"]
+- !private ["Vs19DictionaryGenerator", "Element"]
+- !private ["Ps28DictionaryLiteralConvertible", "Generator"]
+- !private ["Ps28DictionaryLiteralConvertible", "Key"]
+- !private ["Ps28DictionaryLiteralConvertible", "Value"]
+- !private ["Ps28DictionaryLiteralConvertible", "subscript"]
+- !private ["Ps9Equatable", "ATItem"]
+- !private ["Ps9Equatable", "COURSE_AUTHOR"]
+- !private ["Ps9Equatable", "COURSE_CONTENT"]
+- !private ["Ps9Equatable", "COURSE_ITEM_AUDIO"]
+- !private ["Ps9Equatable", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["Ps9Equatable", "COURSE_ITEM_IMAGE"]
+- !private ["Ps9Equatable", "COURSE_ITEM_ORDER"]
+- !private ["Ps9Equatable", "COURSE_ITEM_TEXT"]
+- !private ["Ps9Equatable", "COURSE_NUM_SOLD"]
+- !private ["Ps9Equatable", "COURSE_PRICE"]
+- !private ["Ps9Equatable", "COURSE_STATUS"]
+- !private ["Ps9Equatable", "COURSE_TAG"]
+- !private ["Ps9Equatable", "COURSE_TITLE"]
+- ["Ps9Equatable", "CourseItem"]
+- ["Ps9Equatable", "Distance"]
+- !private ["Ps9Equatable", "ImageItem"]
+- ["Ps9Equatable", "IntegerLiteralType"]
+- !private ["Ps9Equatable", "Key"]
+- !private ["Ps9Equatable", "Stride"]
+- ["Ps9Equatable", "String"]
+- !private ["Ps9Equatable", "Value"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "addCourseItem"]
+- ["Ps9Equatable", "addNewATItem"]
+- ["Ps9Equatable", "addNewCourseItem"]
+- ["Ps9Equatable", "addNewImageItem"]
+- ["Ps9Equatable", "addTag"]
+- ["Ps9Equatable", "author"]
+- ["Ps9Equatable", "author_"]
+- !private ["Ps9Equatable", "childByAppendingPath"]
+- !private ["Ps9Equatable", "childByAutoId"]
+- ["Ps9Equatable", "contentRef"]
+- ["Ps9Equatable", "contents"]
+- ["Ps9Equatable", "courseItems_"]
+- ["Ps9Equatable", "courseRef"]
+- ["Ps9Equatable", "deleteAllTag"]
+- ["Ps9Equatable", "deleteBBCourse"]
+- ["Ps9Equatable", "deleteCourseItem"]
+- ["Ps9Equatable", "increasePurchasedNum"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "itemRef"]
+- ["Ps9Equatable", "moveItemTo"]
+- ["Ps9Equatable", "numOfPurchase"]
+- !private ["Ps9Equatable", "observeSingleEventOfType"]
+- !private ["Ps9Equatable", "order"]
+- ["Ps9Equatable", "price"]
+- ["Ps9Equatable", "price_"]
+- !private ["Ps9Equatable", "print"]
+- ["Ps9Equatable", "purchased_counter_"]
+- ["Ps9Equatable", "ref_"]
+- ["Ps9Equatable", "reloadContentsFromRef"]
+- ["Ps9Equatable", "reloadCourseFromRef"]
+- ["Ps9Equatable", "removeAllTags"]
+- !private ["Ps9Equatable", "removeValue"]
+- ["Ps9Equatable", "setAuthor"]
+- ["Ps9Equatable", "setItemOrdersAsInContents"]
+- ["Ps9Equatable", "setPrice"]
+- ["Ps9Equatable", "setStatus"]
+- ["Ps9Equatable", "setTag"]
+- ["Ps9Equatable", "setTitle"]
+- !private ["Ps9Equatable", "setValue"]
+- ["Ps9Equatable", "sortContentsByOrder"]
+- ["Ps9Equatable", "status"]
+- ["Ps9Equatable", "status_"]
+- !private ["Ps9Equatable", "subscript"]
+- ["Ps9Equatable", "tag"]
+- ["Ps9Equatable", "tag_"]
+- ["Ps9Equatable", "title"]
+- ["Ps9Equatable", "title_"]
+- ["Ps9Equatable", "toAnyObject"]
+- !private ["Ps9Equatable", "updateChildValues"]
+- ["Ps9Equatable", "updateCourseItem"]
+- !private ["Ps9Equatable", "value"]
+- ["Ps9Equatable", ""]
+- !private ["CSo13FDataSnapshot", "value"]
+- !private ["OSC10FEventType", "Value"]
+- !private ["CSo6FQuery", "childByAppendingPath"]
+- !private ["CSo6FQuery", "childByAutoId"]
+- !private ["CSo6FQuery", "observeSingleEventOfType"]
+- !private ["CSo6FQuery", "removeValue"]
+- !private ["CSo6FQuery", "setValue"]
+- !private ["CSo6FQuery", "updateChildValues"]
+- !private ["CSo8Firebase", "childByAppendingPath"]
+- !private ["CSo8Firebase", "childByAutoId"]
+- !private ["CSo8Firebase", "observeSingleEventOfType"]
+- !private ["CSo8Firebase", "removeValue"]
+- !private ["CSo8Firebase", "setValue"]
+- !private ["CSo8Firebase", "updateChildValues"]
+- !private ["Sf", "deinit"]
+- ["Ps16ForwardIndexType", "Distance"]
+- ["Ps16ForwardIndexType", "IntegerLiteralType"]
+- !private ["Ps16ForwardIndexType", "Stride"]
+- ["Ps13GeneratorType", "Element"]
+- !private ["Ps8Hashable", "ATItem"]
+- !private ["Ps8Hashable", "COURSE_AUTHOR"]
+- !private ["Ps8Hashable", "COURSE_CONTENT"]
+- !private ["Ps8Hashable", "COURSE_ITEM_AUDIO"]
+- !private ["Ps8Hashable", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["Ps8Hashable", "COURSE_ITEM_IMAGE"]
+- !private ["Ps8Hashable", "COURSE_ITEM_ORDER"]
+- !private ["Ps8Hashable", "COURSE_ITEM_TEXT"]
+- !private ["Ps8Hashable", "COURSE_NUM_SOLD"]
+- !private ["Ps8Hashable", "COURSE_PRICE"]
+- !private ["Ps8Hashable", "COURSE_STATUS"]
+- !private ["Ps8Hashable", "COURSE_TAG"]
+- !private ["Ps8Hashable", "COURSE_TITLE"]
+- ["Ps8Hashable", "CourseItem"]
+- ["Ps8Hashable", "Distance"]
+- !private ["Ps8Hashable", "ImageItem"]
+- ["Ps8Hashable", "IntegerLiteralType"]
+- !private ["Ps8Hashable", "Key"]
+- !private ["Ps8Hashable", "Stride"]
+- ["Ps8Hashable", "String"]
+- !private ["Ps8Hashable", "Value"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "addCourseItem"]
+- ["Ps8Hashable", "addNewATItem"]
+- ["Ps8Hashable", "addNewCourseItem"]
+- ["Ps8Hashable", "addNewImageItem"]
+- ["Ps8Hashable", "addTag"]
+- ["Ps8Hashable", "author"]
+- ["Ps8Hashable", "author_"]
+- !private ["Ps8Hashable", "childByAppendingPath"]
+- !private ["Ps8Hashable", "childByAutoId"]
+- ["Ps8Hashable", "contentRef"]
+- ["Ps8Hashable", "contents"]
+- ["Ps8Hashable", "courseItems_"]
+- ["Ps8Hashable", "courseRef"]
+- ["Ps8Hashable", "deleteAllTag"]
+- ["Ps8Hashable", "deleteBBCourse"]
+- ["Ps8Hashable", "deleteCourseItem"]
+- ["Ps8Hashable", "increasePurchasedNum"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "itemRef"]
+- ["Ps8Hashable", "moveItemTo"]
+- ["Ps8Hashable", "numOfPurchase"]
+- !private ["Ps8Hashable", "observeSingleEventOfType"]
+- !private ["Ps8Hashable", "order"]
+- ["Ps8Hashable", "price"]
+- ["Ps8Hashable", "price_"]
+- !private ["Ps8Hashable", "print"]
+- ["Ps8Hashable", "purchased_counter_"]
+- ["Ps8Hashable", "ref_"]
+- ["Ps8Hashable", "reloadContentsFromRef"]
+- ["Ps8Hashable", "reloadCourseFromRef"]
+- ["Ps8Hashable", "removeAllTags"]
+- !private ["Ps8Hashable", "removeValue"]
+- ["Ps8Hashable", "setAuthor"]
+- ["Ps8Hashable", "setItemOrdersAsInContents"]
+- ["Ps8Hashable", "setPrice"]
+- ["Ps8Hashable", "setStatus"]
+- ["Ps8Hashable", "setTag"]
+- ["Ps8Hashable", "setTitle"]
+- !private ["Ps8Hashable", "setValue"]
+- ["Ps8Hashable", "sortContentsByOrder"]
+- ["Ps8Hashable", "status"]
+- ["Ps8Hashable", "status_"]
+- !private ["Ps8Hashable", "subscript"]
+- ["Ps8Hashable", "tag"]
+- ["Ps8Hashable", "tag_"]
+- ["Ps8Hashable", "title"]
+- ["Ps8Hashable", "title_"]
+- ["Ps8Hashable", "toAnyObject"]
+- !private ["Ps8Hashable", "updateChildValues"]
+- ["Ps8Hashable", "updateCourseItem"]
+- !private ["Ps8Hashable", "value"]
+- ["Ps8Hashable", ""]
+- !private ["C10Babylonian9ImageItem", "init"]
+- !private ["SQ", "Some"]
+- !private ["SQ", "deinit"]
+- ["Ps9Indexable", "Generator"]
+- ["Ps9Indexable", "Index"]
+- !private ["Ps9Indexable", "Key"]
+- ["Ps9Indexable", "SubSequence"]
+- !private ["Ps9Indexable", "Value"]
+- ["Ps9Indexable", "_Element"]
+- !private ["Ps9Indexable", "append"]
+- !private ["Ps9Indexable", "contains"]
+- !private ["Ps9Indexable", "count"]
+- ["Ps9Indexable", "init"]
+- !private ["Ps9Indexable", "joinWithSeparator"]
+- !private ["Ps9Indexable", "removeAll"]
+- !private ["Ps9Indexable", "removeAtIndex"]
+- !private ["Ps9Indexable", "sort"]
+- ["Vs17IndexingGenerator", "Element"]
+- ["Si", "Distance"]
+- ["Si", "IntegerLiteralType"]
+- !private ["Si", "Stride"]
+- !private ["Si", "deinit"]
+- ["Ps21IntegerArithmeticType", "Distance"]
+- ["Ps21IntegerArithmeticType", "IntegerLiteralType"]
+- !private ["Ps21IntegerArithmeticType", "Stride"]
+- ["Ps25IntegerLiteralConvertible", "Distance"]
+- ["Ps25IntegerLiteralConvertible", "IntegerLiteralType"]
+- !private ["Ps25IntegerLiteralConvertible", "Stride"]
+- ["Ps11IntegerType", "Distance"]
+- ["Ps11IntegerType", "IntegerLiteralType"]
+- !private ["Ps11IntegerType", "Stride"]
+- ["Ps14MirrorPathType", "Distance"]
+- ["Ps14MirrorPathType", "IntegerLiteralType"]
+- !private ["Ps14MirrorPathType", "Stride"]
+- ["Ps21MutableCollectionType", "Generator"]
+- ["Ps21MutableCollectionType", "Index"]
+- ["Ps21MutableCollectionType", "SubSequence"]
+- ["Ps21MutableCollectionType", "_Element"]
+- !private ["Ps21MutableCollectionType", "append"]
+- !private ["Ps21MutableCollectionType", "contains"]
+- !private ["Ps21MutableCollectionType", "count"]
+- ["Ps21MutableCollectionType", "init"]
+- !private ["Ps21MutableCollectionType", "joinWithSeparator"]
+- !private ["Ps21MutableCollectionType", "removeAll"]
+- !private ["Ps21MutableCollectionType", "removeAtIndex"]
+- !private ["Ps21MutableCollectionType", "sort"]
+- ["Ps16MutableIndexable", "Generator"]
+- ["Ps16MutableIndexable", "Index"]
+- ["Ps16MutableIndexable", "SubSequence"]
+- ["Ps16MutableIndexable", "_Element"]
+- !private ["Ps16MutableIndexable", "append"]
+- !private ["Ps16MutableIndexable", "contains"]
+- !private ["Ps16MutableIndexable", "count"]
+- ["Ps16MutableIndexable", "init"]
+- !private ["Ps16MutableIndexable", "joinWithSeparator"]
+- !private ["Ps16MutableIndexable", "removeAll"]
+- !private ["Ps16MutableIndexable", "removeAtIndex"]
+- !private ["Ps16MutableIndexable", "sort"]
+- ["Ps16MutableSliceable", "Generator"]
+- ["Ps16MutableSliceable", "Index"]
+- ["Ps16MutableSliceable", "SubSequence"]
+- ["Ps16MutableSliceable", "_Element"]
+- !private ["Ps16MutableSliceable", "append"]
+- !private ["Ps16MutableSliceable", "contains"]
+- !private ["Ps16MutableSliceable", "count"]
+- ["Ps16MutableSliceable", "init"]
+- !private ["Ps16MutableSliceable", "joinWithSeparator"]
+- !private ["Ps16MutableSliceable", "removeAll"]
+- !private ["Ps16MutableSliceable", "removeAtIndex"]
+- !private ["Ps16MutableSliceable", "sort"]
+- !private ["PSo8NSCoding", "Key"]
+- !private ["PSo8NSCoding", "Value"]
+- !private ["PSo8NSCoding", "subscript"]
+- !private ["PSo9NSCopying", "Key"]
+- !private ["PSo9NSCopying", "Value"]
+- !private ["PSo9NSCopying", "subscript"]
+- !private ["CSo12NSDictionary", "Key"]
+- !private ["CSo12NSDictionary", "Value"]
+- !private ["CSo12NSDictionary", "subscript"]
+- !private ["PSo17NSFastEnumeration", "Key"]
+- !private ["PSo17NSFastEnumeration", "Value"]
+- !private ["PSo17NSFastEnumeration", "subscript"]
+- !private ["PSo16NSMutableCopying", "Key"]
+- !private ["PSo16NSMutableCopying", "Value"]
+- !private ["PSo16NSMutableCopying", "subscript"]
+- !private ["CSo8NSObject", "ATItem"]
+- ["CSo8NSObject", "AnyObject"]
+- ["CSo8NSObject", "Bool"]
+- !private ["CSo8NSObject", "COURSE_AUTHOR"]
+- !private ["CSo8NSObject", "COURSE_CONTENT"]
+- !private ["CSo8NSObject", "COURSE_ITEM_AUDIO"]
+- !private ["CSo8NSObject", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["CSo8NSObject", "COURSE_ITEM_IMAGE"]
+- !private ["CSo8NSObject", "COURSE_ITEM_ORDER"]
+- !private ["CSo8NSObject", "COURSE_ITEM_TEXT"]
+- !private ["CSo8NSObject", "COURSE_NUM_SOLD"]
+- !private ["CSo8NSObject", "COURSE_PRICE"]
+- !private ["CSo8NSObject", "COURSE_STATUS"]
+- !private ["CSo8NSObject", "COURSE_TAG"]
+- !private ["CSo8NSObject", "COURSE_TITLE"]
+- ["CSo8NSObject", "CourseItem"]
+- ["CSo8NSObject", "Firebase"]
+- ["CSo8NSObject", "Float"]
+- !private ["CSo8NSObject", "ImageItem"]
+- ["CSo8NSObject", "Int"]
+- !private ["CSo8NSObject", "Key"]
+- !private ["CSo8NSObject", "NSDictionary"]
+- !private ["CSo8NSObject", "NSObject"]
+- ["CSo8NSObject", "String"]
+- !private ["CSo8NSObject", "Value"]
+- ["CSo8NSObject", "Void"]
+- ["CSo8NSObject", "addCourseItem"]
+- ["CSo8NSObject", "addNewATItem"]
+- ["CSo8NSObject", "addNewCourseItem"]
+- ["CSo8NSObject", "addNewImageItem"]
+- ["CSo8NSObject", "addTag"]
+- ["CSo8NSObject", "author"]
+- ["CSo8NSObject", "author_"]
+- !private ["CSo8NSObject", "childByAppendingPath"]
+- !private ["CSo8NSObject", "childByAutoId"]
+- ["CSo8NSObject", "contentRef"]
+- ["CSo8NSObject", "contents"]
+- ["CSo8NSObject", "courseItems_"]
+- ["CSo8NSObject", "courseRef"]
+- ["CSo8NSObject", "deleteAllTag"]
+- ["CSo8NSObject", "deleteBBCourse"]
+- ["CSo8NSObject", "deleteCourseItem"]
+- ["CSo8NSObject", "increasePurchasedNum"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "itemRef"]
+- ["CSo8NSObject", "moveItemTo"]
+- ["CSo8NSObject", "numOfPurchase"]
+- !private ["CSo8NSObject", "observeSingleEventOfType"]
+- !private ["CSo8NSObject", "order"]
+- ["CSo8NSObject", "price"]
+- ["CSo8NSObject", "price_"]
+- !private ["CSo8NSObject", "print"]
+- ["CSo8NSObject", "purchased_counter_"]
+- ["CSo8NSObject", "ref_"]
+- ["CSo8NSObject", "reloadContentsFromRef"]
+- ["CSo8NSObject", "reloadCourseFromRef"]
+- ["CSo8NSObject", "removeAllTags"]
+- !private ["CSo8NSObject", "removeValue"]
+- ["CSo8NSObject", "setAuthor"]
+- ["CSo8NSObject", "setItemOrdersAsInContents"]
+- ["CSo8NSObject", "setPrice"]
+- ["CSo8NSObject", "setStatus"]
+- ["CSo8NSObject", "setTag"]
+- ["CSo8NSObject", "setTitle"]
+- !private ["CSo8NSObject", "setValue"]
+- ["CSo8NSObject", "sortContentsByOrder"]
+- ["CSo8NSObject", "status"]
+- ["CSo8NSObject", "status_"]
+- !private ["CSo8NSObject", "subscript"]
+- ["CSo8NSObject", "tag"]
+- ["CSo8NSObject", "tag_"]
+- ["CSo8NSObject", "title"]
+- ["CSo8NSObject", "title_"]
+- ["CSo8NSObject", "toAnyObject"]
+- !private ["CSo8NSObject", "updateChildValues"]
+- ["CSo8NSObject", "updateCourseItem"]
+- !private ["CSo8NSObject", "value"]
+- ["CSo8NSObject", ""]
+- !private ["PSo16NSObjectProtocol", "ATItem"]
+- !private ["PSo16NSObjectProtocol", "COURSE_AUTHOR"]
+- !private ["PSo16NSObjectProtocol", "COURSE_CONTENT"]
+- !private ["PSo16NSObjectProtocol", "COURSE_ITEM_AUDIO"]
+- !private ["PSo16NSObjectProtocol", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["PSo16NSObjectProtocol", "COURSE_ITEM_IMAGE"]
+- !private ["PSo16NSObjectProtocol", "COURSE_ITEM_ORDER"]
+- !private ["PSo16NSObjectProtocol", "COURSE_ITEM_TEXT"]
+- !private ["PSo16NSObjectProtocol", "COURSE_NUM_SOLD"]
+- !private ["PSo16NSObjectProtocol", "COURSE_PRICE"]
+- !private ["PSo16NSObjectProtocol", "COURSE_STATUS"]
+- !private ["PSo16NSObjectProtocol", "COURSE_TAG"]
+- !private ["PSo16NSObjectProtocol", "COURSE_TITLE"]
+- ["PSo16NSObjectProtocol", "CourseItem"]
+- !private ["PSo16NSObjectProtocol", "ImageItem"]
+- !private ["PSo16NSObjectProtocol", "Key"]
+- ["PSo16NSObjectProtocol", "String"]
+- !private ["PSo16NSObjectProtocol", "Value"]
+- ["PSo16NSObjectProtocol", "addCourseItem"]
+- ["PSo16NSObjectProtocol", "addNewATItem"]
+- ["PSo16NSObjectProtocol", "addNewCourseItem"]
+- ["PSo16NSObjectProtocol", "addNewImageItem"]
+- ["PSo16NSObjectProtocol", "addTag"]
+- ["PSo16NSObjectProtocol", "author"]
+- ["PSo16NSObjectProtocol", "author_"]
+- !private ["PSo16NSObjectProtocol", "childByAppendingPath"]
+- !private ["PSo16NSObjectProtocol", "childByAutoId"]
+- ["PSo16NSObjectProtocol", "contentRef"]
+- ["PSo16NSObjectProtocol", "contents"]
+- ["PSo16NSObjectProtocol", "courseItems_"]
+- ["PSo16NSObjectProtocol", "courseRef"]
+- ["PSo16NSObjectProtocol", "deleteAllTag"]
+- ["PSo16NSObjectProtocol", "deleteBBCourse"]
+- ["PSo16NSObjectProtocol", "deleteCourseItem"]
+- ["PSo16NSObjectProtocol", "increasePurchasedNum"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "itemRef"]
+- ["PSo16NSObjectProtocol", "moveItemTo"]
+- ["PSo16NSObjectProtocol", "numOfPurchase"]
+- !private ["PSo16NSObjectProtocol", "observeSingleEventOfType"]
+- !private ["PSo16NSObjectProtocol", "order"]
+- ["PSo16NSObjectProtocol", "price"]
+- ["PSo16NSObjectProtocol", "price_"]
+- !private ["PSo16NSObjectProtocol", "print"]
+- ["PSo16NSObjectProtocol", "purchased_counter_"]
+- ["PSo16NSObjectProtocol", "ref_"]
+- ["PSo16NSObjectProtocol", "reloadContentsFromRef"]
+- ["PSo16NSObjectProtocol", "reloadCourseFromRef"]
+- ["PSo16NSObjectProtocol", "removeAllTags"]
+- !private ["PSo16NSObjectProtocol", "removeValue"]
+- ["PSo16NSObjectProtocol", "setAuthor"]
+- ["PSo16NSObjectProtocol", "setItemOrdersAsInContents"]
+- ["PSo16NSObjectProtocol", "setPrice"]
+- ["PSo16NSObjectProtocol", "setStatus"]
+- ["PSo16NSObjectProtocol", "setTag"]
+- ["PSo16NSObjectProtocol", "setTitle"]
+- !private ["PSo16NSObjectProtocol", "setValue"]
+- ["PSo16NSObjectProtocol", "sortContentsByOrder"]
+- ["PSo16NSObjectProtocol", "status"]
+- ["PSo16NSObjectProtocol", "status_"]
+- !private ["PSo16NSObjectProtocol", "subscript"]
+- ["PSo16NSObjectProtocol", "tag"]
+- ["PSo16NSObjectProtocol", "tag_"]
+- ["PSo16NSObjectProtocol", "title"]
+- ["PSo16NSObjectProtocol", "title_"]
+- ["PSo16NSObjectProtocol", "toAnyObject"]
+- !private ["PSo16NSObjectProtocol", "updateChildValues"]
+- ["PSo16NSObjectProtocol", "updateCourseItem"]
+- !private ["PSo16NSObjectProtocol", "value"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "Key"]
+- !private ["PSo14NSSecureCoding", "Value"]
+- !private ["PSo14NSSecureCoding", "subscript"]
+- !private ["Ps21NilLiteralConvertible", "Some"]
+- !private ["Sq", "Some"]
+- !private ["Sq", "deinit"]
+- ["Ps21RandomAccessIndexType", "Distance"]
+- ["Ps21RandomAccessIndexType", "IntegerLiteralType"]
+- !private ["Ps21RandomAccessIndexType", "Stride"]
+- ["Ps30RangeReplaceableCollectionType", "Generator"]
+- ["Ps30RangeReplaceableCollectionType", "Index"]
+- ["Ps30RangeReplaceableCollectionType", "SubSequence"]
+- ["Ps30RangeReplaceableCollectionType", "_Element"]
+- !private ["Ps30RangeReplaceableCollectionType", "append"]
+- !private ["Ps30RangeReplaceableCollectionType", "contains"]
+- !private ["Ps30RangeReplaceableCollectionType", "count"]
+- ["Ps30RangeReplaceableCollectionType", "init"]
+- !private ["Ps30RangeReplaceableCollectionType", "joinWithSeparator"]
+- !private ["Ps30RangeReplaceableCollectionType", "removeAll"]
+- !private ["Ps30RangeReplaceableCollectionType", "removeAtIndex"]
+- !private ["Ps30RangeReplaceableCollectionType", "sort"]
+- !private ["Ps16RawRepresentable", "Value"]
+- ["Ps12SequenceType", "Element"]
+- ["Ps12SequenceType", "Generator"]
+- ["Ps12SequenceType", "Index"]
+- !private ["Ps12SequenceType", "Key"]
+- ["Ps12SequenceType", "SubSequence"]
+- !private ["Ps12SequenceType", "Value"]
+- ["Ps12SequenceType", "_Element"]
+- !private ["Ps12SequenceType", "append"]
+- !private ["Ps12SequenceType", "contains"]
+- !private ["Ps12SequenceType", "count"]
+- ["Ps12SequenceType", "init"]
+- !private ["Ps12SequenceType", "joinWithSeparator"]
+- !private ["Ps12SequenceType", "removeAll"]
+- !private ["Ps12SequenceType", "removeAtIndex"]
+- !private ["Ps12SequenceType", "sort"]
+- !private ["Ps12SequenceType", "subscript"]
+- ["Ps17SignedIntegerType", "Distance"]
+- ["Ps17SignedIntegerType", "IntegerLiteralType"]
+- !private ["Ps17SignedIntegerType", "Stride"]
+- ["Ps16SignedNumberType", "Distance"]
+- ["Ps16SignedNumberType", "IntegerLiteralType"]
+- !private ["Ps16SignedNumberType", "Stride"]
+- !private ["Vs12StaticString", "deinit"]
+- ["Ps10Strideable", "Distance"]
+- ["Ps10Strideable", "IntegerLiteralType"]
+- !private ["Ps10Strideable", "Stride"]
+- !private ["SS", "deinit"]
+- !private ["Sp", "deinit"]
+- !private ["SP", "deinit"]
+- ["Ps10_ArrayType", "Generator"]
+- ["Ps10_ArrayType", "Index"]
+- ["Ps10_ArrayType", "SubSequence"]
+- ["Ps10_ArrayType", "_Element"]
+- !private ["Ps10_ArrayType", "append"]
+- !private ["Ps10_ArrayType", "contains"]
+- !private ["Ps10_ArrayType", "count"]
+- ["Ps10_ArrayType", "init"]
+- !private ["Ps10_ArrayType", "joinWithSeparator"]
+- !private ["Ps10_ArrayType", "removeAll"]
+- !private ["Ps10_ArrayType", "removeAtIndex"]
+- !private ["Ps10_ArrayType", "sort"]
+- !private ["Ps33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- ["Ps33_BuiltinIntegerLiteralConvertible", "Distance"]
+- ["Ps33_BuiltinIntegerLiteralConvertible", "IntegerLiteralType"]
+- !private ["Ps33_BuiltinIntegerLiteralConvertible", "Stride"]
+- ["Ps24_DestructorSafeContainer", "Generator"]
+- ["Ps24_DestructorSafeContainer", "Index"]
+- ["Ps24_DestructorSafeContainer", "SubSequence"]
+- ["Ps24_DestructorSafeContainer", "_Element"]
+- !private ["Ps24_DestructorSafeContainer", "append"]
+- !private ["Ps24_DestructorSafeContainer", "contains"]
+- !private ["Ps24_DestructorSafeContainer", "count"]
+- ["Ps24_DestructorSafeContainer", "init"]
+- !private ["Ps24_DestructorSafeContainer", "joinWithSeparator"]
+- !private ["Ps24_DestructorSafeContainer", "removeAll"]
+- !private ["Ps24_DestructorSafeContainer", "removeAtIndex"]
+- !private ["Ps24_DestructorSafeContainer", "sort"]
+- ["Ps14_Incrementable", "Distance"]
+- ["Ps14_Incrementable", "IntegerLiteralType"]
+- !private ["Ps14_Incrementable", "Stride"]
+- ["Ps22_IntegerArithmeticType", "Distance"]
+- ["Ps22_IntegerArithmeticType", "IntegerLiteralType"]
+- !private ["Ps22_IntegerArithmeticType", "Stride"]
+- ["Ps12_IntegerType", "Distance"]
+- ["Ps12_IntegerType", "IntegerLiteralType"]
+- !private ["Ps12_IntegerType", "Stride"]
+- ["Ps21_ObjectiveCBridgeable", "Distance"]
+- ["Ps21_ObjectiveCBridgeable", "Generator"]
+- ["Ps21_ObjectiveCBridgeable", "Index"]
+- ["Ps21_ObjectiveCBridgeable", "IntegerLiteralType"]
+- !private ["Ps21_ObjectiveCBridgeable", "Key"]
+- !private ["Ps21_ObjectiveCBridgeable", "Some"]
+- !private ["Ps21_ObjectiveCBridgeable", "Stride"]
+- ["Ps21_ObjectiveCBridgeable", "SubSequence"]
+- !private ["Ps21_ObjectiveCBridgeable", "Value"]
+- ["Ps21_ObjectiveCBridgeable", "_Element"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "append"]
+- !private ["Ps21_ObjectiveCBridgeable", "contains"]
+- !private ["Ps21_ObjectiveCBridgeable", "count"]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "joinWithSeparator"]
+- !private ["Ps21_ObjectiveCBridgeable", "removeAll"]
+- !private ["Ps21_ObjectiveCBridgeable", "removeAtIndex"]
+- !private ["Ps21_ObjectiveCBridgeable", "sort"]
+- ["Ps22_RandomAccessAmbiguity", "Distance"]
+- ["Ps22_RandomAccessAmbiguity", "IntegerLiteralType"]
+- !private ["Ps22_RandomAccessAmbiguity", "Stride"]
+- ["Ps12_Reflectable", "Distance"]
+- ["Ps12_Reflectable", "Generator"]
+- ["Ps12_Reflectable", "Index"]
+- ["Ps12_Reflectable", "IntegerLiteralType"]
+- !private ["Ps12_Reflectable", "Key"]
+- !private ["Ps12_Reflectable", "Some"]
+- !private ["Ps12_Reflectable", "Stride"]
+- ["Ps12_Reflectable", "SubSequence"]
+- !private ["Ps12_Reflectable", "Value"]
+- ["Ps12_Reflectable", "_Element"]
+- !private ["Ps12_Reflectable", "_getBuiltinLogicValue"]
+- !private ["Ps12_Reflectable", "append"]
+- !private ["Ps12_Reflectable", "contains"]
+- !private ["Ps12_Reflectable", "count"]
+- ["Ps12_Reflectable", "init"]
+- !private ["Ps12_Reflectable", "joinWithSeparator"]
+- !private ["Ps12_Reflectable", "removeAll"]
+- !private ["Ps12_Reflectable", "removeAtIndex"]
+- !private ["Ps12_Reflectable", "sort"]
+- !private ["Ps12_Reflectable", "subscript"]
+- ["Ps18_SignedIntegerType", "Distance"]
+- ["Ps18_SignedIntegerType", "IntegerLiteralType"]
+- !private ["Ps18_SignedIntegerType", "Stride"]
+depends-nominal:
+- !private "C10Babylonian6ATItem"
+- "Ps9AnyObject"
+- "Sa"
+- "Ps23ArrayLiteralConvertible"
+- "Vs10ArraySlice"
+- "C10Babylonian8BBCourse"
+- "Ps22BidirectionalIndexType"
+- "Ps21BitwiseOperationsType"
+- !private "Sb"
+- !private "Ps25BooleanLiteralConvertible"
+- !private "Ps11BooleanType"
+- "Ps11CVarArgType"
+- "Ps14CollectionType"
+- "Ps10Comparable"
+- !private "C10Babylonian10CourseItem"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- !private "Vs10Dictionary"
+- !private "Vs19DictionaryGenerator"
+- !private "Ps28DictionaryLiteralConvertible"
+- "Ps9Equatable"
+- !private "CSo13FDataSnapshot"
+- !private "OSC10FEventType"
+- !private "CSo6FQuery"
+- !private "CSo8Firebase"
+- !private "Sf"
+- "Ps16ForwardIndexType"
+- "Ps13GeneratorType"
+- "Ps8Hashable"
+- !private "C10Babylonian9ImageItem"
+- !private "SQ"
+- "Ps9Indexable"
+- "Vs17IndexingGenerator"
+- "Si"
+- "Ps21IntegerArithmeticType"
+- "Ps25IntegerLiteralConvertible"
+- "Ps11IntegerType"
+- "Ps14MirrorPathType"
+- "Ps21MutableCollectionType"
+- "Ps16MutableIndexable"
+- "Ps16MutableSliceable"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "CSo12NSDictionary"
+- !private "PSo17NSFastEnumeration"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "Ps21NilLiteralConvertible"
+- !private "Sq"
+- "Ps21RandomAccessIndexType"
+- "Ps30RangeReplaceableCollectionType"
+- !private "Ps16RawRepresentable"
+- "Ps12SequenceType"
+- "Ps17SignedIntegerType"
+- "Ps16SignedNumberType"
+- !private "Vs12StaticString"
+- "Ps10Strideable"
+- !private "SS"
+- !private "Sp"
+- !private "SP"
+- "Ps10_ArrayType"
+- !private "Ps33_BuiltinBooleanLiteralConvertible"
+- "Ps33_BuiltinIntegerLiteralConvertible"
+- "Ps24_DestructorSafeContainer"
+- "Ps14_Incrementable"
+- "Ps22_IntegerArithmeticType"
+- "Ps12_IntegerType"
+- "Ps21_ObjectiveCBridgeable"
+- "Ps22_RandomAccessAmbiguity"
+- "Ps12_Reflectable"
+- "Ps18_SignedIntegerType"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/app-Bridging-Header.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/RNCryptor.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/AppConstants.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/StreamingKit/STKAudioPlayer.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/StreamingKit/STKDataSource.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/Welcome/WelcomeView.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/ProgressHUD/ProgressHUD.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/UIImageView+WebCache.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageCompat.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageManager.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageOperation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageDownloader.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDImageCache.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FirebaseServerValue.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FTransactionResult.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FMutableData.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FirebaseApp.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FQuery.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/Firebase.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FEventType.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FDataSnapshot.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FConfig.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FAuthType.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FAuthData.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/Firebase-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Modules/TagListView.swiftmodule/x86_64.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Headers/TagListView-Swift.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Headers/TagListView-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BoltsVersion.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/Bolts.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFTaskCompletionSource.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFTask.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFExecutor.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationTokenSource.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationTokenRegistration.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationToken.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/Bolts-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPurchase.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFProduct.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFNetworkActivityIndicatorManager.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFInstallation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUserAuthenticationDelegate.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFSession.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFRole.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFRelation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Subclass.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFGeoPoint.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConfig+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConfig.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnonymousUtils+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFSubclassing.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnonymousUtils.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnalytics.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFACL.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConstants.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/ParseClientConfiguration.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/Parse.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/Parse-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreMedia.swiftmodule"
+interface-hash: "8161ee8a02c5198f5f799d9d8a266459"

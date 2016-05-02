@@ -1,0 +1,28 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Babylonian.app/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Babylonian-Swift.h",
+          'external-contents': "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Babylonian.app/Headers/Babylonian-Swift.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Babylonian.app/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Intermediates/Babylonian.build/Debug-iphonesimulator/Babylonian.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

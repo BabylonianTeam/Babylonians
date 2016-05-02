@@ -1,0 +1,635 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "MainCourseCell"
+provides-nominal:
+- "C10Babylonian14MainCourseCell"
+provides-member:
+- ["C10Babylonian14MainCourseCell", ""]
+provides-dynamic-lookup:
+- "item"
+- "awakeFromNib"
+- "playButton"
+- "setSelected"
+- "numOfView"
+- "title"
+depends-top-level:
+- !private "Double"
+- "UITableViewCell"
+- !private "COURSE_ITEM_AUDIO_DURATION"
+- "Bool"
+- "ATItem"
+- "UILabel"
+- "PlaybackButton"
+- !private "UIEdgeInsets"
+- !private "/"
+- "MainCourseCell"
+depends-member:
+- !private ["C10Babylonian6ATItem", "content"]
+- !private ["Ps9AnyObject", "CGColor"]
+- !private ["Ps9AnyObject", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["Ps9AnyObject", "UIEdgeInsets"]
+- !private ["Ps9AnyObject", "adjustMargin"]
+- ["Ps9AnyObject", "awakeFromNib"]
+- !private ["Ps9AnyObject", "borderColor"]
+- !private ["Ps9AnyObject", "borderWidth"]
+- !private ["Ps9AnyObject", "content"]
+- !private ["Ps9AnyObject", "contentEdgeInsets"]
+- !private ["Ps9AnyObject", "cornerRadius"]
+- !private ["Ps9AnyObject", "duration"]
+- !private ["Ps9AnyObject", "frame"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "item"]
+- !private ["Ps9AnyObject", "layer"]
+- ["Ps9AnyObject", "numOfView"]
+- ["Ps9AnyObject", "playButton"]
+- ["Ps9AnyObject", "setSelected"]
+- !private ["Ps9AnyObject", "subscript"]
+- !private ["Ps9AnyObject", "tintColor"]
+- ["Ps9AnyObject", "title"]
+- ["Ps9AnyObject", ""]
+- !private ["CSo7CALayer", "borderColor"]
+- !private ["CSo7CALayer", "borderWidth"]
+- !private ["CSo7CALayer", "cornerRadius"]
+- !private ["PSo13CAMediaTiming", "borderColor"]
+- !private ["PSo13CAMediaTiming", "borderWidth"]
+- !private ["PSo13CAMediaTiming", "cornerRadius"]
+- !private ["V12CoreGraphics7CGFloat", "deinit"]
+- !private ["VSC6CGRect", "size"]
+- !private ["VSC6CGSize", "height"]
+- !private ["Ps11CVarArgType", "CGColor"]
+- !private ["Ps11CVarArgType", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["Ps11CVarArgType", "UIEdgeInsets"]
+- !private ["Ps11CVarArgType", "adjustMargin"]
+- ["Ps11CVarArgType", "awakeFromNib"]
+- !private ["Ps11CVarArgType", "borderColor"]
+- !private ["Ps11CVarArgType", "borderWidth"]
+- !private ["Ps11CVarArgType", "content"]
+- !private ["Ps11CVarArgType", "contentEdgeInsets"]
+- !private ["Ps11CVarArgType", "cornerRadius"]
+- !private ["Ps11CVarArgType", "duration"]
+- !private ["Ps11CVarArgType", "frame"]
+- ["Ps11CVarArgType", "init"]
+- ["Ps11CVarArgType", "item"]
+- !private ["Ps11CVarArgType", "layer"]
+- ["Ps11CVarArgType", "numOfView"]
+- ["Ps11CVarArgType", "playButton"]
+- ["Ps11CVarArgType", "setSelected"]
+- !private ["Ps11CVarArgType", "subscript"]
+- !private ["Ps11CVarArgType", "tintColor"]
+- ["Ps11CVarArgType", "title"]
+- ["Ps11CVarArgType", ""]
+- !private ["C10Babylonian10CourseItem", "content"]
+- !private ["Ps28CustomDebugStringConvertible", "CGColor"]
+- !private ["Ps28CustomDebugStringConvertible", "COURSE_ITEM_AUDIO_DURATION"]
+- ["Ps28CustomDebugStringConvertible", "Some"]
+- !private ["Ps28CustomDebugStringConvertible", "UIEdgeInsets"]
+- !private ["Ps28CustomDebugStringConvertible", "adjustMargin"]
+- ["Ps28CustomDebugStringConvertible", "awakeFromNib"]
+- !private ["Ps28CustomDebugStringConvertible", "borderColor"]
+- !private ["Ps28CustomDebugStringConvertible", "borderWidth"]
+- !private ["Ps28CustomDebugStringConvertible", "content"]
+- !private ["Ps28CustomDebugStringConvertible", "contentEdgeInsets"]
+- !private ["Ps28CustomDebugStringConvertible", "cornerRadius"]
+- !private ["Ps28CustomDebugStringConvertible", "duration"]
+- !private ["Ps28CustomDebugStringConvertible", "frame"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "item"]
+- !private ["Ps28CustomDebugStringConvertible", "layer"]
+- ["Ps28CustomDebugStringConvertible", "numOfView"]
+- ["Ps28CustomDebugStringConvertible", "playButton"]
+- ["Ps28CustomDebugStringConvertible", "setSelected"]
+- !private ["Ps28CustomDebugStringConvertible", "subscript"]
+- !private ["Ps28CustomDebugStringConvertible", "tintColor"]
+- ["Ps28CustomDebugStringConvertible", "title"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps23CustomStringConvertible", "CGColor"]
+- !private ["Ps23CustomStringConvertible", "COURSE_ITEM_AUDIO_DURATION"]
+- ["Ps23CustomStringConvertible", "Some"]
+- !private ["Ps23CustomStringConvertible", "UIEdgeInsets"]
+- !private ["Ps23CustomStringConvertible", "adjustMargin"]
+- ["Ps23CustomStringConvertible", "awakeFromNib"]
+- !private ["Ps23CustomStringConvertible", "borderColor"]
+- !private ["Ps23CustomStringConvertible", "borderWidth"]
+- !private ["Ps23CustomStringConvertible", "content"]
+- !private ["Ps23CustomStringConvertible", "contentEdgeInsets"]
+- !private ["Ps23CustomStringConvertible", "cornerRadius"]
+- !private ["Ps23CustomStringConvertible", "duration"]
+- !private ["Ps23CustomStringConvertible", "frame"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "item"]
+- !private ["Ps23CustomStringConvertible", "layer"]
+- ["Ps23CustomStringConvertible", "numOfView"]
+- ["Ps23CustomStringConvertible", "playButton"]
+- ["Ps23CustomStringConvertible", "setSelected"]
+- !private ["Ps23CustomStringConvertible", "subscript"]
+- !private ["Ps23CustomStringConvertible", "tintColor"]
+- ["Ps23CustomStringConvertible", "title"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps28DictionaryLiteralConvertible", "subscript"]
+- !private ["Ps9Equatable", "CGColor"]
+- !private ["Ps9Equatable", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["Ps9Equatable", "UIEdgeInsets"]
+- !private ["Ps9Equatable", "adjustMargin"]
+- ["Ps9Equatable", "awakeFromNib"]
+- !private ["Ps9Equatable", "borderColor"]
+- !private ["Ps9Equatable", "borderWidth"]
+- !private ["Ps9Equatable", "content"]
+- !private ["Ps9Equatable", "contentEdgeInsets"]
+- !private ["Ps9Equatable", "cornerRadius"]
+- !private ["Ps9Equatable", "duration"]
+- !private ["Ps9Equatable", "frame"]
+- !private ["Ps9Equatable", "height"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "item"]
+- !private ["Ps9Equatable", "layer"]
+- ["Ps9Equatable", "numOfView"]
+- ["Ps9Equatable", "playButton"]
+- ["Ps9Equatable", "setSelected"]
+- !private ["Ps9Equatable", "size"]
+- !private ["Ps9Equatable", "subscript"]
+- !private ["Ps9Equatable", "tintColor"]
+- ["Ps9Equatable", "title"]
+- ["Ps9Equatable", ""]
+- !private ["Ps8Hashable", "CGColor"]
+- !private ["Ps8Hashable", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["Ps8Hashable", "UIEdgeInsets"]
+- !private ["Ps8Hashable", "adjustMargin"]
+- ["Ps8Hashable", "awakeFromNib"]
+- !private ["Ps8Hashable", "borderColor"]
+- !private ["Ps8Hashable", "borderWidth"]
+- !private ["Ps8Hashable", "content"]
+- !private ["Ps8Hashable", "contentEdgeInsets"]
+- !private ["Ps8Hashable", "cornerRadius"]
+- !private ["Ps8Hashable", "duration"]
+- !private ["Ps8Hashable", "frame"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "item"]
+- !private ["Ps8Hashable", "layer"]
+- ["Ps8Hashable", "numOfView"]
+- ["Ps8Hashable", "playButton"]
+- ["Ps8Hashable", "setSelected"]
+- !private ["Ps8Hashable", "subscript"]
+- !private ["Ps8Hashable", "tintColor"]
+- ["Ps8Hashable", "title"]
+- ["Ps8Hashable", ""]
+- ["SQ", "Some"]
+- ["C10Babylonian14MainCourseCell", "ATItem"]
+- ["C10Babylonian14MainCourseCell", "Bool"]
+- !private ["C10Babylonian14MainCourseCell", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["C10Babylonian14MainCourseCell", "Double"]
+- ["C10Babylonian14MainCourseCell", "PlaybackButton"]
+- !private ["C10Babylonian14MainCourseCell", "UIEdgeInsets"]
+- ["C10Babylonian14MainCourseCell", "UILabel"]
+- ["C10Babylonian14MainCourseCell", "awakeFromNib"]
+- ["C10Babylonian14MainCourseCell", "deinit"]
+- ["C10Babylonian14MainCourseCell", "init"]
+- ["C10Babylonian14MainCourseCell", "item"]
+- ["C10Babylonian14MainCourseCell", "numOfView"]
+- ["C10Babylonian14MainCourseCell", "playButton"]
+- ["C10Babylonian14MainCourseCell", "setSelected"]
+- ["C10Babylonian14MainCourseCell", "title"]
+- !private ["PSo8NSCoding", "CGColor"]
+- !private ["PSo8NSCoding", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["PSo8NSCoding", "UIEdgeInsets"]
+- !private ["PSo8NSCoding", "adjustMargin"]
+- ["PSo8NSCoding", "awakeFromNib"]
+- !private ["PSo8NSCoding", "borderColor"]
+- !private ["PSo8NSCoding", "borderWidth"]
+- !private ["PSo8NSCoding", "contentEdgeInsets"]
+- !private ["PSo8NSCoding", "cornerRadius"]
+- !private ["PSo8NSCoding", "duration"]
+- !private ["PSo8NSCoding", "frame"]
+- ["PSo8NSCoding", "init"]
+- ["PSo8NSCoding", "item"]
+- !private ["PSo8NSCoding", "layer"]
+- ["PSo8NSCoding", "numOfView"]
+- ["PSo8NSCoding", "playButton"]
+- ["PSo8NSCoding", "setSelected"]
+- !private ["PSo8NSCoding", "subscript"]
+- !private ["PSo8NSCoding", "tintColor"]
+- ["PSo8NSCoding", "title"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo9NSCopying", "CGColor"]
+- !private ["PSo9NSCopying", "subscript"]
+- !private ["CSo12NSDictionary", "subscript"]
+- !private ["PSo17NSFastEnumeration", "subscript"]
+- !private ["PSo16NSMutableCopying", "subscript"]
+- !private ["CSo19NSMutableDictionary", "subscript"]
+- ["CSo8NSObject", "ATItem"]
+- ["CSo8NSObject", "Bool"]
+- !private ["CSo8NSObject", "CGColor"]
+- !private ["CSo8NSObject", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["CSo8NSObject", "Double"]
+- ["CSo8NSObject", "PlaybackButton"]
+- !private ["CSo8NSObject", "UIEdgeInsets"]
+- ["CSo8NSObject", "UILabel"]
+- !private ["CSo8NSObject", "adjustMargin"]
+- ["CSo8NSObject", "awakeFromNib"]
+- !private ["CSo8NSObject", "borderColor"]
+- !private ["CSo8NSObject", "borderWidth"]
+- !private ["CSo8NSObject", "content"]
+- !private ["CSo8NSObject", "contentEdgeInsets"]
+- !private ["CSo8NSObject", "cornerRadius"]
+- !private ["CSo8NSObject", "duration"]
+- !private ["CSo8NSObject", "frame"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "item"]
+- !private ["CSo8NSObject", "layer"]
+- ["CSo8NSObject", "numOfView"]
+- ["CSo8NSObject", "playButton"]
+- ["CSo8NSObject", "setSelected"]
+- !private ["CSo8NSObject", "subscript"]
+- !private ["CSo8NSObject", "tintColor"]
+- ["CSo8NSObject", "title"]
+- !private ["PSo16NSObjectProtocol", "CGColor"]
+- !private ["PSo16NSObjectProtocol", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["PSo16NSObjectProtocol", "UIEdgeInsets"]
+- !private ["PSo16NSObjectProtocol", "adjustMargin"]
+- ["PSo16NSObjectProtocol", "awakeFromNib"]
+- !private ["PSo16NSObjectProtocol", "borderColor"]
+- !private ["PSo16NSObjectProtocol", "borderWidth"]
+- !private ["PSo16NSObjectProtocol", "content"]
+- !private ["PSo16NSObjectProtocol", "contentEdgeInsets"]
+- !private ["PSo16NSObjectProtocol", "cornerRadius"]
+- !private ["PSo16NSObjectProtocol", "duration"]
+- !private ["PSo16NSObjectProtocol", "frame"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "item"]
+- !private ["PSo16NSObjectProtocol", "layer"]
+- ["PSo16NSObjectProtocol", "numOfView"]
+- ["PSo16NSObjectProtocol", "playButton"]
+- ["PSo16NSObjectProtocol", "setSelected"]
+- !private ["PSo16NSObjectProtocol", "subscript"]
+- !private ["PSo16NSObjectProtocol", "tintColor"]
+- ["PSo16NSObjectProtocol", "title"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "CGColor"]
+- !private ["PSo14NSSecureCoding", "subscript"]
+- ["Ps21NilLiteralConvertible", "Some"]
+- !private ["Sq", "deinit"]
+- !private ["C10Babylonian14PlaybackButton", "adjustMargin"]
+- !private ["C10Babylonian14PlaybackButton", "contentEdgeInsets"]
+- !private ["C10Babylonian14PlaybackButton", "duration"]
+- !private ["C10Babylonian14PlaybackButton", "frame"]
+- !private ["C10Babylonian14PlaybackButton", "layer"]
+- !private ["C10Babylonian14PlaybackButton", "tintColor"]
+- !private ["Ps12SequenceType", "subscript"]
+- !private ["SS", "deinit"]
+- !private ["PSo29UIAccessibilityIdentification", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["PSo29UIAccessibilityIdentification", "UIEdgeInsets"]
+- !private ["PSo29UIAccessibilityIdentification", "adjustMargin"]
+- ["PSo29UIAccessibilityIdentification", "awakeFromNib"]
+- !private ["PSo29UIAccessibilityIdentification", "contentEdgeInsets"]
+- !private ["PSo29UIAccessibilityIdentification", "duration"]
+- !private ["PSo29UIAccessibilityIdentification", "frame"]
+- ["PSo29UIAccessibilityIdentification", "init"]
+- ["PSo29UIAccessibilityIdentification", "item"]
+- !private ["PSo29UIAccessibilityIdentification", "layer"]
+- ["PSo29UIAccessibilityIdentification", "numOfView"]
+- ["PSo29UIAccessibilityIdentification", "playButton"]
+- ["PSo29UIAccessibilityIdentification", "setSelected"]
+- !private ["PSo29UIAccessibilityIdentification", "tintColor"]
+- ["PSo29UIAccessibilityIdentification", "title"]
+- ["PSo29UIAccessibilityIdentification", ""]
+- !private ["PSo12UIAppearance", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["PSo12UIAppearance", "UIEdgeInsets"]
+- !private ["PSo12UIAppearance", "adjustMargin"]
+- ["PSo12UIAppearance", "awakeFromNib"]
+- !private ["PSo12UIAppearance", "contentEdgeInsets"]
+- !private ["PSo12UIAppearance", "duration"]
+- !private ["PSo12UIAppearance", "frame"]
+- ["PSo12UIAppearance", "init"]
+- ["PSo12UIAppearance", "item"]
+- !private ["PSo12UIAppearance", "layer"]
+- ["PSo12UIAppearance", "numOfView"]
+- ["PSo12UIAppearance", "playButton"]
+- ["PSo12UIAppearance", "setSelected"]
+- !private ["PSo12UIAppearance", "tintColor"]
+- ["PSo12UIAppearance", "title"]
+- ["PSo12UIAppearance", ""]
+- !private ["PSo21UIAppearanceContainer", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["PSo21UIAppearanceContainer", "UIEdgeInsets"]
+- !private ["PSo21UIAppearanceContainer", "adjustMargin"]
+- ["PSo21UIAppearanceContainer", "awakeFromNib"]
+- !private ["PSo21UIAppearanceContainer", "contentEdgeInsets"]
+- !private ["PSo21UIAppearanceContainer", "duration"]
+- !private ["PSo21UIAppearanceContainer", "frame"]
+- ["PSo21UIAppearanceContainer", "init"]
+- ["PSo21UIAppearanceContainer", "item"]
+- !private ["PSo21UIAppearanceContainer", "layer"]
+- ["PSo21UIAppearanceContainer", "numOfView"]
+- ["PSo21UIAppearanceContainer", "playButton"]
+- ["PSo21UIAppearanceContainer", "setSelected"]
+- !private ["PSo21UIAppearanceContainer", "tintColor"]
+- ["PSo21UIAppearanceContainer", "title"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["CSo8UIButton", "adjustMargin"]
+- !private ["CSo8UIButton", "contentEdgeInsets"]
+- !private ["CSo8UIButton", "duration"]
+- !private ["CSo8UIButton", "frame"]
+- !private ["CSo8UIButton", "layer"]
+- !private ["CSo8UIButton", "tintColor"]
+- !private ["CSo7UIColor", "CGColor"]
+- !private ["CSo9UIControl", "adjustMargin"]
+- !private ["CSo9UIControl", "contentEdgeInsets"]
+- !private ["CSo9UIControl", "duration"]
+- !private ["CSo9UIControl", "frame"]
+- !private ["CSo9UIControl", "layer"]
+- !private ["CSo9UIControl", "tintColor"]
+- !private ["PSo17UICoordinateSpace", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["PSo17UICoordinateSpace", "UIEdgeInsets"]
+- !private ["PSo17UICoordinateSpace", "adjustMargin"]
+- ["PSo17UICoordinateSpace", "awakeFromNib"]
+- !private ["PSo17UICoordinateSpace", "contentEdgeInsets"]
+- !private ["PSo17UICoordinateSpace", "duration"]
+- !private ["PSo17UICoordinateSpace", "frame"]
+- ["PSo17UICoordinateSpace", "init"]
+- ["PSo17UICoordinateSpace", "item"]
+- !private ["PSo17UICoordinateSpace", "layer"]
+- ["PSo17UICoordinateSpace", "numOfView"]
+- ["PSo17UICoordinateSpace", "playButton"]
+- ["PSo17UICoordinateSpace", "setSelected"]
+- !private ["PSo17UICoordinateSpace", "tintColor"]
+- ["PSo17UICoordinateSpace", "title"]
+- ["PSo17UICoordinateSpace", ""]
+- !private ["PSo13UIDynamicItem", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["PSo13UIDynamicItem", "UIEdgeInsets"]
+- !private ["PSo13UIDynamicItem", "adjustMargin"]
+- ["PSo13UIDynamicItem", "awakeFromNib"]
+- !private ["PSo13UIDynamicItem", "contentEdgeInsets"]
+- !private ["PSo13UIDynamicItem", "duration"]
+- !private ["PSo13UIDynamicItem", "frame"]
+- ["PSo13UIDynamicItem", "init"]
+- ["PSo13UIDynamicItem", "item"]
+- !private ["PSo13UIDynamicItem", "layer"]
+- ["PSo13UIDynamicItem", "numOfView"]
+- ["PSo13UIDynamicItem", "playButton"]
+- ["PSo13UIDynamicItem", "setSelected"]
+- !private ["PSo13UIDynamicItem", "tintColor"]
+- ["PSo13UIDynamicItem", "title"]
+- ["PSo13UIDynamicItem", ""]
+- !private ["VSC12UIEdgeInsets", "init"]
+- !private ["PSo18UIFocusEnvironment", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["PSo18UIFocusEnvironment", "UIEdgeInsets"]
+- !private ["PSo18UIFocusEnvironment", "adjustMargin"]
+- ["PSo18UIFocusEnvironment", "awakeFromNib"]
+- !private ["PSo18UIFocusEnvironment", "contentEdgeInsets"]
+- !private ["PSo18UIFocusEnvironment", "duration"]
+- !private ["PSo18UIFocusEnvironment", "frame"]
+- ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "item"]
+- !private ["PSo18UIFocusEnvironment", "layer"]
+- ["PSo18UIFocusEnvironment", "numOfView"]
+- ["PSo18UIFocusEnvironment", "playButton"]
+- ["PSo18UIFocusEnvironment", "setSelected"]
+- !private ["PSo18UIFocusEnvironment", "tintColor"]
+- ["PSo18UIFocusEnvironment", "title"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo27UIGestureRecognizerDelegate", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["PSo27UIGestureRecognizerDelegate", "UIEdgeInsets"]
+- ["PSo27UIGestureRecognizerDelegate", "awakeFromNib"]
+- ["PSo27UIGestureRecognizerDelegate", "init"]
+- ["PSo27UIGestureRecognizerDelegate", "item"]
+- ["PSo27UIGestureRecognizerDelegate", "numOfView"]
+- ["PSo27UIGestureRecognizerDelegate", "playButton"]
+- ["PSo27UIGestureRecognizerDelegate", "setSelected"]
+- ["PSo27UIGestureRecognizerDelegate", "title"]
+- ["PSo27UIGestureRecognizerDelegate", ""]
+- ["CSo11UIResponder", "ATItem"]
+- ["CSo11UIResponder", "Bool"]
+- !private ["CSo11UIResponder", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["CSo11UIResponder", "Double"]
+- ["CSo11UIResponder", "PlaybackButton"]
+- !private ["CSo11UIResponder", "UIEdgeInsets"]
+- ["CSo11UIResponder", "UILabel"]
+- !private ["CSo11UIResponder", "adjustMargin"]
+- ["CSo11UIResponder", "awakeFromNib"]
+- !private ["CSo11UIResponder", "contentEdgeInsets"]
+- !private ["CSo11UIResponder", "duration"]
+- !private ["CSo11UIResponder", "frame"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "item"]
+- !private ["CSo11UIResponder", "layer"]
+- ["CSo11UIResponder", "numOfView"]
+- ["CSo11UIResponder", "playButton"]
+- ["CSo11UIResponder", "setSelected"]
+- !private ["CSo11UIResponder", "tintColor"]
+- ["CSo11UIResponder", "title"]
+- ["CSo15UITableViewCell", "ATItem"]
+- ["CSo15UITableViewCell", "Bool"]
+- !private ["CSo15UITableViewCell", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["CSo15UITableViewCell", "Double"]
+- ["CSo15UITableViewCell", "PlaybackButton"]
+- !private ["CSo15UITableViewCell", "UIEdgeInsets"]
+- ["CSo15UITableViewCell", "UILabel"]
+- ["CSo15UITableViewCell", "awakeFromNib"]
+- ["CSo15UITableViewCell", "init"]
+- ["CSo15UITableViewCell", "item"]
+- ["CSo15UITableViewCell", "numOfView"]
+- ["CSo15UITableViewCell", "playButton"]
+- ["CSo15UITableViewCell", "setSelected"]
+- ["CSo15UITableViewCell", "title"]
+- ["CSo15UITableViewCell", ""]
+- !private ["PSo18UITraitEnvironment", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["PSo18UITraitEnvironment", "UIEdgeInsets"]
+- !private ["PSo18UITraitEnvironment", "adjustMargin"]
+- ["PSo18UITraitEnvironment", "awakeFromNib"]
+- !private ["PSo18UITraitEnvironment", "contentEdgeInsets"]
+- !private ["PSo18UITraitEnvironment", "duration"]
+- !private ["PSo18UITraitEnvironment", "frame"]
+- ["PSo18UITraitEnvironment", "init"]
+- ["PSo18UITraitEnvironment", "item"]
+- !private ["PSo18UITraitEnvironment", "layer"]
+- ["PSo18UITraitEnvironment", "numOfView"]
+- ["PSo18UITraitEnvironment", "playButton"]
+- ["PSo18UITraitEnvironment", "setSelected"]
+- !private ["PSo18UITraitEnvironment", "tintColor"]
+- ["PSo18UITraitEnvironment", "title"]
+- ["PSo18UITraitEnvironment", ""]
+- ["CSo6UIView", "ATItem"]
+- ["CSo6UIView", "Bool"]
+- !private ["CSo6UIView", "COURSE_ITEM_AUDIO_DURATION"]
+- !private ["CSo6UIView", "Double"]
+- ["CSo6UIView", "PlaybackButton"]
+- !private ["CSo6UIView", "UIEdgeInsets"]
+- ["CSo6UIView", "UILabel"]
+- !private ["CSo6UIView", "adjustMargin"]
+- ["CSo6UIView", "awakeFromNib"]
+- !private ["CSo6UIView", "contentEdgeInsets"]
+- !private ["CSo6UIView", "duration"]
+- !private ["CSo6UIView", "frame"]
+- ["CSo6UIView", "init"]
+- ["CSo6UIView", "item"]
+- !private ["CSo6UIView", "layer"]
+- ["CSo6UIView", "numOfView"]
+- ["CSo6UIView", "playButton"]
+- ["CSo6UIView", "setSelected"]
+- !private ["CSo6UIView", "tintColor"]
+- ["CSo6UIView", "title"]
+- !private ["Ps24_ColorLiteralConvertible", "CGColor"]
+- ["Ps21_ObjectiveCBridgeable", "Some"]
+- !private ["Ps12_Reflectable", "COURSE_ITEM_AUDIO_DURATION"]
+- ["Ps12_Reflectable", "Some"]
+- !private ["Ps12_Reflectable", "UIEdgeInsets"]
+- !private ["Ps12_Reflectable", "adjustMargin"]
+- ["Ps12_Reflectable", "awakeFromNib"]
+- !private ["Ps12_Reflectable", "contentEdgeInsets"]
+- !private ["Ps12_Reflectable", "duration"]
+- !private ["Ps12_Reflectable", "frame"]
+- !private ["Ps12_Reflectable", "height"]
+- ["Ps12_Reflectable", "init"]
+- ["Ps12_Reflectable", "item"]
+- !private ["Ps12_Reflectable", "layer"]
+- ["Ps12_Reflectable", "numOfView"]
+- ["Ps12_Reflectable", "playButton"]
+- ["Ps12_Reflectable", "setSelected"]
+- !private ["Ps12_Reflectable", "size"]
+- !private ["Ps12_Reflectable", "subscript"]
+- !private ["Ps12_Reflectable", "tintColor"]
+- ["Ps12_Reflectable", "title"]
+- ["Ps12_Reflectable", ""]
+depends-nominal:
+- !private "C10Babylonian6ATItem"
+- "Ps9AnyObject"
+- !private "CSo7CALayer"
+- !private "PSo13CAMediaTiming"
+- !private "V12CoreGraphics7CGFloat"
+- !private "VSC6CGRect"
+- !private "VSC6CGSize"
+- "Ps11CVarArgType"
+- !private "C10Babylonian10CourseItem"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- !private "Ps28DictionaryLiteralConvertible"
+- "Ps9Equatable"
+- "Ps8Hashable"
+- "SQ"
+- "C10Babylonian14MainCourseCell"
+- "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "CSo12NSDictionary"
+- !private "PSo17NSFastEnumeration"
+- !private "PSo16NSMutableCopying"
+- !private "CSo19NSMutableDictionary"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- "Ps21NilLiteralConvertible"
+- !private "Sq"
+- !private "C10Babylonian14PlaybackButton"
+- !private "Ps12SequenceType"
+- !private "SS"
+- "PSo29UIAccessibilityIdentification"
+- "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- !private "CSo8UIButton"
+- !private "CSo7UIColor"
+- !private "CSo9UIControl"
+- "PSo17UICoordinateSpace"
+- "PSo13UIDynamicItem"
+- !private "VSC12UIEdgeInsets"
+- "PSo18UIFocusEnvironment"
+- "PSo27UIGestureRecognizerDelegate"
+- "CSo11UIResponder"
+- "CSo15UITableViewCell"
+- "PSo18UITraitEnvironment"
+- "CSo6UIView"
+- !private "Ps24_ColorLiteralConvertible"
+- "Ps21_ObjectiveCBridgeable"
+- "Ps12_Reflectable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/app-Bridging-Header.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/RNCryptor.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/AppConstants.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/StreamingKit/STKAudioPlayer.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/StreamingKit/STKDataSource.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/Welcome/WelcomeView.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/ProgressHUD/ProgressHUD.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/UIImageView+WebCache.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageCompat.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageManager.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageOperation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageDownloader.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDImageCache.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FirebaseServerValue.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FTransactionResult.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FMutableData.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FirebaseApp.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FQuery.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/Firebase.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FEventType.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FDataSnapshot.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FConfig.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FAuthType.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FAuthData.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/Firebase-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Modules/TagListView.swiftmodule/x86_64.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Headers/TagListView-Swift.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Headers/TagListView-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BoltsVersion.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/Bolts.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFTaskCompletionSource.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFTask.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFExecutor.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationTokenSource.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationTokenRegistration.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationToken.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/Bolts-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPurchase.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFProduct.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFNetworkActivityIndicatorManager.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFInstallation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUserAuthenticationDelegate.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFSession.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFRole.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFRelation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Subclass.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFGeoPoint.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConfig+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConfig.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnonymousUtils+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFSubclassing.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnonymousUtils.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnalytics.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFACL.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConstants.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/ParseClientConfiguration.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/Parse.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/Parse-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreMedia.swiftmodule"
+interface-hash: "ab6299847b772fe4863c700b5409cbac"

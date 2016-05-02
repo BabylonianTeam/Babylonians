@@ -1,0 +1,20 @@
+dependencies: \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/Welcome/LoginView.m \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/ProgressHUD/ProgressHUD.h \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/AppConstants.h \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Intermediates/Babylonian.build/Debug-iphonesimulator/Babylonian.build/DerivedSources/Babylonian-Swift.h \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Modules/module.modulemap \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Headers/TagListView-Swift.h \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Headers/TagListView-umbrella.h \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/Firebase.h \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FQuery.h \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FEventType.h \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FDataSnapshot.h \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FirebaseApp.h \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FMutableData.h \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FTransactionResult.h \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FAuthData.h \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FAuthType.h \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FirebaseServerValue.h \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FConfig.h \
+  /Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/Welcome/LoginView.h

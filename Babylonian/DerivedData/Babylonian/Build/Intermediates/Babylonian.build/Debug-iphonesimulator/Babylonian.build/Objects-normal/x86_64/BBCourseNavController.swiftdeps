@@ -1,0 +1,250 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "BBCourseNavController"
+provides-nominal:
+- "C10Babylonian21BBCourseNavController"
+provides-member:
+- ["C10Babylonian21BBCourseNavController", ""]
+provides-dynamic-lookup:
+- "didReceiveMemoryWarning"
+- "viewOnly"
+- "currentCourse"
+- "viewDidLoad"
+depends-top-level:
+- "BBCourseNavController"
+- "UINavigationController"
+- "BBCourse"
+- "BooleanLiteralType"
+depends-member:
+- ["Ps9AnyObject", "currentCourse"]
+- ["Ps9AnyObject", "didReceiveMemoryWarning"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "viewDidLoad"]
+- ["Ps9AnyObject", "viewOnly"]
+- ["Ps9AnyObject", ""]
+- ["C10Babylonian21BBCourseNavController", "BBCourse"]
+- ["C10Babylonian21BBCourseNavController", "currentCourse"]
+- ["C10Babylonian21BBCourseNavController", "deinit"]
+- ["C10Babylonian21BBCourseNavController", "didReceiveMemoryWarning"]
+- ["C10Babylonian21BBCourseNavController", "init"]
+- ["C10Babylonian21BBCourseNavController", "viewDidLoad"]
+- ["C10Babylonian21BBCourseNavController", "viewOnly"]
+- ["Ps11CVarArgType", "currentCourse"]
+- ["Ps11CVarArgType", "didReceiveMemoryWarning"]
+- ["Ps11CVarArgType", "init"]
+- ["Ps11CVarArgType", "viewDidLoad"]
+- ["Ps11CVarArgType", "viewOnly"]
+- ["Ps11CVarArgType", ""]
+- ["Ps28CustomDebugStringConvertible", "currentCourse"]
+- ["Ps28CustomDebugStringConvertible", "didReceiveMemoryWarning"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
+- ["Ps28CustomDebugStringConvertible", "viewOnly"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- ["Ps23CustomStringConvertible", "currentCourse"]
+- ["Ps23CustomStringConvertible", "didReceiveMemoryWarning"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "viewDidLoad"]
+- ["Ps23CustomStringConvertible", "viewOnly"]
+- ["Ps23CustomStringConvertible", ""]
+- ["Ps9Equatable", "currentCourse"]
+- ["Ps9Equatable", "didReceiveMemoryWarning"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "viewDidLoad"]
+- ["Ps9Equatable", "viewOnly"]
+- ["Ps9Equatable", ""]
+- ["Ps8Hashable", "currentCourse"]
+- ["Ps8Hashable", "didReceiveMemoryWarning"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "viewDidLoad"]
+- ["Ps8Hashable", "viewOnly"]
+- ["Ps8Hashable", ""]
+- ["PSo8NSCoding", "currentCourse"]
+- ["PSo8NSCoding", "didReceiveMemoryWarning"]
+- ["PSo8NSCoding", "init"]
+- ["PSo8NSCoding", "viewDidLoad"]
+- ["PSo8NSCoding", "viewOnly"]
+- ["PSo8NSCoding", ""]
+- ["PSo26NSExtensionRequestHandling", "currentCourse"]
+- ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
+- ["PSo26NSExtensionRequestHandling", "init"]
+- ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
+- ["PSo26NSExtensionRequestHandling", "viewOnly"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- ["CSo8NSObject", "BBCourse"]
+- ["CSo8NSObject", "currentCourse"]
+- ["CSo8NSObject", "didReceiveMemoryWarning"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "viewDidLoad"]
+- ["CSo8NSObject", "viewOnly"]
+- ["PSo16NSObjectProtocol", "currentCourse"]
+- ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "viewDidLoad"]
+- ["PSo16NSObjectProtocol", "viewOnly"]
+- ["PSo16NSObjectProtocol", ""]
+- ["PSo21UIAppearanceContainer", "currentCourse"]
+- ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
+- ["PSo21UIAppearanceContainer", "init"]
+- ["PSo21UIAppearanceContainer", "viewDidLoad"]
+- ["PSo21UIAppearanceContainer", "viewOnly"]
+- ["PSo21UIAppearanceContainer", ""]
+- ["PSo18UIContentContainer", "currentCourse"]
+- ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
+- ["PSo18UIContentContainer", "init"]
+- ["PSo18UIContentContainer", "viewDidLoad"]
+- ["PSo18UIContentContainer", "viewOnly"]
+- ["PSo18UIContentContainer", ""]
+- ["PSo18UIFocusEnvironment", "currentCourse"]
+- ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- ["PSo18UIFocusEnvironment", "viewOnly"]
+- ["PSo18UIFocusEnvironment", ""]
+- ["CSo22UINavigationController", "BBCourse"]
+- ["CSo22UINavigationController", "currentCourse"]
+- ["CSo22UINavigationController", "didReceiveMemoryWarning"]
+- ["CSo22UINavigationController", "init"]
+- ["CSo22UINavigationController", "viewDidLoad"]
+- ["CSo22UINavigationController", "viewOnly"]
+- ["CSo22UINavigationController", ""]
+- ["CSo11UIResponder", "BBCourse"]
+- ["CSo11UIResponder", "currentCourse"]
+- ["CSo11UIResponder", "didReceiveMemoryWarning"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "viewDidLoad"]
+- ["CSo11UIResponder", "viewOnly"]
+- ["PSo16UIStateRestoring", "currentCourse"]
+- ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
+- ["PSo16UIStateRestoring", "init"]
+- ["PSo16UIStateRestoring", "viewDidLoad"]
+- ["PSo16UIStateRestoring", "viewOnly"]
+- ["PSo16UIStateRestoring", ""]
+- ["PSo18UITraitEnvironment", "currentCourse"]
+- ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UITraitEnvironment", "init"]
+- ["PSo18UITraitEnvironment", "viewDidLoad"]
+- ["PSo18UITraitEnvironment", "viewOnly"]
+- ["PSo18UITraitEnvironment", ""]
+- ["CSo16UIViewController", "BBCourse"]
+- ["CSo16UIViewController", "currentCourse"]
+- ["CSo16UIViewController", "didReceiveMemoryWarning"]
+- ["CSo16UIViewController", "init"]
+- ["CSo16UIViewController", "viewDidLoad"]
+- ["CSo16UIViewController", "viewOnly"]
+depends-nominal:
+- "Ps9AnyObject"
+- "C10Babylonian21BBCourseNavController"
+- "Ps11CVarArgType"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps8Hashable"
+- "PSo8NSCoding"
+- "PSo26NSExtensionRequestHandling"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "PSo21UIAppearanceContainer"
+- "PSo18UIContentContainer"
+- "PSo18UIFocusEnvironment"
+- "CSo22UINavigationController"
+- "CSo11UIResponder"
+- "PSo16UIStateRestoring"
+- "PSo18UITraitEnvironment"
+- "CSo16UIViewController"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/app-Bridging-Header.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/RNCryptor.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/AppConstants.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/StreamingKit/STKAudioPlayer.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/StreamingKit/STKDataSource.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/Welcome/WelcomeView.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/ProgressHUD/ProgressHUD.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/UIImageView+WebCache.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageCompat.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageManager.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageOperation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageDownloader.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDImageCache.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FirebaseServerValue.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FTransactionResult.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FMutableData.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FirebaseApp.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FQuery.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/Firebase.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FEventType.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FDataSnapshot.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FConfig.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FAuthType.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FAuthData.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/Firebase-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Modules/TagListView.swiftmodule/x86_64.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Headers/TagListView-Swift.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Headers/TagListView-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BoltsVersion.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/Bolts.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFTaskCompletionSource.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFTask.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFExecutor.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationTokenSource.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationTokenRegistration.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationToken.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/Bolts-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPurchase.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFProduct.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFNetworkActivityIndicatorManager.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFInstallation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUserAuthenticationDelegate.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFSession.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFRole.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFRelation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Subclass.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFGeoPoint.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConfig+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConfig.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnonymousUtils+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFSubclassing.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnonymousUtils.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnalytics.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFACL.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConstants.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/ParseClientConfiguration.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/Parse.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/Parse-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreMedia.swiftmodule"
+interface-hash: "4e3f6e7c6f97d70accdb3565d0380c44"

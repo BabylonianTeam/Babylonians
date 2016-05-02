@@ -1,0 +1,944 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "TagViewCell"
+provides-nominal:
+- "C10Babylonian11TagViewCell"
+provides-member:
+- ["C10Babylonian11TagViewCell", ""]
+provides-dynamic-lookup:
+- "clearAllTags"
+- "textField"
+- "addTag"
+- "currentCourse"
+- "awakeFromNib"
+- "refreshTags"
+- "textFieldShouldReturn"
+- "tagListView"
+- "setSelected"
+depends-top-level:
+- "TagViewCell"
+- "UITableViewCell"
+- "String"
+- "UITextField"
+- "BBCourse"
+- "UIButton"
+- "UITextFieldDelegate"
+- !private ">"
+- "Void"
+- "Bool"
+- !private "BooleanLiteralType"
+- "TagListView"
+depends-member:
+- !private ["OC11TagListView11TagListView9Alignment", "Left"]
+- ["Ps9AnyObject", "addTag"]
+- !private ["Ps9AnyObject", "alignment"]
+- ["Ps9AnyObject", "awakeFromNib"]
+- !private ["Ps9AnyObject", "characters"]
+- ["Ps9AnyObject", "clearAllTags"]
+- ["Ps9AnyObject", "currentCourse"]
+- !private ["Ps9AnyObject", "delegate"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "refreshTags"]
+- !private ["Ps9AnyObject", "removeAllTags"]
+- !private ["Ps9AnyObject", "resignFirstResponder"]
+- ["Ps9AnyObject", "setSelected"]
+- !private ["Ps9AnyObject", "tag"]
+- ["Ps9AnyObject", "tagListView"]
+- !private ["Ps9AnyObject", "text"]
+- ["Ps9AnyObject", "textField"]
+- ["Ps9AnyObject", "textFieldDidBeginEditing"]
+- ["Ps9AnyObject", "textFieldDidEndEditing"]
+- ["Ps9AnyObject", "textFieldShouldBeginEditing"]
+- ["Ps9AnyObject", "textFieldShouldClear"]
+- ["Ps9AnyObject", "textFieldShouldEndEditing"]
+- ["Ps9AnyObject", "textFieldShouldReturn"]
+- !private ["Ps9AnyObject", "trim"]
+- ["Ps9AnyObject", ""]
+- !private ["Sa", "Generator"]
+- !private ["Sa", "Index"]
+- !private ["Sa", "SubSequence"]
+- !private ["Sa", "_Element"]
+- !private ["Sa", "count"]
+- !private ["Ps23ArrayLiteralConvertible", "Generator"]
+- !private ["Ps23ArrayLiteralConvertible", "Index"]
+- !private ["Ps23ArrayLiteralConvertible", "SubSequence"]
+- !private ["Ps23ArrayLiteralConvertible", "_Element"]
+- !private ["Ps23ArrayLiteralConvertible", "count"]
+- !private ["Vs10ArraySlice", "Generator"]
+- !private ["Vs10ArraySlice", "Index"]
+- !private ["C10Babylonian8BBCourse", "addTag"]
+- !private ["C10Babylonian8BBCourse", "removeAllTags"]
+- !private ["C10Babylonian8BBCourse", "tag"]
+- !private ["Ps22BidirectionalIndexType", "Distance"]
+- !private ["Ps22BidirectionalIndexType", "IntegerLiteralType"]
+- !private ["Ps21BitwiseOperationsType", "Distance"]
+- !private ["Ps21BitwiseOperationsType", "IntegerLiteralType"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["Ps25BooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps11BooleanType", "_getBuiltinLogicValue"]
+- !private ["Ps11CVarArgType", "Distance"]
+- !private ["Ps11CVarArgType", "IntegerLiteralType"]
+- ["Ps11CVarArgType", "addTag"]
+- !private ["Ps11CVarArgType", "alignment"]
+- ["Ps11CVarArgType", "awakeFromNib"]
+- !private ["Ps11CVarArgType", "characters"]
+- ["Ps11CVarArgType", "clearAllTags"]
+- ["Ps11CVarArgType", "currentCourse"]
+- !private ["Ps11CVarArgType", "delegate"]
+- ["Ps11CVarArgType", "init"]
+- ["Ps11CVarArgType", "refreshTags"]
+- !private ["Ps11CVarArgType", "removeAllTags"]
+- !private ["Ps11CVarArgType", "resignFirstResponder"]
+- ["Ps11CVarArgType", "setSelected"]
+- !private ["Ps11CVarArgType", "tag"]
+- ["Ps11CVarArgType", "tagListView"]
+- !private ["Ps11CVarArgType", "text"]
+- ["Ps11CVarArgType", "textField"]
+- ["Ps11CVarArgType", "textFieldDidBeginEditing"]
+- ["Ps11CVarArgType", "textFieldDidEndEditing"]
+- ["Ps11CVarArgType", "textFieldShouldBeginEditing"]
+- ["Ps11CVarArgType", "textFieldShouldClear"]
+- ["Ps11CVarArgType", "textFieldShouldEndEditing"]
+- ["Ps11CVarArgType", "textFieldShouldReturn"]
+- !private ["Ps11CVarArgType", "trim"]
+- ["Ps11CVarArgType", ""]
+- !private ["VSS13CharacterView", "Generator"]
+- !private ["VSS13CharacterView", "Index"]
+- !private ["VSS13CharacterView", "SubSequence"]
+- !private ["VSS13CharacterView", "count"]
+- !private ["Ps14CollectionType", "Generator"]
+- !private ["Ps14CollectionType", "Index"]
+- !private ["Ps14CollectionType", "SubSequence"]
+- !private ["Ps14CollectionType", "_Element"]
+- !private ["Ps14CollectionType", "count"]
+- !private ["Ps10Comparable", "Distance"]
+- !private ["Ps10Comparable", "IntegerLiteralType"]
+- !private ["Ps10Comparable", "characters"]
+- !private ["Ps10Comparable", "trim"]
+- !private ["Ps28CustomDebugStringConvertible", "Generator"]
+- !private ["Ps28CustomDebugStringConvertible", "Index"]
+- ["Ps28CustomDebugStringConvertible", "Some"]
+- !private ["Ps28CustomDebugStringConvertible", "SubSequence"]
+- !private ["Ps28CustomDebugStringConvertible", "_Element"]
+- ["Ps28CustomDebugStringConvertible", "addTag"]
+- !private ["Ps28CustomDebugStringConvertible", "alignment"]
+- ["Ps28CustomDebugStringConvertible", "awakeFromNib"]
+- !private ["Ps28CustomDebugStringConvertible", "characters"]
+- ["Ps28CustomDebugStringConvertible", "clearAllTags"]
+- !private ["Ps28CustomDebugStringConvertible", "count"]
+- ["Ps28CustomDebugStringConvertible", "currentCourse"]
+- !private ["Ps28CustomDebugStringConvertible", "delegate"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "refreshTags"]
+- !private ["Ps28CustomDebugStringConvertible", "removeAllTags"]
+- !private ["Ps28CustomDebugStringConvertible", "resignFirstResponder"]
+- ["Ps28CustomDebugStringConvertible", "setSelected"]
+- !private ["Ps28CustomDebugStringConvertible", "tag"]
+- ["Ps28CustomDebugStringConvertible", "tagListView"]
+- !private ["Ps28CustomDebugStringConvertible", "text"]
+- ["Ps28CustomDebugStringConvertible", "textField"]
+- ["Ps28CustomDebugStringConvertible", "textFieldDidBeginEditing"]
+- ["Ps28CustomDebugStringConvertible", "textFieldDidEndEditing"]
+- ["Ps28CustomDebugStringConvertible", "textFieldShouldBeginEditing"]
+- ["Ps28CustomDebugStringConvertible", "textFieldShouldClear"]
+- ["Ps28CustomDebugStringConvertible", "textFieldShouldEndEditing"]
+- ["Ps28CustomDebugStringConvertible", "textFieldShouldReturn"]
+- !private ["Ps28CustomDebugStringConvertible", "trim"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps23CustomStringConvertible", "Distance"]
+- !private ["Ps23CustomStringConvertible", "Generator"]
+- !private ["Ps23CustomStringConvertible", "Index"]
+- !private ["Ps23CustomStringConvertible", "IntegerLiteralType"]
+- !private ["Ps23CustomStringConvertible", "SubSequence"]
+- !private ["Ps23CustomStringConvertible", "_Element"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- ["Ps23CustomStringConvertible", "addTag"]
+- !private ["Ps23CustomStringConvertible", "alignment"]
+- ["Ps23CustomStringConvertible", "awakeFromNib"]
+- !private ["Ps23CustomStringConvertible", "characters"]
+- ["Ps23CustomStringConvertible", "clearAllTags"]
+- !private ["Ps23CustomStringConvertible", "count"]
+- ["Ps23CustomStringConvertible", "currentCourse"]
+- !private ["Ps23CustomStringConvertible", "delegate"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "refreshTags"]
+- !private ["Ps23CustomStringConvertible", "removeAllTags"]
+- !private ["Ps23CustomStringConvertible", "resignFirstResponder"]
+- ["Ps23CustomStringConvertible", "setSelected"]
+- !private ["Ps23CustomStringConvertible", "tag"]
+- ["Ps23CustomStringConvertible", "tagListView"]
+- !private ["Ps23CustomStringConvertible", "text"]
+- ["Ps23CustomStringConvertible", "textField"]
+- ["Ps23CustomStringConvertible", "textFieldDidBeginEditing"]
+- ["Ps23CustomStringConvertible", "textFieldDidEndEditing"]
+- ["Ps23CustomStringConvertible", "textFieldShouldBeginEditing"]
+- ["Ps23CustomStringConvertible", "textFieldShouldClear"]
+- ["Ps23CustomStringConvertible", "textFieldShouldEndEditing"]
+- ["Ps23CustomStringConvertible", "textFieldShouldReturn"]
+- !private ["Ps23CustomStringConvertible", "trim"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "Distance"]
+- !private ["Ps9Equatable", "IntegerLiteralType"]
+- !private ["Ps9Equatable", "Left"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "addTag"]
+- !private ["Ps9Equatable", "alignment"]
+- ["Ps9Equatable", "awakeFromNib"]
+- !private ["Ps9Equatable", "characters"]
+- ["Ps9Equatable", "clearAllTags"]
+- ["Ps9Equatable", "currentCourse"]
+- !private ["Ps9Equatable", "delegate"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "refreshTags"]
+- !private ["Ps9Equatable", "removeAllTags"]
+- !private ["Ps9Equatable", "resignFirstResponder"]
+- ["Ps9Equatable", "setSelected"]
+- !private ["Ps9Equatable", "tag"]
+- ["Ps9Equatable", "tagListView"]
+- !private ["Ps9Equatable", "text"]
+- ["Ps9Equatable", "textField"]
+- ["Ps9Equatable", "textFieldDidBeginEditing"]
+- ["Ps9Equatable", "textFieldDidEndEditing"]
+- ["Ps9Equatable", "textFieldShouldBeginEditing"]
+- ["Ps9Equatable", "textFieldShouldClear"]
+- ["Ps9Equatable", "textFieldShouldEndEditing"]
+- ["Ps9Equatable", "textFieldShouldReturn"]
+- !private ["Ps9Equatable", "trim"]
+- ["Ps9Equatable", ""]
+- !private ["Ps41ExtendedGraphemeClusterLiteralConvertible", "characters"]
+- !private ["Ps41ExtendedGraphemeClusterLiteralConvertible", "trim"]
+- !private ["Ps16ForwardIndexType", "Distance"]
+- !private ["Ps16ForwardIndexType", "IntegerLiteralType"]
+- !private ["Ps13GeneratorType", "Element"]
+- !private ["Ps8Hashable", "Distance"]
+- !private ["Ps8Hashable", "IntegerLiteralType"]
+- !private ["Ps8Hashable", "Left"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "addTag"]
+- !private ["Ps8Hashable", "alignment"]
+- ["Ps8Hashable", "awakeFromNib"]
+- !private ["Ps8Hashable", "characters"]
+- ["Ps8Hashable", "clearAllTags"]
+- ["Ps8Hashable", "currentCourse"]
+- !private ["Ps8Hashable", "delegate"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "refreshTags"]
+- !private ["Ps8Hashable", "removeAllTags"]
+- !private ["Ps8Hashable", "resignFirstResponder"]
+- ["Ps8Hashable", "setSelected"]
+- !private ["Ps8Hashable", "tag"]
+- ["Ps8Hashable", "tagListView"]
+- !private ["Ps8Hashable", "text"]
+- ["Ps8Hashable", "textField"]
+- ["Ps8Hashable", "textFieldDidBeginEditing"]
+- ["Ps8Hashable", "textFieldDidEndEditing"]
+- ["Ps8Hashable", "textFieldShouldBeginEditing"]
+- ["Ps8Hashable", "textFieldShouldClear"]
+- ["Ps8Hashable", "textFieldShouldEndEditing"]
+- ["Ps8Hashable", "textFieldShouldReturn"]
+- !private ["Ps8Hashable", "trim"]
+- ["Ps8Hashable", ""]
+- !private ["VVSS13CharacterView5Index", "Distance"]
+- !private ["Ps9Indexable", "Generator"]
+- !private ["Ps9Indexable", "Index"]
+- !private ["Ps9Indexable", "SubSequence"]
+- !private ["Ps9Indexable", "_Element"]
+- !private ["Ps9Indexable", "count"]
+- !private ["Vs17IndexingGenerator", "Element"]
+- !private ["Si", "Distance"]
+- !private ["Si", "IntegerLiteralType"]
+- !private ["Ps21IntegerArithmeticType", "Distance"]
+- !private ["Ps21IntegerArithmeticType", "IntegerLiteralType"]
+- !private ["Ps25IntegerLiteralConvertible", "Distance"]
+- !private ["Ps25IntegerLiteralConvertible", "IntegerLiteralType"]
+- !private ["Ps11IntegerType", "Distance"]
+- !private ["Ps11IntegerType", "IntegerLiteralType"]
+- !private ["Ps14MirrorPathType", "Distance"]
+- !private ["Ps14MirrorPathType", "IntegerLiteralType"]
+- !private ["Ps14MirrorPathType", "characters"]
+- !private ["Ps14MirrorPathType", "trim"]
+- !private ["Ps21MutableCollectionType", "Generator"]
+- !private ["Ps21MutableCollectionType", "Index"]
+- !private ["Ps21MutableCollectionType", "SubSequence"]
+- !private ["Ps21MutableCollectionType", "_Element"]
+- !private ["Ps21MutableCollectionType", "count"]
+- !private ["Ps16MutableIndexable", "Generator"]
+- !private ["Ps16MutableIndexable", "Index"]
+- !private ["Ps16MutableIndexable", "SubSequence"]
+- !private ["Ps16MutableIndexable", "_Element"]
+- !private ["Ps16MutableIndexable", "count"]
+- !private ["Ps16MutableSliceable", "Generator"]
+- !private ["Ps16MutableSliceable", "Index"]
+- !private ["Ps16MutableSliceable", "SubSequence"]
+- !private ["Ps16MutableSliceable", "_Element"]
+- !private ["Ps16MutableSliceable", "count"]
+- ["PSo8NSCoding", "addTag"]
+- !private ["PSo8NSCoding", "alignment"]
+- ["PSo8NSCoding", "awakeFromNib"]
+- !private ["PSo8NSCoding", "characters"]
+- ["PSo8NSCoding", "clearAllTags"]
+- ["PSo8NSCoding", "currentCourse"]
+- !private ["PSo8NSCoding", "delegate"]
+- ["PSo8NSCoding", "init"]
+- ["PSo8NSCoding", "refreshTags"]
+- !private ["PSo8NSCoding", "removeAllTags"]
+- !private ["PSo8NSCoding", "resignFirstResponder"]
+- ["PSo8NSCoding", "setSelected"]
+- ["PSo8NSCoding", "tagListView"]
+- !private ["PSo8NSCoding", "text"]
+- ["PSo8NSCoding", "textField"]
+- ["PSo8NSCoding", "textFieldDidBeginEditing"]
+- ["PSo8NSCoding", "textFieldDidEndEditing"]
+- ["PSo8NSCoding", "textFieldShouldBeginEditing"]
+- ["PSo8NSCoding", "textFieldShouldClear"]
+- ["PSo8NSCoding", "textFieldShouldEndEditing"]
+- ["PSo8NSCoding", "textFieldShouldReturn"]
+- !private ["PSo8NSCoding", "trim"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo9NSCopying", "characters"]
+- !private ["PSo9NSCopying", "trim"]
+- !private ["PSo16NSMutableCopying", "characters"]
+- !private ["PSo16NSMutableCopying", "trim"]
+- ["CSo8NSObject", "BBCourse"]
+- ["CSo8NSObject", "Bool"]
+- ["CSo8NSObject", "String"]
+- ["CSo8NSObject", "TagListView"]
+- ["CSo8NSObject", "UIButton"]
+- ["CSo8NSObject", "UITextField"]
+- ["CSo8NSObject", "Void"]
+- ["CSo8NSObject", "addTag"]
+- !private ["CSo8NSObject", "alignment"]
+- ["CSo8NSObject", "awakeFromNib"]
+- !private ["CSo8NSObject", "characters"]
+- ["CSo8NSObject", "clearAllTags"]
+- ["CSo8NSObject", "currentCourse"]
+- !private ["CSo8NSObject", "delegate"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "refreshTags"]
+- !private ["CSo8NSObject", "removeAllTags"]
+- !private ["CSo8NSObject", "resignFirstResponder"]
+- ["CSo8NSObject", "setSelected"]
+- !private ["CSo8NSObject", "tag"]
+- ["CSo8NSObject", "tagListView"]
+- !private ["CSo8NSObject", "text"]
+- ["CSo8NSObject", "textField"]
+- ["CSo8NSObject", "textFieldDidBeginEditing"]
+- ["CSo8NSObject", "textFieldDidEndEditing"]
+- ["CSo8NSObject", "textFieldShouldBeginEditing"]
+- ["CSo8NSObject", "textFieldShouldClear"]
+- ["CSo8NSObject", "textFieldShouldEndEditing"]
+- ["CSo8NSObject", "textFieldShouldReturn"]
+- !private ["CSo8NSObject", "trim"]
+- ["PSo16NSObjectProtocol", "addTag"]
+- !private ["PSo16NSObjectProtocol", "alignment"]
+- ["PSo16NSObjectProtocol", "awakeFromNib"]
+- !private ["PSo16NSObjectProtocol", "characters"]
+- ["PSo16NSObjectProtocol", "clearAllTags"]
+- ["PSo16NSObjectProtocol", "currentCourse"]
+- !private ["PSo16NSObjectProtocol", "delegate"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "refreshTags"]
+- !private ["PSo16NSObjectProtocol", "removeAllTags"]
+- !private ["PSo16NSObjectProtocol", "resignFirstResponder"]
+- ["PSo16NSObjectProtocol", "setSelected"]
+- !private ["PSo16NSObjectProtocol", "tag"]
+- ["PSo16NSObjectProtocol", "tagListView"]
+- !private ["PSo16NSObjectProtocol", "text"]
+- ["PSo16NSObjectProtocol", "textField"]
+- ["PSo16NSObjectProtocol", "textFieldDidBeginEditing"]
+- ["PSo16NSObjectProtocol", "textFieldDidEndEditing"]
+- ["PSo16NSObjectProtocol", "textFieldShouldBeginEditing"]
+- ["PSo16NSObjectProtocol", "textFieldShouldClear"]
+- ["PSo16NSObjectProtocol", "textFieldShouldEndEditing"]
+- ["PSo16NSObjectProtocol", "textFieldShouldReturn"]
+- !private ["PSo16NSObjectProtocol", "trim"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "characters"]
+- !private ["PSo14NSSecureCoding", "trim"]
+- !private ["CSo8NSString", "characters"]
+- !private ["CSo8NSString", "trim"]
+- ["Ps21NilLiteralConvertible", "Some"]
+- ["Sq", "Some"]
+- !private ["Ps16OutputStreamType", "characters"]
+- !private ["Ps16OutputStreamType", "trim"]
+- !private ["Ps21RandomAccessIndexType", "Distance"]
+- !private ["Ps21RandomAccessIndexType", "IntegerLiteralType"]
+- !private ["Ps30RangeReplaceableCollectionType", "Generator"]
+- !private ["Ps30RangeReplaceableCollectionType", "Index"]
+- !private ["Ps30RangeReplaceableCollectionType", "SubSequence"]
+- !private ["Ps30RangeReplaceableCollectionType", "_Element"]
+- !private ["Ps30RangeReplaceableCollectionType", "count"]
+- !private ["Ps16RawRepresentable", "Left"]
+- !private ["Ps12SequenceType", "Element"]
+- !private ["Ps12SequenceType", "Generator"]
+- !private ["Ps12SequenceType", "Index"]
+- !private ["Ps12SequenceType", "SubSequence"]
+- !private ["Ps12SequenceType", "_Element"]
+- !private ["Ps12SequenceType", "count"]
+- !private ["Ps17SignedIntegerType", "Distance"]
+- !private ["Ps17SignedIntegerType", "IntegerLiteralType"]
+- !private ["Ps16SignedNumberType", "Distance"]
+- !private ["Ps16SignedNumberType", "IntegerLiteralType"]
+- !private ["Ps10Streamable", "characters"]
+- !private ["Ps10Streamable", "trim"]
+- !private ["Ps10Strideable", "Distance"]
+- !private ["Ps10Strideable", "IntegerLiteralType"]
+- !private ["SS", "characters"]
+- !private ["SS", "trim"]
+- !private ["Ps30StringInterpolationConvertible", "characters"]
+- !private ["Ps30StringInterpolationConvertible", "trim"]
+- !private ["Ps24StringLiteralConvertible", "characters"]
+- !private ["Ps24StringLiteralConvertible", "trim"]
+- !private ["C11TagListView11TagListView", "addTag"]
+- !private ["C11TagListView11TagListView", "alignment"]
+- !private ["C11TagListView11TagListView", "removeAllTags"]
+- ["C10Babylonian11TagViewCell", "BBCourse"]
+- ["C10Babylonian11TagViewCell", "Bool"]
+- ["C10Babylonian11TagViewCell", "String"]
+- ["C10Babylonian11TagViewCell", "TagListView"]
+- ["C10Babylonian11TagViewCell", "UIButton"]
+- ["C10Babylonian11TagViewCell", "UITextField"]
+- ["C10Babylonian11TagViewCell", "Void"]
+- ["C10Babylonian11TagViewCell", "addTag"]
+- ["C10Babylonian11TagViewCell", "awakeFromNib"]
+- ["C10Babylonian11TagViewCell", "clearAllTags"]
+- ["C10Babylonian11TagViewCell", "currentCourse"]
+- ["C10Babylonian11TagViewCell", "deinit"]
+- ["C10Babylonian11TagViewCell", "init"]
+- ["C10Babylonian11TagViewCell", "refreshTags"]
+- ["C10Babylonian11TagViewCell", "setSelected"]
+- ["C10Babylonian11TagViewCell", "tagListView"]
+- ["C10Babylonian11TagViewCell", "textField"]
+- ["C10Babylonian11TagViewCell", "textFieldDidBeginEditing"]
+- ["C10Babylonian11TagViewCell", "textFieldDidEndEditing"]
+- ["C10Babylonian11TagViewCell", "textFieldShouldBeginEditing"]
+- ["C10Babylonian11TagViewCell", "textFieldShouldClear"]
+- ["C10Babylonian11TagViewCell", "textFieldShouldEndEditing"]
+- ["C10Babylonian11TagViewCell", "textFieldShouldReturn"]
+- ["PSo29UIAccessibilityIdentification", "addTag"]
+- !private ["PSo29UIAccessibilityIdentification", "alignment"]
+- ["PSo29UIAccessibilityIdentification", "awakeFromNib"]
+- ["PSo29UIAccessibilityIdentification", "clearAllTags"]
+- ["PSo29UIAccessibilityIdentification", "currentCourse"]
+- !private ["PSo29UIAccessibilityIdentification", "delegate"]
+- ["PSo29UIAccessibilityIdentification", "init"]
+- ["PSo29UIAccessibilityIdentification", "refreshTags"]
+- !private ["PSo29UIAccessibilityIdentification", "removeAllTags"]
+- !private ["PSo29UIAccessibilityIdentification", "resignFirstResponder"]
+- ["PSo29UIAccessibilityIdentification", "setSelected"]
+- ["PSo29UIAccessibilityIdentification", "tagListView"]
+- !private ["PSo29UIAccessibilityIdentification", "text"]
+- ["PSo29UIAccessibilityIdentification", "textField"]
+- ["PSo29UIAccessibilityIdentification", "textFieldDidBeginEditing"]
+- ["PSo29UIAccessibilityIdentification", "textFieldDidEndEditing"]
+- ["PSo29UIAccessibilityIdentification", "textFieldShouldBeginEditing"]
+- ["PSo29UIAccessibilityIdentification", "textFieldShouldClear"]
+- ["PSo29UIAccessibilityIdentification", "textFieldShouldEndEditing"]
+- ["PSo29UIAccessibilityIdentification", "textFieldShouldReturn"]
+- ["PSo29UIAccessibilityIdentification", ""]
+- ["PSo12UIAppearance", "addTag"]
+- !private ["PSo12UIAppearance", "alignment"]
+- ["PSo12UIAppearance", "awakeFromNib"]
+- ["PSo12UIAppearance", "clearAllTags"]
+- ["PSo12UIAppearance", "currentCourse"]
+- !private ["PSo12UIAppearance", "delegate"]
+- ["PSo12UIAppearance", "init"]
+- ["PSo12UIAppearance", "refreshTags"]
+- !private ["PSo12UIAppearance", "removeAllTags"]
+- !private ["PSo12UIAppearance", "resignFirstResponder"]
+- ["PSo12UIAppearance", "setSelected"]
+- ["PSo12UIAppearance", "tagListView"]
+- !private ["PSo12UIAppearance", "text"]
+- ["PSo12UIAppearance", "textField"]
+- ["PSo12UIAppearance", "textFieldDidBeginEditing"]
+- ["PSo12UIAppearance", "textFieldDidEndEditing"]
+- ["PSo12UIAppearance", "textFieldShouldBeginEditing"]
+- ["PSo12UIAppearance", "textFieldShouldClear"]
+- ["PSo12UIAppearance", "textFieldShouldEndEditing"]
+- ["PSo12UIAppearance", "textFieldShouldReturn"]
+- ["PSo12UIAppearance", ""]
+- ["PSo21UIAppearanceContainer", "addTag"]
+- !private ["PSo21UIAppearanceContainer", "alignment"]
+- ["PSo21UIAppearanceContainer", "awakeFromNib"]
+- ["PSo21UIAppearanceContainer", "clearAllTags"]
+- ["PSo21UIAppearanceContainer", "currentCourse"]
+- !private ["PSo21UIAppearanceContainer", "delegate"]
+- ["PSo21UIAppearanceContainer", "init"]
+- ["PSo21UIAppearanceContainer", "refreshTags"]
+- !private ["PSo21UIAppearanceContainer", "removeAllTags"]
+- !private ["PSo21UIAppearanceContainer", "resignFirstResponder"]
+- ["PSo21UIAppearanceContainer", "setSelected"]
+- ["PSo21UIAppearanceContainer", "tagListView"]
+- !private ["PSo21UIAppearanceContainer", "text"]
+- ["PSo21UIAppearanceContainer", "textField"]
+- ["PSo21UIAppearanceContainer", "textFieldDidBeginEditing"]
+- ["PSo21UIAppearanceContainer", "textFieldDidEndEditing"]
+- ["PSo21UIAppearanceContainer", "textFieldShouldBeginEditing"]
+- ["PSo21UIAppearanceContainer", "textFieldShouldClear"]
+- ["PSo21UIAppearanceContainer", "textFieldShouldEndEditing"]
+- ["PSo21UIAppearanceContainer", "textFieldShouldReturn"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["CSo9UIControl", "delegate"]
+- !private ["CSo9UIControl", "resignFirstResponder"]
+- !private ["CSo9UIControl", "text"]
+- ["PSo17UICoordinateSpace", "addTag"]
+- !private ["PSo17UICoordinateSpace", "alignment"]
+- ["PSo17UICoordinateSpace", "awakeFromNib"]
+- ["PSo17UICoordinateSpace", "clearAllTags"]
+- ["PSo17UICoordinateSpace", "currentCourse"]
+- !private ["PSo17UICoordinateSpace", "delegate"]
+- ["PSo17UICoordinateSpace", "init"]
+- ["PSo17UICoordinateSpace", "refreshTags"]
+- !private ["PSo17UICoordinateSpace", "removeAllTags"]
+- !private ["PSo17UICoordinateSpace", "resignFirstResponder"]
+- ["PSo17UICoordinateSpace", "setSelected"]
+- ["PSo17UICoordinateSpace", "tagListView"]
+- !private ["PSo17UICoordinateSpace", "text"]
+- ["PSo17UICoordinateSpace", "textField"]
+- ["PSo17UICoordinateSpace", "textFieldDidBeginEditing"]
+- ["PSo17UICoordinateSpace", "textFieldDidEndEditing"]
+- ["PSo17UICoordinateSpace", "textFieldShouldBeginEditing"]
+- ["PSo17UICoordinateSpace", "textFieldShouldClear"]
+- ["PSo17UICoordinateSpace", "textFieldShouldEndEditing"]
+- ["PSo17UICoordinateSpace", "textFieldShouldReturn"]
+- ["PSo17UICoordinateSpace", ""]
+- ["PSo13UIDynamicItem", "addTag"]
+- !private ["PSo13UIDynamicItem", "alignment"]
+- ["PSo13UIDynamicItem", "awakeFromNib"]
+- ["PSo13UIDynamicItem", "clearAllTags"]
+- ["PSo13UIDynamicItem", "currentCourse"]
+- !private ["PSo13UIDynamicItem", "delegate"]
+- ["PSo13UIDynamicItem", "init"]
+- ["PSo13UIDynamicItem", "refreshTags"]
+- !private ["PSo13UIDynamicItem", "removeAllTags"]
+- !private ["PSo13UIDynamicItem", "resignFirstResponder"]
+- ["PSo13UIDynamicItem", "setSelected"]
+- ["PSo13UIDynamicItem", "tagListView"]
+- !private ["PSo13UIDynamicItem", "text"]
+- ["PSo13UIDynamicItem", "textField"]
+- ["PSo13UIDynamicItem", "textFieldDidBeginEditing"]
+- ["PSo13UIDynamicItem", "textFieldDidEndEditing"]
+- ["PSo13UIDynamicItem", "textFieldShouldBeginEditing"]
+- ["PSo13UIDynamicItem", "textFieldShouldClear"]
+- ["PSo13UIDynamicItem", "textFieldShouldEndEditing"]
+- ["PSo13UIDynamicItem", "textFieldShouldReturn"]
+- ["PSo13UIDynamicItem", ""]
+- ["PSo18UIFocusEnvironment", "addTag"]
+- !private ["PSo18UIFocusEnvironment", "alignment"]
+- ["PSo18UIFocusEnvironment", "awakeFromNib"]
+- ["PSo18UIFocusEnvironment", "clearAllTags"]
+- ["PSo18UIFocusEnvironment", "currentCourse"]
+- !private ["PSo18UIFocusEnvironment", "delegate"]
+- ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "refreshTags"]
+- !private ["PSo18UIFocusEnvironment", "removeAllTags"]
+- !private ["PSo18UIFocusEnvironment", "resignFirstResponder"]
+- ["PSo18UIFocusEnvironment", "setSelected"]
+- ["PSo18UIFocusEnvironment", "tagListView"]
+- !private ["PSo18UIFocusEnvironment", "text"]
+- ["PSo18UIFocusEnvironment", "textField"]
+- ["PSo18UIFocusEnvironment", "textFieldDidBeginEditing"]
+- ["PSo18UIFocusEnvironment", "textFieldDidEndEditing"]
+- ["PSo18UIFocusEnvironment", "textFieldShouldBeginEditing"]
+- ["PSo18UIFocusEnvironment", "textFieldShouldClear"]
+- ["PSo18UIFocusEnvironment", "textFieldShouldEndEditing"]
+- ["PSo18UIFocusEnvironment", "textFieldShouldReturn"]
+- ["PSo18UIFocusEnvironment", ""]
+- ["PSo27UIGestureRecognizerDelegate", "addTag"]
+- ["PSo27UIGestureRecognizerDelegate", "awakeFromNib"]
+- ["PSo27UIGestureRecognizerDelegate", "clearAllTags"]
+- ["PSo27UIGestureRecognizerDelegate", "currentCourse"]
+- ["PSo27UIGestureRecognizerDelegate", "init"]
+- ["PSo27UIGestureRecognizerDelegate", "refreshTags"]
+- ["PSo27UIGestureRecognizerDelegate", "setSelected"]
+- ["PSo27UIGestureRecognizerDelegate", "tagListView"]
+- ["PSo27UIGestureRecognizerDelegate", "textField"]
+- ["PSo27UIGestureRecognizerDelegate", "textFieldDidBeginEditing"]
+- ["PSo27UIGestureRecognizerDelegate", "textFieldDidEndEditing"]
+- ["PSo27UIGestureRecognizerDelegate", "textFieldShouldBeginEditing"]
+- ["PSo27UIGestureRecognizerDelegate", "textFieldShouldClear"]
+- ["PSo27UIGestureRecognizerDelegate", "textFieldShouldEndEditing"]
+- ["PSo27UIGestureRecognizerDelegate", "textFieldShouldReturn"]
+- ["PSo27UIGestureRecognizerDelegate", ""]
+- !private ["PSo10UIKeyInput", "delegate"]
+- !private ["PSo10UIKeyInput", "resignFirstResponder"]
+- !private ["PSo10UIKeyInput", "text"]
+- ["CSo11UIResponder", "BBCourse"]
+- ["CSo11UIResponder", "Bool"]
+- ["CSo11UIResponder", "String"]
+- ["CSo11UIResponder", "TagListView"]
+- ["CSo11UIResponder", "UIButton"]
+- ["CSo11UIResponder", "UITextField"]
+- ["CSo11UIResponder", "Void"]
+- ["CSo11UIResponder", "addTag"]
+- !private ["CSo11UIResponder", "alignment"]
+- ["CSo11UIResponder", "awakeFromNib"]
+- ["CSo11UIResponder", "clearAllTags"]
+- ["CSo11UIResponder", "currentCourse"]
+- !private ["CSo11UIResponder", "delegate"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "refreshTags"]
+- !private ["CSo11UIResponder", "removeAllTags"]
+- !private ["CSo11UIResponder", "resignFirstResponder"]
+- ["CSo11UIResponder", "setSelected"]
+- ["CSo11UIResponder", "tagListView"]
+- !private ["CSo11UIResponder", "text"]
+- ["CSo11UIResponder", "textField"]
+- ["CSo11UIResponder", "textFieldDidBeginEditing"]
+- ["CSo11UIResponder", "textFieldDidEndEditing"]
+- ["CSo11UIResponder", "textFieldShouldBeginEditing"]
+- ["CSo11UIResponder", "textFieldShouldClear"]
+- ["CSo11UIResponder", "textFieldShouldEndEditing"]
+- ["CSo11UIResponder", "textFieldShouldReturn"]
+- ["CSo15UITableViewCell", "BBCourse"]
+- ["CSo15UITableViewCell", "Bool"]
+- ["CSo15UITableViewCell", "String"]
+- ["CSo15UITableViewCell", "TagListView"]
+- ["CSo15UITableViewCell", "UIButton"]
+- ["CSo15UITableViewCell", "UITextField"]
+- ["CSo15UITableViewCell", "Void"]
+- ["CSo15UITableViewCell", "addTag"]
+- ["CSo15UITableViewCell", "awakeFromNib"]
+- ["CSo15UITableViewCell", "clearAllTags"]
+- ["CSo15UITableViewCell", "currentCourse"]
+- ["CSo15UITableViewCell", "init"]
+- ["CSo15UITableViewCell", "refreshTags"]
+- ["CSo15UITableViewCell", "setSelected"]
+- ["CSo15UITableViewCell", "tagListView"]
+- ["CSo15UITableViewCell", "textField"]
+- ["CSo15UITableViewCell", "textFieldDidBeginEditing"]
+- ["CSo15UITableViewCell", "textFieldDidEndEditing"]
+- ["CSo15UITableViewCell", "textFieldShouldBeginEditing"]
+- ["CSo15UITableViewCell", "textFieldShouldClear"]
+- ["CSo15UITableViewCell", "textFieldShouldEndEditing"]
+- ["CSo15UITableViewCell", "textFieldShouldReturn"]
+- ["CSo15UITableViewCell", ""]
+- !private ["CSo11UITextField", "delegate"]
+- !private ["CSo11UITextField", "resignFirstResponder"]
+- !private ["CSo11UITextField", "text"]
+- !private ["PSo19UITextFieldDelegate", "addTag"]
+- !private ["PSo19UITextFieldDelegate", "currentCourse"]
+- !private ["PSo19UITextFieldDelegate", "tagListView"]
+- ["PSo19UITextFieldDelegate", "textField"]
+- ["PSo19UITextFieldDelegate", "textFieldDidBeginEditing"]
+- ["PSo19UITextFieldDelegate", "textFieldDidEndEditing"]
+- ["PSo19UITextFieldDelegate", "textFieldShouldBeginEditing"]
+- ["PSo19UITextFieldDelegate", "textFieldShouldClear"]
+- ["PSo19UITextFieldDelegate", "textFieldShouldEndEditing"]
+- ["PSo19UITextFieldDelegate", "textFieldShouldReturn"]
+- ["PSo19UITextFieldDelegate", ""]
+- !private ["PSo11UITextInput", "delegate"]
+- !private ["PSo11UITextInput", "resignFirstResponder"]
+- !private ["PSo11UITextInput", "text"]
+- !private ["PSo17UITextInputTraits", "delegate"]
+- !private ["PSo17UITextInputTraits", "resignFirstResponder"]
+- !private ["PSo17UITextInputTraits", "text"]
+- ["PSo18UITraitEnvironment", "addTag"]
+- !private ["PSo18UITraitEnvironment", "alignment"]
+- ["PSo18UITraitEnvironment", "awakeFromNib"]
+- ["PSo18UITraitEnvironment", "clearAllTags"]
+- ["PSo18UITraitEnvironment", "currentCourse"]
+- !private ["PSo18UITraitEnvironment", "delegate"]
+- ["PSo18UITraitEnvironment", "init"]
+- ["PSo18UITraitEnvironment", "refreshTags"]
+- !private ["PSo18UITraitEnvironment", "removeAllTags"]
+- !private ["PSo18UITraitEnvironment", "resignFirstResponder"]
+- ["PSo18UITraitEnvironment", "setSelected"]
+- ["PSo18UITraitEnvironment", "tagListView"]
+- !private ["PSo18UITraitEnvironment", "text"]
+- ["PSo18UITraitEnvironment", "textField"]
+- ["PSo18UITraitEnvironment", "textFieldDidBeginEditing"]
+- ["PSo18UITraitEnvironment", "textFieldDidEndEditing"]
+- ["PSo18UITraitEnvironment", "textFieldShouldBeginEditing"]
+- ["PSo18UITraitEnvironment", "textFieldShouldClear"]
+- ["PSo18UITraitEnvironment", "textFieldShouldEndEditing"]
+- ["PSo18UITraitEnvironment", "textFieldShouldReturn"]
+- ["PSo18UITraitEnvironment", ""]
+- ["CSo6UIView", "BBCourse"]
+- ["CSo6UIView", "Bool"]
+- ["CSo6UIView", "String"]
+- ["CSo6UIView", "TagListView"]
+- ["CSo6UIView", "UIButton"]
+- ["CSo6UIView", "UITextField"]
+- ["CSo6UIView", "Void"]
+- ["CSo6UIView", "addTag"]
+- !private ["CSo6UIView", "alignment"]
+- ["CSo6UIView", "awakeFromNib"]
+- ["CSo6UIView", "clearAllTags"]
+- ["CSo6UIView", "currentCourse"]
+- !private ["CSo6UIView", "delegate"]
+- ["CSo6UIView", "init"]
+- ["CSo6UIView", "refreshTags"]
+- !private ["CSo6UIView", "removeAllTags"]
+- !private ["CSo6UIView", "resignFirstResponder"]
+- ["CSo6UIView", "setSelected"]
+- ["CSo6UIView", "tagListView"]
+- !private ["CSo6UIView", "text"]
+- ["CSo6UIView", "textField"]
+- ["CSo6UIView", "textFieldDidBeginEditing"]
+- ["CSo6UIView", "textFieldDidEndEditing"]
+- ["CSo6UIView", "textFieldShouldBeginEditing"]
+- ["CSo6UIView", "textFieldShouldClear"]
+- ["CSo6UIView", "textFieldShouldEndEditing"]
+- ["CSo6UIView", "textFieldShouldReturn"]
+- !private ["Ps31UnicodeScalarLiteralConvertible", "characters"]
+- !private ["Ps31UnicodeScalarLiteralConvertible", "trim"]
+- !private ["Ps10_ArrayType", "Generator"]
+- !private ["Ps10_ArrayType", "Index"]
+- !private ["Ps10_ArrayType", "SubSequence"]
+- !private ["Ps10_ArrayType", "_Element"]
+- !private ["Ps10_ArrayType", "count"]
+- !private ["Ps33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps49_BuiltinExtendedGraphemeClusterLiteralConvertible", "characters"]
+- !private ["Ps49_BuiltinExtendedGraphemeClusterLiteralConvertible", "trim"]
+- !private ["Ps33_BuiltinIntegerLiteralConvertible", "Distance"]
+- !private ["Ps33_BuiltinIntegerLiteralConvertible", "IntegerLiteralType"]
+- !private ["Ps32_BuiltinStringLiteralConvertible", "characters"]
+- !private ["Ps32_BuiltinStringLiteralConvertible", "trim"]
+- !private ["Ps37_BuiltinUTF16StringLiteralConvertible", "characters"]
+- !private ["Ps37_BuiltinUTF16StringLiteralConvertible", "trim"]
+- !private ["Ps39_BuiltinUnicodeScalarLiteralConvertible", "characters"]
+- !private ["Ps39_BuiltinUnicodeScalarLiteralConvertible", "trim"]
+- !private ["Ps24_DestructorSafeContainer", "Generator"]
+- !private ["Ps24_DestructorSafeContainer", "Index"]
+- !private ["Ps24_DestructorSafeContainer", "SubSequence"]
+- !private ["Ps24_DestructorSafeContainer", "_Element"]
+- !private ["Ps24_DestructorSafeContainer", "count"]
+- !private ["Ps14_Incrementable", "Distance"]
+- !private ["Ps14_Incrementable", "IntegerLiteralType"]
+- !private ["Ps22_IntegerArithmeticType", "Distance"]
+- !private ["Ps22_IntegerArithmeticType", "IntegerLiteralType"]
+- !private ["Ps12_IntegerType", "Distance"]
+- !private ["Ps12_IntegerType", "IntegerLiteralType"]
+- !private ["Ps21_ObjectiveCBridgeable", "Distance"]
+- !private ["Ps21_ObjectiveCBridgeable", "Generator"]
+- !private ["Ps21_ObjectiveCBridgeable", "Index"]
+- !private ["Ps21_ObjectiveCBridgeable", "IntegerLiteralType"]
+- !private ["Ps21_ObjectiveCBridgeable", "SubSequence"]
+- !private ["Ps21_ObjectiveCBridgeable", "_Element"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "characters"]
+- !private ["Ps21_ObjectiveCBridgeable", "count"]
+- !private ["Ps21_ObjectiveCBridgeable", "trim"]
+- !private ["Ps22_RandomAccessAmbiguity", "Distance"]
+- !private ["Ps22_RandomAccessAmbiguity", "IntegerLiteralType"]
+- !private ["Ps12_Reflectable", "Distance"]
+- !private ["Ps12_Reflectable", "Generator"]
+- !private ["Ps12_Reflectable", "Index"]
+- !private ["Ps12_Reflectable", "IntegerLiteralType"]
+- ["Ps12_Reflectable", "Some"]
+- !private ["Ps12_Reflectable", "SubSequence"]
+- !private ["Ps12_Reflectable", "_Element"]
+- !private ["Ps12_Reflectable", "_getBuiltinLogicValue"]
+- ["Ps12_Reflectable", "addTag"]
+- !private ["Ps12_Reflectable", "alignment"]
+- ["Ps12_Reflectable", "awakeFromNib"]
+- !private ["Ps12_Reflectable", "characters"]
+- ["Ps12_Reflectable", "clearAllTags"]
+- !private ["Ps12_Reflectable", "count"]
+- ["Ps12_Reflectable", "currentCourse"]
+- !private ["Ps12_Reflectable", "delegate"]
+- ["Ps12_Reflectable", "init"]
+- ["Ps12_Reflectable", "refreshTags"]
+- !private ["Ps12_Reflectable", "removeAllTags"]
+- !private ["Ps12_Reflectable", "resignFirstResponder"]
+- ["Ps12_Reflectable", "setSelected"]
+- ["Ps12_Reflectable", "tagListView"]
+- !private ["Ps12_Reflectable", "text"]
+- ["Ps12_Reflectable", "textField"]
+- ["Ps12_Reflectable", "textFieldDidBeginEditing"]
+- ["Ps12_Reflectable", "textFieldDidEndEditing"]
+- ["Ps12_Reflectable", "textFieldShouldBeginEditing"]
+- ["Ps12_Reflectable", "textFieldShouldClear"]
+- ["Ps12_Reflectable", "textFieldShouldEndEditing"]
+- ["Ps12_Reflectable", "textFieldShouldReturn"]
+- !private ["Ps12_Reflectable", "trim"]
+- ["Ps12_Reflectable", ""]
+- !private ["Ps18_SignedIntegerType", "Distance"]
+- !private ["Ps18_SignedIntegerType", "IntegerLiteralType"]
+depends-nominal:
+- !private "OC11TagListView11TagListView9Alignment"
+- "Ps9AnyObject"
+- !private "Sa"
+- !private "Ps23ArrayLiteralConvertible"
+- !private "Vs10ArraySlice"
+- !private "C10Babylonian8BBCourse"
+- !private "Ps22BidirectionalIndexType"
+- !private "Ps21BitwiseOperationsType"
+- !private "Sb"
+- !private "Ps25BooleanLiteralConvertible"
+- !private "Ps11BooleanType"
+- "Ps11CVarArgType"
+- !private "VSS13CharacterView"
+- !private "Ps14CollectionType"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps41ExtendedGraphemeClusterLiteralConvertible"
+- !private "Ps16ForwardIndexType"
+- !private "Ps13GeneratorType"
+- "Ps8Hashable"
+- !private "VVSS13CharacterView5Index"
+- !private "Ps9Indexable"
+- !private "Vs17IndexingGenerator"
+- !private "Si"
+- !private "Ps21IntegerArithmeticType"
+- !private "Ps25IntegerLiteralConvertible"
+- !private "Ps11IntegerType"
+- !private "Ps14MirrorPathType"
+- !private "Ps21MutableCollectionType"
+- !private "Ps16MutableIndexable"
+- !private "Ps16MutableSliceable"
+- "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- "Ps21NilLiteralConvertible"
+- "Sq"
+- !private "Ps16OutputStreamType"
+- !private "Ps21RandomAccessIndexType"
+- !private "Ps30RangeReplaceableCollectionType"
+- !private "Ps16RawRepresentable"
+- !private "Ps12SequenceType"
+- !private "Ps17SignedIntegerType"
+- !private "Ps16SignedNumberType"
+- !private "Ps10Streamable"
+- !private "Ps10Strideable"
+- !private "SS"
+- !private "Ps30StringInterpolationConvertible"
+- !private "Ps24StringLiteralConvertible"
+- !private "C11TagListView11TagListView"
+- "C10Babylonian11TagViewCell"
+- "PSo29UIAccessibilityIdentification"
+- "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- !private "CSo9UIControl"
+- "PSo17UICoordinateSpace"
+- "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- "PSo27UIGestureRecognizerDelegate"
+- !private "PSo10UIKeyInput"
+- "CSo11UIResponder"
+- "CSo15UITableViewCell"
+- !private "CSo11UITextField"
+- "PSo19UITextFieldDelegate"
+- !private "PSo11UITextInput"
+- !private "PSo17UITextInputTraits"
+- "PSo18UITraitEnvironment"
+- "CSo6UIView"
+- !private "Ps31UnicodeScalarLiteralConvertible"
+- !private "Ps10_ArrayType"
+- !private "Ps33_BuiltinBooleanLiteralConvertible"
+- !private "Ps49_BuiltinExtendedGraphemeClusterLiteralConvertible"
+- !private "Ps33_BuiltinIntegerLiteralConvertible"
+- !private "Ps32_BuiltinStringLiteralConvertible"
+- !private "Ps37_BuiltinUTF16StringLiteralConvertible"
+- !private "Ps39_BuiltinUnicodeScalarLiteralConvertible"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps14_Incrementable"
+- !private "Ps22_IntegerArithmeticType"
+- !private "Ps12_IntegerType"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps22_RandomAccessAmbiguity"
+- "Ps12_Reflectable"
+- !private "Ps18_SignedIntegerType"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/app-Bridging-Header.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/RNCryptor.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/AppConstants.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/StreamingKit/STKAudioPlayer.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/StreamingKit/STKDataSource.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/Welcome/WelcomeView.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/ProgressHUD/ProgressHUD.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/UIImageView+WebCache.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageCompat.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageManager.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageOperation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageDownloader.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDImageCache.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FirebaseServerValue.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FTransactionResult.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FMutableData.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FirebaseApp.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FQuery.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/Firebase.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FEventType.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FDataSnapshot.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FConfig.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FAuthType.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FAuthData.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/Firebase-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Modules/TagListView.swiftmodule/x86_64.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Headers/TagListView-Swift.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Headers/TagListView-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BoltsVersion.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/Bolts.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFTaskCompletionSource.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFTask.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFExecutor.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationTokenSource.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationTokenRegistration.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationToken.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/Bolts-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPurchase.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFProduct.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFNetworkActivityIndicatorManager.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFInstallation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUserAuthenticationDelegate.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFSession.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFRole.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFRelation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Subclass.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFGeoPoint.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConfig+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConfig.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnonymousUtils+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFSubclassing.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnonymousUtils.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnalytics.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFACL.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConstants.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/ParseClientConfiguration.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/Parse.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/Parse-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreMedia.swiftmodule"
+interface-hash: "590bd7e36e45da5a3559ebfadbc99c15"

@@ -1,0 +1,7 @@
+version: "Apple Swift version 2.2 (swiftlang-703.0.18.1 clang-703.0.29)"
+options: "a12dfb03029ace83dfa68746d8c4efa6"
+build_time: [515539659, 882832000]
+inputs:
+  "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Pods/TagListView/TagListView/CloseButton.swift": [515537560, 0]
+  "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Pods/TagListView/TagListView/TagListView.swift": [515539200, 0]
+  "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Pods/TagListView/TagListView/TagView.swift": [515539200, 0]

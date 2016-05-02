@@ -1,0 +1,567 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "CourseCell"
+provides-nominal:
+- "C10Babylonian10CourseCell"
+provides-member:
+- ["C10Babylonian10CourseCell", ""]
+provides-dynamic-lookup:
+- "courseTitle"
+- "profitAmount"
+- "courseViewCount"
+- "profitLabel"
+- "awakeFromNib"
+depends-top-level:
+- "UILabel"
+- !private "CGFloat"
+- !private "UIColor"
+- "CourseCell"
+- !private "!="
+- "UITableViewCell"
+- !private "FONT_SIZE"
+- !private "FONT_BIG"
+- !private "UIFont"
+- !private "FONT_SMALL"
+depends-member:
+- !private ["Ps16AbsoluteValuable", "init"]
+- !private ["Ps9AnyObject", "CGFloat"]
+- !private ["Ps9AnyObject", "FONT_BIG"]
+- !private ["Ps9AnyObject", "FONT_SIZE"]
+- !private ["Ps9AnyObject", "FONT_SMALL"]
+- !private ["Ps9AnyObject", "UIColor"]
+- !private ["Ps9AnyObject", "UIFont"]
+- ["Ps9AnyObject", "awakeFromNib"]
+- !private ["Ps9AnyObject", "blackColor"]
+- ["Ps9AnyObject", "courseTitle"]
+- ["Ps9AnyObject", "courseViewCount"]
+- !private ["Ps9AnyObject", "detailTextLabel"]
+- !private ["Ps9AnyObject", "font"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "lightGrayColor"]
+- ["Ps9AnyObject", "profitAmount"]
+- ["Ps9AnyObject", "profitLabel"]
+- !private ["Ps9AnyObject", "textColor"]
+- ["Ps9AnyObject", ""]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["Ps25BooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps11BooleanType", "_getBuiltinLogicValue"]
+- !private ["V12CoreGraphics7CGFloat", "init"]
+- !private ["Ps11CVarArgType", "CGFloat"]
+- !private ["Ps11CVarArgType", "FONT_BIG"]
+- !private ["Ps11CVarArgType", "FONT_SIZE"]
+- !private ["Ps11CVarArgType", "FONT_SMALL"]
+- !private ["Ps11CVarArgType", "UIColor"]
+- !private ["Ps11CVarArgType", "UIFont"]
+- ["Ps11CVarArgType", "awakeFromNib"]
+- !private ["Ps11CVarArgType", "blackColor"]
+- ["Ps11CVarArgType", "courseTitle"]
+- ["Ps11CVarArgType", "courseViewCount"]
+- !private ["Ps11CVarArgType", "detailTextLabel"]
+- !private ["Ps11CVarArgType", "font"]
+- ["Ps11CVarArgType", "init"]
+- !private ["Ps11CVarArgType", "lightGrayColor"]
+- ["Ps11CVarArgType", "profitAmount"]
+- ["Ps11CVarArgType", "profitLabel"]
+- !private ["Ps11CVarArgType", "textColor"]
+- ["Ps11CVarArgType", ""]
+- !private ["Ps10Comparable", "init"]
+- !private ["C10Babylonian10CourseCell", "CGFloat"]
+- !private ["C10Babylonian10CourseCell", "FONT_BIG"]
+- !private ["C10Babylonian10CourseCell", "FONT_SIZE"]
+- !private ["C10Babylonian10CourseCell", "FONT_SMALL"]
+- !private ["C10Babylonian10CourseCell", "UIColor"]
+- !private ["C10Babylonian10CourseCell", "UIFont"]
+- ["C10Babylonian10CourseCell", "UILabel"]
+- ["C10Babylonian10CourseCell", "awakeFromNib"]
+- ["C10Babylonian10CourseCell", "courseTitle"]
+- ["C10Babylonian10CourseCell", "courseViewCount"]
+- ["C10Babylonian10CourseCell", "deinit"]
+- !private ["C10Babylonian10CourseCell", "detailTextLabel"]
+- ["C10Babylonian10CourseCell", "init"]
+- ["C10Babylonian10CourseCell", "profitAmount"]
+- ["C10Babylonian10CourseCell", "profitLabel"]
+- !private ["Ps28CustomDebugStringConvertible", "CGFloat"]
+- !private ["Ps28CustomDebugStringConvertible", "FONT_BIG"]
+- !private ["Ps28CustomDebugStringConvertible", "FONT_SIZE"]
+- !private ["Ps28CustomDebugStringConvertible", "FONT_SMALL"]
+- !private ["Ps28CustomDebugStringConvertible", "UIColor"]
+- !private ["Ps28CustomDebugStringConvertible", "UIFont"]
+- ["Ps28CustomDebugStringConvertible", "awakeFromNib"]
+- !private ["Ps28CustomDebugStringConvertible", "blackColor"]
+- ["Ps28CustomDebugStringConvertible", "courseTitle"]
+- ["Ps28CustomDebugStringConvertible", "courseViewCount"]
+- !private ["Ps28CustomDebugStringConvertible", "detailTextLabel"]
+- !private ["Ps28CustomDebugStringConvertible", "font"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "lightGrayColor"]
+- ["Ps28CustomDebugStringConvertible", "profitAmount"]
+- ["Ps28CustomDebugStringConvertible", "profitLabel"]
+- !private ["Ps28CustomDebugStringConvertible", "textColor"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps23CustomStringConvertible", "CGFloat"]
+- !private ["Ps23CustomStringConvertible", "FONT_BIG"]
+- !private ["Ps23CustomStringConvertible", "FONT_SIZE"]
+- !private ["Ps23CustomStringConvertible", "FONT_SMALL"]
+- !private ["Ps23CustomStringConvertible", "UIColor"]
+- !private ["Ps23CustomStringConvertible", "UIFont"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- ["Ps23CustomStringConvertible", "awakeFromNib"]
+- !private ["Ps23CustomStringConvertible", "blackColor"]
+- ["Ps23CustomStringConvertible", "courseTitle"]
+- ["Ps23CustomStringConvertible", "courseViewCount"]
+- !private ["Ps23CustomStringConvertible", "detailTextLabel"]
+- !private ["Ps23CustomStringConvertible", "font"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "lightGrayColor"]
+- ["Ps23CustomStringConvertible", "profitAmount"]
+- ["Ps23CustomStringConvertible", "profitLabel"]
+- !private ["Ps23CustomStringConvertible", "textColor"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "CGFloat"]
+- !private ["Ps9Equatable", "FONT_BIG"]
+- !private ["Ps9Equatable", "FONT_SIZE"]
+- !private ["Ps9Equatable", "FONT_SMALL"]
+- !private ["Ps9Equatable", "UIColor"]
+- !private ["Ps9Equatable", "UIFont"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "awakeFromNib"]
+- !private ["Ps9Equatable", "blackColor"]
+- ["Ps9Equatable", "courseTitle"]
+- ["Ps9Equatable", "courseViewCount"]
+- !private ["Ps9Equatable", "detailTextLabel"]
+- !private ["Ps9Equatable", "font"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "lightGrayColor"]
+- ["Ps9Equatable", "profitAmount"]
+- ["Ps9Equatable", "profitLabel"]
+- !private ["Ps9Equatable", "textColor"]
+- ["Ps9Equatable", ""]
+- !private ["Ps23FloatLiteralConvertible", "init"]
+- !private ["Ps17FloatingPointType", "init"]
+- !private ["Ps8Hashable", "CGFloat"]
+- !private ["Ps8Hashable", "FONT_BIG"]
+- !private ["Ps8Hashable", "FONT_SIZE"]
+- !private ["Ps8Hashable", "FONT_SMALL"]
+- !private ["Ps8Hashable", "UIColor"]
+- !private ["Ps8Hashable", "UIFont"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "awakeFromNib"]
+- !private ["Ps8Hashable", "blackColor"]
+- ["Ps8Hashable", "courseTitle"]
+- ["Ps8Hashable", "courseViewCount"]
+- !private ["Ps8Hashable", "detailTextLabel"]
+- !private ["Ps8Hashable", "font"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "lightGrayColor"]
+- ["Ps8Hashable", "profitAmount"]
+- ["Ps8Hashable", "profitLabel"]
+- !private ["Ps8Hashable", "textColor"]
+- ["Ps8Hashable", ""]
+- !private ["Ps25IntegerLiteralConvertible", "init"]
+- !private ["PSo8NSCoding", "CGFloat"]
+- !private ["PSo8NSCoding", "FONT_BIG"]
+- !private ["PSo8NSCoding", "FONT_SIZE"]
+- !private ["PSo8NSCoding", "FONT_SMALL"]
+- !private ["PSo8NSCoding", "UIColor"]
+- !private ["PSo8NSCoding", "UIFont"]
+- ["PSo8NSCoding", "awakeFromNib"]
+- !private ["PSo8NSCoding", "blackColor"]
+- ["PSo8NSCoding", "courseTitle"]
+- ["PSo8NSCoding", "courseViewCount"]
+- !private ["PSo8NSCoding", "detailTextLabel"]
+- !private ["PSo8NSCoding", "font"]
+- ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "lightGrayColor"]
+- ["PSo8NSCoding", "profitAmount"]
+- ["PSo8NSCoding", "profitLabel"]
+- !private ["PSo8NSCoding", "textColor"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo9NSCopying", "blackColor"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "lightGrayColor"]
+- !private ["CSo8NSObject", "CGFloat"]
+- !private ["CSo8NSObject", "FONT_BIG"]
+- !private ["CSo8NSObject", "FONT_SIZE"]
+- !private ["CSo8NSObject", "FONT_SMALL"]
+- !private ["CSo8NSObject", "UIColor"]
+- !private ["CSo8NSObject", "UIFont"]
+- ["CSo8NSObject", "UILabel"]
+- ["CSo8NSObject", "awakeFromNib"]
+- !private ["CSo8NSObject", "blackColor"]
+- ["CSo8NSObject", "courseTitle"]
+- ["CSo8NSObject", "courseViewCount"]
+- !private ["CSo8NSObject", "detailTextLabel"]
+- !private ["CSo8NSObject", "font"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "lightGrayColor"]
+- ["CSo8NSObject", "profitAmount"]
+- ["CSo8NSObject", "profitLabel"]
+- !private ["CSo8NSObject", "textColor"]
+- !private ["PSo16NSObjectProtocol", "CGFloat"]
+- !private ["PSo16NSObjectProtocol", "FONT_BIG"]
+- !private ["PSo16NSObjectProtocol", "FONT_SIZE"]
+- !private ["PSo16NSObjectProtocol", "FONT_SMALL"]
+- !private ["PSo16NSObjectProtocol", "UIColor"]
+- !private ["PSo16NSObjectProtocol", "UIFont"]
+- ["PSo16NSObjectProtocol", "awakeFromNib"]
+- !private ["PSo16NSObjectProtocol", "blackColor"]
+- ["PSo16NSObjectProtocol", "courseTitle"]
+- ["PSo16NSObjectProtocol", "courseViewCount"]
+- !private ["PSo16NSObjectProtocol", "detailTextLabel"]
+- !private ["PSo16NSObjectProtocol", "font"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "lightGrayColor"]
+- ["PSo16NSObjectProtocol", "profitAmount"]
+- ["PSo16NSObjectProtocol", "profitLabel"]
+- !private ["PSo16NSObjectProtocol", "textColor"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "blackColor"]
+- !private ["PSo14NSSecureCoding", "lightGrayColor"]
+- !private ["Sq", "deinit"]
+- !private ["Ps16SignedNumberType", "init"]
+- !private ["Ps10Strideable", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "CGFloat"]
+- !private ["PSo29UIAccessibilityIdentification", "FONT_BIG"]
+- !private ["PSo29UIAccessibilityIdentification", "FONT_SIZE"]
+- !private ["PSo29UIAccessibilityIdentification", "FONT_SMALL"]
+- !private ["PSo29UIAccessibilityIdentification", "UIColor"]
+- !private ["PSo29UIAccessibilityIdentification", "UIFont"]
+- ["PSo29UIAccessibilityIdentification", "awakeFromNib"]
+- ["PSo29UIAccessibilityIdentification", "courseTitle"]
+- ["PSo29UIAccessibilityIdentification", "courseViewCount"]
+- !private ["PSo29UIAccessibilityIdentification", "detailTextLabel"]
+- !private ["PSo29UIAccessibilityIdentification", "font"]
+- ["PSo29UIAccessibilityIdentification", "init"]
+- ["PSo29UIAccessibilityIdentification", "profitAmount"]
+- ["PSo29UIAccessibilityIdentification", "profitLabel"]
+- !private ["PSo29UIAccessibilityIdentification", "textColor"]
+- ["PSo29UIAccessibilityIdentification", ""]
+- !private ["PSo12UIAppearance", "CGFloat"]
+- !private ["PSo12UIAppearance", "FONT_BIG"]
+- !private ["PSo12UIAppearance", "FONT_SIZE"]
+- !private ["PSo12UIAppearance", "FONT_SMALL"]
+- !private ["PSo12UIAppearance", "UIColor"]
+- !private ["PSo12UIAppearance", "UIFont"]
+- ["PSo12UIAppearance", "awakeFromNib"]
+- ["PSo12UIAppearance", "courseTitle"]
+- ["PSo12UIAppearance", "courseViewCount"]
+- !private ["PSo12UIAppearance", "detailTextLabel"]
+- !private ["PSo12UIAppearance", "font"]
+- ["PSo12UIAppearance", "init"]
+- ["PSo12UIAppearance", "profitAmount"]
+- ["PSo12UIAppearance", "profitLabel"]
+- !private ["PSo12UIAppearance", "textColor"]
+- ["PSo12UIAppearance", ""]
+- !private ["PSo21UIAppearanceContainer", "CGFloat"]
+- !private ["PSo21UIAppearanceContainer", "FONT_BIG"]
+- !private ["PSo21UIAppearanceContainer", "FONT_SIZE"]
+- !private ["PSo21UIAppearanceContainer", "FONT_SMALL"]
+- !private ["PSo21UIAppearanceContainer", "UIColor"]
+- !private ["PSo21UIAppearanceContainer", "UIFont"]
+- ["PSo21UIAppearanceContainer", "awakeFromNib"]
+- ["PSo21UIAppearanceContainer", "courseTitle"]
+- ["PSo21UIAppearanceContainer", "courseViewCount"]
+- !private ["PSo21UIAppearanceContainer", "detailTextLabel"]
+- !private ["PSo21UIAppearanceContainer", "font"]
+- ["PSo21UIAppearanceContainer", "init"]
+- ["PSo21UIAppearanceContainer", "profitAmount"]
+- ["PSo21UIAppearanceContainer", "profitLabel"]
+- !private ["PSo21UIAppearanceContainer", "textColor"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["CSo7UIColor", "blackColor"]
+- !private ["CSo7UIColor", "lightGrayColor"]
+- !private ["PSo17UICoordinateSpace", "CGFloat"]
+- !private ["PSo17UICoordinateSpace", "FONT_BIG"]
+- !private ["PSo17UICoordinateSpace", "FONT_SIZE"]
+- !private ["PSo17UICoordinateSpace", "FONT_SMALL"]
+- !private ["PSo17UICoordinateSpace", "UIColor"]
+- !private ["PSo17UICoordinateSpace", "UIFont"]
+- ["PSo17UICoordinateSpace", "awakeFromNib"]
+- ["PSo17UICoordinateSpace", "courseTitle"]
+- ["PSo17UICoordinateSpace", "courseViewCount"]
+- !private ["PSo17UICoordinateSpace", "detailTextLabel"]
+- !private ["PSo17UICoordinateSpace", "font"]
+- ["PSo17UICoordinateSpace", "init"]
+- ["PSo17UICoordinateSpace", "profitAmount"]
+- ["PSo17UICoordinateSpace", "profitLabel"]
+- !private ["PSo17UICoordinateSpace", "textColor"]
+- ["PSo17UICoordinateSpace", ""]
+- !private ["PSo13UIDynamicItem", "CGFloat"]
+- !private ["PSo13UIDynamicItem", "FONT_BIG"]
+- !private ["PSo13UIDynamicItem", "FONT_SIZE"]
+- !private ["PSo13UIDynamicItem", "FONT_SMALL"]
+- !private ["PSo13UIDynamicItem", "UIColor"]
+- !private ["PSo13UIDynamicItem", "UIFont"]
+- ["PSo13UIDynamicItem", "awakeFromNib"]
+- ["PSo13UIDynamicItem", "courseTitle"]
+- ["PSo13UIDynamicItem", "courseViewCount"]
+- !private ["PSo13UIDynamicItem", "detailTextLabel"]
+- !private ["PSo13UIDynamicItem", "font"]
+- ["PSo13UIDynamicItem", "init"]
+- ["PSo13UIDynamicItem", "profitAmount"]
+- ["PSo13UIDynamicItem", "profitLabel"]
+- !private ["PSo13UIDynamicItem", "textColor"]
+- ["PSo13UIDynamicItem", ""]
+- !private ["PSo18UIFocusEnvironment", "CGFloat"]
+- !private ["PSo18UIFocusEnvironment", "FONT_BIG"]
+- !private ["PSo18UIFocusEnvironment", "FONT_SIZE"]
+- !private ["PSo18UIFocusEnvironment", "FONT_SMALL"]
+- !private ["PSo18UIFocusEnvironment", "UIColor"]
+- !private ["PSo18UIFocusEnvironment", "UIFont"]
+- ["PSo18UIFocusEnvironment", "awakeFromNib"]
+- ["PSo18UIFocusEnvironment", "courseTitle"]
+- ["PSo18UIFocusEnvironment", "courseViewCount"]
+- !private ["PSo18UIFocusEnvironment", "detailTextLabel"]
+- !private ["PSo18UIFocusEnvironment", "font"]
+- ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "profitAmount"]
+- ["PSo18UIFocusEnvironment", "profitLabel"]
+- !private ["PSo18UIFocusEnvironment", "textColor"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["CSo6UIFont", "init"]
+- !private ["PSo27UIGestureRecognizerDelegate", "CGFloat"]
+- !private ["PSo27UIGestureRecognizerDelegate", "FONT_BIG"]
+- !private ["PSo27UIGestureRecognizerDelegate", "FONT_SIZE"]
+- !private ["PSo27UIGestureRecognizerDelegate", "FONT_SMALL"]
+- !private ["PSo27UIGestureRecognizerDelegate", "UIColor"]
+- !private ["PSo27UIGestureRecognizerDelegate", "UIFont"]
+- ["PSo27UIGestureRecognizerDelegate", "awakeFromNib"]
+- ["PSo27UIGestureRecognizerDelegate", "courseTitle"]
+- ["PSo27UIGestureRecognizerDelegate", "courseViewCount"]
+- !private ["PSo27UIGestureRecognizerDelegate", "detailTextLabel"]
+- ["PSo27UIGestureRecognizerDelegate", "init"]
+- ["PSo27UIGestureRecognizerDelegate", "profitAmount"]
+- ["PSo27UIGestureRecognizerDelegate", "profitLabel"]
+- ["PSo27UIGestureRecognizerDelegate", ""]
+- !private ["CSo7UILabel", "font"]
+- !private ["CSo7UILabel", "textColor"]
+- !private ["CSo11UIResponder", "CGFloat"]
+- !private ["CSo11UIResponder", "FONT_BIG"]
+- !private ["CSo11UIResponder", "FONT_SIZE"]
+- !private ["CSo11UIResponder", "FONT_SMALL"]
+- !private ["CSo11UIResponder", "UIColor"]
+- !private ["CSo11UIResponder", "UIFont"]
+- ["CSo11UIResponder", "UILabel"]
+- ["CSo11UIResponder", "awakeFromNib"]
+- ["CSo11UIResponder", "courseTitle"]
+- ["CSo11UIResponder", "courseViewCount"]
+- !private ["CSo11UIResponder", "detailTextLabel"]
+- !private ["CSo11UIResponder", "font"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "profitAmount"]
+- ["CSo11UIResponder", "profitLabel"]
+- !private ["CSo11UIResponder", "textColor"]
+- !private ["CSo15UITableViewCell", "CGFloat"]
+- !private ["CSo15UITableViewCell", "FONT_BIG"]
+- !private ["CSo15UITableViewCell", "FONT_SIZE"]
+- !private ["CSo15UITableViewCell", "FONT_SMALL"]
+- !private ["CSo15UITableViewCell", "UIColor"]
+- !private ["CSo15UITableViewCell", "UIFont"]
+- ["CSo15UITableViewCell", "UILabel"]
+- ["CSo15UITableViewCell", "awakeFromNib"]
+- ["CSo15UITableViewCell", "courseTitle"]
+- ["CSo15UITableViewCell", "courseViewCount"]
+- !private ["CSo15UITableViewCell", "detailTextLabel"]
+- ["CSo15UITableViewCell", "init"]
+- ["CSo15UITableViewCell", "profitAmount"]
+- ["CSo15UITableViewCell", "profitLabel"]
+- ["CSo15UITableViewCell", ""]
+- !private ["PSo18UITraitEnvironment", "CGFloat"]
+- !private ["PSo18UITraitEnvironment", "FONT_BIG"]
+- !private ["PSo18UITraitEnvironment", "FONT_SIZE"]
+- !private ["PSo18UITraitEnvironment", "FONT_SMALL"]
+- !private ["PSo18UITraitEnvironment", "UIColor"]
+- !private ["PSo18UITraitEnvironment", "UIFont"]
+- ["PSo18UITraitEnvironment", "awakeFromNib"]
+- ["PSo18UITraitEnvironment", "courseTitle"]
+- ["PSo18UITraitEnvironment", "courseViewCount"]
+- !private ["PSo18UITraitEnvironment", "detailTextLabel"]
+- !private ["PSo18UITraitEnvironment", "font"]
+- ["PSo18UITraitEnvironment", "init"]
+- ["PSo18UITraitEnvironment", "profitAmount"]
+- ["PSo18UITraitEnvironment", "profitLabel"]
+- !private ["PSo18UITraitEnvironment", "textColor"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "CGFloat"]
+- !private ["CSo6UIView", "FONT_BIG"]
+- !private ["CSo6UIView", "FONT_SIZE"]
+- !private ["CSo6UIView", "FONT_SMALL"]
+- !private ["CSo6UIView", "UIColor"]
+- !private ["CSo6UIView", "UIFont"]
+- ["CSo6UIView", "UILabel"]
+- ["CSo6UIView", "awakeFromNib"]
+- ["CSo6UIView", "courseTitle"]
+- ["CSo6UIView", "courseViewCount"]
+- !private ["CSo6UIView", "detailTextLabel"]
+- !private ["CSo6UIView", "font"]
+- ["CSo6UIView", "init"]
+- ["CSo6UIView", "profitAmount"]
+- ["CSo6UIView", "profitLabel"]
+- !private ["CSo6UIView", "textColor"]
+- !private ["Ps33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps19_CVarArgAlignedType", "init"]
+- !private ["Ps22_CVarArgPassedAsDouble", "init"]
+- !private ["Ps24_ColorLiteralConvertible", "blackColor"]
+- !private ["Ps24_ColorLiteralConvertible", "lightGrayColor"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Vs26_OptionalNilComparisonType", "deinit"]
+- !private ["Ps12_Reflectable", "CGFloat"]
+- !private ["Ps12_Reflectable", "FONT_BIG"]
+- !private ["Ps12_Reflectable", "FONT_SIZE"]
+- !private ["Ps12_Reflectable", "FONT_SMALL"]
+- !private ["Ps12_Reflectable", "UIColor"]
+- !private ["Ps12_Reflectable", "UIFont"]
+- !private ["Ps12_Reflectable", "_getBuiltinLogicValue"]
+- ["Ps12_Reflectable", "awakeFromNib"]
+- ["Ps12_Reflectable", "courseTitle"]
+- ["Ps12_Reflectable", "courseViewCount"]
+- !private ["Ps12_Reflectable", "detailTextLabel"]
+- !private ["Ps12_Reflectable", "font"]
+- ["Ps12_Reflectable", "init"]
+- ["Ps12_Reflectable", "profitAmount"]
+- ["Ps12_Reflectable", "profitLabel"]
+- !private ["Ps12_Reflectable", "textColor"]
+- ["Ps12_Reflectable", ""]
+depends-nominal:
+- !private "Ps16AbsoluteValuable"
+- "Ps9AnyObject"
+- !private "Sb"
+- !private "Ps25BooleanLiteralConvertible"
+- !private "Ps11BooleanType"
+- !private "V12CoreGraphics7CGFloat"
+- "Ps11CVarArgType"
+- !private "Ps10Comparable"
+- "C10Babylonian10CourseCell"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps23FloatLiteralConvertible"
+- !private "Ps17FloatingPointType"
+- "Ps8Hashable"
+- !private "Ps25IntegerLiteralConvertible"
+- "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "Sq"
+- !private "Ps16SignedNumberType"
+- !private "Ps10Strideable"
+- "PSo29UIAccessibilityIdentification"
+- "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- !private "CSo7UIColor"
+- "PSo17UICoordinateSpace"
+- "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- !private "CSo6UIFont"
+- "PSo27UIGestureRecognizerDelegate"
+- !private "CSo7UILabel"
+- "CSo11UIResponder"
+- "CSo15UITableViewCell"
+- "PSo18UITraitEnvironment"
+- "CSo6UIView"
+- !private "Ps33_BuiltinBooleanLiteralConvertible"
+- !private "Ps19_CVarArgAlignedType"
+- !private "Ps22_CVarArgPassedAsDouble"
+- !private "Ps24_ColorLiteralConvertible"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Vs26_OptionalNilComparisonType"
+- "Ps12_Reflectable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/app-Bridging-Header.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/RNCryptor.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/AppConstants.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/StreamingKit/STKAudioPlayer.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/StreamingKit/STKDataSource.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/Welcome/WelcomeView.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/ProgressHUD/ProgressHUD.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/UIImageView+WebCache.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageCompat.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageManager.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageOperation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageDownloader.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDImageCache.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FirebaseServerValue.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FTransactionResult.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FMutableData.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FirebaseApp.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FQuery.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/Firebase.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FEventType.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FDataSnapshot.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FConfig.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FAuthType.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FAuthData.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/Firebase-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Modules/TagListView.swiftmodule/x86_64.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Headers/TagListView-Swift.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Headers/TagListView-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BoltsVersion.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/Bolts.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFTaskCompletionSource.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFTask.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFExecutor.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationTokenSource.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationTokenRegistration.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationToken.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/Bolts-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPurchase.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFProduct.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFNetworkActivityIndicatorManager.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFInstallation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUserAuthenticationDelegate.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFSession.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFRole.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFRelation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Subclass.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFGeoPoint.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConfig+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConfig.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnonymousUtils+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFSubclassing.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnonymousUtils.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnalytics.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFACL.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConstants.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/ParseClientConfiguration.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/Parse.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/Parse-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreMedia.swiftmodule"
+interface-hash: "50314d274e3166895d0933f0ebed05f7"

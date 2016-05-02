@@ -1,0 +1,33 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Intermediates/IBDesignables/Products/Debug-iphonesimulator/TagListView.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "TagListView-Swift.h",
+          'external-contents': "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Intermediates/IBDesignables/Products/Debug-iphonesimulator/TagListView.framework/Headers/TagListView-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "TagListView-umbrella.h",
+          'external-contents': "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Pods/Target Support Files/TagListView/TagListView-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Intermediates/IBDesignables/Products/Debug-iphonesimulator/TagListView.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Intermediates/IBDesignables/Intermediates/Pods.build/Debug-iphonesimulator/TagListView.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

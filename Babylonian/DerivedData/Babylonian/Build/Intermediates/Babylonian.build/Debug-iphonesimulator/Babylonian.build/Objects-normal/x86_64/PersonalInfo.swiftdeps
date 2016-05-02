@@ -1,0 +1,454 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "PersonalInfo"
+provides-nominal:
+- "C10Babylonian12PersonalInfo"
+provides-member:
+- ["C10Babylonian12PersonalInfo", ""]
+provides-dynamic-lookup:
+- "ref_"
+- "email_"
+- "setRef"
+- "updateProfilePhoto"
+- "_USER_REF"
+- "updateDisplayName"
+- "displayName_"
+- "updateBalance"
+- "updateEmail"
+- "profilePhoto_"
+depends-top-level:
+- "Float"
+- "Void"
+- !private "USER_PROFILEPHOTO"
+- "PersonalInfo"
+- !private "Dictionary"
+- "Firebase"
+- !private "USER_BALANCE"
+- !private "USER_DISPLAYNAME"
+- "NSObject"
+- "BASE_URL"
+- !private "USER_EMAIL"
+- !private "!="
+- "String"
+depends-member:
+- ["Ps9AnyObject", "BASE_URL"]
+- ["Ps9AnyObject", "Firebase"]
+- !private ["Ps9AnyObject", "USER_BALANCE"]
+- !private ["Ps9AnyObject", "USER_DISPLAYNAME"]
+- !private ["Ps9AnyObject", "USER_EMAIL"]
+- !private ["Ps9AnyObject", "USER_PROFILEPHOTO"]
+- ["Ps9AnyObject", "_USER_REF"]
+- ["Ps9AnyObject", "balance_"]
+- !private ["Ps9AnyObject", "childByAppendingPath"]
+- ["Ps9AnyObject", "displayName_"]
+- ["Ps9AnyObject", "email_"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "profilePhoto_"]
+- ["Ps9AnyObject", "ref_"]
+- ["Ps9AnyObject", "setRef"]
+- ["Ps9AnyObject", "updateBalance"]
+- !private ["Ps9AnyObject", "updateChildValues"]
+- ["Ps9AnyObject", "updateDisplayName"]
+- ["Ps9AnyObject", "updateEmail"]
+- ["Ps9AnyObject", "updateProfilePhoto"]
+- ["Ps9AnyObject", ""]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Sb", "deinit"]
+- !private ["Ps25BooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps11BooleanType", "_getBuiltinLogicValue"]
+- ["Ps11CVarArgType", "BASE_URL"]
+- ["Ps11CVarArgType", "Firebase"]
+- !private ["Ps11CVarArgType", "USER_BALANCE"]
+- !private ["Ps11CVarArgType", "USER_DISPLAYNAME"]
+- !private ["Ps11CVarArgType", "USER_EMAIL"]
+- !private ["Ps11CVarArgType", "USER_PROFILEPHOTO"]
+- ["Ps11CVarArgType", "_USER_REF"]
+- ["Ps11CVarArgType", "balance_"]
+- !private ["Ps11CVarArgType", "childByAppendingPath"]
+- ["Ps11CVarArgType", "displayName_"]
+- ["Ps11CVarArgType", "email_"]
+- ["Ps11CVarArgType", "init"]
+- ["Ps11CVarArgType", "profilePhoto_"]
+- ["Ps11CVarArgType", "ref_"]
+- ["Ps11CVarArgType", "setRef"]
+- ["Ps11CVarArgType", "updateBalance"]
+- !private ["Ps11CVarArgType", "updateChildValues"]
+- ["Ps11CVarArgType", "updateDisplayName"]
+- ["Ps11CVarArgType", "updateEmail"]
+- ["Ps11CVarArgType", "updateProfilePhoto"]
+- ["Ps11CVarArgType", ""]
+- ["Vs9Character", "deinit"]
+- !private ["Ps14CollectionType", "Key"]
+- !private ["Ps14CollectionType", "Value"]
+- ["Ps10Comparable", "init"]
+- ["Ps28CustomDebugStringConvertible", "BASE_URL"]
+- ["Ps28CustomDebugStringConvertible", "Firebase"]
+- !private ["Ps28CustomDebugStringConvertible", "Key"]
+- !private ["Ps28CustomDebugStringConvertible", "USER_BALANCE"]
+- !private ["Ps28CustomDebugStringConvertible", "USER_DISPLAYNAME"]
+- !private ["Ps28CustomDebugStringConvertible", "USER_EMAIL"]
+- !private ["Ps28CustomDebugStringConvertible", "USER_PROFILEPHOTO"]
+- !private ["Ps28CustomDebugStringConvertible", "Value"]
+- ["Ps28CustomDebugStringConvertible", "_USER_REF"]
+- ["Ps28CustomDebugStringConvertible", "balance_"]
+- !private ["Ps28CustomDebugStringConvertible", "childByAppendingPath"]
+- ["Ps28CustomDebugStringConvertible", "displayName_"]
+- ["Ps28CustomDebugStringConvertible", "email_"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "profilePhoto_"]
+- ["Ps28CustomDebugStringConvertible", "ref_"]
+- ["Ps28CustomDebugStringConvertible", "setRef"]
+- ["Ps28CustomDebugStringConvertible", "updateBalance"]
+- !private ["Ps28CustomDebugStringConvertible", "updateChildValues"]
+- ["Ps28CustomDebugStringConvertible", "updateDisplayName"]
+- ["Ps28CustomDebugStringConvertible", "updateEmail"]
+- ["Ps28CustomDebugStringConvertible", "updateProfilePhoto"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- ["Ps23CustomStringConvertible", "BASE_URL"]
+- ["Ps23CustomStringConvertible", "Firebase"]
+- !private ["Ps23CustomStringConvertible", "Key"]
+- !private ["Ps23CustomStringConvertible", "USER_BALANCE"]
+- !private ["Ps23CustomStringConvertible", "USER_DISPLAYNAME"]
+- !private ["Ps23CustomStringConvertible", "USER_EMAIL"]
+- !private ["Ps23CustomStringConvertible", "USER_PROFILEPHOTO"]
+- !private ["Ps23CustomStringConvertible", "Value"]
+- ["Ps23CustomStringConvertible", "_USER_REF"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- ["Ps23CustomStringConvertible", "balance_"]
+- !private ["Ps23CustomStringConvertible", "childByAppendingPath"]
+- ["Ps23CustomStringConvertible", "displayName_"]
+- ["Ps23CustomStringConvertible", "email_"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "profilePhoto_"]
+- ["Ps23CustomStringConvertible", "ref_"]
+- ["Ps23CustomStringConvertible", "setRef"]
+- ["Ps23CustomStringConvertible", "updateBalance"]
+- !private ["Ps23CustomStringConvertible", "updateChildValues"]
+- ["Ps23CustomStringConvertible", "updateDisplayName"]
+- ["Ps23CustomStringConvertible", "updateEmail"]
+- ["Ps23CustomStringConvertible", "updateProfilePhoto"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Vs10Dictionary", "Key"]
+- !private ["Vs10Dictionary", "Value"]
+- !private ["Ps28DictionaryLiteralConvertible", "Key"]
+- !private ["Ps28DictionaryLiteralConvertible", "Value"]
+- ["Sd", "deinit"]
+- ["Ps9Equatable", "BASE_URL"]
+- ["Ps9Equatable", "Firebase"]
+- !private ["Ps9Equatable", "USER_BALANCE"]
+- !private ["Ps9Equatable", "USER_DISPLAYNAME"]
+- !private ["Ps9Equatable", "USER_EMAIL"]
+- !private ["Ps9Equatable", "USER_PROFILEPHOTO"]
+- ["Ps9Equatable", "_USER_REF"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "balance_"]
+- !private ["Ps9Equatable", "childByAppendingPath"]
+- ["Ps9Equatable", "displayName_"]
+- ["Ps9Equatable", "email_"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "profilePhoto_"]
+- ["Ps9Equatable", "ref_"]
+- ["Ps9Equatable", "setRef"]
+- ["Ps9Equatable", "updateBalance"]
+- !private ["Ps9Equatable", "updateChildValues"]
+- ["Ps9Equatable", "updateDisplayName"]
+- ["Ps9Equatable", "updateEmail"]
+- ["Ps9Equatable", "updateProfilePhoto"]
+- ["Ps9Equatable", ""]
+- ["Ps41ExtendedGraphemeClusterLiteralConvertible", "init"]
+- !private ["CSo6FQuery", "childByAppendingPath"]
+- ["CSo6FQuery", "init"]
+- !private ["CSo6FQuery", "updateChildValues"]
+- !private ["CSo8Firebase", "childByAppendingPath"]
+- ["CSo8Firebase", "init"]
+- !private ["CSo8Firebase", "updateChildValues"]
+- ["Sf", "deinit"]
+- ["Ps8Hashable", "BASE_URL"]
+- ["Ps8Hashable", "Firebase"]
+- !private ["Ps8Hashable", "USER_BALANCE"]
+- !private ["Ps8Hashable", "USER_DISPLAYNAME"]
+- !private ["Ps8Hashable", "USER_EMAIL"]
+- !private ["Ps8Hashable", "USER_PROFILEPHOTO"]
+- ["Ps8Hashable", "_USER_REF"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "balance_"]
+- !private ["Ps8Hashable", "childByAppendingPath"]
+- ["Ps8Hashable", "displayName_"]
+- ["Ps8Hashable", "email_"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "profilePhoto_"]
+- ["Ps8Hashable", "ref_"]
+- ["Ps8Hashable", "setRef"]
+- ["Ps8Hashable", "updateBalance"]
+- !private ["Ps8Hashable", "updateChildValues"]
+- ["Ps8Hashable", "updateDisplayName"]
+- ["Ps8Hashable", "updateEmail"]
+- ["Ps8Hashable", "updateProfilePhoto"]
+- ["Ps8Hashable", ""]
+- ["SQ", "deinit"]
+- !private ["Ps9Indexable", "Key"]
+- !private ["Ps9Indexable", "Value"]
+- ["Si", "deinit"]
+- ["Vs5Int16", "deinit"]
+- ["Vs5Int32", "deinit"]
+- ["Vs5Int64", "deinit"]
+- ["Vs4Int8", "deinit"]
+- ["Ps14MirrorPathType", "init"]
+- ["PSo8NSCoding", "init"]
+- ["PSo9NSCopying", "init"]
+- ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "BASE_URL"]
+- ["CSo8NSObject", "Firebase"]
+- ["CSo8NSObject", "Float"]
+- ["CSo8NSObject", "String"]
+- !private ["CSo8NSObject", "USER_BALANCE"]
+- !private ["CSo8NSObject", "USER_DISPLAYNAME"]
+- !private ["CSo8NSObject", "USER_EMAIL"]
+- !private ["CSo8NSObject", "USER_PROFILEPHOTO"]
+- ["CSo8NSObject", "Void"]
+- ["CSo8NSObject", "_USER_REF"]
+- ["CSo8NSObject", "balance_"]
+- !private ["CSo8NSObject", "childByAppendingPath"]
+- ["CSo8NSObject", "displayName_"]
+- ["CSo8NSObject", "email_"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "profilePhoto_"]
+- ["CSo8NSObject", "ref_"]
+- ["CSo8NSObject", "setRef"]
+- ["CSo8NSObject", "updateBalance"]
+- !private ["CSo8NSObject", "updateChildValues"]
+- ["CSo8NSObject", "updateDisplayName"]
+- ["CSo8NSObject", "updateEmail"]
+- ["CSo8NSObject", "updateProfilePhoto"]
+- ["CSo8NSObject", ""]
+- ["PSo16NSObjectProtocol", "BASE_URL"]
+- ["PSo16NSObjectProtocol", "Firebase"]
+- !private ["PSo16NSObjectProtocol", "USER_BALANCE"]
+- !private ["PSo16NSObjectProtocol", "USER_DISPLAYNAME"]
+- !private ["PSo16NSObjectProtocol", "USER_EMAIL"]
+- !private ["PSo16NSObjectProtocol", "USER_PROFILEPHOTO"]
+- ["PSo16NSObjectProtocol", "_USER_REF"]
+- ["PSo16NSObjectProtocol", "balance_"]
+- !private ["PSo16NSObjectProtocol", "childByAppendingPath"]
+- ["PSo16NSObjectProtocol", "displayName_"]
+- ["PSo16NSObjectProtocol", "email_"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "profilePhoto_"]
+- ["PSo16NSObjectProtocol", "ref_"]
+- ["PSo16NSObjectProtocol", "setRef"]
+- ["PSo16NSObjectProtocol", "updateBalance"]
+- !private ["PSo16NSObjectProtocol", "updateChildValues"]
+- ["PSo16NSObjectProtocol", "updateDisplayName"]
+- ["PSo16NSObjectProtocol", "updateEmail"]
+- ["PSo16NSObjectProtocol", "updateProfilePhoto"]
+- ["PSo16NSObjectProtocol", ""]
+- ["PSo14NSSecureCoding", "init"]
+- ["CSo8NSString", "init"]
+- !private ["Sq", "deinit"]
+- ["Ps16OutputStreamType", "init"]
+- ["C10Babylonian12PersonalInfo", "BASE_URL"]
+- ["C10Babylonian12PersonalInfo", "Firebase"]
+- ["C10Babylonian12PersonalInfo", "Float"]
+- ["C10Babylonian12PersonalInfo", "String"]
+- !private ["C10Babylonian12PersonalInfo", "USER_BALANCE"]
+- !private ["C10Babylonian12PersonalInfo", "USER_DISPLAYNAME"]
+- !private ["C10Babylonian12PersonalInfo", "USER_EMAIL"]
+- !private ["C10Babylonian12PersonalInfo", "USER_PROFILEPHOTO"]
+- ["C10Babylonian12PersonalInfo", "Void"]
+- ["C10Babylonian12PersonalInfo", "_USER_REF"]
+- ["C10Babylonian12PersonalInfo", "balance_"]
+- ["C10Babylonian12PersonalInfo", "deinit"]
+- ["C10Babylonian12PersonalInfo", "displayName_"]
+- ["C10Babylonian12PersonalInfo", "email_"]
+- ["C10Babylonian12PersonalInfo", "init"]
+- ["C10Babylonian12PersonalInfo", "profilePhoto_"]
+- ["C10Babylonian12PersonalInfo", "ref_"]
+- ["C10Babylonian12PersonalInfo", "setRef"]
+- ["C10Babylonian12PersonalInfo", "updateBalance"]
+- ["C10Babylonian12PersonalInfo", "updateDisplayName"]
+- ["C10Babylonian12PersonalInfo", "updateEmail"]
+- ["C10Babylonian12PersonalInfo", "updateProfilePhoto"]
+- !private ["Ps12SequenceType", "Key"]
+- !private ["Ps12SequenceType", "Value"]
+- !private ["Vs12StaticString", "deinit"]
+- ["Ps10Streamable", "init"]
+- !private ["SS", "deinit"]
+- ["SS", "init"]
+- ["Ps30StringInterpolationConvertible", "init"]
+- ["Ps24StringLiteralConvertible", "init"]
+- ["Su", "deinit"]
+- ["Vs6UInt16", "deinit"]
+- ["Vs6UInt32", "deinit"]
+- ["Vs6UInt64", "deinit"]
+- ["Vs5UInt8", "deinit"]
+- ["Sc", "deinit"]
+- ["Ps31UnicodeScalarLiteralConvertible", "init"]
+- !private ["Ps33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- ["Ps49_BuiltinExtendedGraphemeClusterLiteralConvertible", "init"]
+- ["Ps32_BuiltinStringLiteralConvertible", "init"]
+- ["Ps37_BuiltinUTF16StringLiteralConvertible", "init"]
+- ["Ps39_BuiltinUnicodeScalarLiteralConvertible", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "Key"]
+- !private ["Ps21_ObjectiveCBridgeable", "Value"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Vs26_OptionalNilComparisonType", "deinit"]
+- !private ["Ps12_Reflectable", "Key"]
+- !private ["Ps12_Reflectable", "Value"]
+- !private ["Ps12_Reflectable", "_getBuiltinLogicValue"]
+- ["Ps12_Reflectable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Sb"
+- !private "Ps25BooleanLiteralConvertible"
+- !private "Ps11BooleanType"
+- "Ps11CVarArgType"
+- "Vs9Character"
+- !private "Ps14CollectionType"
+- "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- !private "Vs10Dictionary"
+- !private "Ps28DictionaryLiteralConvertible"
+- "Sd"
+- "Ps9Equatable"
+- "Ps41ExtendedGraphemeClusterLiteralConvertible"
+- "CSo6FQuery"
+- "CSo8Firebase"
+- "Sf"
+- "Ps8Hashable"
+- "SQ"
+- !private "Ps9Indexable"
+- "Si"
+- "Vs5Int16"
+- "Vs5Int32"
+- "Vs5Int64"
+- "Vs4Int8"
+- "Ps14MirrorPathType"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "PSo14NSSecureCoding"
+- "CSo8NSString"
+- !private "Sq"
+- "Ps16OutputStreamType"
+- "C10Babylonian12PersonalInfo"
+- !private "Ps12SequenceType"
+- !private "Vs12StaticString"
+- "Ps10Streamable"
+- "SS"
+- "Ps30StringInterpolationConvertible"
+- "Ps24StringLiteralConvertible"
+- "Su"
+- "Vs6UInt16"
+- "Vs6UInt32"
+- "Vs6UInt64"
+- "Vs5UInt8"
+- "Sc"
+- "Ps31UnicodeScalarLiteralConvertible"
+- !private "Ps33_BuiltinBooleanLiteralConvertible"
+- "Ps49_BuiltinExtendedGraphemeClusterLiteralConvertible"
+- "Ps32_BuiltinStringLiteralConvertible"
+- "Ps37_BuiltinUTF16StringLiteralConvertible"
+- "Ps39_BuiltinUnicodeScalarLiteralConvertible"
+- "Ps21_ObjectiveCBridgeable"
+- !private "Vs26_OptionalNilComparisonType"
+- "Ps12_Reflectable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/app-Bridging-Header.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/RNCryptor.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/AppConstants.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/StreamingKit/STKAudioPlayer.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/StreamingKit/STKDataSource.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/Welcome/WelcomeView.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/ProgressHUD/ProgressHUD.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/UIImageView+WebCache.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageCompat.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageManager.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageOperation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageDownloader.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDImageCache.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FirebaseServerValue.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FTransactionResult.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FMutableData.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FirebaseApp.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FQuery.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/Firebase.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FEventType.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FDataSnapshot.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FConfig.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FAuthType.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FAuthData.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/Firebase-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Modules/TagListView.swiftmodule/x86_64.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Headers/TagListView-Swift.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Headers/TagListView-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BoltsVersion.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/Bolts.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFTaskCompletionSource.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFTask.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFExecutor.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationTokenSource.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationTokenRegistration.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationToken.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/Bolts-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPurchase.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFProduct.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFNetworkActivityIndicatorManager.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFInstallation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUserAuthenticationDelegate.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFSession.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFRole.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFRelation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Subclass.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFGeoPoint.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConfig+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConfig.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnonymousUtils+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFSubclassing.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnonymousUtils.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnalytics.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFACL.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConstants.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/ParseClientConfiguration.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/Parse.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/Parse-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreMedia.swiftmodule"
+interface-hash: "fe0c3b968506da0dd5e797f4104b3489"

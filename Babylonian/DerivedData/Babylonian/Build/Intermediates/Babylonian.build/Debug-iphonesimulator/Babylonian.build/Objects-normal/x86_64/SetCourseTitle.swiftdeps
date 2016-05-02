@@ -1,0 +1,537 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SetCourseTitle"
+provides-nominal:
+- "C10Babylonian14SetCourseTitle"
+provides-member:
+- ["C10Babylonian14SetCourseTitle", ""]
+provides-dynamic-lookup:
+- "setSelected"
+- "title"
+- "textFieldShouldReturn"
+- "awakeFromNib"
+- "currentCourse"
+depends-top-level:
+- "UITextFieldDelegate"
+- "SetCourseTitle"
+- "UITextField"
+- "Bool"
+- "BBCourse"
+- !private "BooleanLiteralType"
+- "UITableViewCell"
+depends-member:
+- ["Ps9AnyObject", "awakeFromNib"]
+- ["Ps9AnyObject", "currentCourse"]
+- !private ["Ps9AnyObject", "delegate"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "resignFirstResponder"]
+- ["Ps9AnyObject", "setSelected"]
+- !private ["Ps9AnyObject", "setTitle"]
+- !private ["Ps9AnyObject", "text"]
+- ["Ps9AnyObject", "textField"]
+- ["Ps9AnyObject", "textFieldDidBeginEditing"]
+- ["Ps9AnyObject", "textFieldDidEndEditing"]
+- ["Ps9AnyObject", "textFieldShouldBeginEditing"]
+- ["Ps9AnyObject", "textFieldShouldClear"]
+- ["Ps9AnyObject", "textFieldShouldEndEditing"]
+- ["Ps9AnyObject", "textFieldShouldReturn"]
+- ["Ps9AnyObject", "title"]
+- ["Ps9AnyObject", ""]
+- !private ["C10Babylonian8BBCourse", "setTitle"]
+- ["Ps11CVarArgType", "awakeFromNib"]
+- ["Ps11CVarArgType", "currentCourse"]
+- !private ["Ps11CVarArgType", "delegate"]
+- ["Ps11CVarArgType", "init"]
+- !private ["Ps11CVarArgType", "resignFirstResponder"]
+- ["Ps11CVarArgType", "setSelected"]
+- !private ["Ps11CVarArgType", "setTitle"]
+- !private ["Ps11CVarArgType", "text"]
+- ["Ps11CVarArgType", "textField"]
+- ["Ps11CVarArgType", "textFieldDidBeginEditing"]
+- ["Ps11CVarArgType", "textFieldDidEndEditing"]
+- ["Ps11CVarArgType", "textFieldShouldBeginEditing"]
+- ["Ps11CVarArgType", "textFieldShouldClear"]
+- ["Ps11CVarArgType", "textFieldShouldEndEditing"]
+- ["Ps11CVarArgType", "textFieldShouldReturn"]
+- ["Ps11CVarArgType", "title"]
+- ["Ps11CVarArgType", ""]
+- ["Ps28CustomDebugStringConvertible", "awakeFromNib"]
+- ["Ps28CustomDebugStringConvertible", "currentCourse"]
+- !private ["Ps28CustomDebugStringConvertible", "delegate"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "resignFirstResponder"]
+- ["Ps28CustomDebugStringConvertible", "setSelected"]
+- !private ["Ps28CustomDebugStringConvertible", "setTitle"]
+- !private ["Ps28CustomDebugStringConvertible", "text"]
+- ["Ps28CustomDebugStringConvertible", "textField"]
+- ["Ps28CustomDebugStringConvertible", "textFieldDidBeginEditing"]
+- ["Ps28CustomDebugStringConvertible", "textFieldDidEndEditing"]
+- ["Ps28CustomDebugStringConvertible", "textFieldShouldBeginEditing"]
+- ["Ps28CustomDebugStringConvertible", "textFieldShouldClear"]
+- ["Ps28CustomDebugStringConvertible", "textFieldShouldEndEditing"]
+- ["Ps28CustomDebugStringConvertible", "textFieldShouldReturn"]
+- ["Ps28CustomDebugStringConvertible", "title"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- ["Ps23CustomStringConvertible", "awakeFromNib"]
+- ["Ps23CustomStringConvertible", "currentCourse"]
+- !private ["Ps23CustomStringConvertible", "delegate"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "resignFirstResponder"]
+- ["Ps23CustomStringConvertible", "setSelected"]
+- !private ["Ps23CustomStringConvertible", "setTitle"]
+- !private ["Ps23CustomStringConvertible", "text"]
+- ["Ps23CustomStringConvertible", "textField"]
+- ["Ps23CustomStringConvertible", "textFieldDidBeginEditing"]
+- ["Ps23CustomStringConvertible", "textFieldDidEndEditing"]
+- ["Ps23CustomStringConvertible", "textFieldShouldBeginEditing"]
+- ["Ps23CustomStringConvertible", "textFieldShouldClear"]
+- ["Ps23CustomStringConvertible", "textFieldShouldEndEditing"]
+- ["Ps23CustomStringConvertible", "textFieldShouldReturn"]
+- ["Ps23CustomStringConvertible", "title"]
+- ["Ps23CustomStringConvertible", ""]
+- ["Ps9Equatable", "awakeFromNib"]
+- ["Ps9Equatable", "currentCourse"]
+- !private ["Ps9Equatable", "delegate"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "resignFirstResponder"]
+- ["Ps9Equatable", "setSelected"]
+- !private ["Ps9Equatable", "setTitle"]
+- !private ["Ps9Equatable", "text"]
+- ["Ps9Equatable", "textField"]
+- ["Ps9Equatable", "textFieldDidBeginEditing"]
+- ["Ps9Equatable", "textFieldDidEndEditing"]
+- ["Ps9Equatable", "textFieldShouldBeginEditing"]
+- ["Ps9Equatable", "textFieldShouldClear"]
+- ["Ps9Equatable", "textFieldShouldEndEditing"]
+- ["Ps9Equatable", "textFieldShouldReturn"]
+- ["Ps9Equatable", "title"]
+- ["Ps9Equatable", ""]
+- ["Ps8Hashable", "awakeFromNib"]
+- ["Ps8Hashable", "currentCourse"]
+- !private ["Ps8Hashable", "delegate"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "resignFirstResponder"]
+- ["Ps8Hashable", "setSelected"]
+- !private ["Ps8Hashable", "setTitle"]
+- !private ["Ps8Hashable", "text"]
+- ["Ps8Hashable", "textField"]
+- ["Ps8Hashable", "textFieldDidBeginEditing"]
+- ["Ps8Hashable", "textFieldDidEndEditing"]
+- ["Ps8Hashable", "textFieldShouldBeginEditing"]
+- ["Ps8Hashable", "textFieldShouldClear"]
+- ["Ps8Hashable", "textFieldShouldEndEditing"]
+- ["Ps8Hashable", "textFieldShouldReturn"]
+- ["Ps8Hashable", "title"]
+- ["Ps8Hashable", ""]
+- ["PSo8NSCoding", "awakeFromNib"]
+- ["PSo8NSCoding", "currentCourse"]
+- !private ["PSo8NSCoding", "delegate"]
+- ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "resignFirstResponder"]
+- ["PSo8NSCoding", "setSelected"]
+- !private ["PSo8NSCoding", "text"]
+- ["PSo8NSCoding", "textField"]
+- ["PSo8NSCoding", "textFieldDidBeginEditing"]
+- ["PSo8NSCoding", "textFieldDidEndEditing"]
+- ["PSo8NSCoding", "textFieldShouldBeginEditing"]
+- ["PSo8NSCoding", "textFieldShouldClear"]
+- ["PSo8NSCoding", "textFieldShouldEndEditing"]
+- ["PSo8NSCoding", "textFieldShouldReturn"]
+- ["PSo8NSCoding", "title"]
+- ["PSo8NSCoding", ""]
+- ["CSo8NSObject", "BBCourse"]
+- ["CSo8NSObject", "Bool"]
+- ["CSo8NSObject", "UITextField"]
+- ["CSo8NSObject", "awakeFromNib"]
+- ["CSo8NSObject", "currentCourse"]
+- !private ["CSo8NSObject", "delegate"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "resignFirstResponder"]
+- ["CSo8NSObject", "setSelected"]
+- !private ["CSo8NSObject", "setTitle"]
+- !private ["CSo8NSObject", "text"]
+- ["CSo8NSObject", "textField"]
+- ["CSo8NSObject", "textFieldDidBeginEditing"]
+- ["CSo8NSObject", "textFieldDidEndEditing"]
+- ["CSo8NSObject", "textFieldShouldBeginEditing"]
+- ["CSo8NSObject", "textFieldShouldClear"]
+- ["CSo8NSObject", "textFieldShouldEndEditing"]
+- ["CSo8NSObject", "textFieldShouldReturn"]
+- ["CSo8NSObject", "title"]
+- ["PSo16NSObjectProtocol", "awakeFromNib"]
+- ["PSo16NSObjectProtocol", "currentCourse"]
+- !private ["PSo16NSObjectProtocol", "delegate"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "resignFirstResponder"]
+- ["PSo16NSObjectProtocol", "setSelected"]
+- !private ["PSo16NSObjectProtocol", "setTitle"]
+- !private ["PSo16NSObjectProtocol", "text"]
+- ["PSo16NSObjectProtocol", "textField"]
+- ["PSo16NSObjectProtocol", "textFieldDidBeginEditing"]
+- ["PSo16NSObjectProtocol", "textFieldDidEndEditing"]
+- ["PSo16NSObjectProtocol", "textFieldShouldBeginEditing"]
+- ["PSo16NSObjectProtocol", "textFieldShouldClear"]
+- ["PSo16NSObjectProtocol", "textFieldShouldEndEditing"]
+- ["PSo16NSObjectProtocol", "textFieldShouldReturn"]
+- ["PSo16NSObjectProtocol", "title"]
+- ["PSo16NSObjectProtocol", ""]
+- ["C10Babylonian14SetCourseTitle", "BBCourse"]
+- ["C10Babylonian14SetCourseTitle", "Bool"]
+- ["C10Babylonian14SetCourseTitle", "UITextField"]
+- ["C10Babylonian14SetCourseTitle", "awakeFromNib"]
+- ["C10Babylonian14SetCourseTitle", "currentCourse"]
+- ["C10Babylonian14SetCourseTitle", "deinit"]
+- ["C10Babylonian14SetCourseTitle", "init"]
+- ["C10Babylonian14SetCourseTitle", "setSelected"]
+- ["C10Babylonian14SetCourseTitle", "textField"]
+- ["C10Babylonian14SetCourseTitle", "textFieldDidBeginEditing"]
+- ["C10Babylonian14SetCourseTitle", "textFieldDidEndEditing"]
+- ["C10Babylonian14SetCourseTitle", "textFieldShouldBeginEditing"]
+- ["C10Babylonian14SetCourseTitle", "textFieldShouldClear"]
+- ["C10Babylonian14SetCourseTitle", "textFieldShouldEndEditing"]
+- ["C10Babylonian14SetCourseTitle", "textFieldShouldReturn"]
+- ["C10Babylonian14SetCourseTitle", "title"]
+- ["PSo29UIAccessibilityIdentification", "awakeFromNib"]
+- ["PSo29UIAccessibilityIdentification", "currentCourse"]
+- !private ["PSo29UIAccessibilityIdentification", "delegate"]
+- ["PSo29UIAccessibilityIdentification", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "resignFirstResponder"]
+- ["PSo29UIAccessibilityIdentification", "setSelected"]
+- !private ["PSo29UIAccessibilityIdentification", "text"]
+- ["PSo29UIAccessibilityIdentification", "textField"]
+- ["PSo29UIAccessibilityIdentification", "textFieldDidBeginEditing"]
+- ["PSo29UIAccessibilityIdentification", "textFieldDidEndEditing"]
+- ["PSo29UIAccessibilityIdentification", "textFieldShouldBeginEditing"]
+- ["PSo29UIAccessibilityIdentification", "textFieldShouldClear"]
+- ["PSo29UIAccessibilityIdentification", "textFieldShouldEndEditing"]
+- ["PSo29UIAccessibilityIdentification", "textFieldShouldReturn"]
+- ["PSo29UIAccessibilityIdentification", "title"]
+- ["PSo29UIAccessibilityIdentification", ""]
+- ["PSo12UIAppearance", "awakeFromNib"]
+- ["PSo12UIAppearance", "currentCourse"]
+- !private ["PSo12UIAppearance", "delegate"]
+- ["PSo12UIAppearance", "init"]
+- !private ["PSo12UIAppearance", "resignFirstResponder"]
+- ["PSo12UIAppearance", "setSelected"]
+- !private ["PSo12UIAppearance", "text"]
+- ["PSo12UIAppearance", "textField"]
+- ["PSo12UIAppearance", "textFieldDidBeginEditing"]
+- ["PSo12UIAppearance", "textFieldDidEndEditing"]
+- ["PSo12UIAppearance", "textFieldShouldBeginEditing"]
+- ["PSo12UIAppearance", "textFieldShouldClear"]
+- ["PSo12UIAppearance", "textFieldShouldEndEditing"]
+- ["PSo12UIAppearance", "textFieldShouldReturn"]
+- ["PSo12UIAppearance", "title"]
+- ["PSo12UIAppearance", ""]
+- ["PSo21UIAppearanceContainer", "awakeFromNib"]
+- ["PSo21UIAppearanceContainer", "currentCourse"]
+- !private ["PSo21UIAppearanceContainer", "delegate"]
+- ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "resignFirstResponder"]
+- ["PSo21UIAppearanceContainer", "setSelected"]
+- !private ["PSo21UIAppearanceContainer", "text"]
+- ["PSo21UIAppearanceContainer", "textField"]
+- ["PSo21UIAppearanceContainer", "textFieldDidBeginEditing"]
+- ["PSo21UIAppearanceContainer", "textFieldDidEndEditing"]
+- ["PSo21UIAppearanceContainer", "textFieldShouldBeginEditing"]
+- ["PSo21UIAppearanceContainer", "textFieldShouldClear"]
+- ["PSo21UIAppearanceContainer", "textFieldShouldEndEditing"]
+- ["PSo21UIAppearanceContainer", "textFieldShouldReturn"]
+- ["PSo21UIAppearanceContainer", "title"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["CSo9UIControl", "delegate"]
+- !private ["CSo9UIControl", "resignFirstResponder"]
+- !private ["CSo9UIControl", "text"]
+- ["PSo17UICoordinateSpace", "awakeFromNib"]
+- ["PSo17UICoordinateSpace", "currentCourse"]
+- !private ["PSo17UICoordinateSpace", "delegate"]
+- ["PSo17UICoordinateSpace", "init"]
+- !private ["PSo17UICoordinateSpace", "resignFirstResponder"]
+- ["PSo17UICoordinateSpace", "setSelected"]
+- !private ["PSo17UICoordinateSpace", "text"]
+- ["PSo17UICoordinateSpace", "textField"]
+- ["PSo17UICoordinateSpace", "textFieldDidBeginEditing"]
+- ["PSo17UICoordinateSpace", "textFieldDidEndEditing"]
+- ["PSo17UICoordinateSpace", "textFieldShouldBeginEditing"]
+- ["PSo17UICoordinateSpace", "textFieldShouldClear"]
+- ["PSo17UICoordinateSpace", "textFieldShouldEndEditing"]
+- ["PSo17UICoordinateSpace", "textFieldShouldReturn"]
+- ["PSo17UICoordinateSpace", "title"]
+- ["PSo17UICoordinateSpace", ""]
+- ["PSo13UIDynamicItem", "awakeFromNib"]
+- ["PSo13UIDynamicItem", "currentCourse"]
+- !private ["PSo13UIDynamicItem", "delegate"]
+- ["PSo13UIDynamicItem", "init"]
+- !private ["PSo13UIDynamicItem", "resignFirstResponder"]
+- ["PSo13UIDynamicItem", "setSelected"]
+- !private ["PSo13UIDynamicItem", "text"]
+- ["PSo13UIDynamicItem", "textField"]
+- ["PSo13UIDynamicItem", "textFieldDidBeginEditing"]
+- ["PSo13UIDynamicItem", "textFieldDidEndEditing"]
+- ["PSo13UIDynamicItem", "textFieldShouldBeginEditing"]
+- ["PSo13UIDynamicItem", "textFieldShouldClear"]
+- ["PSo13UIDynamicItem", "textFieldShouldEndEditing"]
+- ["PSo13UIDynamicItem", "textFieldShouldReturn"]
+- ["PSo13UIDynamicItem", "title"]
+- ["PSo13UIDynamicItem", ""]
+- ["PSo18UIFocusEnvironment", "awakeFromNib"]
+- ["PSo18UIFocusEnvironment", "currentCourse"]
+- !private ["PSo18UIFocusEnvironment", "delegate"]
+- ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "resignFirstResponder"]
+- ["PSo18UIFocusEnvironment", "setSelected"]
+- !private ["PSo18UIFocusEnvironment", "text"]
+- ["PSo18UIFocusEnvironment", "textField"]
+- ["PSo18UIFocusEnvironment", "textFieldDidBeginEditing"]
+- ["PSo18UIFocusEnvironment", "textFieldDidEndEditing"]
+- ["PSo18UIFocusEnvironment", "textFieldShouldBeginEditing"]
+- ["PSo18UIFocusEnvironment", "textFieldShouldClear"]
+- ["PSo18UIFocusEnvironment", "textFieldShouldEndEditing"]
+- ["PSo18UIFocusEnvironment", "textFieldShouldReturn"]
+- ["PSo18UIFocusEnvironment", "title"]
+- ["PSo18UIFocusEnvironment", ""]
+- ["PSo27UIGestureRecognizerDelegate", "awakeFromNib"]
+- ["PSo27UIGestureRecognizerDelegate", "currentCourse"]
+- ["PSo27UIGestureRecognizerDelegate", "init"]
+- ["PSo27UIGestureRecognizerDelegate", "setSelected"]
+- ["PSo27UIGestureRecognizerDelegate", "textField"]
+- ["PSo27UIGestureRecognizerDelegate", "textFieldDidBeginEditing"]
+- ["PSo27UIGestureRecognizerDelegate", "textFieldDidEndEditing"]
+- ["PSo27UIGestureRecognizerDelegate", "textFieldShouldBeginEditing"]
+- ["PSo27UIGestureRecognizerDelegate", "textFieldShouldClear"]
+- ["PSo27UIGestureRecognizerDelegate", "textFieldShouldEndEditing"]
+- ["PSo27UIGestureRecognizerDelegate", "textFieldShouldReturn"]
+- ["PSo27UIGestureRecognizerDelegate", "title"]
+- ["PSo27UIGestureRecognizerDelegate", ""]
+- !private ["PSo10UIKeyInput", "delegate"]
+- !private ["PSo10UIKeyInput", "resignFirstResponder"]
+- !private ["PSo10UIKeyInput", "text"]
+- ["CSo11UIResponder", "BBCourse"]
+- ["CSo11UIResponder", "Bool"]
+- ["CSo11UIResponder", "UITextField"]
+- ["CSo11UIResponder", "awakeFromNib"]
+- ["CSo11UIResponder", "currentCourse"]
+- !private ["CSo11UIResponder", "delegate"]
+- ["CSo11UIResponder", "init"]
+- !private ["CSo11UIResponder", "resignFirstResponder"]
+- ["CSo11UIResponder", "setSelected"]
+- !private ["CSo11UIResponder", "text"]
+- ["CSo11UIResponder", "textField"]
+- ["CSo11UIResponder", "textFieldDidBeginEditing"]
+- ["CSo11UIResponder", "textFieldDidEndEditing"]
+- ["CSo11UIResponder", "textFieldShouldBeginEditing"]
+- ["CSo11UIResponder", "textFieldShouldClear"]
+- ["CSo11UIResponder", "textFieldShouldEndEditing"]
+- ["CSo11UIResponder", "textFieldShouldReturn"]
+- ["CSo11UIResponder", "title"]
+- ["CSo15UITableViewCell", "BBCourse"]
+- ["CSo15UITableViewCell", "Bool"]
+- ["CSo15UITableViewCell", "UITextField"]
+- ["CSo15UITableViewCell", "awakeFromNib"]
+- ["CSo15UITableViewCell", "currentCourse"]
+- ["CSo15UITableViewCell", "init"]
+- ["CSo15UITableViewCell", "setSelected"]
+- ["CSo15UITableViewCell", "textField"]
+- ["CSo15UITableViewCell", "textFieldDidBeginEditing"]
+- ["CSo15UITableViewCell", "textFieldDidEndEditing"]
+- ["CSo15UITableViewCell", "textFieldShouldBeginEditing"]
+- ["CSo15UITableViewCell", "textFieldShouldClear"]
+- ["CSo15UITableViewCell", "textFieldShouldEndEditing"]
+- ["CSo15UITableViewCell", "textFieldShouldReturn"]
+- ["CSo15UITableViewCell", "title"]
+- ["CSo15UITableViewCell", ""]
+- !private ["CSo11UITextField", "delegate"]
+- !private ["CSo11UITextField", "resignFirstResponder"]
+- !private ["CSo11UITextField", "text"]
+- !private ["PSo19UITextFieldDelegate", "currentCourse"]
+- ["PSo19UITextFieldDelegate", "textField"]
+- ["PSo19UITextFieldDelegate", "textFieldDidBeginEditing"]
+- ["PSo19UITextFieldDelegate", "textFieldDidEndEditing"]
+- ["PSo19UITextFieldDelegate", "textFieldShouldBeginEditing"]
+- ["PSo19UITextFieldDelegate", "textFieldShouldClear"]
+- ["PSo19UITextFieldDelegate", "textFieldShouldEndEditing"]
+- ["PSo19UITextFieldDelegate", "textFieldShouldReturn"]
+- !private ["PSo19UITextFieldDelegate", "title"]
+- ["PSo19UITextFieldDelegate", ""]
+- !private ["PSo11UITextInput", "delegate"]
+- !private ["PSo11UITextInput", "resignFirstResponder"]
+- !private ["PSo11UITextInput", "text"]
+- !private ["PSo17UITextInputTraits", "delegate"]
+- !private ["PSo17UITextInputTraits", "resignFirstResponder"]
+- !private ["PSo17UITextInputTraits", "text"]
+- ["PSo18UITraitEnvironment", "awakeFromNib"]
+- ["PSo18UITraitEnvironment", "currentCourse"]
+- !private ["PSo18UITraitEnvironment", "delegate"]
+- ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "resignFirstResponder"]
+- ["PSo18UITraitEnvironment", "setSelected"]
+- !private ["PSo18UITraitEnvironment", "text"]
+- ["PSo18UITraitEnvironment", "textField"]
+- ["PSo18UITraitEnvironment", "textFieldDidBeginEditing"]
+- ["PSo18UITraitEnvironment", "textFieldDidEndEditing"]
+- ["PSo18UITraitEnvironment", "textFieldShouldBeginEditing"]
+- ["PSo18UITraitEnvironment", "textFieldShouldClear"]
+- ["PSo18UITraitEnvironment", "textFieldShouldEndEditing"]
+- ["PSo18UITraitEnvironment", "textFieldShouldReturn"]
+- ["PSo18UITraitEnvironment", "title"]
+- ["PSo18UITraitEnvironment", ""]
+- ["CSo6UIView", "BBCourse"]
+- ["CSo6UIView", "Bool"]
+- ["CSo6UIView", "UITextField"]
+- ["CSo6UIView", "awakeFromNib"]
+- ["CSo6UIView", "currentCourse"]
+- !private ["CSo6UIView", "delegate"]
+- ["CSo6UIView", "init"]
+- !private ["CSo6UIView", "resignFirstResponder"]
+- ["CSo6UIView", "setSelected"]
+- !private ["CSo6UIView", "text"]
+- ["CSo6UIView", "textField"]
+- ["CSo6UIView", "textFieldDidBeginEditing"]
+- ["CSo6UIView", "textFieldDidEndEditing"]
+- ["CSo6UIView", "textFieldShouldBeginEditing"]
+- ["CSo6UIView", "textFieldShouldClear"]
+- ["CSo6UIView", "textFieldShouldEndEditing"]
+- ["CSo6UIView", "textFieldShouldReturn"]
+- ["CSo6UIView", "title"]
+- ["Ps12_Reflectable", "awakeFromNib"]
+- ["Ps12_Reflectable", "currentCourse"]
+- !private ["Ps12_Reflectable", "delegate"]
+- ["Ps12_Reflectable", "init"]
+- !private ["Ps12_Reflectable", "resignFirstResponder"]
+- ["Ps12_Reflectable", "setSelected"]
+- !private ["Ps12_Reflectable", "text"]
+- ["Ps12_Reflectable", "textField"]
+- ["Ps12_Reflectable", "textFieldDidBeginEditing"]
+- ["Ps12_Reflectable", "textFieldDidEndEditing"]
+- ["Ps12_Reflectable", "textFieldShouldBeginEditing"]
+- ["Ps12_Reflectable", "textFieldShouldClear"]
+- ["Ps12_Reflectable", "textFieldShouldEndEditing"]
+- ["Ps12_Reflectable", "textFieldShouldReturn"]
+- ["Ps12_Reflectable", "title"]
+- ["Ps12_Reflectable", ""]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "C10Babylonian8BBCourse"
+- "Ps11CVarArgType"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps8Hashable"
+- "PSo8NSCoding"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "C10Babylonian14SetCourseTitle"
+- "PSo29UIAccessibilityIdentification"
+- "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- !private "CSo9UIControl"
+- "PSo17UICoordinateSpace"
+- "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- "PSo27UIGestureRecognizerDelegate"
+- !private "PSo10UIKeyInput"
+- "CSo11UIResponder"
+- "CSo15UITableViewCell"
+- !private "CSo11UITextField"
+- "PSo19UITextFieldDelegate"
+- !private "PSo11UITextInput"
+- !private "PSo17UITextInputTraits"
+- "PSo18UITraitEnvironment"
+- "CSo6UIView"
+- "Ps12_Reflectable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/app-Bridging-Header.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/RNCryptor.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/AppConstants.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/StreamingKit/STKAudioPlayer.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/StreamingKit/STKDataSource.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/Welcome/WelcomeView.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/ProgressHUD/ProgressHUD.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/UIImageView+WebCache.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageCompat.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageManager.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageOperation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDWebImageDownloader.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/Babylonian/SDWebImage/SDImageCache.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FirebaseServerValue.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FTransactionResult.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FMutableData.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FirebaseApp.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FQuery.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/Firebase.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FEventType.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FDataSnapshot.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FConfig.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FAuthType.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/FAuthData.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Headers/Firebase-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Firebase.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Modules/TagListView.swiftmodule/x86_64.swiftmodule"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Headers/TagListView-Swift.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Headers/TagListView-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/TagListView.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BoltsVersion.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/Bolts.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFTaskCompletionSource.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFTask.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFExecutor.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationTokenSource.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationTokenRegistration.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/BFCancellationToken.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Headers/Bolts-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Bolts.framework/Modules/module.modulemap"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPurchase.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFProduct.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFPush.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFNetworkActivityIndicatorManager.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFInstallation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUserAuthenticationDelegate.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFSession.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFRole.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFRelation.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFQuery.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject+Subclass.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFGeoPoint.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFFile.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConfig+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConfig.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud+Synchronous.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFCloud.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnonymousUtils+Deprecated.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFSubclassing.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFObject.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFUser.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnonymousUtils.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFAnalytics.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFACL.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/PFConstants.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/ParseClientConfiguration.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/Parse.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Headers/Parse-umbrella.h"
+- "/Users/Jiqing/Desktop/506/Babylonians/Babylonian/DerivedData/Babylonian/Build/Products/Debug-iphonesimulator/Parse.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreMedia.swiftmodule"
+interface-hash: "ed52c42c85337112c38e62e93d424b01"
