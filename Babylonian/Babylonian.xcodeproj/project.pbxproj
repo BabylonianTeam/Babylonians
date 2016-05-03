@@ -107,6 +107,10 @@
 		30F20ABB1CA0F99D00A484E9 /* LearnerMyCourses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20ABA1CA0F99D00A484E9 /* LearnerMyCourses.storyboard */; };
 		30F20ABE1CA121E700A484E9 /* RNCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F20ABD1CA121E700A484E9 /* RNCryptor.swift */; };
 		30F20AC11CA124C600A484E9 /* CourseView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F20AC01CA124C600A484E9 /* CourseView.storyboard */; };
+		905CB06A1CD8115500A27FC8 /* SetCoursePrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905CB0681CD8115500A27FC8 /* SetCoursePrice.swift */; };
+		905CB06B1CD8115500A27FC8 /* SetCoursePrice.xib in Resources */ = {isa = PBXBuildFile; fileRef = 905CB0691CD8115500A27FC8 /* SetCoursePrice.xib */; };
+		929DDC171CD8030A00E0B437 /* LearnerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929DDC161CD8030A00E0B437 /* LearnerTabBarController.swift */; };
+		929DDC191CD803AD00E0B437 /* CreatorTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929DDC181CD803AD00E0B437 /* CreatorTabBarController.swift */; };
 		92C42CE81CB211BD003091FC /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C42CE71CB211BD003091FC /* PersonalInfo.swift */; };
 		9F17DC7F1CBC85DE00442D14 /* LeanerMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F17DC7E1CBC85DE00442D14 /* LeanerMoreViewController.swift */; };
 		9F17DC831CBC89BD00442D14 /* LearnerMorePasswdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F17DC801CBC89BD00442D14 /* LearnerMorePasswdViewController.swift */; };
@@ -134,6 +138,7 @@
 		9FBDE5681C9B8E9D003A45BA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDE5651C9B8E9D003A45BA /* Constant.swift */; };
 		9FBDE5691C9B8E9D003A45BA /* Minicourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */; };
 		9FCA548F1CB2DE690052917B /* MoreEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCA548E1CB2DE690052917B /* MoreEmailViewController.swift */; };
+		9FF2DC9A1CD80AA400146F18 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FF2DC991CD80AA400146F18 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -297,6 +302,10 @@
 		76CDD2D8D01CE5CB4C1FFBBD /* Pods-Babylonian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babylonian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babylonian/Pods-Babylonian.debug.xcconfig"; sourceTree = "<group>"; };
 		903F44B61CB433340023E412 /* CourseSettingViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSettingViewControllerTests.swift; sourceTree = "<group>"; };
 		903F44B81CB446460023E412 /* tagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tagTableViewCell.swift; sourceTree = "<group>"; };
+		905CB0681CD8115500A27FC8 /* SetCoursePrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCoursePrice.swift; sourceTree = "<group>"; };
+		905CB0691CD8115500A27FC8 /* SetCoursePrice.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetCoursePrice.xib; sourceTree = "<group>"; };
+		929DDC161CD8030A00E0B437 /* LearnerTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnerTabBarController.swift; sourceTree = "<group>"; };
+		929DDC181CD803AD00E0B437 /* CreatorTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorTabBarController.swift; sourceTree = "<group>"; };
 		92C42CE71CB211BD003091FC /* PersonalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
 		9F17DC7E1CBC85DE00442D14 /* LeanerMoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeanerMoreViewController.swift; sourceTree = "<group>"; };
 		9F17DC801CBC89BD00442D14 /* LearnerMorePasswdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnerMorePasswdViewController.swift; sourceTree = "<group>"; };
@@ -325,7 +334,7 @@
 		9FBDE5651C9B8E9D003A45BA /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		9FBDE5661C9B8E9D003A45BA /* Minicourse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Minicourse.swift; sourceTree = "<group>"; };
 		9FCA548E1CB2DE690052917B /* MoreEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreEmailViewController.swift; sourceTree = "<group>"; };
-		9FDB5DEC1CCCADBE000F134C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9FF2DC991CD80AA400146F18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E5496D19FE0F23EEC772346C /* Pods_Babylonian.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babylonian.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -395,7 +404,7 @@
 				3057A6C81C9DED2400C9C1A4 /* Utilities.swift */,
 				0705D5031C8CEF270065467D /* Assets.xcassets */,
 				0705D5081C8CEF270065467D /* Info.plist */,
-				9FDB5DEC1CCCADBE000F134C /* GoogleService-Info.plist */,
+				9FF2DC991CD80AA400146F18 /* GoogleService-Info.plist */,
 				0705D5001C8CEF270065467D /* Babylonian.xcdatamodeld */,
 				3057A6CA1C9E30FF00C9C1A4 /* app-Bridging-Header.h */,
 				30DBCE131C9E5432000CD59D /* AppConstants.h */,
@@ -519,9 +528,6 @@
 				30852A981CB8C72A00C4D100 /* MyCourseInfo.swift */,
 				3037A4AC1CB0A1DF00C52232 /* BBCourse.swift */,
 				3037A4A81CB09F6600C52232 /* CourseItem.swift */,
-				30D77E261CD52CE600E8A6B4 /* CreatorInfo.swift */,
-				30D77E271CD52CE600E8A6B4 /* LearnerInfo.swift */,
-				30D77E281CD52CE600E8A6B4 /* OwnedCourseItem.swift */,
 				3037A4A61CB09F6600C52232 /* ImageItem.swift */,
 				3037A4A71CB09F6600C52232 /* ATItem.swift */,
 			);
@@ -655,7 +661,12 @@
 		92236CF21CC703A600069679 /* UserModel */ = {
 			isa = PBXGroup;
 			children = (
+				30D77E271CD52CE600E8A6B4 /* LearnerInfo.swift */,
+				30D77E261CD52CE600E8A6B4 /* CreatorInfo.swift */,
 				92C42CE71CB211BD003091FC /* PersonalInfo.swift */,
+				929DDC161CD8030A00E0B437 /* LearnerTabBarController.swift */,
+				929DDC181CD803AD00E0B437 /* CreatorTabBarController.swift */,
+				30D77E281CD52CE600E8A6B4 /* OwnedCourseItem.swift */,
 			);
 			name = UserModel;
 			sourceTree = "<group>";
@@ -691,6 +702,8 @@
 				30852AA91CB8FCFD00C4D100 /* ATItemAutoCell.xib */,
 				30852AAC1CB954D400C4D100 /* SearchTableCell.swift */,
 				30852AAD1CB954D400C4D100 /* SearchTableCell.xib */,
+				905CB0681CD8115500A27FC8 /* SetCoursePrice.swift */,
+				905CB0691CD8115500A27FC8 /* SetCoursePrice.xib */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -794,7 +807,7 @@
 				TargetAttributes = {
 					0705D4F51C8CEF270065467D = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 8825SZP466;
+						DevelopmentTeam = V7V58JZZ4C;
 					};
 					0705D50C1C8CEF270065467D = {
 						CreatedOnToolsVersion = 7.2;
@@ -843,6 +856,7 @@
 				30852AB31CB96D4B00C4D100 /* BBicon120.png in Resources */,
 				30852AA11CB8D34400C4D100 /* person-placeholder.png in Resources */,
 				30E6DB3B1CB1C43B00F604E6 /* CourseSettingsView.storyboard in Resources */,
+				9FF2DC9A1CD80AA400146F18 /* GoogleService-Info.plist in Resources */,
 				303DDE691CC865EC007E9077 /* star30.png in Resources */,
 				30DBCDD31C9E3BC5000CD59D /* LoginView.xib in Resources */,
 				9F66D60B1C9ADE1500EB9C93 /* SliderCell.xib in Resources */,
@@ -867,6 +881,7 @@
 				30852AB51CB96EC000C4D100 /* AppsIcon80.png in Resources */,
 				30852AA31CB8EAE400C4D100 /* camwhite.png in Resources */,
 				9F66D60D1C9ADE1500EB9C93 /* TextfieldCell.xib in Resources */,
+				905CB06B1CD8115500A27FC8 /* SetCoursePrice.xib in Resources */,
 				30F20ABB1CA0F99D00A484E9 /* LearnerMyCourses.storyboard in Resources */,
 				30852AA51CB8EAEC00C4D100 /* camblack.png in Resources */,
 				30DBCDD41C9E3BC5000CD59D /* WelcomeView.xib in Resources */,
@@ -958,6 +973,7 @@
 				306C323B1C9B9E830035608E /* MainCourseCell.swift in Sources */,
 				30DBCE071C9E4174000CD59D /* SDWebImagePrefetcher.m in Sources */,
 				30DBCE0E1C9E4174000CD59D /* UIView+WebCacheOperation.m in Sources */,
+				929DDC191CD803AD00E0B437 /* CreatorTabBarController.swift in Sources */,
 				9FCA548F1CB2DE690052917B /* MoreEmailViewController.swift in Sources */,
 				30DBCDD01C9E3BC5000CD59D /* LoginView.m in Sources */,
 				9FBDE5691C9B8E9D003A45BA /* Minicourse.swift in Sources */,
@@ -1003,7 +1019,9 @@
 				0705D4FA1C8CEF270065467D /* AppDelegate.swift in Sources */,
 				9F3EE2181CCB250A007DFF69 /* TwitterAuthHelper.m in Sources */,
 				0705D5021C8CEF270065467D /* Babylonian.xcdatamodeld in Sources */,
+				905CB06A1CD8115500A27FC8 /* SetCoursePrice.swift in Sources */,
 				30DBCDFF1C9E4174000CD59D /* MKAnnotationView+WebCache.m in Sources */,
+				929DDC171CD8030A00E0B437 /* LearnerTabBarController.swift in Sources */,
 				3037A4B11CB0B2E100C52232 /* ImageItemCell.swift in Sources */,
 				30D77E2C1CD52CE600E8A6B4 /* CreatorInfo.swift in Sources */,
 				9F17DC851CBC89BD00442D14 /* LearnerMoreEmailViewController.swift in Sources */,
@@ -1197,7 +1215,7 @@
 				FRAMEWORK_VERSION = "";
 				INFOPLIST_FILE = Babylonian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Flow.o.Babylonian;
+				PRODUCT_BUNDLE_IDENTIFIER = Flow.Babylonian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Babylonian/app-Bridging-Header.h";
@@ -1219,7 +1237,7 @@
 				FRAMEWORK_VERSION = "";
 				INFOPLIST_FILE = Babylonian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Flow.o.Babylonian;
+				PRODUCT_BUNDLE_IDENTIFIER = Flow.Babylonian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Babylonian/app-Bridging-Header.h";

@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Configure Sign-In
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
-        //assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
 
         
         // Override point for customization after application launch.
