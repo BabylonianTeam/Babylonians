@@ -85,6 +85,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Babylonian/Bolts.framework"
+  install_framework "Pods-Babylonian/DCKit.framework"
   install_framework "Pods-Babylonian/FBSDKCoreKit.framework"
   install_framework "Pods-Babylonian/FBSDKLoginKit.framework"
   install_framework "Pods-Babylonian/FBSDKShareKit.framework"
@@ -95,6 +96,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Babylonian/Bolts.framework"
+  install_framework "Pods-Babylonian/DCKit.framework"
   install_framework "Pods-Babylonian/FBSDKCoreKit.framework"
   install_framework "Pods-Babylonian/FBSDKLoginKit.framework"
   install_framework "Pods-Babylonian/FBSDKShareKit.framework"

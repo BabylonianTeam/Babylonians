@@ -25,9 +25,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     var initialized: Bool = false
     var audioTimer = CACurrentMediaTime()
     var editingIndex : NSIndexPath?
-    
-    @IBOutlet weak var purchaseButton: UIBarButtonItem!
-    
+        
     @IBOutlet weak var inputBar: UIToolbar!
     @IBOutlet weak var recordBarItem: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
