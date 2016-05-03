@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DCKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FBSDKCoreKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,11 +62,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>17059E45AE181A8697DADBEF7D95E8BD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>52D82BFDD1E808D9CB257431922C1EE4</key>
 		<dict>
 			<key>primary</key>
@@ -77,7 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>72DFB92CA9B103D1ED0044330B65699B</key>
+		<key>6C0C2B0F77C3980C06C850ADA450CE0F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7E1938C548535665580FAF2805E69321</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,12 +92,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9A193949B42C0C6DE5C96B685D2C6031</key>
+		<key>B7AC9326D819482593FE118E915409D7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B7AC9326D819482593FE118E915409D7</key>
+		<key>CA6817BF4728395363A3BD75007F3C38</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E51FF26E9D7045F5F2651B4475A0C134</key>
 		<dict>
 			<key>primary</key>
 			<true/>
