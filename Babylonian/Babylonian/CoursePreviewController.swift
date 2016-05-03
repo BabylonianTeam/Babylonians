@@ -20,6 +20,7 @@ class CoursePreviewController: UIViewController, UITableViewDataSource, UITableV
     var learner: LearnerInfo!
     
     var initialized: Bool = false
+    let audioPlayer = STKAudioPlayer()
     
     @IBOutlet weak var purchaseButton: UIBarButtonItem!
     
@@ -97,6 +98,7 @@ class CoursePreviewController: UIViewController, UITableViewDataSource, UITableV
             let cell = tableView.dequeueReusableCellWithIdentifier("ATItemAutoCell", forIndexPath: indexPath) as! ATItemAutoCell
             cell.item = self.currentCourse.contents[indexPath.row] as! ATItem
             cell.refreshText()
+            cell.audioPlayer = self.audioPlayer
             if self.isPreviewOnly{
                 cell.transcript.editable = false
             }
