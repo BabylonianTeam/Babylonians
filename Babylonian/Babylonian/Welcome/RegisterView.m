@@ -58,9 +58,15 @@
 	NSString *name		= fieldName.text;
 	NSString *email		= [fieldEmail.text lowercaseString];
 	NSString *password	= fieldPassword.text;
-	if ([name length] < 5)		{ [ProgressHUD showError:@"Name is too short."]; return; }
-	if ([email length] == 0)	{ [ProgressHUD showError:@"Email must be set."]; return; }
-	if ([password length] == 0)	{ [ProgressHUD showError:@"Password must be set."]; return; }
+	if ([name length] < 5)		{ [ProgressHUD showError:@"Name is too short"]; return; }
+	if ([email length] < 3)	{ [ProgressHUD showError:@"Email must be set"]; return; }
+	if ([password length] == 0)	{ [ProgressHUD showError:@"Password must be set"]; return; }
+    
+    if ([email containsString:@".com"] == false && [email containsString:@".edu"] == false){
+        [ProgressHUD showError:@"Invalid Email Address"];
+        return;
+    }
+    
 	[ProgressHUD show:@"Please wait..." Interaction:NO];
 
     Firebase *ref = [[Firebase alloc] initWithUrl:FIREBASE];
@@ -68,7 +74,7 @@
     [ref createUser:email password:password withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
         if (error) {
             // There was an error creating the account
-            [ProgressHUD showError:error.userInfo[@"error"]];
+            [ProgressHUD showError:@"The email has been registerd. Please try another one."];
         }
         else {
             
