@@ -12,6 +12,7 @@ pod 'Firebase', '>= 2.5.0'
 pod 'Stripe'
 pod 'Parse'
 pod 'TagListView'
+pod 'DCKit'
 end
 
 target 'BabylonianTests' do
