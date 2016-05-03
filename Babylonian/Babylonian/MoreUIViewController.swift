@@ -88,6 +88,15 @@ class MoreUIViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
             if let content = snapshot.value {
+                if let role = (content as! [String:AnyObject])["role"] {
+                    self.labelMoney?.text = (role as? String)! + ("  $100")
+                }
+            }
+            
+        })
+        
+        _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
+            if let content = snapshot.value {
                 if let str = (content as! [String:AnyObject])["provider"] {
                     self.provider = (str as? String)!
                 }
