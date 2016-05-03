@@ -43,7 +43,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CourseTitle: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fd3-RI-QlN">
-                                                    <rect key="frame" x="10" y="6" width="96" height="21"/>
+                                                    <rect key="frame" x="18" y="6" width="96" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="topMargin" secondItem="fd3-RI-QlN" secondAttribute="top" constant="2" id="haD-T7-lRZ"/>
-                                                <constraint firstItem="fd3-RI-QlN" firstAttribute="leading" secondItem="fK5-P8-jqV" secondAttribute="leadingMargin" constant="2" id="jg2-eW-4j9"/>
+                                                <constraint firstItem="fd3-RI-QlN" firstAttribute="leading" secondItem="fK5-P8-jqV" secondAttribute="leadingMargin" constant="10" id="jg2-eW-4j9"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

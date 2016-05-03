@@ -99,8 +99,16 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     @IBAction func createNewCourse(sender: UIBarButtonItem) {
             //initiate courseview
+        let ref = DataService.dataService.COURSE_REF.childByAutoId()
+        
         let storyboard = UIStoryboard.init(name: "CourseView", bundle: nil)
-        let rootController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView")
+        let rootController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView") as! BBCourseNavController
+        rootController.currentCourse = BBCourse(ref: ref, author: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
+        rootController.currentCourse.setStatus(COURSE_STATUS_DRAFT)
+        rootController.currentCourse.setTitle("")
+        //TODO: addCourse here
+        
+        
         self.presentViewController(rootController, animated: true, completion: nil)
     }
     

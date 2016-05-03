@@ -174,18 +174,33 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         currLearner.learnerRef.childByAppendingPath(USER_PURCHASED_COURSE).observeEventType(.ChildAdded, withBlock: { snapshot in
             
             if self.initialized {
-
-                //let c = BBCourse(ref: snapshot.ref)
-                var title:String!
-                if let t = snapshot.value.objectForKey(COURSE_TITLE) {
-                    title = t as! String
-                }else {
-                    title = "(no title)"
-                }
-                self.allCourseTitles.append(snapshot.key+"|"+title)
-                let cInfo = MyCourseInfo(ref: snapshot.ref, title:title)
+                let cref = DataService.dataService.COURSE_REF.childByAppendingPath(snapshot.key)
+                cref.observeSingleEventOfType(.Value, withBlock: {snap in
                 
-                self.courseLists.append(cInfo)
+                    if (snap.value is NSNull){
+                        print(snap)
+                    }
+                    else{
+                        var title:String!
+                        
+                        if let t = snap.value.valueForKey(COURSE_TITLE) {
+                            title = t as! String
+                        }else {
+                            title = "(no title)"
+                        }
+                        print("**************************")
+                        print(title)
+                        
+                        self.allCourseTitles.append(snap.key+"|"+title)
+                        let cInfo = MyCourseInfo(ref: cref, title:title)
+                        
+                        self.courseLists.append(cInfo)
+                    }
+                    self.table.reloadData()
+                
+                
+                })
+               
                 
             }
         })
@@ -197,7 +212,7 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
                 if !(content is NSNull) {
                     for (cId,_) in (content as! [String:NSDictionary]) {
                         let cref = DataService.dataService.COURSE_REF.childByAppendingPath(cId)
-                        print(cref)
+                        //print(cref)
 
                         cref.observeSingleEventOfType(.Value, withBlock: { snapshot1 in
                             if (snapshot1.value is NSNull){
@@ -234,5 +249,19 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
             self.initialized = true
         })
         
+        currLearner.learnerRef.childByAppendingPath(USER_PURCHASED_COURSE).observeEventType(.ChildRemoved, withBlock: { snapshot in
+            
+            print(snapshot.key)
+            var i = 0
+            for c in self.courseLists {
+                if c.ref.key==snapshot.key {
+                    self.courseLists.removeAtIndex(i)
+                    self.table.reloadData()
+                    break
+                }
+                i += 1
+            }
+                
+        })
     }
 }
