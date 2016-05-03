@@ -33,6 +33,9 @@ class LearnerInfo: NSObject{
         return self.purchasedCourses_.count
     }
     
+    var learnerRef: Firebase{
+        return ref_
+    }
     
     /*
     func addPurchasedCourse(purchasedCourseId: String){

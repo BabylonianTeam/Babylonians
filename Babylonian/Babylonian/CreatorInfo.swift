@@ -37,6 +37,9 @@ class CreatorInfo: NSObject{
         return self.createdCourses_.count
     }
     
+    var creatorRef: Firebase{
+        return ref_
+    }
     
     /*
     func addCreatedCourse(createdCourseId: String){
