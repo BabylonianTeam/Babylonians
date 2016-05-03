@@ -46,6 +46,8 @@ class LearnerMoreViewController: UIViewController, UIImagePickerControllerDelega
     var userInfo : PersonalInfo!
     var _USER_REF = Firebase(url: "\(BASE_URL)/users")
     
+    var provider = "??"
+    
     
     // MARK: IBOutlet Properties
     @IBOutlet weak var tblExpandable: UITableView!
@@ -80,6 +82,15 @@ class LearnerMoreViewController: UIViewController, UIImagePickerControllerDelega
             if let content = snapshot.value {
                 if let displayName = (content as! [String:AnyObject])[USER_DISPLAYNAME] {
                     self.labelDisplayName?.text = displayName as? String
+                }
+            }
+            
+        })
+        
+        _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
+            if let content = snapshot.value {
+                if let str = (content as! [String:AnyObject])["provider"] {
+                    self.provider = (str as? String)!
                 }
             }
             
@@ -174,7 +185,9 @@ class LearnerMoreViewController: UIViewController, UIImagePickerControllerDelega
                 _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
                     if let content = snapshot.value {
                         if let email = (content as! [String:AnyObject])[USER_EMAIL] {
-                            cell.detailTextLabel?.text = email as? String
+                            if(self.provider.containsString("twitter") == false){
+                                cell.detailTextLabel?.text = email as? String
+                            }
                         }
                     }
                     
@@ -186,6 +199,24 @@ class LearnerMoreViewController: UIViewController, UIImagePickerControllerDelega
         }
         else if(cellType == "idCellSwitch"){
             cell.lblSwitchLabel?.text = self.items[indexPath.section][indexPath.row]
+            cell.swMaritalStatus.enabled = false
+            
+            
+            
+            _USER_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: { snapshot in
+                if let content = snapshot.value {
+                    if let loginType = (content as! [String:AnyObject])["provider"] {
+                        
+                        if( (indexPath.row == 0) && loginType.containsString("google") ||
+                            (indexPath.row == 1) && loginType.containsString("facebook") ||
+                            (indexPath.row == 2) && loginType.containsString("twitter")
+                            ){
+                            cell.swMaritalStatus.setOn(true, animated: true)
+                        }
+                    }
+                }
+                
+            })
         }
         
         return cell
@@ -202,9 +233,20 @@ class LearnerMoreViewController: UIViewController, UIImagePickerControllerDelega
      }*/
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let storyboard = UIStoryboard.init(name: "LearnerMore", bundle: nil)
+        let storyboard = UIStoryboard.init(name: "More", bundle: nil)
+        let canBeChanged = (self.provider == "password")
         
-        if((indexPath.section == 0) && (indexPath.row == 2)){
+        if(canBeChanged == false && (indexPath.row != 1)){
+            let delay = 2.3 * Double(NSEC_PER_SEC)
+            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            
+            ProgressHUD.showError("Please change in your \(self.provider) account!")
+            dispatch_after(time, dispatch_get_main_queue()) {
+                ProgressHUD.dismiss()
+            }
+        }
+        
+        else if((indexPath.section == 0) && (indexPath.row == 2)){
             //performSegueWithIdentifier("emailSegue", sender: self)
             let changeController = storyboard.instantiateViewControllerWithIdentifier("LearnerMoreEmailView") as! LearnerMoreEmailViewController
             self.presentViewController(changeController, animated: true, completion: nil)
