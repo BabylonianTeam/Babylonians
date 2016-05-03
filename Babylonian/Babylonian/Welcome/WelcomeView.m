@@ -46,19 +46,19 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 
 - (void)viewDidLoad
 {
-	[super viewDidLoad];
-	self.title = @"Welcome";
+    [super viewDidLoad];
+    self.title = @"Welcome";
     
-//    UIGraphicsBeginImageContext(self.view.frame.size);
-//    [[UIImage imageNamed:@"506logo.jpg"] drawInRect:self.view.bounds];
-//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    
-//    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
-   
-	//---------------------------------------------------------------------------------------------------------------------------------------------
-	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
-	[self.navigationItem setBackBarButtonItem:backButton];
+    //    UIGraphicsBeginImageContext(self.view.frame.size);
+    //    [[UIImage imageNamed:@"506logo.jpg"] drawInRect:self.view.bounds];
+    //    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    //    UIGraphicsEndImageContext();
+    //
+    //    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    
+    //---------------------------------------------------------------------------------------------------------------------------------------------
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:backButton];
 }
 
 #pragma mark - User actions
@@ -66,15 +66,15 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 
 - (IBAction)actionRegister:(id)sender
 {
-	RegisterView *registerView = [[RegisterView alloc] init];
-	[self.navigationController pushViewController:registerView animated:YES];
+    RegisterView *registerView = [[RegisterView alloc] init];
+    [self.navigationController pushViewController:registerView animated:YES];
 }
 
 
 - (IBAction)actionLogin:(id)sender
 {
-	LoginView *loginView = [[LoginView alloc] init];
-	[self.navigationController pushViewController:loginView animated:YES];
+    LoginView *loginView = [[LoginView alloc] init];
+    [self.navigationController pushViewController:loginView animated:YES];
 }
 
 - (void)showErrorAlertWithMessage:(NSString *)message
@@ -117,10 +117,10 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
                 //NSLog(@"Google img %@", authData.providerData[@"profileImageURL"]);
                 
                 [self regNewAccount: authData.providerData[@"displayName"] :
-                  authData.providerData[@"email"]:
-                  passwdAuth:
-                  authData.providerData[@"profileImageURL"]:
-                  authData.provider
+                 authData.providerData[@"email"]:
+                         passwdAuth:
+                 authData.providerData[@"profileImageURL"]:
+                 authData.provider
                  ];
             }
         }];
@@ -163,10 +163,10 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
                     NSString *email = [NSString stringWithFormat: @"%@_@twitter.com", authData.providerData[@"id"]];
                     
                     [self regNewAccount: authData.providerData[@"displayName"] :
-                        email:
-                        passwdAuth:
-                        authData.providerData[@"profileImageURL"]:
-                        authData.provider
+                                  email:
+                             passwdAuth:
+                     authData.providerData[@"profileImageURL"]:
+                     authData.provider
                      ];
                 }
             }];
@@ -182,13 +182,13 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
                                   preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* setting = [UIAlertAction
-                         actionWithTitle:@"Settings"
-                         style:UIAlertActionStyleDefault
-                         handler:^(UIAlertAction * action)
-                         {
-                             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-                             
-                         }];
+                              actionWithTitle:@"Settings"
+                              style:UIAlertActionStyleDefault
+                              handler:^(UIAlertAction * action)
+                              {
+                                  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+                                  
+                              }];
     UIAlertAction* cancel = [UIAlertAction
                              actionWithTitle:@"Cancel"
                              style:UIAlertActionStyleDefault
@@ -234,7 +234,7 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 //    user[PF_USER_AVAILABILITY] = PF_USER_AVAILABLE;
 //    user[PF_USER_MISSEDREQUESTS] = @0;
 //    user[PF_USER_TRANSLATENUM] = @0;
-//    
+//
 //	[user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
 //	{
 //		if (error == nil)
@@ -252,7 +252,7 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 
 - (IBAction)actionFacebook:(id)sender
 {
-	//[ProgressHUD show:@"Signing in..." Interaction:NO];
+    //[ProgressHUD show:@"Signing in..." Interaction:NO];
     
     Firebase *ref = [[Firebase alloc] initWithUrl:kFirebaseURL];
     FBSDKLoginManager *facebookLogin = [[FBSDKLoginManager alloc] init];
@@ -282,7 +282,7 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
         }
     }];
 }
-    
+
 //- (IBAction)actionFacebook:(id)sender
 //{
 //	NSArray *permissions = @[@"public_profile", @"email", @"user_friends"];
@@ -299,13 +299,6 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 //		else [ProgressHUD showError:@"Facebook login error."];
 //	}];
 //}
-
-- (void)switchToMainPage
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-    [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
-}
 
 /*****************************
  *          REGISTER         *
@@ -359,16 +352,20 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
                     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_LOGGED_IN object:nil];
                     [ProgressHUD showSuccess:@"Registered successfully!"];
                     
+                    UIStoryboard *storyboard;
+                    
                     if ([newUser[USER_ROLE] isEqual:USER_ROLE_CREATOR]) {
-                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                        UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-                        [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
+                        storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                     } else {
-                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"LearnerMain" bundle:nil];
-                        UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-                        [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
+                        storyboard = [UIStoryboard storyboardWithName:@"LearnerMain" bundle:nil];
+                        
                     }
                     
+                    UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+                    
+                    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+                    window.rootViewController = rootViewController;
+                    [window makeKeyAndVisible];
                 }
             }];
         }
@@ -404,15 +401,19 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
                                        [userDefaults setValue:snapshot.value[USER_DISPLAYNAME] forKey:USER_DISPLAYNAME];
                                        [userDefaults setValue:snapshot.value[USER_ROLE] forKey:USER_ROLE];
                                        [ProgressHUD showSuccess:[NSString stringWithFormat:@"Welcome back %@!", snapshot.value[USER_DISPLAYNAME]]];
+                                       UIStoryboard *storyboard;
                                        if ([snapshot.value[USER_ROLE] isEqual:USER_ROLE_CREATOR]) {
-                                           UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                                           UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-                                           [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
+                                           storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                                           
                                        } else {
-                                           UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"LearnerMain" bundle:nil];
-                                           UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-                                           [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
+                                           storyboard = [UIStoryboard storyboardWithName:@"LearnerMain" bundle:nil];
+                                           
                                        }
+                                       UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+                                       
+                                       UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+                                       window.rootViewController = rootViewController;
+                                       [window makeKeyAndVisible];
                                        
                                    }];
                                    
@@ -463,7 +464,7 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 //	UIImage *picture = ResizeImage(image, 140, 140, 1);
 //	UIImage *thumbnail = ResizeImage(image, 60, 60, 1);
 //	//---------------------------------------------------------------------------------------------------------------------------------------------
-////    
+////
 ////	PFFile *fileThumbnail = [PFFile fileWithName:@"thumbnail.jpg" data:UIImageJPEGRepresentation(thumbnail, 0.6)];
 ////	[fileThumbnail saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
 ////	{
@@ -504,7 +505,7 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 ////    user[PF_USER_LASTACTIVE] = [NSDate date];
 ////    user[PF_USER_MISSEDREQUESTS] = @0;
 ////    user[PF_USER_TRANSLATENUM] = @0;
-//    
+//
 ////	[user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
 ////	{
 ////		if (error == nil)
@@ -521,7 +522,7 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 //{
 //	//ParsePushUserAssign();
 //	[[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_LOGGED_IN object:nil];
-//    
+//
 //	[ProgressHUD showSuccess:[NSString stringWithFormat:@"Welcome back!"]];
 //	[self dismissViewControllerAnimated:YES completion:nil];
 //}
@@ -530,7 +531,7 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 - (void)loginFailed:(NSString *)message
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
-	[ProgressHUD showError:message];
+    [ProgressHUD showError:message];
 }
 
 @end
