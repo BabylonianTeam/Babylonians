@@ -14,11 +14,12 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     //Temporary Value for Testing. Safe to remove once Table Model is implemented
     
-    var courseLists = [[MyCourseInfo](),[MyCourseInfo]()]
+    var courseLists = [MyCourseInfo]()
+    //var courseLists = [[MyCourseInfo](),[MyCourseInfo]()]
     var allCourseTitles = [String]()
     var filtered = [String]()
     var searchActive : Bool = false
-    let sections = ["Published", "Drafts"]
+    //let sections = ["Purchased", "Wishlist"]
     var initialized = false
     
     var currLearner: LearnerInfo!
@@ -102,26 +103,13 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-   
         return 1
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if tableView==self.table {
-            return sections[section]
-        }
-        return nil
-        
-    }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if tableView==self.table {
-            if indexPath.section==0{
-                return 60
-            }
-            else{
-                return 35
-            }
+            return 35
         }
         else {
             return 35
@@ -142,7 +130,7 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
             return filtered.count
         }
         
-        return self.courseLists[section].count
+        return self.courseLists.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -156,7 +144,7 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
             
         }
         else {
-            bbCourseController.currentCourse = BBCourse(ref: self.courseLists[indexPath.section][indexPath.row].ref)
+            bbCourseController.currentCourse = BBCourse(ref: self.courseLists[indexPath.row].ref)
         }
         bbCourseController.viewOnly = true
         self.presentViewController(bbCourseController, animated: true, completion: nil)
@@ -169,9 +157,8 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
             return searchcell
         }
         let cell = tableView.dequeueReusableCellWithIdentifier("DraftCell", forIndexPath: indexPath) as! DraftCell
-        cell.courseTitle.text = self.courseLists[indexPath.section][indexPath.row].title
+        cell.courseTitle.text = self.courseLists[indexPath.row].title
         return cell
-        
     }
     
     /*
@@ -184,14 +171,10 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         //TODO Create a test with/ a for loop that hooks in to the database model
         self.initialized = false
         ProgressHUD.show("Loading Courses")
-        
-        //DataService.dataService.COURSE_REF.observeEventType(.ChildAdded, withBlock: { snapshot in
         currLearner.learnerRef.childByAppendingPath(USER_PURCHASED_COURSE).observeEventType(.ChildAdded, withBlock: { snapshot in
             
             if self.initialized {
 
-                
-                
                 //let c = BBCourse(ref: snapshot.ref)
                 var title:String!
                 if let t = snapshot.value.objectForKey(COURSE_TITLE) {
@@ -201,18 +184,8 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
                 }
                 self.allCourseTitles.append(snapshot.key+"|"+title)
                 let cInfo = MyCourseInfo(ref: snapshot.ref, title:title)
-                if let st = snapshot.value.objectForKey(COURSE_STATUS) {
-                    if  st as! String == COURSE_STATUS_ONSHELF{
-                        self.courseLists[0].append(cInfo)
-                    }
-                    else{
-                        self.courseLists[1].append(cInfo)
-                    }
-                }
-                else {
-                    //Added New Course, AutoId triggered event
-                    self.courseLists[1].append(cInfo)
-                }
+                
+                self.courseLists.append(cInfo)
                 
             }
         })
@@ -236,7 +209,6 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
             
         })
 */
-        
 
         currLearner.learnerRef.childByAppendingPath(USER_PURCHASED_COURSE).observeSingleEventOfType(.Value, withBlock: { snapshot in
             ProgressHUD.dismiss()
@@ -264,36 +236,13 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
                                 self.allCourseTitles.append(snapshot1.key+"|"+title)
                                 let cInfo = MyCourseInfo(ref: cref, title:title)
                                 
-                                if let st = snapshot1.value.valueForKey(COURSE_STATUS) {
-                                    if st as! String==COURSE_STATUS_ONSHELF {
-                                        self.courseLists[0].append(cInfo)
-                                    }
-                                    else{
-                                        self.courseLists[1].append(cInfo)
-                                    }
-                                }
+                                self.courseLists.append(cInfo)
                             }
+                            self.table.reloadData()
                         })
 
-                        
-//                        var title:String!
-//                        if let t = cData.objectForKey(COURSE_TITLE) {
-//                            title = t as! String
-//                        }else {
-//                            title = "(no title)"
-//                        }
-//                        self.allCourseTitles.append(snapshot.key+"|"+title)
-//                        let cInfo = MyCourseInfo(ref: cref, title:title)
-//                        if let st = cData[COURSE_STATUS] {
-//                            if st as! String==COURSE_STATUS_ONSHELF {
-//                                self.courseLists[0].append(cInfo)
-//                            }
-//                            else{
-//                                self.courseLists[1].append(cInfo)
-//                            }
-//                        }
                     }
-                    self.table.reloadData()
+                    
                 }
             }
             else{
