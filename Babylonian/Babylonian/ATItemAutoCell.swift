@@ -13,6 +13,7 @@ class ATItemAutoCell: UITableViewCell, UITextViewDelegate {
     var item : ATItem!
     var timer = NSTimer()
     var textLineNum = 1
+    var audioPlayer : STKAudioPlayer!
     
     
     
@@ -47,13 +48,12 @@ class ATItemAutoCell: UITableViewCell, UITextViewDelegate {
 
     
     @IBAction func playButtonPressed(sender: UIButton) {
-        let audioPlayer = STKAudioPlayer()
         
         if self.playButton.buttonState == .Playing {
             self.playButton.setButtonState(.Pausing, animated: true)
             print("pausing")
-            //audioPlayer.stop()
-            audioPlayer.pause()
+            audioPlayer.stop()
+            //audioPlayer.pause()
         } else if self.playButton.buttonState == .Pausing {
             var dur:Float = 2.0
             if let i = self.item {
@@ -69,7 +69,6 @@ class ATItemAutoCell: UITableViewCell, UITextViewDelegate {
     }
     
     func stopPlay() -> Void {
-        let audioPlayer = STKAudioPlayer()
         if self.playButton.buttonState == .Playing {
             self.playButton.setButtonState(.Pausing, animated: true)
             audioPlayer.stop()

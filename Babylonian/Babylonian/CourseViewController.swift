@@ -19,6 +19,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
+    var audioPlayer = STKAudioPlayer()
     var audioURL = NSURL()
     var imagePicker = UIImagePickerController()
     var initialized: Bool = false
@@ -237,8 +238,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             let cell = tableView.dequeueReusableCellWithIdentifier("ATItemAutoCell", forIndexPath: indexPath) as! ATItemAutoCell
             cell.item = self.currentCourse.contents[indexPath.row] as! ATItem
             cell.refreshText()
-            //cell.setNeedsUpdateConstraints()
-            //cell.updateConstraintsIfNeeded()
+            cell.audioPlayer = self.audioPlayer
             if self.isViewOnly{
                 cell.transcript.editable = false
             }
