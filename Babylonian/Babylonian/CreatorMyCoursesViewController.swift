@@ -21,6 +21,8 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     var searchActive : Bool = false
     let sections = ["Published", "Drafts"]
     var initialized = false
+    var currCreator: CreatorInfo!
+
     //var myCourseRef = DataService.dataService.COURSE_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).childByAppendingPath(USER_CREATED_COURSE)
     //TODO: replace DataService with this ref.
     
@@ -35,6 +37,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     }
     
     override func viewDidLoad() {
+        currCreator = CreatorInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String)
         table.delegate = self
         table.dataSource = self
         table.longPressReorderEnabled = false
@@ -96,8 +99,16 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     
     @IBAction func createNewCourse(sender: UIBarButtonItem) {
             //initiate courseview
+        let ref = DataService.dataService.COURSE_REF.childByAutoId()
+        
         let storyboard = UIStoryboard.init(name: "CourseView", bundle: nil)
-        let rootController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView")
+        let rootController = storyboard.instantiateViewControllerWithIdentifier("BBCourseView") as! BBCourseNavController
+        rootController.currentCourse = BBCourse(ref: ref, author: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
+        rootController.currentCourse.setStatus(COURSE_STATUS_DRAFT)
+        rootController.currentCourse.setTitle("")
+        //TODO: addCourse here
+        currCreator.addCreatedCourse(ref.key)
+        
         self.presentViewController(rootController, animated: true, completion: nil)
     }
     
@@ -158,6 +169,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         if editingStyle == .Delete {
             let ref = self.courseLists[indexPath.section][indexPath.row].ref
             let course = BBCourse(ref: ref)
+            print("status should be archived")
             course.setStatus(COURSE_STATUS_ARCHIVED)
             self.courseLists[indexPath.section].removeAtIndex(indexPath.row)
             var ind:Int?
@@ -223,86 +235,124 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         self.initialized = false
         ProgressHUD.show("Loading Courses")
         
-        DataService.dataService.COURSE_REF.observeEventType(.ChildAdded, withBlock: { snapshot in
+        currCreator.creatorRef.childByAppendingPath(USER_CREATED_COURSE).observeEventType(.ChildAdded, withBlock: { snapshot in
             if self.initialized {
                 
-                //let c = BBCourse(ref: snapshot.ref)
-                var title:String!
-                if let t = snapshot.value.objectForKey(COURSE_TITLE) {
-                    title = t as! String
-                }else {
-                    title = "(no title)"
-                }
-                self.allCourseTitles.append(snapshot.key+"|"+title)
-                let cInfo = MyCourseInfo(ref: snapshot.ref, title:title)
-                if let st = snapshot.value.objectForKey(COURSE_STATUS) {
-                    if  st as! String == COURSE_STATUS_ONSHELF{
-                        self.courseLists[0].append(cInfo)
+                let cref = DataService.dataService.COURSE_REF.childByAppendingPath(snapshot.key)
+                cref.observeSingleEventOfType(.Value, withBlock: {snap in
+                    print(snap.value)
+                    if (snap.value is NSNull){
+                        print(snap)
                     }
                     else{
-                        self.courseLists[1].append(cInfo)
+                        var title:String!
+                        
+                        if let t = snap.value.valueForKey(COURSE_TITLE) {
+                            title = t as! String
+                        }else {
+                            title = "(no title)"
+                        }
+                        print("**************************")
+                        print(title)
+                        
+                        self.allCourseTitles.append(snap.key+"|"+title)
+                        let cInfo = MyCourseInfo(ref: cref, title:title)
+                        
+                        if let st = snap.value.objectForKey(COURSE_STATUS) {
+                            if  st as! String == COURSE_STATUS_ONSHELF{
+                                self.courseLists[0].append(cInfo)
+                            }
+                            else{
+                                self.courseLists[1].append(cInfo)
+                            }
+                        }
+                        else {
+                            //Added New Course, AutoId triggered event
+                            self.courseLists[1].append(cInfo)
+                        }
+                        
                     }
-                }
-                else {
-                    //Added New Course, AutoId triggered event
-                    self.courseLists[1].append(cInfo)
-                }
+                    self.table.reloadData()
+                    
+                })
                 
             }
         })
         
-        DataService.dataService.COURSE_REF.observeEventType(.ChildChanged, withBlock: { snapshot in
+        currCreator.creatorRef.childByAppendingPath(USER_CREATED_COURSE).observeEventType(.ChildChanged, withBlock: { snapshot in
             if self.initialized {
                 //print(snapshot)
-                var title:String!
-                if let t = snapshot.value.objectForKey(COURSE_TITLE) {
-                    title = t as! String
-                }else {
-                    title = "(no title)"
-                }
-                var published = false
-                for course in self.courseLists[0] {
-                    //print(course.ref)
-                    //print(snapshot.ref)
-                    if course.ref.key == snapshot.ref.key {
-                        print(course.title)
+                let cref = DataService.dataService.COURSE_REF.childByAppendingPath(snapshot.key)
+                cref.observeSingleEventOfType(.Value, withBlock: {snap in
+                    //print(snap.value)
+                    if (snap.value is NSNull){
+                        print(snap)
+                    }
+                    else{
+                        var title:String!
+                        
+                        if let t = snap.value.valueForKey(COURSE_TITLE) {
+                            title = t as! String
+                        }else {
+                            title = "(no title)"
+                        }
+                        print("**************************")
                         print(title)
-                        published = true
-                        if course.title != title {
-                            course.title = title
-                            self.allCourseTitles = self.allCourseTitles.filter({ (text) -> Bool in
-                                let tmp: NSString = text
-                                let range = tmp.rangeOfString(snapshot.key, options: NSStringCompareOptions.AnchoredSearch)
-                                return range.location == NSNotFound
-                            })
-                            self.allCourseTitles.append(snapshot.key+"|"+title)
-                        }
-                        break
-                    }
-                }
-                if published == false {
-                    for course in self.courseLists[1] {
-                        if course.ref.key == snapshot.ref.key {
-                            published = true
-                            if course.title != title {
-                                course.title = title
-                                self.allCourseTitles = self.allCourseTitles.filter({ (text) -> Bool in
-                                    let tmp: NSString = text
-                                    let range = tmp.rangeOfString(snapshot.key, options: NSStringCompareOptions.AnchoredSearch)
-                                    return range.location == NSNotFound
-                                })
-                                self.allCourseTitles.append(snapshot.key+"|"+title)
-
+                        
+                        self.allCourseTitles = self.allCourseTitles.filter({ (text) -> Bool in
+                            let tmp: NSString = text
+                            let range = tmp.rangeOfString(snapshot.key, options: NSStringCompareOptions.AnchoredSearch)
+                            return range.location == NSNotFound
+                        })
+                        
+                        self.allCourseTitles.append(snap.key+"|"+title)
+                        let cInfo = MyCourseInfo(ref: cref, title:title)
+                        
+                        var published = false
+                        var ind = 0
+                        for course in self.courseLists[0] {
+                            if course.ref.key == snapshot.key {
+                                published = true
+                                self.courseLists[0].removeAtIndex(ind)
+                                break
                             }
-                            break
+                            ind += 1
                         }
+                        
+                        if published == false {
+                            ind = 0
+                            for course in self.courseLists[1] {
+                                if course.ref.key == snapshot.key {
+                                    self.courseLists[1].removeAtIndex(ind)
+                                    break
+                                }
+                                ind += 1
+                            }
+                        }
+                        
+                        
+                        if let st = snap.value.objectForKey(COURSE_STATUS) {
+                            if  st as! String == COURSE_STATUS_ONSHELF{
+                                self.courseLists[0].append(cInfo)
+                            }
+                            else if st as! String == COURSE_STATUS_DRAFT{
+                                self.courseLists[1].append(cInfo)
+                            }
+                        }
+                        else {
+                            //Added New Course, AutoId triggered event
+                            print("Anormaly: no course status")
+                        }
+                        
                     }
-                }
+                    self.table.reloadData()
+                    
+                })
                 
             }
         })
 
-        DataService.dataService.COURSE_REF.observeEventType(.ChildRemoved, withBlock: { snapshot in
+        currCreator.creatorRef.childByAppendingPath(USER_CREATED_COURSE).observeEventType(.ChildRemoved, withBlock: { snapshot in
             if self.initialized {
                 var published = false
                 var ind = 0
@@ -315,12 +365,14 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
                             return range.location == NSNotFound
                         })
                         self.courseLists.removeAtIndex(ind)
+                        self.table.reloadData()
                         break
                         
                     }
                     ind += 1
                 }
                 if published == false {
+                    ind = 0
                     for course in self.courseLists[1] {
                         if course.ref.key == snapshot.ref.key {
                             published = true
@@ -330,6 +382,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
                                 return range.location == NSNotFound
                             })
                             self.courseLists.removeAtIndex(ind)
+                            self.table.reloadData()
                             break
                             
                         }
@@ -340,35 +393,41 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
             }
         })
     
-        DataService.dataService.COURSE_REF.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        currCreator.creatorRef.childByAppendingPath(USER_CREATED_COURSE).observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             ProgressHUD.dismiss()
             
             if let content = snapshot.value {
                 if !(content is NSNull) {
-                    for (cId,cData) in (content as! [String:NSDictionary]) {
+                    for (cId,_) in (content as! [String:NSDictionary]) {
                         let cref = DataService.dataService.COURSE_REF.childByAppendingPath(cId)
                         
-                        var title:String!
-                        if let t = cData.objectForKey(COURSE_TITLE) {
-                            title = t as! String
-                        }else {
-                            title = "(no title)"
-                        }
-                        self.allCourseTitles.append(snapshot.key+"|"+title)
-                        let cInfo = MyCourseInfo(ref: cref, title:title)
-                        
-                        if let st = cData[COURSE_STATUS] {
-                            if st as! String==COURSE_STATUS_ONSHELF {
-                                self.courseLists[0].append(cInfo)
+                        cref.observeSingleEventOfType(.Value, withBlock: {snapshot1 in
+                            if(snapshot1.value is NSNull){
+                                print(snapshot1)
                             }
                             else{
-                                self.courseLists[1].append(cInfo)
+                                var title:String!
+                                if let t = snapshot1.value.valueForKey(COURSE_TITLE) {
+                                    title = t as! String
+                                }else {
+                                    title = "(no title)"
+                                }
+                                self.allCourseTitles.append(snapshot1.key+"|"+title)
+                                let cInfo = MyCourseInfo(ref: cref, title:title)
+                                
+                                if let st = snapshot1.value.valueForKey(COURSE_STATUS) {
+                                    if st as! String==COURSE_STATUS_ONSHELF {
+                                        self.courseLists[0].append(cInfo)
+                                    }
+                                    else if st as! String==COURSE_STATUS_DRAFT {
+                                        self.courseLists[1].append(cInfo)
+                                    }
+                                }
                             }
-                        }
-                        
+                            self.table.reloadData()
+                        })
                     }
-                    self.table.reloadData()
                 }
             }
             else{

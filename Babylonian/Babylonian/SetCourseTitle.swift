@@ -18,11 +18,11 @@ class SetCourseTitle: UITableViewCell, UITextFieldDelegate {
         // Initialization code
     }
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        currentCourse.setTitle(title.text!)
-        textField.resignFirstResponder()
-        return true
-    }
+//    func textFieldShouldReturn(textField: UITextField) -> Bool {
+//        currentCourse.setTitle(title.text!)
+//        textField.resignFirstResponder()
+//        return true
+//    }
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

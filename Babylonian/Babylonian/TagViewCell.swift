@@ -11,6 +11,8 @@ import UIKit
 class TagViewCell: UITableViewCell, UITextFieldDelegate {
     
     var currentCourse:BBCourse?
+    //var tagArray = [String]()
+
     
     @IBOutlet weak var tagListView: TagListView!
 
@@ -61,7 +63,7 @@ class TagViewCell: UITableViewCell, UITextFieldDelegate {
                 self.tagListView.addTag(t)
             }
         }
-        
+        print(self.currentCourse?.tag)
     }
     
 }

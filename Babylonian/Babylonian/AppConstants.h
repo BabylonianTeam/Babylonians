@@ -33,10 +33,11 @@
 #define		USER_FACEBOOK                       @"facebook"
 #define		USER_TWITTER                        @"twitter"
 #define     USER_DATE_FORMAT                    @"yyyy-d-M"
+#define     USER_DATETIME_FORMAT                @"yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 #define     USER_PROFILEPHOTO                   @"profilePhoto"
 
 #define     USER_CREATED_COURSE                 @"createdCourse"
-#define     USER_CREATED_COURSE_DATE            @"date"
+#define     USER_MODIFIED_COURSE_DATE           @"date"
 #define     USER_PURCHASED_COURSE               @"purchasedCourse"
 #define     USER_PURCHASED_COURSE_DATE          @"date"
 

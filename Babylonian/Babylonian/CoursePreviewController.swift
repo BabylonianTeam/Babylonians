@@ -99,9 +99,7 @@ class CoursePreviewController: UIViewController, UITableViewDataSource, UITableV
             cell.item = self.currentCourse.contents[indexPath.row] as! ATItem
             cell.refreshText()
             cell.audioPlayer = self.audioPlayer
-            if self.isPreviewOnly{
-                cell.transcript.editable = false
-            }
+            cell.transcript.editable = false
            
             return cell
 

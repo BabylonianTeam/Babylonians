@@ -9,10 +9,6 @@
 import UIKit
 
 class SetCoursePrice: UITableViewCell,UITextFieldDelegate {
-
-   
-    
-    
     
     var currentCourse:BBCourse!
     
@@ -23,7 +19,13 @@ class SetCoursePrice: UITableViewCell,UITextFieldDelegate {
         // Initialization code
          price.delegate = self
     }
-
+//
+//    func textFieldShouldReturn(textField: UITextField) -> Bool {
+//        currentCourse.setPrice(Float(price.text!)!)
+//        textField.resignFirstResponder()
+//        return true
+//    }
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

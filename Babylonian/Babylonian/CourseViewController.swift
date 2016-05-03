@@ -25,9 +25,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     var initialized: Bool = false
     var audioTimer = CACurrentMediaTime()
     var editingIndex : NSIndexPath?
-    
-    @IBOutlet weak var purchaseButton: UIBarButtonItem!
-    
+        
     @IBOutlet weak var inputBar: UIToolbar!
     @IBOutlet weak var recordBarItem: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
@@ -62,11 +60,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
             self.currentCourse = cur_course
         }
         else{
-            let ref = DataService.dataService.COURSE_REF.childByAutoId()
-            (self.navigationController as! BBCourseNavController).currentCourse = BBCourse(ref: ref, author: NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
-            self.currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
-            self.currentCourse.setStatus(COURSE_STATUS_DRAFT)
-            self.currentCourse.setTitle("")
+            print("Exception: no current course defined")
         }
         
         if !self.initialized {
@@ -148,11 +142,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
     }
-    @IBAction func purchaseButtonPressed(sender: UIBarButtonItem) {
-        self.purchaseButton.enabled = false
-        (self.navigationController as! BBCourseNavController).previewOnly = false
-        self.courseTableView.reloadData()
-    }
+
     
     @IBAction func nextButton(sender: UIBarButtonItem) {
         
@@ -165,11 +155,13 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBAction func recordButtonPressed(sender: UIButton) {
         self.audioTimer = CACurrentMediaTime()
+        ProgressHUD.show("Recording")
         startRecording()
     }
     
     @IBAction func recordButtonReleased(sender: UIButton) {
         finishRecording(success: true)
+        ProgressHUD.dismiss()
         
         let duration = Float(CACurrentMediaTime() - self.audioTimer)
         if duration<2 {
