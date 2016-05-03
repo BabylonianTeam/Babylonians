@@ -189,26 +189,7 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
                 
             }
         })
-/*
-        var cIdArray: [String]!
-        currLearner.learnerRef.childByAppendingPath(USER_PURCHASED_COURSE).observeSingleEventOfType(.Value, withBlock: { snapshot in
-            
-            ProgressHUD.dismiss()
-            if let content = snapshot.value{
-                if !(content is NSNull){
-                    for (cId,_) in (content as! [String:NSDictionary]){
-                        cIdArray.append(cId)
-                    }
-                    self.table.reloadData()
-                }
-                else{
-                    //course without content
-                }
-                self.initialized = true
-            }
-            
-        })
-*/
+
 
         currLearner.learnerRef.childByAppendingPath(USER_PURCHASED_COURSE).observeSingleEventOfType(.Value, withBlock: { snapshot in
             ProgressHUD.dismiss()
@@ -216,13 +197,15 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
                 if !(content is NSNull) {
                     for (cId,_) in (content as! [String:NSDictionary]) {
                         let cref = DataService.dataService.COURSE_REF.childByAppendingPath(cId)
-//                      print(cref)
-                        
+                        print(cref)
 
                         cref.observeSingleEventOfType(.Value, withBlock: { snapshot1 in
-                            if !(snapshot1.value is NSNull){
+                            if (snapshot1.value is NSNull){
+                                print(snapshot1)
+                            }
+                            else{
                                 var title:String!
-//                              print(snapshot1)
+                                
                                 
 //                              print("*******************")
                                 if let t = snapshot1.value.valueForKey(COURSE_TITLE) {

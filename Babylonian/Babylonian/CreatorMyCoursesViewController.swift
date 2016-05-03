@@ -21,6 +21,8 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     var searchActive : Bool = false
     let sections = ["Published", "Drafts"]
     var initialized = false
+    var currCreator: CreatorInfo!
+
     //var myCourseRef = DataService.dataService.COURSE_REF.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).childByAppendingPath(USER_CREATED_COURSE)
     //TODO: replace DataService with this ref.
     
@@ -35,6 +37,7 @@ class CreatorMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     }
     
     override func viewDidLoad() {
+        currCreator = CreatorInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String)
         table.delegate = self
         table.dataSource = self
         table.longPressReorderEnabled = false
