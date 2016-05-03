@@ -30,37 +30,37 @@
 - (void)viewDidLoad
 
 {
-	[super viewDidLoad];
-	self.title = @"Register";
-	UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-	[self.tableView addGestureRecognizer:gestureRecognizer];
-	gestureRecognizer.cancelsTouchesInView = NO;
+    [super viewDidLoad];
+    self.title = @"Register";
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.tableView addGestureRecognizer:gestureRecognizer];
+    gestureRecognizer.cancelsTouchesInView = NO;
     self.fieldName.placeholder = @"5 or more characters";
-
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
 
 {
-	[super viewDidAppear:animated];
-	[fieldName becomeFirstResponder];
+    [super viewDidAppear:animated];
+    [fieldName becomeFirstResponder];
 }
 
 - (void)dismissKeyboard
 {
-	[self.view endEditing:YES];
+    [self.view endEditing:YES];
 }
 
 #pragma mark - User actions
 
 - (void)actionRegister
 {
-	NSString *name		= fieldName.text;
-	NSString *email		= [fieldEmail.text lowercaseString];
-	NSString *password	= fieldPassword.text;
-	if ([name length] < 5)		{ [ProgressHUD showError:@"Name is too short"]; return; }
-	if ([email length] < 3)	{ [ProgressHUD showError:@"Email must be set"]; return; }
-	if ([password length] == 0)	{ [ProgressHUD showError:@"Password must be set"]; return; }
+    NSString *name		= fieldName.text;
+    NSString *email		= [fieldEmail.text lowercaseString];
+    NSString *password	= fieldPassword.text;
+    if ([name length] < 5)		{ [ProgressHUD showError:@"Name is too short"]; return; }
+    if ([email length] < 3)	{ [ProgressHUD showError:@"Email must be set"]; return; }
+    if ([password length] == 0)	{ [ProgressHUD showError:@"Password must be set"]; return; }
     
     if ([email containsString:@"@"] == false){ [ProgressHUD showError:@"Invalid Email Address"]; return; }
     
@@ -72,8 +72,8 @@
         return;
     }
     
-	[ProgressHUD show:@"Please wait..." Interaction:NO];
-
+    [ProgressHUD show:@"Please wait..." Interaction:NO];
+    
     Firebase *ref = [[Firebase alloc] initWithUrl:FIREBASE];
     
     [ref createUser:email password:password withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
@@ -113,15 +113,20 @@
                     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_LOGGED_IN object:nil];
                     [ProgressHUD showSuccess:@"Registered successfully!"];
                     
+                    UIStoryboard *storyboard;
+                    
                     if ([newUser[USER_ROLE] isEqual:USER_ROLE_CREATOR]) {
-                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                        UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-                        [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
+                        storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                     } else {
-                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"LearnerMain" bundle:nil];
-                        UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-                        [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
+                        storyboard = [UIStoryboard storyboardWithName:@"LearnerMain" bundle:nil];
+                        
                     }
+                    
+                    UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+                    
+                    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+                    window.rootViewController = rootViewController;
+                    [window makeKeyAndVisible];
                     
                 }
             }];
@@ -135,48 +140,48 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	return 1;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 4;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (indexPath.row == 0) return cellName;
-	if (indexPath.row == 1) return cellEmail;
-	if (indexPath.row == 2) return cellPassword;
-	if (indexPath.row == 3) return cellButton;
-	return nil;
+    if (indexPath.row == 0) return cellName;
+    if (indexPath.row == 1) return cellEmail;
+    if (indexPath.row == 2) return cellPassword;
+    if (indexPath.row == 3) return cellButton;
+    return nil;
 }
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-	if (indexPath.row == 3) [self actionRegister];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 3) [self actionRegister];
 }
 
 #pragma mark - UITextField delegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-	if (textField == fieldName)
-	{
-		[fieldEmail becomeFirstResponder];
-	}
-	if (textField == fieldEmail)
-	{
-		[fieldPassword becomeFirstResponder];
-	}
-	if (textField == fieldPassword)
-	{
-		[self actionRegister];
-	}
-	return YES;
+    if (textField == fieldName)
+    {
+        [fieldEmail becomeFirstResponder];
+    }
+    if (textField == fieldEmail)
+    {
+        [fieldPassword becomeFirstResponder];
+    }
+    if (textField == fieldPassword)
+    {
+        [self actionRegister];
+    }
+    return YES;
 }
 
 @end
