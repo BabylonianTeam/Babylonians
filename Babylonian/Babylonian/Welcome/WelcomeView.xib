@@ -114,7 +114,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="BVf-MX-sjY">
-                    <rect key="frame" x="83" y="40" width="155" height="178"/>
+                    <rect key="frame" x="93" y="60" width="134" height="158"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -126,18 +126,18 @@
                 <constraint firstItem="yS3-hd-pfS" firstAttribute="top" secondItem="iib-Sr-Oo1" secondAttribute="bottom" constant="12" id="9oh-xe-mYa"/>
                 <constraint firstAttribute="bottom" secondItem="7Wf-8f-ELf" secondAttribute="bottom" constant="18" id="Dxl-w2-cGa"/>
                 <constraint firstItem="oy6-uy-RRG" firstAttribute="trailing" secondItem="Rka-Wf-v14" secondAttribute="trailing" id="T3R-lv-lUc"/>
-                <constraint firstItem="BVf-MX-sjY" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="83" id="UxO-kk-HsM"/>
+                <constraint firstItem="BVf-MX-sjY" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="93" id="UxO-kk-HsM"/>
                 <constraint firstItem="yS3-hd-pfS" firstAttribute="trailing" secondItem="oy6-uy-RRG" secondAttribute="trailing" id="Va2-ag-EM5"/>
                 <constraint firstItem="iib-Sr-Oo1" firstAttribute="leading" secondItem="yS3-hd-pfS" secondAttribute="leading" id="VzW-7m-5dU"/>
                 <constraint firstItem="iib-Sr-Oo1" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="WrF-Xz-LCd"/>
                 <constraint firstItem="Rka-Wf-v14" firstAttribute="top" secondItem="oy6-uy-RRG" secondAttribute="bottom" constant="10" id="YGQ-EN-owX"/>
                 <constraint firstItem="yS3-hd-pfS" firstAttribute="leading" secondItem="oy6-uy-RRG" secondAttribute="leading" id="eZ0-6Q-hg3"/>
-                <constraint firstItem="BVf-MX-sjY" firstAttribute="top" secondItem="1" secondAttribute="top" constant="40" id="h4N-gl-smQ"/>
+                <constraint firstItem="BVf-MX-sjY" firstAttribute="top" secondItem="1" secondAttribute="top" constant="60" id="h4N-gl-smQ"/>
                 <constraint firstItem="Rka-Wf-v14" firstAttribute="trailing" secondItem="7Wf-8f-ELf" secondAttribute="trailing" id="j8g-g2-8nm"/>
                 <constraint firstItem="oy6-uy-RRG" firstAttribute="leading" secondItem="Rka-Wf-v14" secondAttribute="leading" id="kgv-cg-ydm"/>
                 <constraint firstItem="Rka-Wf-v14" firstAttribute="leading" secondItem="7Wf-8f-ELf" secondAttribute="leading" id="nZM-1a-BW7"/>
                 <constraint firstItem="oy6-uy-RRG" firstAttribute="top" secondItem="yS3-hd-pfS" secondAttribute="bottom" constant="10" id="pe5-JD-9BS"/>
-                <constraint firstAttribute="trailing" secondItem="BVf-MX-sjY" secondAttribute="trailing" constant="82" id="r9h-jk-7yM"/>
+                <constraint firstAttribute="trailing" secondItem="BVf-MX-sjY" secondAttribute="trailing" constant="93" id="r9h-jk-7yM"/>
                 <constraint firstItem="iib-Sr-Oo1" firstAttribute="top" secondItem="BVf-MX-sjY" secondAttribute="bottom" constant="40" id="wFR-MF-IGI"/>
             </constraints>
             <point key="canvasLocation" x="128" y="279"/>
