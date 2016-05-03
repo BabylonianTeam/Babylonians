@@ -51,18 +51,20 @@ class ATItemAutoCell: UITableViewCell, UITextViewDelegate {
         
         if self.playButton.buttonState == .Playing {
             self.playButton.setButtonState(.Pausing, animated: true)
-            audioPlayer.stop()
+            print("pausing")
+            //audioPlayer.stop()
+            audioPlayer.pause()
         } else if self.playButton.buttonState == .Pausing {
+            var dur:Float = 2.0
+            if let i = self.item {
+                if let d = i.duration {
+                    dur = d+1
+                }
+            }
+            timer = NSTimer.scheduledTimerWithTimeInterval(Double(dur), target: self, selector: #selector(ATItemAutoCell.stopPlay), userInfo: nil, repeats: false)
             audioPlayer.play(self.item.content[COURSE_ITEM_AUDIO] as! String)
             self.playButton.setButtonState(.Playing, animated: true)
         }
-        var dur:Float = 2.0
-        if let i = self.item {
-            if let d = i.duration {
-                dur = d+1
-            }
-        }
-        timer = NSTimer.scheduledTimerWithTimeInterval(Double(dur), target: self, selector: #selector(ATItemAutoCell.stopPlay), userInfo: nil, repeats: false)
         
     }
     
