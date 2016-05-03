@@ -28,6 +28,7 @@
 #import "TwitterAuthHelper.h"
 
 static NSString * const kFirebaseURL = @"https://babylonian.firebaseio.com";
+static NSString * const passwdAuth   = @"123abc";
 
 
 // The twitter API key you setup in the Twitter developer console
@@ -103,15 +104,26 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 - (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
     Firebase *ref = [[Firebase alloc] initWithUrl:kFirebaseURL];
     
-    NSLog(@"Received Google authentication response! Error: %@", error);
-    if (error != nil) {
-        // There was an error obtaining the Google OAuth token, display a dialog
-        NSString *message = [NSString stringWithFormat:@"There was an error logging into Google: %@",
-                             [error localizedDescription]];
-        [self showErrorAlertWithMessage:message];
-    } else {
-        // We successfully obtained an OAuth token, authenticate on Firebase with it
-        [self switchToMainPage];
+    NSLog(@"Received Google authentication response!");
+    if (error == nil) {
+        [ref authWithOAuthProvider: @"google" token:user.authentication.accessToken withCompletionBlock:^(NSError *error, FAuthData *authData) {
+            if (error) {
+                // Error authenticating with Firebase with OAuth token
+            } else {
+                // User is now logged in!
+                //NSLog(@"Successfully logged in! %@", authData);
+                //NSLog(@"Google name %@", authData.providerData[@"displayName"]);
+                //NSLog(@"Google email %@", authData.providerData[@"email"]);
+                //NSLog(@"Google img %@", authData.providerData[@"profileImageURL"]);
+                
+                [self regNewAccount: authData.providerData[@"displayName"] :
+                  authData.providerData[@"email"]:
+                  passwdAuth:
+                  authData.providerData[@"profileImageURL"]:
+                  authData.provider
+                 ];
+            }
+        }];
     }
     
 }
@@ -143,7 +155,19 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
                     [self loginFailed:@"Failed to login with Twitter"];
                 } else {
                     // User logged in!
-                    [self switchToMainPage];
+                    
+                    NSLog(@"Twitter name %@", authData.providerData[@"displayName"]);
+                    NSLog(@"Twitter email %@", authData.providerData[@"id"]);
+                    NSLog(@"Twitter img %@", authData.providerData[@"profileImageURL"]);
+                    
+                    NSString *email = [NSString stringWithFormat: @"%@_@twitter.com", authData.providerData[@"id"]];
+                    
+                    [self regNewAccount: authData.providerData[@"displayName"] :
+                        email:
+                        passwdAuth:
+                        authData.providerData[@"profileImageURL"]:
+                        authData.provider
+                     ];
                 }
             }];
         }
@@ -247,14 +271,20 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
                            [self loginFailed:@"Failed to login with Facebook"];
                        } else {
                            NSLog(@"Facebook Logged in! %@", authData);
-                           [self switchToMainPage];
+                           [self regNewAccount: authData.providerData[@"displayName"] :
+                            authData.providerData[@"email"]:
+                                    passwdAuth:
+                            authData.providerData[@"profileImageURL"]:
+                            authData.provider
+                            ];
                        }
                    }];
         }
     }];
-
+}
     
-    
+//- (IBAction)actionFacebook:(id)sender
+//{
 //	NSArray *permissions = @[@"public_profile", @"email", @"user_friends"];
 //	[PFFacebookUtils logInInBackgroundWithReadPermissions:permissions block:^(PFUser *user, NSError *error)
 //	{
@@ -268,14 +298,126 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
 //		}
 //		else [ProgressHUD showError:@"Facebook login error."];
 //	}];
-    
-}
+//}
 
 - (void)switchToMainPage
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
     [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
+}
+
+/*****************************
+ *          REGISTER         *
+ *****************************/
+- (void)regNewAccount:(NSString*)name :(NSString*)email :(NSString*)password :(NSString*)imgURL :(NSString*)provider
+{
+    Firebase *ref = [[Firebase alloc] initWithUrl:FIREBASE];
+    
+    NSString *account = [NSString stringWithFormat: @"%@_%@", provider, email];
+    
+    
+    NSLog(@"New account: %@", account);
+    
+    [ref createUser:account password:password withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
+        if (error) {
+            // There was an error creating the account
+            //[ProgressHUD showError:error.userInfo[@"error"]];
+            
+            [self passwdLogin :account  :passwdAuth];
+        }
+        else {
+            
+            [ref authUser:account password:password withCompletionBlock:^(NSError *error, FAuthData *authData) {
+                if (error) {
+                    // Something went wrong. :(
+                    NSLog(@"Cannot register account: %@", error);
+                    [ProgressHUD showError:error.userInfo[@"Something Went wrong :(\n Unable to create account"]];
+                }
+                else {
+                    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+                    df.dateFormat = USER_DATE_FORMAT;
+                    NSDictionary *newUser = @{
+                                              USER_EMAIL: email,
+                                              USER_PROVIDER: provider,
+                                              USER_DISPLAYNAME: name,
+                                              USER_ROLE: RUNTIME_USER_ROLE,
+                                              @"lastActive": [df stringFromDate:[NSDate date]]
+                                              };
+                    [[[ref childByAppendingPath:@"users"] childByAppendingPath:authData.uid] setValue:newUser];
+                    
+                    
+                    //NSLog(@"Successfully created user account with uid: %@", authData.uid);
+                    //save userdata to userDefault
+                    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                    [userDefaults setValue:authData.uid forKey:@"uid"];
+                    [userDefaults setValue:name forKey:USER_DISPLAYNAME];
+                    //currently
+                    [userDefaults setValue:newUser[USER_ROLE] forKey:USER_ROLE];
+                    //this may need to move into the comletion block of setValue above.
+                    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_LOGGED_IN object:nil];
+                    [ProgressHUD showSuccess:@"Registered successfully!"];
+                    
+                    if ([newUser[USER_ROLE] isEqual:USER_ROLE_CREATOR]) {
+                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                        UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+                        [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
+                    } else {
+                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"LearnerMain" bundle:nil];
+                        UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+                        [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
+                    }
+                    
+                }
+            }];
+        }
+        
+    }];
+    
+}
+
+
+/*****************************
+ *          PASSWD LOGIN     *
+ *****************************/
+- (void)passwdLogin :(NSString*)email :(NSString*)password
+{
+    
+    [ProgressHUD show:@"Signing in..." Interaction:NO];
+    
+    [DataService.dataService.BASE_REF authUser:email password:password
+                           withCompletionBlock:^(NSError *error, FAuthData *authData) {
+                               
+                               if (error) {
+                                   // an error occurred while attempting login
+                                   [ProgressHUD showError:error.userInfo[@"error"]];
+                               } else {
+                                   
+                                   // user found, log them in and store user data in userDefaults
+                                   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                                   [userDefaults setValue:authData.uid forKey:@"uid"];
+                                   [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_LOGGED_IN object:nil];
+                                   
+                                   //retrieve displayName
+                                   [DataService.dataService.CURRENT_USER_REF observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+                                       [userDefaults setValue:snapshot.value[USER_DISPLAYNAME] forKey:USER_DISPLAYNAME];
+                                       [userDefaults setValue:snapshot.value[USER_ROLE] forKey:USER_ROLE];
+                                       [ProgressHUD showSuccess:[NSString stringWithFormat:@"Welcome back %@!", snapshot.value[USER_DISPLAYNAME]]];
+                                       if ([snapshot.value[USER_ROLE] isEqual:USER_ROLE_CREATOR]) {
+                                           UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                                           UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+                                           [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
+                                       } else {
+                                           UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"LearnerMain" bundle:nil];
+                                           UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+                                           [self.navigationController setViewControllers: [NSArray arrayWithObject: rootViewController] animated: YES];
+                                       }
+                                       
+                                   }];
+                                   
+                               }
+                           }];
+    
 }
 
 

@@ -33,7 +33,7 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
                  ["Please type Course Tag"]
     ]
     let cellTypes = [ ["setCoursetTitle"],
-                      ["idCellTextfield"],
+                      ["setCoursePrice"],
                       ["tagViewCell"]
     ]
   
@@ -115,9 +115,9 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
         
         self.newtitle = cell1.title.text!
         
-        let cell2 = self.mytableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! CustomCell
+        let cell2 = self.mytableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! SetCoursePrice
         
-        self.newprice = cell2.textField.text!
+        self.newprice = cell2.price.text!
         
         
         currentCourse.setPrice(self.newprice!.floatValue)
@@ -133,17 +133,16 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
         let cell1 = self.mytableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! SetCourseTitle
         
         self.newtitle = cell1.title.text!
-       
-        let cell2 = self.mytableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! CustomCell
         
-        self.newprice = cell2.textField.text!
+        let cell2 = self.mytableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! SetCoursePrice
         
-
+        self.newprice = cell2.price.text!
+        
+        
         currentCourse.setPrice(self.newprice!.floatValue)
-         currentCourse.setTitle(self.newtitle!)
+        currentCourse.setTitle(self.newtitle!)
         self.currentCourse.setStatus(COURSE_STATUS_ONSHELF)
-        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-    }
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)    }
 
     
     
@@ -163,6 +162,7 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
         mytableView.registerNib(UINib(nibName: "TextfieldCell", bundle: nil), forCellReuseIdentifier: "idCellTextfield")
         mytableView.registerNib(UINib(nibName: "TagViewCell", bundle: nil), forCellReuseIdentifier: "tagViewCell")
         mytableView.registerNib(UINib(nibName: "SetCourseTitle", bundle: nil), forCellReuseIdentifier: "setCoursetTitle")
+        mytableView.registerNib(UINib(nibName: "SetCoursePrice", bundle: nil), forCellReuseIdentifier: "setCoursePrice")
     }
 
     
@@ -211,15 +211,15 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
         }
             
         else if(indexPath.section == 1 && indexPath.row == 0){
-            let ccell = cell as! CustomCell
-
-            self.currentCourse.courseRef.observeEventType(.Value, withBlock: { snapshot in
+            let pcell = cell as! SetCoursePrice
+            pcell.currentCourse = self.currentCourse
+            self.currentCourse.courseRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                 
                 if let pricestr = snapshot.value.objectForKey(COURSE_PRICE){
-                    ccell.textLabel?.text = (pricestr as? NSNumber)?.stringValue
+                    pcell.price.text = (pricestr as? NSNumber)?.stringValue
                 }
-                if (ccell.textLabel?.text ?? "").isEmpty {
-                    ccell.textField.placeholder = "Please type Course Price"
+                if (pcell.price.text ?? "").isEmpty {
+                    pcell.price.placeholder = "Please type Course Price"
                 }
                 
                 
@@ -227,8 +227,8 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
                     print(error.description)
             })
             
-            return ccell
-        }
+                   return pcell
+                  }
         
         let tcell = cell as! TagViewCell
         tcell.textField.placeholder = "Please type Course Tag here"
