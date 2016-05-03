@@ -91,6 +91,10 @@ class BBCourse: NSObject {
         self.courseRef.updateChildValues([COURSE_TAG:tagArray.joinWithSeparator("|")])
     }
     
+    func saveTag() -> Void {
+        self.courseRef.updateChildValues([COURSE_TAG:self.tag.joinWithSeparator("|")])
+    }
+    
     func deleteAllTag() -> Void {
         self.tag_.removeAll()
         self.courseRef.updateChildValues([COURSE_TAG: ""])

@@ -251,7 +251,7 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         
         currLearner.learnerRef.childByAppendingPath(USER_PURCHASED_COURSE).observeEventType(.ChildRemoved, withBlock: { snapshot in
             
-            print(snapshot.key)
+            //print(snapshot.key)
             var i = 0
             for c in self.courseLists {
                 if c.ref.key==snapshot.key {

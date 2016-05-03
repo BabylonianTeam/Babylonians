@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZmX-Bi-hWL">
-                                <rect key="frame" x="429" y="396" width="51" height="30"/>
+                                <rect key="frame" x="275" y="496" width="51" height="30"/>
                                 <state key="normal" title="Publish"/>
                                 <connections>
                                     <action selector="Publish:" destination="MSe-G4-xrH" eventType="touchUpInside" id="kqC-WE-hNI"/>
@@ -48,7 +48,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xe-QK-xV0">
-                                <rect key="frame" x="120" y="396" width="88" height="30"/>
+                                <rect key="frame" x="120" y="436" width="360" height="30"/>
                                 <state key="normal" title="Save to draft"/>
                                 <connections>
                                     <action selector="saveToDraft:" destination="MSe-G4-xrH" eventType="touchUpInside" id="BbV-dg-rX0"/>
@@ -62,9 +62,18 @@
                             <constraint firstItem="4oT-FT-Djh" firstAttribute="top" secondItem="BT6-xL-Brf" secondAttribute="bottom" id="H6Y-ph-TCz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZmX-Bi-hWL" secondAttribute="trailing" constant="100" id="YsE-HR-3wO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4oT-FT-Djh" secondAttribute="trailing" constant="-20" id="aSv-Gc-kRA"/>
+                            <constraint firstItem="4xe-QK-xV0" firstAttribute="centerX" secondItem="PeH-Wo-4UE" secondAttribute="centerX" id="djq-Df-1NK"/>
+                            <constraint firstItem="ZmX-Bi-hWL" firstAttribute="top" secondItem="4xe-QK-xV0" secondAttribute="bottom" constant="30" id="e5H-6a-smy"/>
                             <constraint firstItem="4xe-QK-xV0" firstAttribute="leading" secondItem="PeH-Wo-4UE" secondAttribute="leadingMargin" constant="100" id="onZ-GO-Or3"/>
-                            <constraint firstItem="4xe-QK-xV0" firstAttribute="top" secondItem="4oT-FT-Djh" secondAttribute="bottom" constant="10" id="u0z-6m-Zxj"/>
+                            <constraint firstItem="ZmX-Bi-hWL" firstAttribute="centerX" secondItem="PeH-Wo-4UE" secondAttribute="centerX" id="sA8-Sc-NlP"/>
+                            <constraint firstItem="4xe-QK-xV0" firstAttribute="top" secondItem="4oT-FT-Djh" secondAttribute="bottom" constant="50" id="u0z-6m-Zxj"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2eT-sK-fgX"/>
+                                <exclude reference="YsE-HR-3wO"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>

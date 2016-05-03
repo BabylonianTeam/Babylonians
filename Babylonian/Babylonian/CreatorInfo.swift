@@ -27,8 +27,9 @@ class CreatorInfo: NSObject{
     
     func addCreatedCourse(createdCourseId: String) -> Void{
         let currDate = getCurrentDate()
+        //self.ref_.childByAppendingPath(USER_CREATED_COURSE).updateChildValues([createdCourseId:COURSE_STATUS_DRAFT])
         let newCourse_ref = self.ref_.childByAppendingPath(USER_CREATED_COURSE).childByAppendingPath(createdCourseId)
-        newCourse_ref.setValue([USER_CREATED_COURSE_DATE: currDate])
+        newCourse_ref.setValue([USER_MODIFIED_COURSE_DATE : currDate])
         self.createdCourses_.append(OwnedCourseItem(ref: newCourse_ref, ownedDate: currDate))
         //self.purchasedCoursesCount = self.purchasedCoursesCount + 1
     }
@@ -41,9 +42,5 @@ class CreatorInfo: NSObject{
         return ref_
     }
     
-    /*
-    func addCreatedCourse(createdCourseId: String){
-        //super.ownedCourse(createdCourseId)
-    }
-    */
+
 }

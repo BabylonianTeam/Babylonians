@@ -15,14 +15,14 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
 
     var currentCourse: BBCourse!
     var tagStr: String?
-    var tagArray = [String]()
     var tagView = [TagView]()
     var newData = [String]()
     var buttonData = [String]()
     var newtag: String?
     var newprice: String?
     var newtitle: String?
-    
+    var currCreator: CreatorInfo!
+
     
     @IBOutlet weak var mytableView: UITableView!
   
@@ -40,7 +40,7 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        currCreator = CreatorInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String)
         self.title = "Settings"
         currentCourse = (self.navigationController as! BBCourseNavController).currentCourse
         
@@ -51,9 +51,9 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
             if let tagstr = snapshot.value.objectForKey("tag") {
                 //self.tagTransfer = (tagstr as? NSArray)!
                 self.tagStr = tagstr as? String
-                self.tagArray = self.tagStr!.characters.split{$0 == "|"}.map(String.init)
-                self.currentCourse.tag_ = self.tagArray
+                self.currentCourse.tag_ = self.tagStr!.characters.split{$0 == "|"}.map(String.init)
                 self.mytableView.reloadData()
+                
 //                self.tagListView.textFont = UIFont.systemFontOfSize(24)
 //                self.tagListView.alignment = .Center // possible values are .Left, .Center, and .Right
 //                self.tagListView.removeAllTags()
@@ -94,8 +94,7 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
 //                            
 //                        }
 //                        
-                        
-                        
+                
                         
 //                        
 //                    }
@@ -113,16 +112,16 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
     @IBAction func saveToDraft(sender: UIButton) {
         let cell1 = self.mytableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! SetCourseTitle
         
-        self.newtitle = cell1.title.text!
-        
         let cell2 = self.mytableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! SetCoursePrice
         
-        self.newprice = cell2.price.text!
+        //let cell3 = self.mytableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 2)) as! TagViewCell
+        //self.newtag = cell3.tagListView.
         
-        
-        currentCourse.setPrice(self.newprice!.floatValue)
-        currentCourse.setTitle(self.newtitle!)
+        currentCourse.setPrice(cell2.price.text!.floatValue)
+        currentCourse.setTitle(cell1.title.text!)
         self.currentCourse.setStatus(COURSE_STATUS_DRAFT)
+        self.currentCourse.setTag(self.currentCourse.tag)
+        self.currCreator.creatorRef.childByAppendingPath(USER_CREATED_COURSE).childByAppendingPath(currentCourse.courseRef.key).setValue([USER_MODIFIED_COURSE_DATE:getCurrentDateTime()])
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
 
@@ -132,16 +131,13 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
         
         let cell1 = self.mytableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! SetCourseTitle
         
-        self.newtitle = cell1.title.text!
-        
         let cell2 = self.mytableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! SetCoursePrice
         
-        self.newprice = cell2.price.text!
-        
-        
-        currentCourse.setPrice(self.newprice!.floatValue)
-        currentCourse.setTitle(self.newtitle!)
+        currentCourse.setPrice(cell2.price.text!.floatValue)
+        currentCourse.setTitle(cell1.title.text!)
         self.currentCourse.setStatus(COURSE_STATUS_ONSHELF)
+        self.currentCourse.setTag(self.currentCourse.tag)
+        self.currCreator.creatorRef.childByAppendingPath(USER_CREATED_COURSE).childByAppendingPath(currentCourse.courseRef.key).setValue([USER_MODIFIED_COURSE_DATE:getCurrentDateTime()])
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)    }
 
     
@@ -158,8 +154,6 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
         mytableView.dataSource = self
         mytableView.tableFooterView = UIView(frame: CGRectZero)
         
-        mytableView.registerNib(UINib(nibName: "NormalCell", bundle: nil), forCellReuseIdentifier: "idCellNormal")
-        mytableView.registerNib(UINib(nibName: "TextfieldCell", bundle: nil), forCellReuseIdentifier: "idCellTextfield")
         mytableView.registerNib(UINib(nibName: "TagViewCell", bundle: nil), forCellReuseIdentifier: "tagViewCell")
         mytableView.registerNib(UINib(nibName: "SetCourseTitle", bundle: nil), forCellReuseIdentifier: "setCoursetTitle")
         mytableView.registerNib(UINib(nibName: "SetCoursePrice", bundle: nil), forCellReuseIdentifier: "setCoursePrice")
@@ -221,7 +215,6 @@ class CourseSettingViewController: UIViewController, UITextFieldDelegate, TagLis
                 if (pcell.price.text ?? "").isEmpty {
                     pcell.price.placeholder = "Please type Course Price"
                 }
-                
                 
                 }, withCancelBlock: { error in
                     print(error.description)
