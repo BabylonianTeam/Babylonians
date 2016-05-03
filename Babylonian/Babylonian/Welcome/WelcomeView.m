@@ -342,6 +342,7 @@ static NSString * const kTwitterAPIKey = @"3sNEJYK193MW7dXPMcWuegYVk";
                                               USER_PROVIDER: provider,
                                               USER_DISPLAYNAME: name,
                                               USER_ROLE: RUNTIME_USER_ROLE,
+                                              USER_PROFILEPHOTO: imgURL,
                                               @"lastActive": [df stringFromDate:[NSDate date]]
                                               };
                     [[[ref childByAppendingPath:@"users"] childByAppendingPath:authData.uid] setValue:newUser];
