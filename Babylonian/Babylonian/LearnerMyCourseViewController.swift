@@ -21,6 +21,8 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     let sections = ["Published", "Drafts"]
     var initialized = false
     
+    var currLearner: LearnerInfo!
+    
     @IBOutlet weak var searchResult: UITableView!
     @IBOutlet weak var table: UITableView!
     
@@ -32,6 +34,8 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
     }
     
     override func viewDidLoad() {
+        currLearner = LearnerInfo(id: NSUserDefaults.standardUserDefaults().valueForKey("uid") as? String)
+        
         table.delegate = self
         table.dataSource = self
         
@@ -181,8 +185,12 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
         self.initialized = false
         ProgressHUD.show("Loading Courses")
         
-        DataService.dataService.COURSE_REF.observeEventType(.ChildAdded, withBlock: { snapshot in
+        //DataService.dataService.COURSE_REF.observeEventType(.ChildAdded, withBlock: { snapshot in
+        currLearner.learnerRef.childByAppendingPath(USER_PURCHASED_COURSE).observeEventType(.ChildAdded, withBlock: { snapshot in
+            
             if self.initialized {
+
+                
                 
                 //let c = BBCourse(ref: snapshot.ref)
                 var title:String!
@@ -208,34 +216,82 @@ class LearnerMyCoursesViewController : UIViewController, UITableViewDelegate, UI
                 
             }
         })
-        
-        DataService.dataService.COURSE_REF.observeSingleEventOfType(.Value, withBlock: { snapshot in
+/*
+        var cIdArray: [String]!
+        currLearner.learnerRef.childByAppendingPath(USER_PURCHASED_COURSE).observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             ProgressHUD.dismiss()
+            if let content = snapshot.value{
+                if !(content is NSNull){
+                    for (cId,_) in (content as! [String:NSDictionary]){
+                        cIdArray.append(cId)
+                    }
+                    self.table.reloadData()
+                }
+                else{
+                    //course without content
+                }
+                self.initialized = true
+            }
             
+        })
+*/
+        
+
+        currLearner.learnerRef.childByAppendingPath(USER_PURCHASED_COURSE).observeSingleEventOfType(.Value, withBlock: { snapshot in
+            ProgressHUD.dismiss()
             if let content = snapshot.value {
                 if !(content is NSNull) {
-                    for (cId,cData) in (content as! [String:NSDictionary]) {
+                    for (cId,_) in (content as! [String:NSDictionary]) {
                         let cref = DataService.dataService.COURSE_REF.childByAppendingPath(cId)
+//                      print(cref)
                         
-                        var title:String!
-                        if let t = cData.objectForKey(COURSE_TITLE) {
-                            title = t as! String
-                        }else {
-                            title = "(no title)"
-                        }
-                        self.allCourseTitles.append(snapshot.key+"|"+title)
-                        let cInfo = MyCourseInfo(ref: cref, title:title)
-                        
-                        if let st = cData[COURSE_STATUS] {
-                            if st as! String==COURSE_STATUS_ONSHELF {
-                                self.courseLists[0].append(cInfo)
+
+                        cref.observeSingleEventOfType(.Value, withBlock: { snapshot1 in
+                            if !(snapshot1.value is NSNull){
+                                var title:String!
+//                              print(snapshot1)
+                                
+//                              print("*******************")
+                                if let t = snapshot1.value.valueForKey(COURSE_TITLE) {
+                                    title = t as! String
+                                }else {
+                                    title = "(no title)"
+                                }
+                                print("**************************")
+                                print(title)
+                                
+                                self.allCourseTitles.append(snapshot1.key+"|"+title)
+                                let cInfo = MyCourseInfo(ref: cref, title:title)
+                                
+                                if let st = snapshot1.value.valueForKey(COURSE_STATUS) {
+                                    if st as! String==COURSE_STATUS_ONSHELF {
+                                        self.courseLists[0].append(cInfo)
+                                    }
+                                    else{
+                                        self.courseLists[1].append(cInfo)
+                                    }
+                                }
                             }
-                            else{
-                                self.courseLists[1].append(cInfo)
-                            }
-                        }
+                        })
+
                         
+//                        var title:String!
+//                        if let t = cData.objectForKey(COURSE_TITLE) {
+//                            title = t as! String
+//                        }else {
+//                            title = "(no title)"
+//                        }
+//                        self.allCourseTitles.append(snapshot.key+"|"+title)
+//                        let cInfo = MyCourseInfo(ref: cref, title:title)
+//                        if let st = cData[COURSE_STATUS] {
+//                            if st as! String==COURSE_STATUS_ONSHELF {
+//                                self.courseLists[0].append(cInfo)
+//                            }
+//                            else{
+//                                self.courseLists[1].append(cInfo)
+//                            }
+//                        }
                     }
                     self.table.reloadData()
                 }
