@@ -62,7 +62,12 @@
 	if ([email length] < 3)	{ [ProgressHUD showError:@"Email must be set"]; return; }
 	if ([password length] == 0)	{ [ProgressHUD showError:@"Password must be set"]; return; }
     
-    if ([email containsString:@".com"] == false && [email containsString:@".edu"] == false){
+    if ([email containsString:@"@"] == false){ [ProgressHUD showError:@"Invalid Email Address"]; return; }
+    
+    if ([email containsString:@".com"] == false &&
+        [email containsString:@".edu"] == false &&
+        [email containsString:@".org"] == false)
+    {
         [ProgressHUD showError:@"Invalid Email Address"];
         return;
     }
