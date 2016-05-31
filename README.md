@@ -1,6 +1,8 @@
 # Babylonians
 A great app we are making for CS506
+
 See what it does in the video:
+
 https://www.youtube.com/watch?v=5xPoINIHwag
 
 The app is designed to solve the following problem:
